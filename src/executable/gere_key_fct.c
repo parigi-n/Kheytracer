@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-** Last update Tue May 26 16:32:09 2015 Jules Vautier
+** Last update Tue May 26 18:17:13 2015 Jules Vautier
 */
 
 #include "rtv1.h"
@@ -30,43 +30,45 @@ int	gere_key_eye(int keycode, t_all *all)
   return (1);
 }
 
-/*int	gere_key_plan(int keycode, t_all *all)
+int	gere_key_plan(int keycode, t_all *all)
 {
-  if (keycode == F)
-    all->px[2].ax = all->px[2].ax + 0.10;
-  else if (keycode == H)
-    all->px[2].ax = all->px[2].ax - 0.10;
-  else if (keycode == T)
-    all->px[2].z = all->px[2].z + 20.0;
+  t_object	*tmp;
+
+  tmp = my_getlist(&all->object, "plan");
+  if (keycode == T)
+    tmp->pos.z = tmp->pos.z + 10.0;
   else if (keycode == G)
-    all->px[2].z = all->px[2].z - 20.0;
+    tmp->pos.z = tmp->pos.z - 10.0;
   else
     return (0);
   return (1);
 }
 
-int	gere_key_obj(int keycode, t_all *all)
+int	gere_key_sphe(int keycode, t_all *all)
 {
+  t_object	*tmp;
+
+  tmp = my_getlist(&all->object, "sphere1");
   if (keycode == O)
-    all->px[0].x = all->px[0].x + 34.0;
+    tmp->pos.x = tmp->pos.x + 10.0;
   else if (keycode == L)
-    all->px[0].x = all->px[0].x - 34.0;
+    tmp->pos.x = tmp->pos.x - 10.0;
   else if (keycode == K)
-    all->px[0].y = all->px[0].y + 34.0;
+    tmp->pos.y = tmp->pos.y + 10.0;
   else if (keycode == M)
-    all->px[0].y = all->px[0].y - 34.0;
+    tmp->pos.y = tmp->pos.y - 10.0;
   else if (keycode == P)
-    all->px[0].z = all->px[0].z + 34.0;
+    tmp->pos.z = tmp->pos.z + 10.0;
   else if (keycode == I)
-    all->px[0].z = all->px[0].z - 34.0;
+    tmp->pos.z = tmp->pos.z - 10.0;
   else if (keycode == R)
-    all->px[3].ax = all->px[3].ax + 0.1;
+    tmp->a.z = tmp->a.z + 1.0;
   else if (keycode == Y)
-    all->px[3].ax = all->px[3].ax - 0.1;
+    tmp->a.z = tmp->a.z - 1.0;
   else
     return (0);
   return (1);
-}*/
+}
 
 int	gere_key_lum(int keycode, t_all *all)
 {

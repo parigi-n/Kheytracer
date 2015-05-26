@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Tue May 26 17:14:19 2015 Jules Vautier
+** Last update Tue May 26 18:04:37 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -36,18 +36,20 @@ static void	my_pixel_put(int nbr, char *img,
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
-int	creat_pixel(t_all *all)
+int		creat_pixel(t_all *all)
 {
-  int	intensity;
+  int		intensity;
+  t_object	*save;
 
+  save = all->obj_nb;
   intensity = 1000;
   if (all->flag.shadow == 1)
     intensity = 1000 - shadow(all);
-  /*if (all->flag.intensity == 1)
-  intensity = intensity_main(all, all->obj_nb, intensity);*/
-  if (all->obj_nb != NULL)
+  if (all->flag.intensity == 1)
+    intensity = intensity_main(all, &all->object, all->obj_nb, intensity);
+  if (save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
-	       all->obj_nb->color, intensity);
+	       save->color, intensity);
   else
     my_pixel_put(all->pixel_nb, all->var.data,
 	       0, intensity);

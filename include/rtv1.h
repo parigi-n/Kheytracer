@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue May 26 16:12:20 2015 Jules Vautier
+** Last update Tue May 26 17:41:45 2015 Jules Vautier
 */
 
 #ifndef RTV1_H_
@@ -48,7 +48,7 @@ int	inter_sphere(t_all *, t_vec *, t_object *);
 int	inter_plan(t_all *, t_vec *, t_object *);
 int	inter_cone(t_all *, t_vec *, t_object *);
 int	inter_cylinder(t_all *, t_vec *, t_object *);
-int	intensity_main(t_all *, int, int);
+int	intensity_main(t_all *, t_object **, t_object *, int);
 int	intensity_plan(t_all *, t_vec *, t_object *);
 int	intensity_sphere(t_all *, t_vec *, t_object *);
 int	intensity_cone(t_all *, t_vec *, t_object *);

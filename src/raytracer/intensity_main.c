@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
-** Last update Tue May 26 11:29:51 2015 Jules Vautier
+** Last update Tue May 26 17:42:15 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -37,21 +37,24 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
   return (inten);
 }
 
-int	intensity_main(t_all *all, int obj_nb, int inte)
+int		intensity_main(t_all *all, t_object **list,
+			       t_object *obj_nb, int inte)
 {
-  int	intesphe;
+  int		intesphe;
+  t_object	*tmp;
 
-  if (obj_nb < NB_OBJ - 1)
+  tmp = *list;
+  if (obj_nb != NULL)
     {
       calc_point_eye(&all->eye, all->pixel_nb);
-      calc_vec(&all->eye, &all->object[obj_nb]);
-      if (all->flag.rotate == 1)
+      calc_vec(&all->eye, obj_nb);
+	/*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[obj_nb], -1);
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	}
-      calc_point_lum(all, &all->object[obj_nb], &all->lum);
-      /*intesphe = g_fonct[tmp->type].ptr(all, &all->lum, &all->object[obj_nb]);*/
+	  }*/
+      calc_point_lum(all, obj_nb, &all->lum);
+      intesphe = g_fonct[tmp->type].ptr(all, &all->lum, &all->eye);
       inte = inte * intesphe / 1000;
     }
   else

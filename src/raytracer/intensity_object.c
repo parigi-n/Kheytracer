@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 11:35:10 2015 Jules Vautier
+** Last update Tue May 26 17:37:18 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -52,7 +52,7 @@ int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
 
 int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
 {
-  int		inte;
+  /*  int		inte;
   t_vec		vec2;
   t_vec		vec1;
 
@@ -68,12 +68,12 @@ int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
     inte = -inte;
   if (inte < 0)
     return (0);
-  return (inte);
+    return (inte);*/
 }
 
 int		intensity_cylinder(t_all *all, t_vec *vec, t_object *obj)
 {
-  int		inte;
+  /*int		inte;
   t_vec		vec2;
   t_vec		vec1;
 
@@ -87,5 +87,5 @@ int		intensity_cylinder(t_all *all, t_vec *vec, t_object *obj)
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
     return (0);
-  return (inte);
+    return (inte);*/
 }

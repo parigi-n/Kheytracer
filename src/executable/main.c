@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-** Last update Tue May 26 16:35:08 2015 Jules Vautier
+** Last update Tue May 26 18:10:22 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -27,7 +27,9 @@ int		gere_key(int keycode, void *param)
   if (keycode == ESC)
     exit(0);
   if (gere_key_lum(keycode, all) == 0)
-    gere_key_eye(keycode, all);
+    if (gere_key_sphe(keycode, all) == 0)
+      if (gere_key_plan(keycode, all) == 0)
+	gere_key_eye(keycode, all);
   raytrace(all);
   gere_expose(all);
   return (0);
