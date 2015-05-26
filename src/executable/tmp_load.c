@@ -5,10 +5,10 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
-** Last update Tue May 26 18:47:35 2015 Jules Vautier
+** Last update Tue May 26 19:12:27 2015 david sebaoun
 */
 
-#include "rtv1.h"
+#include "rt.h"
 
 int		load(t_all *var)
 {

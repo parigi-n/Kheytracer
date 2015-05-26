@@ -5,11 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 17:37:18 2015 Jules Vautier
+** Last update Tue May 26 19:14:00 2015 david sebaoun
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		intensity_plan(t_all *all, t_vec *vec, t_object *obj)
 {

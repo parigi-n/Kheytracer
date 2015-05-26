@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-** Last update Tue May 26 18:10:22 2015 Jules Vautier
+** Last update Tue May 26 19:11:23 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "keyboard.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		gere_expose(t_all *all)
 {
@@ -54,6 +54,8 @@ int		main(int argc, char **argv)
 {
   t_all		all;
 
+  if (command_line(&all) == ERROR)
+    return (ERROR);
   if (gere_flag(&all.flag, argc, argv) == -1)
     return (0);
   if (check_error(&all.var) == -1)

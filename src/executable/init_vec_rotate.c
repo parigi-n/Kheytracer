@@ -5,10 +5,10 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Mar  4 16:39:00 2015 Jules Vautier
-** Last update Tue May 26 17:13:10 2015 Jules Vautier
+** Last update Tue May 26 19:12:13 2015 david sebaoun
 */
 
-#include "rtv1.h"
+#include "rt.h"
 
 int	init_lum(t_all *all)
 {

@@ -5,10 +5,11 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue May 26 19:04:19 2015 david sebaoun
+## Last update Tue May 26 19:09:42 2015 david sebaoun
 ##
 
 SRC		= src/executable/main.c \
+		src/executable/command_line.c \
 		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \
 		src/executable/check.c \

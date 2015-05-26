@@ -5,11 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 15:11:27 2015 Jules Vautier
+** Last update Tue May 26 19:14:20 2015 david sebaoun
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 static int	do_calc(t_vec *vec, t_coor *coor)
 {

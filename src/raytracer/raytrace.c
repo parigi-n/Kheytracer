@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 17:21:03 2015 Jules Vautier
+** Last update Tue May 26 19:12:43 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 #include <stdio.h>
 
 static const	t_fonct g_fonct[] =
