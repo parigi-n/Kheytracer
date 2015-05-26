@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Mar  4 16:39:00 2015 Jules Vautier
-** Last update Tue May 26 15:47:35 2015 Jules Vautier
+** Last update Tue May 26 17:13:10 2015 Jules Vautier
 */
 
 #include "rtv1.h"
@@ -15,6 +15,9 @@ int	init_lum(t_all *all)
   all->lum.pos.x = 1000.0;
   all->lum.pos.y = 3000.0;
   all->lum.pos.z = 400.0;
+  all->lum.v.x = 0.0;
+  all->lum.v.y = 0.0;
+  all->lum.v.z = 0.0;
   /*all->object[NB_OBJ - 1].k = -99999.0;
     all->object[NB_OBJ - 1].type = TYPE_VIDE;*/
   /*all->object[NB_OBJ - 1].color[0] = 0;

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
-** Last update Tue May 26 16:23:59 2015 Jules Vautier
+** Last update Tue May 26 17:11:58 2015 Jules Vautier
 */
 
 #include "rtv1.h"
@@ -25,7 +25,7 @@ int		load(t_all *var)
   tmp->color = 0xFF0000;
   tmp->pos.x = 0.0;
   tmp->pos.y = 200.0;
-  tmp->pos.z = 50.0;
+  tmp->pos.z = -100.0;
   tmp->r = 150;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;

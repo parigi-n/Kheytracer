@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 16:28:15 2015 Jules Vautier
+** Last update Tue May 26 17:21:03 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -79,7 +79,6 @@ int		raytrace(t_all *all)
 {
   all->pixel_nb = 0;
   init_rotate(all);
-  my_putstr("Loading, please wait ...\n");
   while (all->pixel_nb < SIZE_IMG)
     {
       calc_point_eye(&all->eye, all->pixel_nb);
@@ -87,12 +86,7 @@ int		raytrace(t_all *all)
       do_k(all, &all->object);
       all->pixel_nb = all->pixel_nb + 4;
       creat_pixel(all);
-      /*if (all->pixel_nb % (SIZE_LARG * 2) == 0)
-	gere_expose(all);
-      if (all->pixel_nb % ((SIZE_IMG) / 10) == 0)
-      my_loading(all->pixel_nb, SIZE_IMG);*/
     }
   gere_expose(all);
-  my_putstr("\nDone !\n------------------------\n");
   return (0);
 }

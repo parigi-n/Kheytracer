@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 16:37:59 2015 Jules Vautier
+** Last update Tue May 26 17:20:35 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -37,8 +37,9 @@ static int	do_shadow(t_all *all, t_object **list)
 	  }*/
       calc_point_lum(all, tmp, &all->lum);
       g_fonct[tmp->type].ptr(all, &all->lum, tmp);
-    }
-  return (0);
+      tmp = tmp->next;
+     }
+ return (0);
 }
 
 int		shadow(t_all *all)
@@ -51,7 +52,10 @@ int		shadow(t_all *all)
   do_shadow(all, &all->object);
   do_k(all, &all->object);
   all->calc.k = tmpk;
-  if (my_strcmp(all->obj_nb->name, obj_nb->name) == ERROR)
-    return (900);
+  if (all->obj_nb == NULL)
+    return (0);
+  if (all->obj_nb != NULL && obj_nb != NULL)
+    if (my_strcmp(all->obj_nb->name, obj_nb->name) == ERROR)
+      return (900);
   return (0);
 }

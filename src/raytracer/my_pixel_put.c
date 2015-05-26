@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Tue May 26 16:11:49 2015 Jules Vautier
+** Last update Tue May 26 17:14:19 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -41,9 +41,9 @@ int	creat_pixel(t_all *all)
   int	intensity;
 
   intensity = 1000;
-  /*if (all->flag.shadow == 1)
+  if (all->flag.shadow == 1)
     intensity = 1000 - shadow(all);
-  if (all->flag.intensity == 1)
+  /*if (all->flag.intensity == 1)
   intensity = intensity_main(all, all->obj_nb, intensity);*/
   if (all->obj_nb != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
