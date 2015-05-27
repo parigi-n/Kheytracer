@@ -5,11 +5,15 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
+<<<<<<< HEAD
 ** Last update Wed May 27 10:03:26 2015 Jules Vautier
+=======
+** Last update Tue May 26 19:13:18 2015 david sebaoun
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		calc_point_eye(t_vec *eye, int i)
 {

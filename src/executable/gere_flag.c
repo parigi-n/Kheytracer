@@ -5,15 +5,23 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 08:42:44 2015 Jules Vautier
+<<<<<<< HEAD
 ** Last update Wed May 27 08:15:24 2015 Jules Vautier
+=======
+** Last update Tue May 26 19:11:48 2015 david sebaoun
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 */
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+<<<<<<< HEAD
 #include "shared.h"
 #include "printf.h"
 #include "rtv1.h"
+=======
+#include "rt.h"
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 
 static int	readme()
 {

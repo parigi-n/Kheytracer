@@ -5,6 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
+<<<<<<< HEAD
 ** Last update Wed May 27 08:31:52 2015 Jules Vautier
 */
 
@@ -12,6 +13,12 @@
 #include "list.h"
 #include "printf.h"
 #include "rtv1.h"
+=======
+** Last update Tue May 26 19:12:27 2015 david sebaoun
+*/
+
+#include "rt.h"
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 
 int		my_load(t_all *var)
 {

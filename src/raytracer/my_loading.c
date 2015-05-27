@@ -5,11 +5,11 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Tue May 26 11:07:47 2015 Jules Vautier
+** Last update Tue May 26 19:13:09 2015 david sebaoun
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 void	my_loading(int current, int total)
 {
