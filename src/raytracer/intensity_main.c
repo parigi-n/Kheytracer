@@ -6,19 +6,11 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 10:04:47 2015 Jules Vautier
+** Last update Wed May 27 10:43:47 2015 Jules Vautier
 */
 
-#include "struct.h"
-#include "rtv1.h"
 #include <stdio.h>
-=======
-** Last update Tue May 26 19:14:05 2015 david sebaoun
-*/
-
-#include "struct.h"
 #include "rt.h"
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 
 static const	t_fonct g_fonct[] =
   {

@@ -6,19 +6,11 @@
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 09:15:53 2015 Jules Vautier
+** Last update Wed May 27 10:44:10 2015 Jules Vautier
 */
 
-#include "struct.h"
-#include "rtv1.h"
 #include <stdio.h>
-=======
-** Last update Tue May 26 19:14:00 2015 david sebaoun
-*/
-
-#include "struct.h"
 #include "rt.h"
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 
 int		intensity_plan(t_all *all, t_vec *vec, t_object *obj)
 {

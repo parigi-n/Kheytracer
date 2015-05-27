@@ -6,17 +6,11 @@
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 08:01:48 2015 Jules Vautier
-*/
-
-#include "rtv1.h"
-#include "list.h"
-=======
-** Last update Tue May 26 19:11:57 2015 david sebaoun
+** Last update Wed May 27 10:42:40 2015 Jules Vautier
 */
 
 #include "rt.h"
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
+#include "list.h"
 #include "keyboard.h"
 
 int	gere_key_eye(int keycode, t_all *all)
