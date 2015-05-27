@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Tue May 26 19:10:05 2015 david sebaoun
+** Last update Wed May 27 16:49:18 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -21,41 +21,13 @@ static const t_cmd	g_cmd[] =
     {&clear, "clear"},
     {&my_exit, "exit"},
     {&render, "render"},
-    {&load_file, "load"},
+    {&load, "load"},
     {&create, "create_scene"}
   };
 
-int	clear(char **tab)
+int	help(t_all *all)
 {
-  (void)tab;
-  my_putstr("\x1b[2J\x1b[H");
-  return (SUCCESS);
-}
-
-int	load_file(char **tab)
-{
-  (void)tab;
-  my_putstr("load_file\n");
-  return (SUCCESS);
-}
-
-int	create(char **tab)
-{
-  (void)tab;
-  my_putstr("create\n");
-  return (SUCCESS);
-}
-
-int	render(char **tab)
-{
-  (void)tab;
-  my_putstr("render\n");
-  return (SUCCESS);
-}
-
-int	help(char **tab)
-{
-  (void)tab;
+  (void)all;
   my_putstr("help          show this help\nedit          start a scene editor");
   my_putstr("\nshow          show informations about loaded objects\n        ");
   my_putstr("      ex: show sphere1\nclear         clear the screen\nload    ");
@@ -66,46 +38,42 @@ int	help(char **tab)
   return (SUCCESS);
 }
 
-int	edit(char **tab)
+int	edit(t_all *all)
 {
-  (void)tab;
+  (void)all;
   my_putstr("edit\n");
   return (SUCCESS);
 }
 
-int	show(char **tab)
+int	show(t_all *all)
 {
-  (void)tab;
+  (void)all;
   my_putstr("show\n");
   return (SUCCESS);
 }
 
-int	my_exit(char **tab)
+int	my_exit(t_all *all)
 {
   /*my_freetab(tab);*/
-  (void)tab;
+  (void)all;
   return (EXIT);
 }
 
 int	command_line(t_all *all)
 {
   int	i;
-  int	return_value;
-  char	**tab;
   
-  return_value = 0;
   write(1, "kheytracer$> ", 13);
-  while ((tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
+  while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
     {
-      if (tab[0] != NULL)
+      if (all->tab[0] != NULL)
 	{
 	  i = -1;
 	  while (++i < 8)
 	    {
-	      if (my_strcmp(g_cmd[i].cmd, tab[0]) == 0)
-		if ((return_value = g_cmd[i].function(tab)) == EXIT ||
-		    return_value == ERROR)
-		  return (return_value);
+	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == 0)
+		if (g_cmd[i].function(all) == EXIT)
+		  return (SUCCESS);
 	    }
 	}
       write(1, "kheytracer$> ", 13);

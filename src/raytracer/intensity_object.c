@@ -6,7 +6,7 @@
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 10:44:10 2015 Jules Vautier
+** Last update Wed May 27 16:37:02 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -38,7 +38,6 @@ int		intensity_plan(t_all *all, t_vec *vec, t_object *obj)
 int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
 {
   int		inte;
-  double	tmp;
   t_vec		vec1;
   t_vec		vec2;
   t_coor	point;
@@ -58,11 +57,12 @@ int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
 
 int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
 {
-  /*  int		inte;
+  int		inte;
   t_vec		vec2;
   t_vec		vec1;
+  t_coor	point;
 
-  find_point(vec, &point, all->calc.k);
+  find_point(&all->eye, &point, all->calc.k);
   vec1.v.x = point.x - vec->pos.x;
   vec1.v.y = point.y - vec->pos.y;
   vec1.v.z = point.z - vec->pos.z;
@@ -74,16 +74,17 @@ int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
     inte = -inte;
   if (inte < 0)
     return (0);
-    return (inte);*/
+  return (inte);
 }
 
 int		intensity_cylinder(t_all *all, t_vec *vec, t_object *obj)
 {
-  /*int		inte;
+  int		inte;
   t_vec		vec2;
   t_vec		vec1;
+  t_coor	point;
 
-  find_point(vec, &point, all->calc.k);
+  find_point(&all->eye, &point, all->calc.k);
   vec1.v.x = obj->pos.x - point.x;
   vec1.v.y = obj->pos.y - point.y;
   vec1.v.z = - point.z;
@@ -93,5 +94,5 @@ int		intensity_cylinder(t_all *all, t_vec *vec, t_object *obj)
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
     return (0);
-    return (inte);*/
+  return (inte);
 }

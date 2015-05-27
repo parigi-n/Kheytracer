@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 15:17:04 2015 david sebaoun
-** Last update Tue May 26 16:29:02 2015 david sebaoun
+** Last update Wed May 27 11:32:14 2015 david sebaoun
 */
 
 #ifndef CMD_H_
@@ -13,19 +13,22 @@
 
 # define EXIT 42
 
+# include "shared.h"
+# include "struct.h"
+
 typedef struct  s_cmd
 {
-  int          (*function)(char **tab);
+  int          (*function)(t_all *all);
   char          *cmd;
 }               t_cmd;
 
-int	help(char **tab);
-int	edit(char **tab);
-int	show(char **tab);
-int	clear(char **tab);
-int	create(char **tab);
-int	render(char **tab);
-int	my_exit(char **tab);
-int	load_file(char **tab);
+int	help(t_all *all);
+int	edit(t_all *all);
+int	show(t_all *all);
+int	clear(t_all *all);
+int	create(t_all *all);
+int	render(t_all *all);
+int	my_exit(t_all *all);
+int	load(t_all *all);
 
 #endif /* !CMD_H_ */

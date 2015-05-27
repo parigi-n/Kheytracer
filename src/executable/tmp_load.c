@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 10:43:17 2015 Jules Vautier
+** Last update Wed May 27 15:51:11 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -22,12 +22,13 @@ int		my_load(t_all *var)
   my_put_in_list_object(&var->object, "sphere1");
   tmp = my_getlist(&var->object, "sphere1");
   my_printf("%s ok\n", tmp->name);
-  tmp->type = TYPE_SPHERE;
+  tmp->type = TYPE_CYLINDER;
   tmp->color = 0xFF0000;
-  tmp->pos.x = 0.0;
-  tmp->pos.y = 200.0;
-  tmp->pos.z = -100.0;
-  tmp->r = 150;
+  tmp->pos.x = 20.0;
+  tmp->pos.y = 20.0;
+  tmp->pos.z = 20.0;
+  tmp->r = 200;
+  tmp->lim = 400.0;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;
