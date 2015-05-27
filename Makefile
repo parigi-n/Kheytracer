@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue May 26 19:04:19 2015 david sebaoun
+## Last update Wed May 27 08:08:18 2015 Jules Vautier
 ##
 
 SRC		= src/executable/main.c \

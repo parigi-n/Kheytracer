@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Tue May 26 18:04:37 2015 Jules Vautier
+** Last update Wed May 27 09:44:04 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -25,13 +25,13 @@ static void	my_pixel_put(int nbr, char *img,
   green = (color % 256);
   color = (color / 256);
   blue = (color % 256);
-  red = red * intensity / 1000;
+  red = (red * intensity) / 1000;
   red = red + 20;
   img[nbr] = MAXCOLOR(red);
-  green = green * intensity / 1000;
+  green = (green * intensity) / 1000;
   green = green + 20;
   img[nbr + 1] = MAXCOLOR(green);
-  blue = blue * intensity / 1000;
+  blue = (blue * intensity) / 1000;
   blue = blue + 20;
   img[nbr + 2] = MAXCOLOR(blue);
 }
@@ -40,18 +40,24 @@ int		creat_pixel(t_all *all)
 {
   int		intensity;
   t_object	*save;
+  double		k;
 
   save = all->obj_nb;
+  if (save == NULL)
+    {
+      my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
+      return (0);
+    }
+  k = all->calc.k;
   intensity = 1000;
-  if (all->flag.shadow == 1)
-    intensity = 1000 - shadow(all);
   if (all->flag.intensity == 1)
-    intensity = intensity_main(all, &all->object, all->obj_nb, intensity);
+    intensity = intensity_main(all, all->obj_nb, intensity);
+  if (all->flag.shadow == 1)
+    intensity = intensity - shadow(all, k);
+  if (intensity < 0)
+    intensity = 0;
   if (save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 	       save->color, intensity);
-  else
-    my_pixel_put(all->pixel_nb, all->var.data,
-	       0, intensity);
   return (0);
 }

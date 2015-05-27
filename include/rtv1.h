@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue May 26 17:41:45 2015 Jules Vautier
+** Last update Wed May 27 10:01:22 2015 Jules Vautier
 */
 
 #ifndef RTV1_H_
@@ -35,20 +35,21 @@
 # define TORADIAN(a)	((a) * (PI) / 180.0)
 
 char	*mlx_get_data_addr(void *, int *, int *, int *);
+int	my_load(t_all *);
+int	shadow(t_all *, double);
 int	gere_expose(t_all *all);
 int	check_error(t_img *var);
 int	init_calc(t_all *all);
-int	shadow(t_all *);
 int	calc_vec(t_vec *, t_object *);
 int	calc_point_eye(t_vec *, int);
-int	calc_point_lum(t_all *, t_object *, t_vec *);
+int	calc_point_lum(t_vec *, t_vec *, t_object *, double);
 int	do_k(t_all *, t_object **);
 int	raytrace(t_all *);
 int	inter_sphere(t_all *, t_vec *, t_object *);
 int	inter_plan(t_all *, t_vec *, t_object *);
 int	inter_cone(t_all *, t_vec *, t_object *);
 int	inter_cylinder(t_all *, t_vec *, t_object *);
-int	intensity_main(t_all *, t_object **, t_object *, int);
+int	intensity_main(t_all *, t_object *, int);
 int	intensity_plan(t_all *, t_vec *, t_object *);
 int	intensity_sphere(t_all *, t_vec *, t_object *);
 int	intensity_cone(t_all *, t_vec *, t_object *);
@@ -65,7 +66,7 @@ int	gere_key_eye(int, t_all *);
 int	gere_key_obj(int, t_all *);
 int	gere_key_plan(int, t_all *);
 int	gere_key_lum(int, t_all *);
-int	find_point(t_all *);
+int	find_point(t_vec *, t_coor *, double);
 int	init_rotate(t_all *);
 int	rotate(t_vec *, t_object *, int);
 void	my_loading(int current, int total);

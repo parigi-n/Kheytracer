@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue May 26 16:33:23 2015 Jules Vautier
+** Last update Wed May 27 08:22:02 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -34,7 +34,6 @@ typedef struct		s_coor
 typedef struct		s_calcul
 {
   t_coor		tmp;
-  t_coor		point;
   t_coor		pos;
   double		k;
   double		tmpk;

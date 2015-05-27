@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-** Last update Tue May 26 18:10:22 2015 Jules Vautier
+** Last update Wed May 27 08:03:39 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -46,7 +46,7 @@ int		init_calc(t_all *all)
   init_obj_quatre(all);*/
   init_lum(all);
   init_eye(all);
-  load(all);
+  my_load(all);
   return (0);
 }
 

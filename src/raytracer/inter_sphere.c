@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 15:14:02 2015 Jules Vautier
+** Last update Tue May 26 19:01:24 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -31,7 +31,7 @@ int		inter_sphere(t_all *all, t_vec *vec,
 {
   t_coor	coor;
   double	delta;
-  double	tmp;
+  double	tmpk;
 
   (void)all;
   do_calc(vec, &coor, object);
@@ -39,9 +39,9 @@ int		inter_sphere(t_all *all, t_vec *vec,
   if (delta > 0.0)
     {
       object->k = ((-coor.y + sqrt(delta)) / (2 * coor.x));
-      tmp = ((-coor.y - sqrt(delta)) / (2 * coor.x));
-      if (tmp < object->k)
-	object->k = tmp;
+      tmpk = ((-coor.y - sqrt(delta)) / (2 * coor.x));
+      if (tmpk < object->k)
+	object->k = tmpk;
       return (object->is_true = 1);
     }
   object->k = 0.0;

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 15:11:27 2015 Jules Vautier
+** Last update Tue May 26 18:59:20 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -28,12 +28,12 @@ static int	end_calc(t_object *obj, t_coor *coor,
 			 double delta, t_vec *vec)
 {
   double	limite;
-  double	tmp;
+  double	tmpk;
 
   obj->k = ((-coor->y + sqrt(delta)) / (2 * coor->x));
-  tmp = ((- coor->y - sqrt(delta)) / (2 * coor->x));
-  if (tmp < obj->k)
-    obj->k = tmp;
+  tmpk = ((-coor->y - sqrt(delta)) / (2 * coor->x));
+  if (tmpk < obj->k)
+    obj->k = tmpk;
   limite =  (vec->v.z * obj->k + vec->pos.z);
   if (limite > obj->pos.z || limite < obj->pos.z - obj->r)
     {

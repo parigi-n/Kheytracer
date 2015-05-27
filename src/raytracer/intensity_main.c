@@ -5,11 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
-** Last update Tue May 26 17:42:15 2015 Jules Vautier
+** Last update Wed May 27 10:04:47 2015 Jules Vautier
 */
 
 #include "struct.h"
 #include "rtv1.h"
+#include <stdio.h>
 
 static const	t_fonct g_fonct[] =
   {
@@ -33,17 +34,16 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
 	       vec2->v.z * vec2->v.z));
   scal = (vec1->v.x * vec2->v.x + vec1->v.y * vec2->v.y
 	  + vec1->v.z * vec2->v.z);
+  norm = norm + 0.000001;
   inten = (scal / norm);
   return (inten);
 }
 
-int		intensity_main(t_all *all, t_object **list,
+int		intensity_main(t_all *all,
 			       t_object *obj_nb, int inte)
 {
   int		intesphe;
-  t_object	*tmp;
 
-  tmp = *list;
   if (obj_nb != NULL)
     {
       calc_point_eye(&all->eye, all->pixel_nb);
@@ -53,8 +53,8 @@ int		intensity_main(t_all *all, t_object **list,
 	  rotate(&all->eye, &all->object[obj_nb], -1);
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  }*/
-      calc_point_lum(all, obj_nb, &all->lum);
-      intesphe = g_fonct[tmp->type].ptr(all, &all->lum, &all->eye);
+      calc_point_lum(&all->eye, &all->lum, obj_nb, all->calc.k);
+      intesphe = g_fonct[obj_nb->type].ptr(all, &all->lum, obj_nb);
       inte = inte * intesphe / 1000;
     }
   else
