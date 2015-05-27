@@ -6,7 +6,11 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
+<<<<<<< HEAD
 ** Last update Wed May 27 18:42:32 2015 Jules Vautier
+=======
+** Last update Wed May 27 16:55:16 2015 david sebaoun
+>>>>>>> b73f62c0a5293115c76fc5fd4b9ad19d81fb4696
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -44,6 +48,7 @@ int	command_line(t_all *);
 char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
 int	shadow(t_all *, double);
+int	gere_key(int, void *);
 int	gere_expose(t_all *all);
 int	check_error(t_img *var);
 int	init_calc(t_all *all);
