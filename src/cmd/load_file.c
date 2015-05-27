@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Wed May 27 11:43:37 2015 david sebaoun
+** Last update Wed May 27 16:57:50 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -37,6 +37,7 @@ static int	check_file(const char *path)
 
 static int	load_file(t_all *all)
 {
+  (void)all;
   return (SUCCESS);
 }
 
