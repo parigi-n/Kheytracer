@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Wed May 27 15:39:02 2015 Jules Vautier
+** Last update Wed May 27 16:01:05 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -45,8 +45,6 @@ static int	do_shadow(t_all *all, t_object **list, double k)
 int		shadow(t_all *all, double k)
 {
   t_object	*obj_nb;
-  t_coor	lum;
-  t_coor	eye;
 
   obj_nb = all->obj_nb;
   do_shadow(all, &all->object, k);

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Wed May 27 11:06:15 2015 david sebaoun
+** Last update Wed May 27 16:36:34 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -56,6 +56,7 @@ typedef	struct		s_object
   t_coor		a;
   t_coor		pos;
   int			r;
+  double		lim;
   int			color;
   int			is_true;
   double		k;

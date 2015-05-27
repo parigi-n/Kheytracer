@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Dec 28 17:13:35 2014 Nicolas PARIGI
-** Last update Wed May 27 12:03:06 2015 Nicolas PARIGI
+** Last update Wed May 27 16:10:41 2015 Jules Vautier
 */
 
 #include "/usr/include/mlx.h"
@@ -33,12 +33,12 @@ int		init_wolf3d(t_img *var)
 {
   if ((var->mlx_ptr = mlx_init()) == 0)
     return (puterr("mlx_init error"));
-  if ((var->win_ptr = mlx_new_window
-       (var->mlx_ptr, SCREEN_X, SCREEN_Y, "Wold 3D !")) == 0)
-    return (puterr("mlx_new_window error"));
   if ((var->img_ptr = mlx_xpm_file_to_image
        (var->mlx_ptr, "raytracer.xpm", &var->x_xpm, &var->y_xpm)) == 0)
     return (puterr("mlx xpm loading fail"));
+  if ((var->win_ptr = mlx_new_window
+       (var->mlx_ptr, SCREEN_X, SCREEN_Y, "Wold 3D !")) == 0)
+    return (puterr("mlx_new_window error"));
   var->data = mlx_get_data_addr
     (var->img_ptr, &var->bpp, &var->sizeline, &var->endian);
   return (0);
