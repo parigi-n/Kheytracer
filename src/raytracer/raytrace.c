@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 19:12:43 2015 david sebaoun
+** Last update Wed May 27 15:36:26 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -27,7 +27,7 @@ static int	end_k(t_all *all, t_object *obj_nb)
   if (obj_nb == NULL)
     all->calc.k = 0.0;
   else
-      all->calc.k = obj_nb->k;
+    all->calc.k = obj_nb->k;
   all->obj_nb = obj_nb;
   return (0);
 }
