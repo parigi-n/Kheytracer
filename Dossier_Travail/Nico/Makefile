@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue May 26 18:12:00 2015 Nicolas PARIGI
+## Last update Wed May 27 12:08:42 2015 Nicolas PARIGI
 ##
 
 SRC		= src/executable/gere_flag.c \
@@ -51,6 +51,7 @@ SRC		= src/executable/gere_flag.c \
                 src/lib/shared/strcat.c \
                 src/lib/shared/strcpy.c \
                 src/lib/shared/decal.c \
+		strlcpy_mlx_substitute.c \
 		splashscreen.c
 
 OBJ		= $(SRC:.c=.o)

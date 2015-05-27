@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue May 26 16:33:23 2015 Jules Vautier
+** Last update Wed May 27 12:00:10 2015 Nicolas PARIGI
 */
 
 #ifndef STRUCT_H_
@@ -22,6 +22,8 @@ typedef struct		s_img
   int			sizeline;
   int			endian;
   int			lenght;
+  int			x_xpm;
+  int			y_xpm;
 }			t_img;
 
 typedef struct		s_coor
