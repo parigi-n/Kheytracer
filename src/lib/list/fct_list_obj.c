@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:20:30 2015 Jules Vautier
-** Last update Tue May 26 15:19:23 2015 Jules Vautier
+** Last update Wed May 27 18:24:17 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -16,7 +16,7 @@ int		erase_list_object(t_object **list, char *str)
 {
   t_object	*wait;
 
-  if ((wait = my_getlist(list, str)) == NULL)
+  if ((wait = my_getlist_obj(list, str)) == NULL)
     return (ERROR);
   free(wait->name);
   free(wait);

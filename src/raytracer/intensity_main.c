@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 10:43:47 2015 Jules Vautier
+** Last update Wed May 27 18:47:35 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -18,6 +18,7 @@ static const	t_fonct g_fonct[] =
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
     {&intensity_plan, TYPE_PLAN},
+    {&intensity_plan, TYPE_DISQUE},
     {NULL, -1}
   };
 
@@ -39,27 +40,30 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
   return (inten);
 }
 
-int		intensity_main(t_all *all,
+int		intensity_main(t_all *all, t_vec **list,
 			       t_object *obj_nb, int inte)
 {
   int		intesphe;
+  int		ret;
+  t_vec		*tmp;
 
-  if (obj_nb != NULL)
+  ret = 0;
+  tmp = *list;
+  while (tmp != NULL)
     {
       calc_point_eye(&all->eye, all->pixel_nb);
       calc_vec(&all->eye, obj_nb);
-	/*if (all->flag.rotate == 1)
+      /*if (all->flag.rotate == 1)
 	{
-	  rotate(&all->eye, &all->object[obj_nb], -1);
-	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	  }*/
-      calc_point_lum(&all->eye, &all->lum, obj_nb, all->calc.k);
-      intesphe = g_fonct[obj_nb->type].ptr(all, &all->lum, obj_nb);
-      inte = inte * intesphe / 1000;
+	rotate(&all->eye, &all->object[obj_nb], -1);
+	rotate(&all->eye, &all->object[NB_OBJ], 1);
+	}*/
+      calc_point_lum(&all->eye, tmp, obj_nb, all->calc.k);
+      intesphe = g_fonct[obj_nb->type].ptr(all, tmp, obj_nb);
+      ret = ret + intesphe;
+      if (inte < 0)
+	inte = 0;
+      tmp = tmp->next;
     }
-  else
-    inte = 0;
-  if (inte < 0)
-    inte = 0;
-  return (inte);
+  return (ret);
 }

@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Wed May 27 09:44:04 2015 Jules Vautier
+** Last update Wed May 27 18:47:42 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -53,9 +53,9 @@ int		creat_pixel(t_all *all)
       return (0);
     }
   k = all->calc.k;
-  intensity = 1000;
   if (all->flag.intensity == 1)
-    intensity = intensity_main(all, all->obj_nb, intensity);
+    intensity = intensity_main(all, &all->lum,
+			       all->obj_nb, intensity);
   if (all->flag.shadow == 1)
     intensity = intensity - shadow(all, k);
   if (intensity < 0)

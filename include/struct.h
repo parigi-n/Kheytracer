@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Wed May 27 16:36:34 2015 Jules Vautier
+** Last update Wed May 27 18:37:45 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -42,11 +42,14 @@ typedef struct		s_calcul
 
 typedef struct		s_vec
 {
+  char			*name;
   t_coor		pos;
   t_coor		v;
   t_coor		a;
   t_coor		tmp;
   t_coor		new;
+  int			color;
+  struct s_vec		*next;
 }			t_vec;
 
 typedef	struct		s_object
@@ -74,14 +77,12 @@ typedef struct		s_all
 {
   char			**tab;
   t_object		*object;
+  t_vec			*lum;
   t_object		*obj_nb;
   t_img			var;
   t_calcul		calc;
   int			pixel_nb;
-  long			color;
   t_vec			eye;
-  t_vec			lum;
-  t_vec			lum2;
   t_flags		flag;
 }			t_all;
 

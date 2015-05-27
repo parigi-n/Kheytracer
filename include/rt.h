@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Wed May 27 10:01:22 2015 Jules Vautier
+** Last update Wed May 27 18:42:32 2015 Jules Vautier
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -35,7 +35,7 @@
 # define TYPE_CONE	1
 # define TYPE_CYLINDER	2
 # define TYPE_PLAN	3
-# define TYPE_VIDE	4
+# define TYPE_DISQUE	4
 # define MAXCOLOR(c)	(((c) > 255) ? (255) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
@@ -56,11 +56,13 @@ int	inter_sphere(t_all *, t_vec *, t_object *);
 int	inter_plan(t_all *, t_vec *, t_object *);
 int	inter_cone(t_all *, t_vec *, t_object *);
 int	inter_cylinder(t_all *, t_vec *, t_object *);
-int	intensity_main(t_all *, t_object *, int);
+int	inter_disque(t_all *, t_vec *, t_object *);
+int	intensity_main(t_all *, t_vec **, t_object *, int);
 int	intensity_plan(t_all *, t_vec *, t_object *);
 int	intensity_sphere(t_all *, t_vec *, t_object *);
 int	intensity_cone(t_all *, t_vec *, t_object *);
 int	intensity_cylinder(t_all *, t_vec *, t_object *);
+int	intensity_disque(t_all *, t_vec *, t_object *);
 double	do_inten(t_vec *, t_vec *);
 int	init_obj_un(t_all *all);
 int	init_obj_deux(t_all *all);

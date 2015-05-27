@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 15:22:40 2015 Jules Vautier
+** Last update Wed May 27 18:37:37 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:11:23 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -44,11 +44,11 @@ int		init_calc(t_all *all)
   all->calc.prea = 3.141592654 / 0.18;
   all->object = NULL;
   all->obj_nb = NULL;
+  all->lum = NULL;
   /*init_obj_un(all);
   init_obj_deux(all);
   init_obj_trois(all);
   init_obj_quatre(all);*/
-  init_lum(all);
   init_eye(all);
   my_load(all);
   return (0);

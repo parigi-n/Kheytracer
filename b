@@ -5,22 +5,13 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Wed May 27 18:37:23 2015 Jules Vautier
+## Last update Wed May 27 18:34:43 2015 Jules Vautier
 ##
 
 SRC		= src/executable/main.c \
-		src/executable/command_line.c \
-		src/executable/gere_flag.c \
-		src/executable/gere_key_fct.c \
-		src/executable/check.c \
-                src/executable/tmp_load.c \
-                src/executable/init_vec_rotate.c \
-		src/cmd/load_file.c \
-		src/cmd/scene_creator.c \
-		src/cmd/clear.c \
-		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \
+		src/raytracer/shadow.c \
 		src/raytracer/intensity_main.c \
 		src/raytracer/intensity_object.c \
 		src/raytracer/inter_cone.c \
@@ -57,6 +48,15 @@ SRC		= src/executable/main.c \
                 src/lib/shared/my_getnbr.c \
                 src/lib/shared/strcat.c \
                 src/lib/shared/strcpy.c \
+		src/cmd/load_file.c \
+		src/cmd/scene_creator.c \
+		src/cmd/clear.c \
+		src/executable/command_line.c \
+		src/executable/gere_flag.c \
+		src/executable/gere_key_fct.c \
+		src/executable/check.c \
+                src/executable/tmp_load.c \
+                src/executable/init_vec_rotate.c \
                 src/lib/shared/decal.c
 
 OBJ		= $(SRC:.c=.o)

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Wed May 27 15:36:26 2015 Jules Vautier
+** Last update Wed May 27 16:51:33 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -19,6 +19,7 @@ static const	t_fonct g_fonct[] =
     {&inter_cone, TYPE_CONE},
     {&inter_cylinder, TYPE_CYLINDER},
     {&inter_plan, TYPE_PLAN},
+    {&inter_disque, TYPE_DISQUE},
     {NULL, -1}
   };
 
@@ -49,6 +50,7 @@ int		do_k(t_all *all, t_object **obj)
 	    tmpk = tmp->k;
 	    obj_nb = tmp;
 	  }
+      tmp->is_true = 0;
       tmp = tmp->next;
     }
   end_k(all, obj_nb);

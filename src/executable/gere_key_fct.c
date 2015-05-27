@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 10:42:40 2015 Jules Vautier
+** Last update Wed May 27 18:34:23 2015 Jules Vautier
 */
 
 #include "rt.h"
@@ -36,7 +36,7 @@ int	gere_key_plan(int keycode, t_all *all)
 {
   t_object	*tmp;
 
-  tmp = my_getlist(&all->object, "plan");
+  tmp = my_getlist_obj(&all->object, "plan");
   if (keycode == T)
     tmp->pos.z = tmp->pos.z + 10.0;
   else if (keycode == G)
@@ -50,7 +50,7 @@ int	gere_key_sphe(int keycode, t_all *all)
 {
   t_object	*tmp;
 
-  tmp = my_getlist(&all->object, "sphere1");
+  tmp = my_getlist_obj(&all->object, "sphere1");
   if (keycode == O)
     tmp->pos.x = tmp->pos.x + 10.0;
   else if (keycode == L)
@@ -75,17 +75,17 @@ int	gere_key_sphe(int keycode, t_all *all)
 int	gere_key_lum(int keycode, t_all *all)
 {
   if (keycode == Z)
-    all->lum.pos.x = all->lum.pos.x + 160.0;
+    all->lum->pos.x = all->lum->pos.x + 160.0;
   else if (keycode == S)
-    all->lum.pos.x = all->lum.pos.x - 160.0;
+    all->lum->pos.x = all->lum->pos.x - 160.0;
   else if (keycode == Q)
-    all->lum.pos.y = all->lum.pos.y + 160.0;
+    all->lum->pos.y = all->lum->pos.y + 160.0;
   else if (keycode == D)
-    all->lum.pos.y = all->lum.pos.y - 160.0;
+    all->lum->pos.y = all->lum->pos.y - 160.0;
   else if (keycode == A)
-    all->lum.pos.z = all->lum.pos.z + 160.0;
+    all->lum->pos.z = all->lum->pos.z + 160.0;
   else if (keycode == E)
-    all->lum.pos.z = all->lum.pos.z - 160.0;
+    all->lum->pos.z = all->lum->pos.z - 160.0;
   else
     return (0);
   return (1);
