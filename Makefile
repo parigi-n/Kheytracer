@@ -5,13 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-<<<<<<< HEAD
-## Last update Wed May 27 18:37:23 2015 Jules Vautier
-##
-
-SRC		= src/executable/main.c \
-=======
-## Last update Wed May 27 16:49:34 2015 david sebaoun
+## Last update Wed May 27 18:52:49 2015 Jules Vautier
 ##
 
 SRC		= src/executable/main.c \
@@ -19,16 +13,12 @@ SRC		= src/executable/main.c \
 		src/cmd/scene_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
->>>>>>> b73f62c0a5293115c76fc5fd4b9ad19d81fb4696
 		src/executable/command_line.c \
 		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \
 		src/executable/check.c \
                 src/executable/tmp_load.c \
                 src/executable/init_vec_rotate.c \
-		src/cmd/load_file.c \
-		src/cmd/scene_creator.c \
-		src/cmd/clear.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \
