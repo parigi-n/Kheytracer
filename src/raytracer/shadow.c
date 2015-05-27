@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Wed May 27 10:40:42 2015 Jules Vautier
+** Last update Wed May 27 15:39:02 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -50,7 +50,7 @@ int		shadow(t_all *all, double k)
 
   obj_nb = all->obj_nb;
   do_shadow(all, &all->object, k);
-
+  do_k(all, &all->object);
   if (all->obj_nb != NULL && obj_nb != NULL)
     if (all->obj_nb->k != obj_nb->k)
       return (900);
