@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Wed May 27 12:08:42 2015 Nicolas PARIGI
+## Last update Thu May 28 16:20:08 2015 Nicolas PARIGI
 ##
 
 SRC		= src/executable/gere_flag.c \
@@ -13,18 +13,6 @@ SRC		= src/executable/gere_flag.c \
 		src/executable/check.c \
                 src/executable/tmp_load.c \
                 src/executable/init_vec_rotate.c \
-		src/raytracer/raytrace.c \
-		src/raytracer/rotate.c \
-		src/raytracer/calc.c \
-		src/raytracer/shadow.c \
-		src/raytracer/intensity_main.c \
-		src/raytracer/intensity_object.c \
-		src/raytracer/inter_cone.c \
-		src/raytracer/inter_cylindre.c \
-		src/raytracer/inter_sphere.c \
-		src/raytracer/inter_plan.c \
-		src/raytracer/my_pixel_put.c \
-		src/raytracer/my_loading.c \
                 src/lib/list/list.c \
                 src/lib/list/my_getlist.c \
                 src/lib/list/fct_list.c \
@@ -52,14 +40,12 @@ SRC		= src/executable/gere_flag.c \
                 src/lib/shared/strcpy.c \
                 src/lib/shared/decal.c \
 		strlcpy_mlx_substitute.c \
-		splashscreen.c
+		parser.c
 
 OBJ		= $(SRC:.c=.o)
 
 NAME		= rtv1
 
-CFLAGS		+= -Wextra -Wall
-CFLAGS		+= -ansi -pedantic
 CFLAGS		+= -I./include
 
 LDFLAGS		=

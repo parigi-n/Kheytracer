@@ -1,0 +1,23 @@
+<BEGIN>
+!NAME "Arc-en-ciel d'objets"
+      ELEMENT	OBJECT
+      TYPE	SPHERE
+      ORIGIN	150 200 -50
+      RAYON	200
+      COLOR	A81C97
+
+      ELEMENT	OBJECT
+      TYPE	SPHERE
+      ORIGIN	150 200 -50
+      RAYON	200
+      COLOR	4A1CA8
+
+      ELEMENT	OBJECT
+      TYPE	CYLINDER
+      ORIGIN	150 200 -50
+      RAYON	200
+      COLOR	4A1CA8
+
+      ELEMENT	LIGHT
+      ORIGIN	150 200 -50
+</END>
