@@ -5,10 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar 12 10:07:47 2015 Jules Vautier
-** Last update Tue May 26 15:19:36 2015 Jules Vautier
+** Last update Thu May 28 08:02:05 2015 Jules Vautier
 */
 
 #include "shared.h"
+#include "wordtab.h"
 
 char	**tabcpy(char **tab)
 {

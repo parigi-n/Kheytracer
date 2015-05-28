@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Wed May 27 18:47:42 2015 Jules Vautier
+** Last update Thu May 28 09:15:49 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -40,26 +40,42 @@ static void	my_pixel_put(int nbr, char *img,
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
+static int	find_color(t_all *all, t_vec **list, t_object *save)
+{
+  t_vec		*lum;
+  int		ret;
+  int		check;
+  double	k;
+
+  k = all->calc.k;
+  lum = *list;
+  ret = 0;
+  while (lum != NULL)
+    {
+      if (all->flag.intensity == 1)
+	ret = ret + prepare_intensity(all, lum, save, k);
+      if (all->flag.shadow == 1)
+	check = shadow(all, k, lum, save);
+      if (check == 1)
+	ret = 0;
+      lum = lum->next;
+    }
+  return (ret);
+}
+
 int		creat_pixel(t_all *all)
 {
   int		intensity;
   t_object	*save;
-  double		k;
 
   save = all->obj_nb;
+  find_point(&all->eye, &all->point, all->calc.k);
   if (save == NULL)
     {
       my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
       return (0);
     }
-  k = all->calc.k;
-  if (all->flag.intensity == 1)
-    intensity = intensity_main(all, &all->lum,
-			       all->obj_nb, intensity);
-  if (all->flag.shadow == 1)
-    intensity = intensity - shadow(all, k);
-  if (intensity < 0)
-    intensity = 0;
+  intensity = find_color(all, &all->lum, save);
   if (save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 	       save->color, intensity);

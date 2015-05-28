@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 18:46:50 2015 Jules Vautier
+** Last update Thu May 28 08:22:35 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -71,11 +71,11 @@ int		my_load(t_all *var)
   lum->pos.z = 600.0;
 
   /*Lum 2*/
-  my_put_in_list_vec(&var->lum, "lum2");
+  /*my_put_in_list_vec(&var->lum, "lum2");
   lum = my_getlist_vec(&var->lum, "lum2");
   my_printf("%s ok\n", lum->name);
   lum->pos.x = 1000.0;
   lum->pos.y = 3000.0;
-  lum->pos.z = 400.0;
+  lum->pos.z = 400.0;*/
   return (0);
 }

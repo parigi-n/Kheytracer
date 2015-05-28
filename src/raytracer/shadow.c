@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Wed May 27 16:01:05 2015 Jules Vautier
+** Last update Thu May 28 09:17:36 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -21,36 +21,36 @@ static const	t_fonct g_fonct[] =
     {NULL, -1}
   };
 
-static int	do_shadow(t_all *all, t_object **list, double k)
+static int	do_shadow(t_all *all, t_object **list,
+			  double k, t_vec *lum)
 {
-  t_object	*tmp;
+  t_object	*obj;
 
-  tmp = *list;
-  /*calc_point_eye(&all->eye, all->pixel_nb);*/
-  while (tmp != NULL)
+  obj = *list;
+  calc_point_lum(&all->eye, lum, obj, k);
+  while (obj != NULL)
     {
-      /*calc_vec(&all->lum, tmp);*/
       /*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	  rotate(&all->eye, tmp, 1);
+	  rotate(&all->eye, obj, 1);
 	  }*/
-      calc_point_lum(&all->eye, &all->lum, tmp, k);
-      g_fonct[tmp->type].ptr(all, &all->lum, tmp);
-      tmp = tmp->next;
-     }
+      g_fonct[obj->type].ptr(all, lum, obj);
+      obj = obj->next;
+    }
  return (0);
 }
 
-int		shadow(t_all *all, double k)
+int		shadow(t_all *all, double k,
+		       t_vec *lum, t_object *save)
 {
-  t_object	*obj_nb;
+  t_coor	point;
 
-  obj_nb = all->obj_nb;
-  do_shadow(all, &all->object, k);
+  do_shadow(all, &all->object, k, lum);
   do_k(all, &all->object);
-  if (all->obj_nb != NULL && obj_nb != NULL)
-    if (all->obj_nb->k != obj_nb->k)
-      return (900);
+  /* find_point(lum, &point, all->calc.k); */
+  if (all->obj_nb != NULL && save != NULL)
+    if (&save != &all->obj_nb)
+      return (1);
   return (0);
 }

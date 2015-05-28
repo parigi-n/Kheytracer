@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 18:47:35 2015 Jules Vautier
+** Last update Thu May 28 08:18:50 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -40,30 +40,19 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
   return (inten);
 }
 
-int		intensity_main(t_all *all, t_vec **list,
-			       t_object *obj_nb, int inte)
+int		prepare_intensity(t_all *all, t_vec *tmp,
+				  t_object *obj_nb, double k)
 {
   int		intesphe;
-  int		ret;
-  t_vec		*tmp;
 
-  ret = 0;
-  tmp = *list;
-  while (tmp != NULL)
+  calc_point_eye(&all->eye, all->pixel_nb);
+  calc_vec(&all->eye, obj_nb);
+  /*if (all->flag.rotate == 1)
     {
-      calc_point_eye(&all->eye, all->pixel_nb);
-      calc_vec(&all->eye, obj_nb);
-      /*if (all->flag.rotate == 1)
-	{
-	rotate(&all->eye, &all->object[obj_nb], -1);
-	rotate(&all->eye, &all->object[NB_OBJ], 1);
-	}*/
-      calc_point_lum(&all->eye, tmp, obj_nb, all->calc.k);
-      intesphe = g_fonct[obj_nb->type].ptr(all, tmp, obj_nb);
-      ret = ret + intesphe;
-      if (inte < 0)
-	inte = 0;
-      tmp = tmp->next;
-    }
-  return (ret);
+    rotate(&all->eye, &all->object[obj_nb], -1);
+    rotate(&all->eye, &all->object[NB_OBJ], 1);
+    }*/
+  calc_point_lum(&all->eye, tmp, obj_nb, k);
+  intesphe = g_fonct[obj_nb->type].ptr(all, tmp, obj_nb);
+  return (intesphe);
 }

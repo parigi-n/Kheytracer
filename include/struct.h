@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Wed May 27 18:37:45 2015 Jules Vautier
+** Last update Thu May 28 08:45:48 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -77,6 +77,7 @@ typedef struct		s_all
 {
   char			**tab;
   t_object		*object;
+  t_coor		point;
   t_vec			*lum;
   t_object		*obj_nb;
   t_img			var;
