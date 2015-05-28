@@ -6,7 +6,7 @@
 ** 
 ** Started on  Wed May 27 18:52:22 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu May 28 11:20:11 2015 Jules Vautier
+** Last update Thu May 28 11:36:05 2015 Jules Vautier
 =======
 ** Last update Thu May 28 10:53:07 2015 david sebaoun
 >>>>>>> e4c55cf47eacec2f249b066fcfd6d94c4ee21287
@@ -58,8 +58,8 @@ int		main(int argc, char **argv)
 {
   t_all		all;
 
-  if (command_line(&all) == ERROR)
-    return (ERROR);
+  /*if (command_line(&all) == ERROR)
+    return (ERROR);*/
   if (gere_flag(&all.flag, argc, argv) == -1)
     return (0);
   if (check_error(&all.var) == -1)

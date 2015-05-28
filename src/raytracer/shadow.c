@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Thu May 28 09:17:36 2015 Jules Vautier
+** Last update Thu May 28 16:09:59 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -27,9 +27,9 @@ static int	do_shadow(t_all *all, t_object **list,
   t_object	*obj;
 
   obj = *list;
-  calc_point_lum(&all->eye, lum, obj, k);
   while (obj != NULL)
     {
+      calc_point_lum(&all->eye, lum, obj, k);
       /*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
@@ -48,9 +48,9 @@ int		shadow(t_all *all, double k,
 
   do_shadow(all, &all->object, k, lum);
   do_k(all, &all->object);
-  /* find_point(lum, &point, all->calc.k); */
+  find_point(lum, &point, all->calc.k);
   if (all->obj_nb != NULL && save != NULL)
-    if (&save != &all->obj_nb)
-      return (1);
-  return (0);
+    if (my_strcmp(save->name, all->obj_nb->name) != 0)
+      return (0);
+  return (1);
 }

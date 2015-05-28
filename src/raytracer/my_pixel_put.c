@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Thu May 28 09:15:49 2015 Jules Vautier
+** Last update Thu May 28 16:05:25 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -44,6 +44,7 @@ static int	find_color(t_all *all, t_vec **list, t_object *save)
 {
   t_vec		*lum;
   int		ret;
+  int		inten;
   int		check;
   double	k;
 
@@ -53,11 +54,10 @@ static int	find_color(t_all *all, t_vec **list, t_object *save)
   while (lum != NULL)
     {
       if (all->flag.intensity == 1)
-	ret = ret + prepare_intensity(all, lum, save, k);
+	inten = prepare_intensity(all, lum, save, k);
       if (all->flag.shadow == 1)
-	check = shadow(all, k, lum, save);
-      if (check == 1)
-	ret = 0;
+	inten = inten * shadow(all, k, lum, save);
+      ret = ret + inten;
       lum = lum->next;
     }
   return (ret);

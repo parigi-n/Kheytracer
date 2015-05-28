@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu May 28 08:22:35 2015 Jules Vautier
+** Last update Thu May 28 16:06:18 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -57,7 +57,7 @@ int		my_load(t_all *var)
   tmp->pos.x = 100.0;
   tmp->pos.y = -200.0;
   tmp->pos.z = -200.0;
-  tmp->r = 1000;
+  tmp->r = 2000;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;
