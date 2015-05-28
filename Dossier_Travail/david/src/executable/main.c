@@ -5,7 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed May 27 18:52:22 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Thu May 28 18:07:26 2015 david sebaoun
+=======
 ** Last update Thu May 28 10:53:07 2015 david sebaoun
+>>>>>>> e4c55cf47eacec2f249b066fcfd6d94c4ee21287
 */
 
 #include "shared.h"
@@ -25,13 +29,15 @@ int		gere_key(int keycode, void *param)
 
   all = (t_all*)param;
   if (keycode == ESC)
-    exit(0);
-  if (gere_key_lum(keycode, all) == 0)
-    if (gere_key_sphe(keycode, all) == 0)
-      if (gere_key_plan(keycode, all) == 0)
-	gere_key_eye(keycode, all);
-  raytrace(all);
-  gere_expose(all);
+    mlx_destroy_window(all->var.mlx_ptr, all->var.win_ptr);
+  else if (gere_key_lum(keycode, all) == 0)
+    {
+      if (gere_key_sphe(keycode, all) == 0)
+	if (gere_key_plan(keycode, all) == 0)
+	  gere_key_eye(keycode, all);
+      raytrace(all);
+      gere_expose(all);
+    }
   return (0);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu May 28 08:45:48 2015 Jules Vautier
+** Last update Thu May 28 18:10:05 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
@@ -76,6 +76,7 @@ typedef struct		s_flags
 typedef struct		s_all
 {
   char			**tab;
+  int			kill;
   t_object		*object;
   t_coor		point;
   t_vec			*lum;
