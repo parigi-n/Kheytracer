@@ -1,0 +1,45 @@
+intensity_main.c:  tmp = all->lum;
+intensity_main.c:      calc_point_eye(&all->eye, all->pixel_nb);
+intensity_main.c:      calc_vec(&all->eye, obj_nb);
+intensity_main.c:      /*if (all->flag.rotate == 1)
+intensity_main.c:	rotate(&all->eye, &all->object[obj_nb], -1);
+intensity_main.c:	rotate(&all->eye, &all->object[NB_OBJ], 1);
+intensity_main.c:      calc_point_lum(&all->eye, tmp, obj_nb, all->calc.k);
+intensity_object.c:  find_point(&all->eye, &point, all->calc.k);
+intensity_object.c:  /*if (all->flag.rotate == 1)
+intensity_object.c:  find_point(&all->eye, &point, all->calc.k);
+intensity_object.c:  find_point(&all->eye, &point, all->calc.k);
+intensity_object.c:  find_point(&all->eye, &point, all->calc.k);
+my_pixel_put.c:  save = all->obj_nb;
+my_pixel_put.c:      my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
+my_pixel_put.c:  k = all->calc.k;
+my_pixel_put.c:  if (all->flag.intensity == 1)
+my_pixel_put.c:    intensity = intensity_main(all, all->obj_nb, intensity);
+my_pixel_put.c:  if (all->flag.shadow == 1)
+my_pixel_put.c:    my_pixel_put(all->pixel_nb, all->var.data,
+raytrace.c:    all->calc.k = 0.0;
+raytrace.c:    all->calc.k = obj_nb->k;
+raytrace.c:  all->obj_nb = obj_nb;
+raytrace.c:      calc_vec(&all->eye, tmp);
+raytrace.c:      /*if (all->flag.rotate == 1)
+raytrace.c:	  rotate(&all->eye, &all->object[NB_OBJ], 1);
+raytrace.c:	  rotate(&all->eye, tmp, 1);
+raytrace.c:      g_fonct[tmp->type].ptr(all, &all->eye, tmp);
+raytrace.c:  all->pixel_nb = 0;
+raytrace.c:  while (all->pixel_nb < SIZE_IMG)
+raytrace.c:      calc_point_eye(&all->eye, all->pixel_nb);
+raytrace.c:      raycast(all, &all->object);
+raytrace.c:      do_k(all, &all->object);
+raytrace.c:      all->pixel_nb = all->pixel_nb + 4;
+shadow.c:  /*calc_point_eye(&all->eye, all->pixel_nb);*/
+shadow.c:      /*calc_vec(&all->lum, tmp);*/
+shadow.c:      /*if (all->flag.rotate == 1)
+shadow.c:	  rotate(&all->eye, &all->object[NB_OBJ], 1);
+shadow.c:	  rotate(&all->eye, tmp, 1);
+shadow.c:      calc_point_lum(&all->eye, &all->lum, tmp, k);
+shadow.c:      g_fonct[tmp->type].ptr(all, &all->lum, tmp);
+shadow.c:  obj_nb = all->obj_nb;
+shadow.c:  do_shadow(all, &all->object, k);
+shadow.c:  do_k(all, &all->object);
+shadow.c:  if (all->obj_nb != NULL && obj_nb != NULL)
+shadow.c:    if (all->obj_nb->k != obj_nb->k)
