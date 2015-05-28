@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:41 2015 david sebaoun
-** Last update Thu May 28 18:12:53 2015 david sebaoun
+** Last update Thu May 28 18:14:25 2015 david sebaoun
 */
 
 #include "shared.h"
@@ -25,7 +25,7 @@ int		gere_key(int keycode, void *param)
 
   all = (t_all*)param;
   if (keycode == ESC)
-    mlx_destroy_window(all->var.mlx_ptr, all->var.win_ptr);
+    exit(0);
   if (gere_key_lum(keycode, all) == 0)
     if (gere_key_sphe(keycode, all) == 0)
       if (gere_key_plan(keycode, all) == 0)
