@@ -1,15 +1,11 @@
 /*
-** main.c for main in /home/vautie_a/rendu/MUL_2014_rtracer/src/executable
+** main.c for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by david sebaoun
+** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Wed May 27 18:52:22 2015 Jules Vautier
-<<<<<<< HEAD
-** Last update Thu May 28 11:36:05 2015 Jules Vautier
-=======
-** Last update Thu May 28 10:53:07 2015 david sebaoun
->>>>>>> e4c55cf47eacec2f249b066fcfd6d94c4ee21287
+** Started on  Thu May 28 18:11:41 2015 david sebaoun
+** Last update Thu May 28 18:12:53 2015 david sebaoun
 */
 
 #include "shared.h"
@@ -29,7 +25,7 @@ int		gere_key(int keycode, void *param)
 
   all = (t_all*)param;
   if (keycode == ESC)
-    exit(0);
+    mlx_destroy_window(all->var.mlx_ptr, all->var.win_ptr);
   if (gere_key_lum(keycode, all) == 0)
     if (gere_key_sphe(keycode, all) == 0)
       if (gere_key_plan(keycode, all) == 0)
