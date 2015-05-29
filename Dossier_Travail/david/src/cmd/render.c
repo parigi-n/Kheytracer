@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Fri May 29 11:23:44 2015 david sebaoun
+** Last update Fri May 29 16:07:08 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -36,9 +36,6 @@ int	render(t_all *all)
       mlx_loop(all->var.mlx_ptr);
     }
   else
-    {      
-      wait(&status);
-      my_putnbr(WEXITSTATUS(status));
-    }
+    wait(&status);
   return (SUCCESS);
 }
