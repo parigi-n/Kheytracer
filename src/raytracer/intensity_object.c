@@ -6,7 +6,7 @@
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 16:37:02 2015 Jules Vautier
+** Last update Fri May 29 11:38:16 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
   vec2.v.z = vec->pos.z - obj->pos.z;
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
-    return (0);
+    inte = 0;
   return (inte);
 }
 
@@ -71,7 +71,7 @@ int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
   vec2.v.z = point.z - obj->pos.z * 2.0;
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
-    inte = -inte;
+    inte = - inte;
   if (inte < 0)
     return (0);
   return (inte);

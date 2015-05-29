@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu May 28 16:06:18 2015 Jules Vautier
+** Last update Fri May 29 11:38:36 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -20,17 +20,16 @@ int		my_load(t_all *var)
   t_vec		*lum;
 
   /* 1 */
-  my_put_in_list_object(&var->object, "sphere1");
-  tmp = my_getlist_obj(&var->object, "sphere1");
+  my_put_in_list_object(&var->object, "cyl1");
+  tmp = my_getlist_obj(&var->object, "cyl1");
   my_printf("%s ok\n", tmp->name);
   tmp->type = TYPE_CYLINDER;
   tmp->color = 0xFF0000;
   tmp->pos.x = 20.0;
   tmp->pos.y = 20.0;
   tmp->pos.z = 20.0;
-  tmp->r = 200;
+  tmp->r = 200.0;
   tmp->lim = 400.0;
-  tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;
 
@@ -39,11 +38,11 @@ int		my_load(t_all *var)
   tmp = my_getlist_obj(&var->object, "sphere2");
   my_printf("%s ok\n", tmp->name);
   tmp->type = TYPE_SPHERE;
-  tmp->color = 0xFF0000;
+  tmp->color = 0x0000FF;
   tmp->pos.x = 0.0;
   tmp->pos.y = -200.0;
   tmp->pos.z = 50.0;
-  tmp->r = 100;
+  tmp->r = 100.0;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;
@@ -57,7 +56,7 @@ int		my_load(t_all *var)
   tmp->pos.x = 100.0;
   tmp->pos.y = -200.0;
   tmp->pos.z = -200.0;
-  tmp->r = 2000;
+  tmp->r = 2000.0;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;
