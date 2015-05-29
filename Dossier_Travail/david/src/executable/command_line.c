@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Wed May 27 16:49:18 2015 david sebaoun
+** Last update Fri May 29 10:41:54 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -24,40 +24,6 @@ static const t_cmd	g_cmd[] =
     {&load, "load"},
     {&create, "create_scene"}
   };
-
-int	help(t_all *all)
-{
-  (void)all;
-  my_putstr("help          show this help\nedit          start a scene editor");
-  my_putstr("\nshow          show informations about loaded objects\n        ");
-  my_putstr("      ex: show sphere1\nclear         clear the screen\nload    ");
-  my_putstr("      load a scene from a configuration file\n              ex: ");
-  my_putstr("load file.rt\nrender        render the loaded scene\ncreate_scen");
-  my_putstr("e  start a scene configuration file tool\nexit          exit the");
-  my_putstr(" program\n");
-  return (SUCCESS);
-}
-
-int	edit(t_all *all)
-{
-  (void)all;
-  my_putstr("edit\n");
-  return (SUCCESS);
-}
-
-int	show(t_all *all)
-{
-  (void)all;
-  my_putstr("show\n");
-  return (SUCCESS);
-}
-
-int	my_exit(t_all *all)
-{
-  /*my_freetab(tab);*/
-  (void)all;
-  return (EXIT);
-}
 
 int	command_line(t_all *all)
 {

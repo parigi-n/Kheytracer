@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Wed May 27 18:52:49 2015 Jules Vautier
+## Last update Fri May 29 10:43:50 2015 david sebaoun
 ##
 
 SRC		= src/executable/main.c \
@@ -13,6 +13,10 @@ SRC		= src/executable/main.c \
 		src/cmd/scene_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
+		src/cmd/scene_editor.c \
+		src/cmd/help.c \
+		src/cmd/my_exit.c \
+		src/cmd/show_object_info.c \
 		src/executable/command_line.c \
 		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \
