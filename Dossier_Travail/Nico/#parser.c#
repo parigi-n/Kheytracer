@@ -38,9 +38,9 @@ int	parser_obj_name(char **tab, t_object *parsing)
   if (my_tablen(tab) != 2)
     return (puterr("Error : Wrong argument number on NAME.\n"));
   if (my_strcmp(tab[0], "NAME") != 0)
-    return (puterr("Fail strcmp name\n"));
+    return (puterr("Error : Expected an another variable name. Please verify block data integrity.\n"));
   if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
-    return (puterr("Fail strcmp name\n"));
+    return (puterr("Error : A variable content was empty or is larger than MAX_OBJ\n"));
   parsing->name = my_strcpy(tab[1]);
   return (0);
 }
@@ -71,6 +71,7 @@ int	parser_origin(char **tab, t_object *parsing)
   if (my_strcmp(tab[0], "ORIGIN") != 0)
     return (puterr("Fail strcmp origin\n"));
   if (my_tablen(tab) != 4)
+
     return (puterr("Error : Wrong argument number on ORIGIN.\n"));
   if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
     return (puterr("Fail strcmp origin\n"));
@@ -163,14 +164,14 @@ int		content_parsing(t_object **o_scene, int fd, int flag_stop)
 int	main()
 {
   t_object	*object;
-  char	*raw_line;
-  char	*line;
-  char	**tab;
-  char	*name;
-  int	fd;
-  int	flag_begin;
-  int	flag_stop;
-  int	nbr;
+  char		*raw_line;
+  char		*line;
+  char		**tab;
+  char		*name;
+  int		fd;
+  int		flag_begin;
+  int		flag_stop;
+  int		nbr;
 
   object = NULL;
   flag_begin = 0;
@@ -179,9 +180,7 @@ int	main()
   nbr = 0;
   while ((raw_line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
-      /*my_putnbr(nbr);*/
       line = epur_str(raw_line, 0);
-      /*my_putstr("Nouvelle ligne\n");*/
       if (my_strcmp(line, "<BEGIN>") == 0 && flag_begin == 1)
 	return (puterr("Error : BEGIN is defined twicce in the file. Parsing stopped.\n"));
       if (my_strcmp(line, "<BEGIN>") == 0)
@@ -208,7 +207,7 @@ int	main()
 	  if (my_tablen(tab) != 2)
 	    return (puterr("Error : Wrong argument number on OBJECT.\n"));
 	  if (my_strcmp(tab[0], "ELEMENT") != 0)
-	    return (puterr("Fail strcmp element 1\n"));
+	    return (puterr("Fail strcmp element \n"));
 	  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
 	    return (puterr("Fail strcmp element 2\n"));
 	  if (my_strcmp(tab[1], "OBJECT") == 0)
@@ -216,18 +215,19 @@ int	main()
 	      if ((flag_stop = content_parsing(&object, fd, flag_stop)) == -1)
 		return (-1);
 	      my_putchar('\n');
-	      my_putstr("x : ");
+	      /*my_putstr("Struct element : ");
 	      my_putnbr(object->type);
-	      my_putchar('\n');
+	      my_putchar('\n');*/
+	      
 	    }
 	  else
-	    ;
-	  my_putstr("\nFlag stop : ");
-	  my_putnbr(flag_stop);
+	    /*LIGHT*/;
 	}
       nbr++;
     }
   if (flag_begin == 0)
     return (puterr("Error : No <BEGIN> variable found. No parsing done.\n"));
+  if (flag_stop != 2)
+    return (puterr("Error : No <END> variable found or unwanted line between end of ELEMENT block and <END> variable.\n"));
   my_putstr(name);
 }

@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Dec 28 17:13:35 2014 Nicolas PARIGI
-** Last update Wed May 27 17:38:17 2015 Nicolas PARIGI
+** Last update Thu May 28 18:47:15 2015 Nicolas PARIGI
 */
 
 #include "/usr/include/mlx.h"
@@ -57,12 +57,16 @@ int		init_wolf3d(t_img *var)
 int		main()
 {
   t_img	var;
-
+  int	i;
+  i = 0;
   if ((init_wolf3d(&var)) == -1)
     return (-1);
-  mlx_mouse_hook(var.win_ptr, gere_mouse, &var);
-  mlx_hook(var.win_ptr, KeyPress, KeyRelease, gere_key, &var);
-  mlx_expose_hook(var.win_ptr, gere_expose, &var);
-  mlx_loop(var.mlx_ptr);
+  while (42)
+    {
+      mlx_mouse_hook(var.win_ptr, gere_mouse, &var);
+      mlx_hook(var.win_ptr, KeyPress, KeyRelease, gere_key, &var);
+      mlx_expose_hook(var.win_ptr, gere_expose, &var);
+    }
+      //  mlx_loop(var.mlx_ptr);
   return (0);
 }

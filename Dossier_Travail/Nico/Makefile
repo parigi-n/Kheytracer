@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Thu May 28 16:20:08 2015 Nicolas PARIGI
+## Last update Fri May 29 17:18:07 2015 Nicolas PARIGI
 ##
 
 SRC		= src/executable/gere_flag.c \
@@ -37,8 +37,8 @@ SRC		= src/executable/gere_flag.c \
                 src/lib/shared/strcmp.c \
                 src/lib/shared/my_getnbr.c \
                 src/lib/shared/strcat.c \
-                src/lib/shared/strcpy.c \
-                src/lib/shared/decal.c \
+								src/lib/shared/strcpy.c \
+								src/lib/shared/decal.c \
 		strlcpy_mlx_substitute.c \
 		parser.c
 
@@ -46,6 +46,7 @@ OBJ		= $(SRC:.c=.o)
 
 NAME		= rtv1
 
+CFLAGS          += -ansi -pedantic -g
 CFLAGS		+= -I./include
 
 LDFLAGS		=
