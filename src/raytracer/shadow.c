@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri May 29 11:23:12 2015 Jules Vautier
+** Last update Mon Jun  1 10:25:07 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -38,10 +38,10 @@ static int	do_shadow(t_all *all, t_object **list,
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, obj, 1);
 	  }*/
-      k = g_fonct[obj->type].ptr(all, lum, obj);
-      if (k > 0.0 && k < all->calc.k)
+      tmpk = g_fonct[obj->type].ptr(all, lum, obj);
+      if (tmpk > 0.000001 && tmpk < all->calc.k)
 	{
-	  all->calc.k = k;
+	  all->calc.k = tmpk;
 	  all->obj = obj;
 	}
       obj = obj->next;
@@ -55,21 +55,13 @@ int		shadow(t_all *all, double k,
   t_coor	point_lum;
   t_coor	point_eye;
 
-  find_point(&all->eye, &point_eye, k);
+  /*find_point(lum, &point_lum, all->calc.k);*/
   do_shadow(all, &all->object, k, lum);
-  find_point(lum, &point_lum, all->calc.k);
-  /*if (all->obj == NULL)
-    return (1);*/
-  if (my_strcmp(save->name, all->obj->name) != 0)
+  if (all->obj == NULL)
     return (1);
-  /*if (point_lum.x > point_eye.x + 100.00001 ||
-      point_lum.y > point_eye.y + 100.00001 ||
-      point_lum.z > point_eye.z + 100.00001 ||
-      point_lum.x < point_eye.x - 100.00001 ||
-      point_lum.y < point_eye.y - 100.00001 ||
-      point_lum.z < point_eye.z - 100.00001 )
-      return (0);*/
+  if (my_strcmp(save->name, all->obj->name) == 0)
+    return (1);
   /*if (my_strcmp(save->name, "plan") != 0)
     printf("%s %s\n", save->name, all->obj->name);*/
-  return (1);
+  return (0);
 }

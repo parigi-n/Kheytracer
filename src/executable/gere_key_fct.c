@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
 <<<<<<< HEAD
-** Last update Wed May 27 18:34:23 2015 Jules Vautier
+** Last update Mon Jun  1 10:19:13 2015 Jules Vautier
 */
 
 #include "rt.h"
@@ -50,7 +50,7 @@ int	gere_key_sphe(int keycode, t_all *all)
 {
   t_object	*tmp;
 
-  tmp = my_getlist_obj(&all->object, "sphere1");
+  tmp = my_getlist_obj(&all->object, "cyl1");
   if (keycode == O)
     tmp->pos.x = tmp->pos.x + 10.0;
   else if (keycode == L)
