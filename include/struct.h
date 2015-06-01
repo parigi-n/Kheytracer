@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu May 28 18:10:05 2015 david sebaoun
+** Last update Fri May 29 11:08:32 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -58,11 +58,9 @@ typedef	struct		s_object
   int			type;
   t_coor		a;
   t_coor		pos;
-  int			r;
+  double		r;
   double		lim;
   int			color;
-  int			is_true;
-  double		k;
   struct s_object	*next;
 }			t_object;
 
@@ -75,22 +73,22 @@ typedef struct		s_flags
 
 typedef struct		s_all
 {
-  char			**tab;
   int			kill;
+  char			**tab;
   t_object		*object;
-  t_coor		point;
   t_vec			*lum;
-  t_object		*obj_nb;
+  t_coor		point;
+  t_object		*obj;
+  t_vec			eye;
   t_img			var;
   t_calcul		calc;
   int			pixel_nb;
-  t_vec			eye;
   t_flags		flag;
 }			t_all;
 
 typedef struct		s_fonct
 {
-  int			(*ptr)(t_all *all, t_vec *vec, t_object *coor);
+  double		(*ptr)(t_all *all, t_vec *vec, t_object *coor);
   int			type;
 }			t_fonct;
 

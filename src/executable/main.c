@@ -39,7 +39,7 @@ int		init_calc(t_all *all)
 {
   all->calc.prea = 3.141592654 / 0.18;
   all->object = NULL;
-  all->obj_nb = NULL;
+  all->obj = NULL;
   all->lum = NULL;
   /*init_obj_un(all);
   init_obj_deux(all);

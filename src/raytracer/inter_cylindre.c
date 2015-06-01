@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Wed May 27 15:51:54 2015 Jules Vautier
+** Last update Fri May 29 11:21:30 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -24,23 +24,20 @@ static int	do_calc(t_vec *vec, t_coor *point,
   return (0);
 }
 
-static int	end_calc(t_object *obj, t_coor *point,
+static double	end_calc(t_object *obj, t_coor *point,
 			 double delta, t_vec *vec)
 {
-  double	tmp;
+  double	k;
 
-  obj->k = ((-point->y + sqrt(delta)) / (2 * point->x));
-  tmp = ((-point->y - sqrt(delta)) / (2 * point->x));
-  if (tmp < obj->k)
-    obj->k = tmp;
-  if (obj->k * vec->v.z + vec->pos.z > 0.0 &&
-      obj->k * vec->v.z + vec->pos.z < obj->lim)
-    return (obj->is_true = 1);
-  else
-    return (obj->is_true = 0);
+  k = ((-point->y - sqrt(delta)) / (2 * point->x));
+  if (k * vec->v.z + vec->pos.z > 0.0 &&
+      k * vec->v.z + vec->pos.z < obj->lim)
+    return (k);
+  return (0.0);
 }
 
-int		inter_cylinder(t_all *all, t_vec *vec, t_object *obj)
+double		inter_cylinder(t_all *all,
+			       t_vec *vec, t_object *obj)
 {
   t_coor	point;
   double	delta;
@@ -50,9 +47,5 @@ int		inter_cylinder(t_all *all, t_vec *vec, t_object *obj)
   delta = ((point.y * point.y) - (4 * point.x * point.z));
   if (delta >= 0.0)
     return (end_calc(obj, &point, delta, vec));
-  else
-    {
-      obj->k = 0.0;
-      return (obj->is_true = 0);
-    }
+  return (0.0);
 }

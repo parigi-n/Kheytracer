@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu May 28 08:49:14 2015 Jules Vautier
+** Last update Fri May 29 10:39:26 2015 Jules Vautier
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -53,11 +53,11 @@ int	calc_point_eye(t_vec *, int);
 int	calc_point_lum(t_vec *, t_vec *, t_object *, double);
 int	do_k(t_all *, t_object **);
 int	raytrace(t_all *);
-int	inter_sphere(t_all *, t_vec *, t_object *);
-int	inter_plan(t_all *, t_vec *, t_object *);
-int	inter_cone(t_all *, t_vec *, t_object *);
-int	inter_cylinder(t_all *, t_vec *, t_object *);
-int	inter_disque(t_all *, t_vec *, t_object *);
+double	inter_sphere(t_all *, t_vec *, t_object *);
+double	inter_plan(t_all *, t_vec *, t_object *);
+double	inter_cone(t_all *, t_vec *, t_object *);
+double	inter_cylinder(t_all *, t_vec *, t_object *);
+double	inter_disque(t_all *, t_vec *, t_object *);
 int	intensity_main(t_all *, t_vec **, t_object *, int);
 int	intensity_plan(t_all *, t_vec *, t_object *);
 int	intensity_sphere(t_all *, t_vec *, t_object *);
