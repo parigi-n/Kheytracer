@@ -11,9 +11,9 @@
 #ifndef PARSER_H_
 # define PARSER_H_
 
-#define MAX_OBJ_NAME	(64)
-#define MAX_SCENE_NAME	(32)
-#define	MAX_RADIUS_SIZE	(100000.000)
+# define MAX_OBJ_NAME		(64)
+# define MAX_SCENE_NAME		(32)
+# define MAX_RADIUS_SIZE	(100000.000)
 
 int	parser(t_scene *data, int fd);
 int	parser_obj_name(char **tab, t_object *parsing);
@@ -29,8 +29,8 @@ int	content_parsing(t_object **obj, int fd, int flag_stop);
 
 typedef struct	s_parser
 {
-  int		(*fct)(char **tab, t_object *parsing);
-  char		flag;
+  int	(*fct)(char **tab, t_object *parsing);
+  char	flag;
 }		t_parser;
 
 #endif /* !PARSER_H_ */

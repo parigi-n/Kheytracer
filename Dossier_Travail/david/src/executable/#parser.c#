@@ -6,6 +6,10 @@
 #include "struct.h"
 #include "parser.h"
 
+#define MAX_OBJ_NAME	(64)
+#define MAX_SCENE_NAME	(32)
+#define	MAX_RADIUS_SIZE	(100000.000)
+
 static const		t_parser g_parser[] =
   {
     {&parser_obj_name, 0},
