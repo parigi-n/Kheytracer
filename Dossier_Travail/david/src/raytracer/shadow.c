@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Thu May 28 16:09:59 2015 Jules Vautier
+** Last update Mon Jun  1 10:25:07 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -25,8 +25,11 @@ static int	do_shadow(t_all *all, t_object **list,
 			  double k, t_vec *lum)
 {
   t_object	*obj;
+  double	tmpk;
 
   obj = *list;
+  all->calc.k = 9999999.0;
+  all->obj = NULL;
   while (obj != NULL)
     {
       calc_point_lum(&all->eye, lum, obj, k);
@@ -35,7 +38,12 @@ static int	do_shadow(t_all *all, t_object **list,
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, obj, 1);
 	  }*/
-      g_fonct[obj->type].ptr(all, lum, obj);
+      tmpk = g_fonct[obj->type].ptr(all, lum, obj);
+      if (tmpk > 0.000001 && tmpk < all->calc.k)
+	{
+	  all->calc.k = tmpk;
+	  all->obj = obj;
+	}
       obj = obj->next;
     }
  return (0);
@@ -44,13 +52,16 @@ static int	do_shadow(t_all *all, t_object **list,
 int		shadow(t_all *all, double k,
 		       t_vec *lum, t_object *save)
 {
-  t_coor	point;
+  t_coor	point_lum;
+  t_coor	point_eye;
 
+  /*find_point(lum, &point_lum, all->calc.k);*/
   do_shadow(all, &all->object, k, lum);
-  do_k(all, &all->object);
-  find_point(lum, &point, all->calc.k);
-  if (all->obj_nb != NULL && save != NULL)
-    if (my_strcmp(save->name, all->obj_nb->name) != 0)
-      return (0);
-  return (1);
+  if (all->obj == NULL)
+    return (1);
+  if (my_strcmp(save->name, all->obj->name) == 0)
+    return (1);
+  /*if (my_strcmp(save->name, "plan") != 0)
+    printf("%s %s\n", save->name, all->obj->name);*/
+  return (0);
 }

@@ -1,11 +1,11 @@
 /*
-** igraph.h for igraph in /home/vautie_a/rendu/MUL_2014_fdf
+** parser.h for pzrser.h in /home/parigi_n/Testrendu/MUL_2014_rtracer/Dossier_Travail/Nico
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by Nicolas PARIGI
+** Login   <parigi_n@epitech.net>
 ** 
-** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri May 29 11:08:32 2015 Jules Vautier
+** Started on  Tue Jun  2 12:49:13 2015 Nicolas PARIGI
+** Last update Tue Jun  2 12:49:17 2015 Nicolas PARIGI
 */
 
 #ifndef PARSER_H_

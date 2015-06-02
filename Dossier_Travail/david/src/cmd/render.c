@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Fri May 29 16:07:08 2015 david sebaoun
+** Last update Tue Jun  2 16:09:09 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -14,11 +14,13 @@
 #include "rt.h"
 #include "cmd.h"
 
-int	render(t_all *all)
+int	render(t_all *all, t_scene *scene)
 {
   int	status;
   pid_t	pid;
 
+  if (all->loaded != SUCCESS)
+    return (puterr("Error: To be able to render a scene, you must load one\n"));
   if ((pid = fork()) == ERROR)
     return (ERROR);
   if (pid == 0)
@@ -31,6 +33,8 @@ int	render(t_all *all)
       init_calc(all);
       if (raytrace(all) == 1)
 	return (SUCCESS);
+      /* if (raytrace(all, scene) == 1) */
+      /* 	return (SUCCESS); */
       mlx_expose_hook(all->var.win_ptr, gere_expose, all);
       mlx_hook(all->var.win_ptr, KeyPress, KeyRelease, &gere_key, all);
       mlx_loop(all->var.mlx_ptr);

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri May 29 16:10:17 2015 david sebaoun
+** Last update Tue Jun  2 15:31:58 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
@@ -61,10 +61,14 @@ typedef	struct		s_object
   int			r;
   double		lim;
   int			color;
-  int			is_true;
-  double		k;
   struct s_object	*next;
 }			t_object;
+
+typedef	struct		s_scene
+{
+  char			*name;
+  t_object		obj;
+}			t_scene;
 
 typedef struct		s_flags
 {
@@ -78,13 +82,13 @@ typedef struct		s_all
   int			loaded;
   char			**tab;
   t_object		*object;
-  t_coor		point;
   t_vec			*lum;
-  t_object		*obj_nb;
+  t_coor		point;
+  t_object		*obj;
+  t_vec			eye;
   t_img			var;
   t_calcul		calc;
   int			pixel_nb;
-  t_vec			eye;
   t_flags		flag;
 }			t_all;
 

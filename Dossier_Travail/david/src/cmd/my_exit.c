@@ -5,13 +5,13 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:41:35 2015 david sebaoun
-** Last update Fri May 29 10:42:25 2015 david sebaoun
+** Last update Tue Jun  2 15:49:15 2015 david sebaoun
 */
 
 #include "cmd.h"
 #include "struct.h"
 
-int	my_exit(t_all *all)
+int	my_exit(t_all *all, t_scene *scene)
 {
   /*my_freetab(tab);*/
   (void)all;

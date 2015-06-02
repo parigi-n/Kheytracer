@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Fri May 29 16:01:30 2015 david sebaoun
+** Last update Tue Jun  2 15:34:58 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -42,7 +42,7 @@ int		init_calc(t_all *all)
 {
   all->calc.prea = 3.141592654 / 0.18;
   all->object = NULL;
-  all->obj_nb = NULL;
+  all->obj = NULL;
   all->lum = NULL;
   /*init_obj_un(all);
   init_obj_deux(all);

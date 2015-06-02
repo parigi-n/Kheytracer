@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Thu May 28 16:05:25 2015 Jules Vautier
+** Last update Mon Jun  1 09:57:05 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -57,6 +57,8 @@ static int	find_color(t_all *all, t_vec **list, t_object *save)
 	inten = prepare_intensity(all, lum, save, k);
       if (all->flag.shadow == 1)
 	inten = inten * shadow(all, k, lum, save);
+      if (inten < 0)
+	inten = 0;
       ret = ret + inten;
       lum = lum->next;
     }
@@ -68,7 +70,8 @@ int		creat_pixel(t_all *all)
   int		intensity;
   t_object	*save;
 
-  save = all->obj_nb;
+  intensity = 1000;
+  save = all->obj;
   find_point(&all->eye, &all->point, all->calc.k);
   if (save == NULL)
     {

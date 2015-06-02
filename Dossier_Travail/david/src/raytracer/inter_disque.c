@@ -5,28 +5,28 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Wed May 27 18:34:58 2015 Jules Vautier
+** Last update Fri May 29 11:28:11 2015 Jules Vautier
 */
 
 #include "struct.h"
 #include "rt.h"
 
-int		inter_disque(t_all *all, t_vec *vec, t_object *obj)
+double		inter_disque(t_all *all, t_vec *vec, t_object *obj)
 {
   double	limite;
+  double	k;
 
   (void)all;
   if (vec->v.z == 0.0)
     return (0);
-  obj->k = - (vec->pos.z - obj->pos.z) / (vec->v.z);
-  if (obj->k > 0.0000001)
+  k = - (vec->pos.z - obj->pos.z) / (vec->v.z);
+  if (k > 0.0000001)
     {
-      limite = (vec->v.y * obj->k + vec->pos.y);
-      limite = limite * (vec->v.x * obj->k + vec->pos.x);
-      if (limite < (double)obj->r * (double)obj->r)
-	return (obj->is_true = 0);
-      return (obj->is_true = 1);
+      limite = (vec->v.y * k + vec->pos.y);
+      limite = limite * (vec->v.x * k + vec->pos.x);
+      if (limite < obj->r * obj->r)
+	return (-1.0);
+      return (k);
     }
-  else
-    return (obj->is_true = 0);
+  return (-1.0);
 }

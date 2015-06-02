@@ -5,15 +5,16 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:39:50 2015 david sebaoun
-** Last update Fri May 29 10:41:06 2015 david sebaoun
+** Last update Tue Jun  2 15:44:20 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 
-int	help(t_all *all)
+int	help(t_all *all, t_scene *scene)
 {
   (void)all;
+  (void)scene;
   my_putstr("help          show this help\nedit          start a scene editor");
   my_putstr("\nshow          show informations about loaded objects\n        ");
   my_putstr("      ex: show sphere1\nclear         clear the screen\nload    ");

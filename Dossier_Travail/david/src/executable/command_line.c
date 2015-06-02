@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Fri May 29 16:07:43 2015 david sebaoun
+** Last update Tue Jun  2 15:42:58 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -25,19 +25,20 @@ static const t_cmd	g_cmd[] =
     {&create, "create_scene"}
   };
 
-static void	cmd_start(t_all *all)
+static void	cmd_start(t_all *all, t_scene *scene)
 {
-  clear(all);
+  clear(all, scene);
   my_putstr("Hello and welcome in kheytracer.\n");
   my_putstr("Type help to get infos about available actions.\n");
   my_putstr("kheytracer$> ");
 }
 
-int	command_line(t_all *all)
+int		command_line(t_all *all)
 {
-  int	i;
+  t_scene	scene;
+  int		i;
   
-  cmd_start(all);
+  cmd_start(all, &scene);
   while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
     {
       if (all->tab[0] != NULL)
@@ -46,7 +47,7 @@ int	command_line(t_all *all)
 	  while (++i < 8)
 	    {
 	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == 0)
-		if (g_cmd[i].function(all) == EXIT)
+		if (g_cmd[i].function(all, &scene) == EXIT)
 		  return (SUCCESS);
 	    }
 	}

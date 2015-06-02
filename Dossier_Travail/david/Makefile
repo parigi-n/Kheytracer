@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Fri May 29 10:43:50 2015 david sebaoun
+## Last update Tue Jun  2 12:55:18 2015 david sebaoun
 ##
 
 SRC		= src/executable/main.c \
@@ -23,6 +23,9 @@ SRC		= src/executable/main.c \
 		src/executable/check.c \
                 src/executable/tmp_load.c \
                 src/executable/init_vec_rotate.c \
+		src/executable/parser.c \
+		src/executable/parser_fct.c \
+		src/executable/parser_fct2.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \

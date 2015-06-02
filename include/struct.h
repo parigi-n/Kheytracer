@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri May 29 11:08:32 2015 Jules Vautier
+** Last update Tue Jun  2 15:31:45 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
