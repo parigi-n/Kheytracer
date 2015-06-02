@@ -1,16 +1,16 @@
 /*
-** img.c for img in /home/vautie_a/rendu/MUL_2014_fdf
+** main.c for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by david sebaoun
+** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-** Last update Tue May 26 16:35:08 2015 Jules Vautier
+** Started on  Thu May 28 18:11:41 2015 david sebaoun
+** Last update Tue Jun  2 12:35:53 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
 #include "keyboard.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		gere_expose(t_all *all)
 {
@@ -27,7 +27,9 @@ int		gere_key(int keycode, void *param)
   if (keycode == ESC)
     exit(0);
   if (gere_key_lum(keycode, all) == 0)
-    gere_key_eye(keycode, all);
+    if (gere_key_sphe(keycode, all) == 0)
+      if (gere_key_plan(keycode, all) == 0)
+	gere_key_eye(keycode, all);
   raytrace(all);
   gere_expose(all);
   return (0);
@@ -37,21 +39,23 @@ int		init_calc(t_all *all)
 {
   all->calc.prea = 3.141592654 / 0.18;
   all->object = NULL;
-  all->obj_nb = NULL;
+  all->obj = NULL;
+  all->lum = NULL;
   /*init_obj_un(all);
   init_obj_deux(all);
   init_obj_trois(all);
   init_obj_quatre(all);*/
-  init_lum(all);
   init_eye(all);
-  load(all);
+  my_load(all);
   return (0);
 }
 
-int		main(int argc, char **argv)
+int		salutation(int argc, char **argv)
 {
   t_all		all;
 
+  /*if (command_line(&all) == ERROR)
+    return (ERROR);*/
   if (gere_flag(&all.flag, argc, argv) == -1)
     return (0);
   if (check_error(&all.var) == -1)

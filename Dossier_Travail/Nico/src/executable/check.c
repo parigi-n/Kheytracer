@@ -5,10 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Dec  6 13:25:31 2014 Jules Vautier
-** Last update Thu Mar  5 10:28:08 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Wed May 27 10:43:03 2015 Jules Vautier
 */
 
-#include "rtv1.h"
+#include "shared.h"
+#include "rt.h"
 
 int	check_error(t_img *var)
 {

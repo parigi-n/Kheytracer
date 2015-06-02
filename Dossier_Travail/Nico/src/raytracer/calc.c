@@ -5,11 +5,15 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 16:13:40 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Thu May 28 08:55:08 2015 Jules Vautier
+=======
+** Last update Tue May 26 19:13:18 2015 david sebaoun
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		calc_point_eye(t_vec *eye, int i)
 {
@@ -20,28 +24,26 @@ int		calc_point_eye(t_vec *eye, int i)
   return (0);
 }
 
-int		calc_point_lum(t_all *all, t_object *coor, t_vec *vec)
+int		calc_point_lum(t_vec *eye, t_vec *vec,
+			       t_object *obj, double k)
 {
-  all->calc.point.x = all->calc.k
-    * all->eye.v.x + all->eye.pos.x;
-  all->calc.point.y = all->calc.k
-    * all->eye.v.y + all->eye.pos.y;
-  all->calc.point.z = all->calc.k
-    * all->eye.v.z + all->eye.pos.z;
-  vec->tmp.x = vec->pos.x - coor->pos.x;
-  vec->tmp.y = vec->pos.y - coor->pos.y;
-  vec->tmp.z = vec->pos.z - coor->pos.z;
-  vec->v.x = all->calc.point.x - vec->pos.x;
-  vec->v.y = all->calc.point.y - vec->pos.y;
-  vec->v.z = all->calc.point.z - vec->pos.z;
+  t_coor	point;
+
+  find_point(eye, &point, k);
+  vec->tmp.x = vec->pos.x - obj->pos.x;
+  vec->tmp.y = vec->pos.y - obj->pos.y;
+  vec->tmp.z = vec->pos.z - obj->pos.z;
+  vec->v.x = point.x - vec->pos.x;
+  vec->v.y = point.y - vec->pos.y;
+  vec->v.z = point.z - vec->pos.z;
   return (0);
 }
 
-int	calc_vec(t_vec *vec, t_object *coor)
+int		calc_vec(t_vec *vec, t_object *obj)
 {
-  vec->tmp.x = vec->pos.x - coor->pos.x;
-  vec->tmp.y = vec->pos.y - coor->pos.y;
-  vec->tmp.z = vec->pos.z - coor->pos.z;
+  vec->tmp.x = vec->pos.x - obj->pos.x;
+  vec->tmp.y = vec->pos.y - obj->pos.y;
+  vec->tmp.z = vec->pos.z - obj->pos.z;
   vec->v.x = vec->new.x;
   vec->v.y = (SIZE_LARG) / 2
     - vec->new.y;
@@ -50,13 +52,10 @@ int	calc_vec(t_vec *vec, t_object *coor)
   return (0);
 }
 
-int	find_point(t_all *all)
+int		find_point(t_vec *vec, t_coor *coor, double k)
 {
-  all->calc.point.x = all->calc.k
-    * all->eye.v.x + all->eye.pos.x;
-  all->calc.point.y = all->calc.k
-    * all->eye.v.y + all->eye.pos.y;
-  all->calc.point.z = all->calc.k
-    * all->eye.v.z + all->eye.pos.z;
+  coor->x = k * vec->v.x + vec->pos.x;
+  coor->y = k * vec->v.y + vec->pos.y;
+  coor->z = k * vec->v.z + vec->pos.z;
   return (0);
 }

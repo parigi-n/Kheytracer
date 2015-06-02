@@ -5,11 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
-** Last update Tue May 26 11:29:51 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Fri May 29 11:30:38 2015 Jules Vautier
 */
 
-#include "struct.h"
-#include "rtv1.h"
+#include <stdio.h>
+#include "rt.h"
 
 static const	t_fonct g_fonct[] =
   {
@@ -17,6 +18,7 @@ static const	t_fonct g_fonct[] =
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
     {&intensity_plan, TYPE_PLAN},
+    {&intensity_plan, TYPE_DISQUE},
     {NULL, -1}
   };
 
@@ -33,30 +35,24 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
 	       vec2->v.z * vec2->v.z));
   scal = (vec1->v.x * vec2->v.x + vec1->v.y * vec2->v.y
 	  + vec1->v.z * vec2->v.z);
+  norm = norm + 0.000001;
   inten = (scal / norm);
   return (inten);
 }
 
-int	intensity_main(t_all *all, int obj_nb, int inte)
+int		prepare_intensity(t_all *all, t_vec *lum,
+				  t_object *obj, double k)
 {
-  int	intesphe;
+  int		intensity;
 
-  if (obj_nb < NB_OBJ - 1)
+  calc_point_eye(&all->eye, all->pixel_nb);
+  calc_vec(&all->eye, obj);
+  /*if (all->flag.rotate == 1)
     {
-      calc_point_eye(&all->eye, all->pixel_nb);
-      calc_vec(&all->eye, &all->object[obj_nb]);
-      if (all->flag.rotate == 1)
-	{
-	  rotate(&all->eye, &all->object[obj_nb], -1);
-	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	}
-      calc_point_lum(all, &all->object[obj_nb], &all->lum);
-      /*intesphe = g_fonct[tmp->type].ptr(all, &all->lum, &all->object[obj_nb]);*/
-      inte = inte * intesphe / 1000;
-    }
-  else
-    inte = 0;
-  if (inte < 0)
-    inte = 0;
-  return (inte);
+      rotate(&all->eye, obj, -1);
+      rotate(&all->eye, &all->eye, 1);
+      }*/
+  calc_point_lum(&all->eye, lum, obj, k);
+  intensity = g_fonct[obj->type].ptr(all, lum, obj);
+  return (intensity);
 }

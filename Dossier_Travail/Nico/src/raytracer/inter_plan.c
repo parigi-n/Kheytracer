@@ -5,30 +5,30 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 15:15:18 2015 Jules Vautier
+** Last update Fri May 29 11:22:03 2015 Jules Vautier
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
-int		inter_plan(t_all *all, t_vec *vec, t_object *obj)
+double		inter_plan(t_all *all, t_vec *vec, t_object *obj)
 {
   double	limite;
+  double	k;
 
   (void)all;
   if (vec->v.z == 0.0)
-    return (0);
-  obj->k = - (vec->pos.z - obj->pos.z) / (vec->v.z);
-  if (obj->k > 0.0000001)
+    return (0.0);
+  k = - (vec->pos.z - obj->pos.z) / (vec->v.z);
+  if (k > 0.0000001)
     {
-      limite =  (vec->v.y * obj->k + vec->pos.y);
-      if (limite > (double)obj->r || limite < (double)-obj->r)
-	  return (obj->is_true = 0);
-      limite =  (vec->v.x * obj->k + vec->pos.x);
-      if (limite > (double)obj->r || limite < (double)-obj->r)
-	  return (obj->is_true = 0);
-      return (obj->is_true = 1);
+      limite = (vec->v.y * k + vec->pos.y);
+      if (limite > obj->r || limite < -obj->r)
+	return (0.0);
+      limite = (vec->v.x * k + vec->pos.x);
+      if (limite > obj->r || limite < -obj->r)
+	return (0.0);
+      return (k);
     }
-  else
-    return (obj->is_true = 0);
+  return (0.0);
 }

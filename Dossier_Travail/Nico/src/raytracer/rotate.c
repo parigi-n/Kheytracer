@@ -5,11 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb 11 16:09:14 2015 Jules Vautier
-** Last update Tue May 26 11:19:48 2015 Jules Vautier
+** Last update Tue May 26 19:12:54 2015 david sebaoun
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
 
 int		rotate_x(t_vec *vec, double a)
 {

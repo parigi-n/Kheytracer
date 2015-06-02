@@ -5,11 +5,16 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Tue May 26 15:14:02 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Fri May 29 11:28:50 2015 Jules Vautier
+=======
+** Last update Tue May 26 19:14:49 2015 david sebaoun
+>>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 */
 
 #include "struct.h"
-#include "rtv1.h"
+#include "rt.h"
+#include <stdio.h>
 
 static int	do_calc(t_vec *vec, t_coor *coor, t_object *object)
 {
@@ -26,25 +31,20 @@ static int	do_calc(t_vec *vec, t_coor *coor, t_object *object)
   return (0);
 }
 
-int		inter_sphere(t_all *all, t_vec *vec,
+double		inter_sphere(t_all *all, t_vec *vec,
 			     t_object *object)
 {
   t_coor	coor;
   double	delta;
-  double	tmp;
+  double	k;
 
   (void)all;
   do_calc(vec, &coor, object);
   delta = ((coor.y * coor.y) - 4 * (coor.x * coor.z));
   if (delta > 0.0)
     {
-      object->k = ((-coor.y + sqrt(delta)) / (2 * coor.x));
-      tmp = ((-coor.y - sqrt(delta)) / (2 * coor.x));
-      if (tmp < object->k)
-	object->k = tmp;
-      return (object->is_true = 1);
+      k = ((-coor.y - sqrt(delta)) / (2 * coor.x));
+      return (k);
     }
-  object->k = 0.0;
-  object->is_true = 0;
-  return (0);
+  return (0.0);
 }

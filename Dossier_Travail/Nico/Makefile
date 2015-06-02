@@ -5,17 +5,37 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue Jun  2 11:46:10 2015 Nicolas PARIGI
+## Last update Tue Jun  2 12:34:20 2015 Nicolas PARIGI
 ##
 
-SRC		= src/executable/gere_flag.c \
+SRC		= src/executable/main.c \
+		src/cmd/load_file.c \
+		src/cmd/scene_creator.c \
+		src/cmd/clear.c \
+		src/cmd/render.c \
+		src/executable/command_line.c \
+		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \
 		src/executable/check.c \
                 src/executable/tmp_load.c \
                 src/executable/init_vec_rotate.c \
-                src/lib/list/list.c \
+		src/raytracer/shadow.c \
+		src/raytracer/rotate.c \
+		src/raytracer/calc.c \
+		src/raytracer/intensity_main.c \
+		src/raytracer/intensity_object.c \
+		src/raytracer/inter_cone.c \
+		src/raytracer/inter_disque.c \
+		src/raytracer/inter_cylindre.c \
+		src/raytracer/inter_sphere.c \
+		src/raytracer/inter_plan.c \
+		src/raytracer/my_pixel_put.c \
+		src/raytracer/my_loading.c \
+		src/raytracer/raytrace.c \
+                src/lib/list/list_obj.c \
+                src/lib/list/list_vec.c \
                 src/lib/list/my_getlist.c \
-                src/lib/list/fct_list.c \
+                src/lib/list/fct_list_obj.c \
                 src/lib/printf/mainprintf.c \
                 src/lib/printf/fct_printf.c \
                 src/lib/printf/printf_error.c \
@@ -37,16 +57,17 @@ SRC		= src/executable/gere_flag.c \
                 src/lib/shared/strcmp.c \
                 src/lib/shared/my_getnbr.c \
                 src/lib/shared/strcat.c \
-								src/lib/shared/strcpy.c \
-								src/lib/shared/decal.c \
-		strlcpy_mlx_substitute.c \
-		parser.c
+                src/lib/shared/strcpy.c \
+                src/lib/shared/decal.c \
+							strlcpy_mlx_substitute.c \
+								parser.c
 
 OBJ		= $(SRC:.c=.o)
 
-NAME		= rtv1
+NAME		= rt
 
-CFLAGS          += -ansi -pedantic -g
+CFLAGS		+= -Wextra -Wall
+CFLAGS		+= -ansi -pedantic -g
 CFLAGS		+= -I./include
 
 LDFLAGS		=

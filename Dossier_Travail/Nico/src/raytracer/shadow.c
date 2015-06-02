@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Tue May 26 17:20:35 2015 Jules Vautier
+** Last update Mon Jun  1 10:25:07 2015 Jules Vautier
 */
 
 #include "struct.h"
 #include "shared.h"
-#include "rtv1.h"
+#include "rt.h"
 
 static const	t_fonct g_fonct[] =
   {
@@ -21,41 +21,47 @@ static const	t_fonct g_fonct[] =
     {NULL, -1}
   };
 
-static int	do_shadow(t_all *all, t_object **list)
+static int	do_shadow(t_all *all, t_object **list,
+			  double k, t_vec *lum)
 {
-  t_object	*tmp;
+  t_object	*obj;
+  double	tmpk;
 
-  tmp = *list;
-  while (tmp != NULL)
+  obj = *list;
+  all->calc.k = 9999999.0;
+  all->obj = NULL;
+  while (obj != NULL)
     {
-      calc_point_eye(&all->eye, all->pixel_nb);
-      calc_vec(&all->eye, tmp);
+      calc_point_lum(&all->eye, lum, obj, k);
       /*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	  rotate(&all->eye, tmp, 1);
+	  rotate(&all->eye, obj, 1);
 	  }*/
-      calc_point_lum(all, tmp, &all->lum);
-      g_fonct[tmp->type].ptr(all, &all->lum, tmp);
-      tmp = tmp->next;
-     }
+      tmpk = g_fonct[obj->type].ptr(all, lum, obj);
+      if (tmpk > 0.000001 && tmpk < all->calc.k)
+	{
+	  all->calc.k = tmpk;
+	  all->obj = obj;
+	}
+      obj = obj->next;
+    }
  return (0);
 }
 
-int		shadow(t_all *all)
+int		shadow(t_all *all, double k,
+		       t_vec *lum, t_object *save)
 {
-  double	tmpk;
-  t_object	*obj_nb;
+  t_coor	point_lum;
+  t_coor	point_eye;
 
-  tmpk = all->calc.k;
-  obj_nb = all->obj_nb;
-  do_shadow(all, &all->object);
-  do_k(all, &all->object);
-  all->calc.k = tmpk;
-  if (all->obj_nb == NULL)
-    return (0);
-  if (all->obj_nb != NULL && obj_nb != NULL)
-    if (my_strcmp(all->obj_nb->name, obj_nb->name) == ERROR)
-      return (900);
+  /*find_point(lum, &point_lum, all->calc.k);*/
+  do_shadow(all, &all->object, k, lum);
+  if (all->obj == NULL)
+    return (1);
+  if (my_strcmp(save->name, all->obj->name) == 0)
+    return (1);
+  /*if (my_strcmp(save->name, "plan") != 0)
+    printf("%s %s\n", save->name, all->obj->name);*/
   return (0);
 }

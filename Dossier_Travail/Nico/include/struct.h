@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Wed May 27 16:55:35 2015 Nicolas PARIGI
+** Last update Fri May 29 11:08:32 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -22,8 +22,6 @@ typedef struct		s_img
   int			sizeline;
   int			endian;
   int			lenght;
-  int			x_xpm;
-  int			y_xpm;
 }			t_img;
 
 typedef struct		s_coor
@@ -36,7 +34,6 @@ typedef struct		s_coor
 typedef struct		s_calcul
 {
   t_coor		tmp;
-  t_coor		point;
   t_coor		pos;
   double		k;
   double		tmpk;
@@ -45,11 +42,14 @@ typedef struct		s_calcul
 
 typedef struct		s_vec
 {
+  char			*name;
   t_coor		pos;
   t_coor		v;
   t_coor		a;
   t_coor		tmp;
   t_coor		new;
+  int			color;
+  struct s_vec		*next;
 }			t_vec;
 
 typedef	struct		s_object
@@ -58,12 +58,17 @@ typedef	struct		s_object
   int			type;
   t_coor		a;
   t_coor		pos;
-  int			r;
+  double		r;
+  double		lim;
   int			color;
-  int			is_true;
-  double		k;
   struct s_object	*next;
 }			t_object;
+
+typedef	struct		s_scene
+{
+  char			*name;
+  t_object		obj;
+}			t_scene;
 
 typedef struct		s_flags
 {
@@ -74,21 +79,22 @@ typedef struct		s_flags
 
 typedef struct		s_all
 {
+  int			kill;
+  char			**tab;
   t_object		*object;
-  t_object		*obj_nb;
+  t_vec			*lum;
+  t_coor		point;
+  t_object		*obj;
+  t_vec			eye;
   t_img			var;
   t_calcul		calc;
   int			pixel_nb;
-  long			color;
-  t_vec			eye;
-  t_vec			lum;
-  t_vec			lum2;
   t_flags		flag;
 }			t_all;
 
 typedef struct		s_fonct
 {
-  int			(*ptr)(t_all *all, t_vec *vec, t_object *coor);
+  double		(*ptr)(t_all *all, t_vec *vec, t_object *coor);
   int			type;
 }			t_fonct;
 
