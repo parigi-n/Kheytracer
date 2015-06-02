@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Tue Jun  2 16:09:09 2015 david sebaoun
+** Last update Tue Jun  2 18:13:16 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -20,7 +20,7 @@ int	render(t_all *all, t_scene *scene)
   pid_t	pid;
 
   if (all->loaded != SUCCESS)
-    return (puterr("Error: To be able to render a scene, you must load one\n"));
+    return (puterr("Error: No scene loaded\n"));
   if ((pid = fork()) == ERROR)
     return (ERROR);
   if (pid == 0)

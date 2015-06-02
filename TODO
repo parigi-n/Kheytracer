@@ -16,11 +16,13 @@ Partie Graphique bonus:
 
 Bonus: 
 /*********************************************************/
-- Dans le prompt David°
-> Commande "Screen size define"
-> Commande help
-> Commande de type "man"
-
+help OK
+clear OK
+render (jules)
+load OK
+show OK
+scene_creator (pending)
+scene_editor (pending)
 
 - parseur JSON
 

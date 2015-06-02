@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Tue Jun  2 16:26:06 2015 david sebaoun
+** Last update Tue Jun  2 18:44:17 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -28,27 +28,15 @@ static int	check_file(const char *path)
        path[my_strlen(path) - 5] != '.') ||
       (fd = open(path, O_RDONLY)) == ERROR)
     {
-      my_putstr("Error: File does not exist or is not compatible\n");
+      puterr("Error: File does not exist or is not compatible\n");
       return (ERROR);
     }
   if (close(fd) == ERROR)
     {
-      my_putstr("Error: Something unexpected happened\n");
+      puterr("Error: Something unexpected happened\n");
       return (EXIT);
     }
   return (SUCCESS);
-}
-
-static void		show_list_scene(t_object *obj)
-{
-  t_object		*tmp;
-
-  tmp = obj;
-  while (tmp != NULL)
-    {
-      printf("\nname: %s\ntype: %d\nax: %f\nay: %f\naz: %f\nposx: %f\nposy: %f\nposz: %f\nr: %d\nlim: %f\ncolor: %d\n", tmp->name, tmp->type, tmp->a.x, tmp->a.y, tmp->a.z, tmp->pos.x, tmp->pos.y, tmp->pos.z, tmp->r, tmp->lim, tmp->color);
-      tmp = tmp->next;
-    }
 }
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
@@ -61,8 +49,8 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
     return (ERROR);
   if (close(fd) == ERROR)
     return (ERROR);
-  show_list_scene(&scene->obj);
   all->loaded = SUCCESS;
+  my_putstr("\033[1;32mFile Successfully loaded\033[0m\n");
   return (SUCCESS);
 }
 

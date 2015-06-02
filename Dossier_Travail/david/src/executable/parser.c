@@ -139,7 +139,6 @@ int		parser(t_scene *data, int fd)
 	{
 	  if ((flag_stop = check_element_type(&obj, line, fd)) == -1)
 	    return (-1);
-	  my_putstr(obj->name);
 	}
     }
   if (flag_begin == 0)
