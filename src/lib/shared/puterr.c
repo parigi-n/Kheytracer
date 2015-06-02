@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Dec 31 15:55:50 2014 jules vautier
-** Last update Sun May 17 15:39:15 2015 david sebaoun
+** Last update Tue Jun  2 18:44:05 2015 david sebaoun
 */
 
 #include "shared.h"
@@ -13,6 +13,10 @@
 int	puterr(const char *str)
 {
   if (str)
-    write(2, str, my_strlen(str));
+    {
+      write(2, "\033[1;31m", my_strlen("\033[1;31m"));
+      write(2, str, my_strlen(str));
+      write(2, "\033[0m", my_strlen("\033[0m"));
+    }
   return (ERROR);
 }
