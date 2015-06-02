@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Tue Jun  2 15:26:54 2015 david sebaoun
+** Last update Tue Jun  2 16:34:10 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -67,9 +67,9 @@ int	parser_rotation(char **tab, t_object *parsing)
     return (puterr("Error : Wrong argument number on ROTATION.\n"));
   if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
     return (puterr("Fail strcmp\n"));
-  parsing->pos.x = atof(tab[1]);
-  parsing->pos.y = atof(tab[2]);
-  parsing->pos.z = atof(tab[3]);
+  parsing->a.x = atof(tab[1]);
+  parsing->a.y = atof(tab[2]);
+  parsing->a.z = atof(tab[3]);
   if (parsing->pos.x > 360 || parsing->pos.x < -360 ||
     parsing->pos.y > 360 || parsing->pos.y < -360 ||
       parsing->pos.z > 360 || parsing->pos.z < -360)
