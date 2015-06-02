@@ -121,7 +121,7 @@ int	parser_color(char **tab, t_object *parsing)
   return (0);
 }
 
-int		content_parsing(t_object **o_scene, int fd, int flag_stop)
+int		content_parsing(t_object **obj, int fd, int flag_stop)
 {
   t_object	*parsing;
   char		*line;
@@ -154,78 +154,87 @@ int		content_parsing(t_object **o_scene, int fd, int flag_stop)
     }
   if (order == 6)
     {
-      parsing->next = *o_scene;
-      *o_scene = parsing;
+      parsing->next = *obj;
+      *obj = parsing;
     }
   return (flag_stop);
 }
 
+int		check_element_type(t_object **obj, char *line, int fd)
+{
+  char		**tab;
+  int		flag_stop;
+
+  flag_stop = 0;
+  tab = my_word_to_tab(line, " ");
+  if (my_tablen(tab) != 2)
+    return (puterr("Error : Wrong argument number on OBJECT.\n"));
+  if (my_strcmp(tab[0], "ELEMENT") != 0)
+    return (puterr("Fail strcmp element 1\n"));
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
+    return (puterr("Fail strcmp element 2\n"));
+  if (my_strcmp(tab[1], "OBJECT") == 0)
+    {
+      if ((flag_stop = content_parsing(obj, fd, flag_stop)) == -1)
+	return (-1);
+      /*my_putchar('\n');
+      my_putstr("x : ");
+      my_putnbr(obj->type);
+      my_putchar('\n');*/
+    }
+  else
+    ;
+  return (flag_stop);
+}
+
+int		begin_parsing(char *line)
+{
+  char		**tab;
+  if ((tab = my_word_to_tab(line, " ")) == NULL)
+    return (puterr("Error : Malloc failed"));
+  if (my_tablen(tab) == 2 && my_strcmp(tab[0], "!NAME") == 0)
+    {
+      if (tab[1] == NULL || my_strlen(tab[1]) < 1 || my_strlen(tab[1]) > MAX_OBJ_NAME)
+	return (puterr("Error : !NAME content is NULL or is larger than 64 char. Parsing stopped.\n"));
+      /*name = my_strcpy(tab[1]);*/
+    }
+  else
+    return (puterr("Error : No !NAME variable defined after <BEGIN>, or variable is badly defined. Parsing stopped.\n"));
+}
 int	main()
 {
-  t_object	*object;
-  char	*raw_line;
-  char	*line;
-  char	**tab;
-  char	*name;
-  int	fd;
-  int	flag_begin;
-  int	flag_stop;
-  int	nbr;
+  t_object	*obj;
+  char		*raw_line;
+  char		*line;
+  char		*name;
+  int		fd;
+  int		flag_begin;
+  int		flag_stop;
 
-  object = NULL;
+  obj = NULL;
   flag_begin = 0;
   flag_stop = 0;
   fd = open("test.khey", O_RDONLY);
-  nbr = 0;
   while ((raw_line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
-      /*my_putnbr(nbr);*/
       line = epur_str(raw_line, 0);
-      /*my_putstr("Nouvelle ligne\n");*/
       if (my_strcmp(line, "<BEGIN>") == 0 && flag_begin == 1)
-	return (puterr("Error : BEGIN is defined twicce in the file. Parsing stopped.\n"));
+	return (puterr("Error : BEGIN is defined twice in the file. Parsing stopped.\n"));
       if (my_strcmp(line, "<BEGIN>") == 0)
 	flag_begin = 2;
       else if (flag_begin == 2)
 	{
-	  if ((tab = my_word_to_tab(line, " ")) == NULL)
-	    return (puterr("Error : Malloc failed"));
-	  if (my_tablen(tab) == 2 && my_strcmp(tab[0], "!NAME") == 0)
-	    {
-	      if (tab[1] == NULL || my_strlen(tab[1]) < 1 || my_strlen(tab[1]) > MAX_OBJ_NAME)
-		return (puterr("Error : !NAME content is NULL or is larger than 64 char. Parsing stopped.\n"));
-	      flag_begin = 1;
-	      name = my_strcpy(tab[1]);
-	    }
+	  if (begin_parsing(line) == -1)
+	    return (-1);
 	  else
-	    return (puterr("Error : No !NAME variable defined after <BEGIN>, or variable is badly defined. Parsing stopped.\n"));
+	    flag_begin = 1;
 	}
       else if (flag_begin == 1)
 	{
-	  /* my_putstr("Nouveau parsing\n");
-	     my_putstr(line);*/
-	  tab = my_word_to_tab(line, " ");
-	  if (my_tablen(tab) != 2)
-	    return (puterr("Error : Wrong argument number on OBJECT.\n"));
-	  if (my_strcmp(tab[0], "ELEMENT") != 0)
-	    return (puterr("Fail strcmp element 1\n"));
-	  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
-	    return (puterr("Fail strcmp element 2\n"));
-	  if (my_strcmp(tab[1], "OBJECT") == 0)
-	    {
-	      if ((flag_stop = content_parsing(&object, fd, flag_stop)) == -1)
-		return (-1);
-	      my_putchar('\n');
-	      my_putstr("x : ");
-	      my_putnbr(object->type);
-	      my_putchar('\n');
-	    }
-	  else
-	    ;
-	  my_putstr("\nFlag stop : ");
-	  my_putnbr(flag_stop);
+	  if ((flag_stop = check_element_type(&obj, line, fd)) == -1)
+	    return (-1);
+	  my_putstr(obj->name);
 	}
-      nbr++;
     }
   if (flag_begin == 0)
     return (puterr("Error : No <BEGIN> variable found. No parsing done.\n"));
