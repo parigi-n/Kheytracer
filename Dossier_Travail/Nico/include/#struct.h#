@@ -21,9 +21,7 @@ typedef struct		s_img
   int			bpp;
   int			sizeline;
   int			endian;
-  int			lenght;
-  int			x_xpm;
-  int			y_xpm;
+  int				lenght;
 }			t_img;
 
 typedef struct		s_coor

@@ -14,8 +14,8 @@
 #include "../include/struct.h"
 
 # define MLX_KEY_ESC            65307
-# define SCREEN_X 640
-# define SCREEN_Y 300
+# define SPLASHSCREEN_X 1280
+# define SPLASHSCREEN_Y 720
 
 int		gere_key(int keycode, t_img *var)
 {
@@ -35,19 +35,33 @@ int             gere_mouse(int button, int x, int y, t_img *var)
 
 int		gere_expose(t_img *var)
 {
-  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, 0, 0);
+  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, (SPLASHSCREEN_X - var->x_xpm) / 2, (SPLASHSCREEN_Y - var->y_xpm) / 2);
   return (0);
 }
 
 int		init_wolf3d(t_img *var)
 {
+  int		i;
+
+  i = 0;
   if ((var->mlx_ptr = mlx_init()) == 0)
     return (puterr("mlx_init error"));
+  if ((var->win_ptr = mlx_new_window
+       (var->mlx_ptr, SPLASHSCREEN_X, SPLASHSCREEN_Y, "Welcome to Kheytracer")) == 0)
+    return (-1);
+  if ((var->img_ptr = mlx_new_image
+       (var->mlx_ptr, SPLASHSCREEN_X, SPLASHSCREEN_Y)) == 0)
+    return (-1);
+  if ((var->data = mlx_get_data_addr
+       (var->img_ptr, &var->bpp, &var->sizeline, &var->endian)) == NULL)
+    return (-1);
+  while (i < (SPLASHSCREEN_X * SPLASHSCREEN_Y * 4))
+    var->data[i++] = 255;
+  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, 0, 0);
   if ((var->img_ptr = mlx_xpm_file_to_image
        (var->mlx_ptr, "raytracer.xpm", &var->x_xpm, &var->y_xpm)) == 0)
-    return (puterr("mlx xpm loading fail"));  
-  if ((var->win_ptr = mlx_new_window
-       (var->mlx_ptr, SCREEN_X, SCREEN_Y, "Welcome to Kheytracer")) == 0)
+    return (puterr("mlx xpm loading fail"));
+  if (var->x_xpm > SPLASHSCREEN_X || var->y_xpm > SPLASHSCREEN_Y)
     return (puterr("mlx_new_window error"));
   var->data = mlx_get_data_addr
     (var->img_ptr, &var->bpp, &var->sizeline, &var->endian);
@@ -56,8 +70,8 @@ int		init_wolf3d(t_img *var)
 
 int		main()
 {
-  t_img	var;
-  int	i;
+  t_img		var;
+  int		i;
   i = 0;
   if ((init_wolf3d(&var)) == -1)
     return (-1);

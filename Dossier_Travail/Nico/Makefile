@@ -5,15 +5,12 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue Jun  2 12:34:20 2015 Nicolas PARIGI
+## Last update Tue Jun  2 17:04:31 2015 Nicolas PARIGI
 ##
 
-SRC		= src/executable/main.c \
-		src/cmd/load_file.c \
+SRC		=	src/cmd/load_file.c \
 		src/cmd/scene_creator.c \
 		src/cmd/clear.c \
-		src/cmd/render.c \
-		src/executable/command_line.c \
 		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \
 		src/executable/check.c \
@@ -60,13 +57,12 @@ SRC		= src/executable/main.c \
                 src/lib/shared/strcpy.c \
                 src/lib/shared/decal.c \
 							strlcpy_mlx_substitute.c \
-								parser.c
+								splashscreen.c
 
 OBJ		= $(SRC:.c=.o)
 
 NAME		= rt
 
-CFLAGS		+= -Wextra -Wall
 CFLAGS		+= -ansi -pedantic -g
 CFLAGS		+= -I./include
 
