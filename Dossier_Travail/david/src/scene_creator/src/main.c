@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Mon Jun  1 17:08:28 2015 david sebaoun
-** Last update Tue Jun  2 12:27:59 2015 david sebaoun
+** Last update Wed Jun  3 11:53:22 2015 david sebaoun
 */
 
 #include <unistd.h>
@@ -16,11 +16,13 @@
 #include <ncurses/panel.h>
 #include "scene_creator.h"
 
-#define NLINES 10
-#define NCOLS 40
+#define N_LEFT_LINES 40
+#define N_LEFT_COLS 30
+#define N_MID_LINES 40
+#define N_MID_COLS 100
 
 void	win_show(WINDOW *win, char *label, int label_color);
-void	init_wins(WINDOW **wins, int n);
+void	init_wins(WINDOW **wins);
 void	print_in_middle(WINDOW *win, int starty, int startx, int width, char *string, chtype color);
 
 /* static void	finish(int sig) */
@@ -75,8 +77,8 @@ void	print_in_middle(WINDOW *win, int starty, int startx, int width, char *strin
 
 int		main()
 {
-  WINDOW	*my_wins[3];
-  PANEL		*my_panels[3];
+  WINDOW	*my_wins[2];
+  PANEL		*my_panels[2];
   PANEL		*top;
   int		ch;
   
@@ -91,15 +93,13 @@ int		main()
   init_pair(2, COLOR_GREEN, COLOR_BLACK);
   init_pair(3, COLOR_BLUE, COLOR_BLACK);
   init_pair(4, COLOR_CYAN, COLOR_BLACK);
-  init_wins(my_wins, 3);
+  init_wins(my_wins);
   /* Attach a panel to each window */ /* Order is bottom up */
   my_panels[0] = new_panel(my_wins[0]); /* Push 0, order: stdscr-0 */
   my_panels[1] = new_panel(my_wins[1]); /* Push 1, order: stdscr-0-1 */
-  my_panels[2] = new_panel(my_wins[2]); /* Push 2, order: stdscr-0-1-2 */
   /* Set up the user pointers to the next panel */
   set_panel_userptr(my_panels[0], my_panels[1]);
-  set_panel_userptr(my_panels[1], my_panels[2]);
-  set_panel_userptr(my_panels[2], my_panels[0]);
+  set_panel_userptr(my_panels[1], my_panels[0]);
   /* Update the stacking order. 2nd panel will be on top */
   update_panels();
   /* Show it on the screen */
@@ -107,7 +107,7 @@ int		main()
   mvprintw(LINES - 2, 0, "Use tab to browse through the windows (F1 to Exit)");
   attroff(COLOR_PAIR(4));
   doupdate();
-  top = my_panels[2];
+  top = my_panels[1];
   while ((ch = getch()) != KEY_F(1))
     {
       switch(ch)
@@ -125,23 +125,21 @@ int		main()
 }
 
 /* Put all the windows */
-void	init_wins(WINDOW **wins, int n)
+void	init_wins(WINDOW **wins)
 {
-  int		x;
-  int		y;
   int		i;
   char		label[80];
 
-  y = 2;
-  x = 10;
-  for(i = 0; i < n; ++i)
-    {
-      wins[i] = newwin(NLINES, NCOLS, y, x);
-      sprintf(label, "Window Number %d", i + 1);
-      win_show(wins[i], label, i + 1);
-      y += 3;
-      x += 7;
-    }
+  i = 0;
+  /* Left panel*/
+  wins[i] = newwin(N_LEFT_LINES, N_LEFT_COLS, 2, 2);
+  sprintf(label, "Objects");
+  win_show(wins[i], label, i + 1);
+  ++i;
+  /* Mid panel*/
+  wins[i] = newwin(N_MID_LINES, N_MID_COLS, 2, N_LEFT_COLS + 1);
+  sprintf(label, "Objects' informations");
+  win_show(wins[i], label, i + 1);
 }
 
 /* Show the window with a border and a label */
