@@ -38,8 +38,8 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) < 2 || my_tablen(tab) > 4)
     return (puterr(ERROR_NBR_ARG));
-  if (g_parser[order++].fct(tab, parsing) == -1)
-    return (-1);
+  if (g_parser[order++].fct(tab, parsing) == ERROR)
+    return (ERROR);
   freetab(tab);
   return (0);
 }
@@ -59,8 +59,8 @@ int		content_parsing(t_object **obj, int fd, int flag_stop)
 	return (puterr(ERROR_MALLOC));
       if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)
 	{
-	  if (parsing_launcher(parsing, line, order++) == -1)
-	    return (-1);
+	  if (parsing_launcher(parsing, line, order++) == ERROR)
+	    return (ERROR);
 	}
       else if (my_strcmp(line, "</END>") == 0)
 	flag_stop = 2;

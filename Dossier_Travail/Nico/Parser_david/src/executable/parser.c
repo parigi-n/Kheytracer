@@ -7,7 +7,7 @@
 #include "string.h"
 #include "parser.h"
 
-static int	check_element_type(t_object **obj, char *line, int fd)
+static int	check_element_type(t_scene *data, char *line, int fd)
 {
   char		**tab;
   int		flag_stop;
@@ -22,12 +22,19 @@ static int	check_element_type(t_object **obj, char *line, int fd)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   if (my_strcmp(tab[1], "OBJECT") == 0)
     {
-      if ((flag_stop = content_parsing(obj, fd, flag_stop)) == -1)
-	return (-1);
+      if ((flag_stop = content_parsing(&data->obj, fd, flag_stop)) == ERROR)
+	return (ERROR);
     }
   else
     flag_stop = flag_stop;
   return (flag_stop);
+}
+
+static int	end_parsing(int flag_begin)
+{
+  if (flag_begin != 1)
+    return (puterr(ERROR_NO_BEGIN));
+  return (0);
 }
 
 static int	begin_parsing(char *line, t_scene *data)
@@ -70,32 +77,31 @@ static char	*begin_parsing_check(char *line, int flag_begin)
 int		parser(t_scene *data, int fd)
 {
   t_object	*obj;
+  t_light	*light;
   char		*line;
   int		flag_begin;
   int		flag_stop;
 
   obj = NULL;
+  light = NULL;
+  data->obj = obj;
+  data->light = light;
   flag_begin = 0;
   flag_stop = 0;
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
       if ((line = begin_parsing_check(line, flag_begin)) == NULL)
-	return (-1);
+	return (ERROR);
       if (my_strcmp(line, "<BEGIN>") == 0)
 	flag_begin = 2;
       else if (flag_begin == 2)
 	{
-	  if ((flag_begin = begin_parsing(line, data)) == -1)
-	    return (-1);
+	  if ((flag_begin = begin_parsing(line, data)) == ERROR)
+	    return (ERROR);
 	}
       else if (flag_begin == 1)
-	{
-	  if ((flag_stop = check_element_type(&obj, line, fd)) == -1)
-	    return (-1);
-	}
+	  if ((flag_stop = check_element_type(data, line, fd)) == ERROR)
+	    return (ERROR);
     }
-  if (flag_begin == 0)
-    return (puterr(ERROR_NO_BEGIN));
-  data->obj = *obj;
-  return (0);
+  return (end_parsing(flag_begin));
 }
