@@ -25,7 +25,7 @@
       COLOR	4A1CA8
 
       ELEMENT	LIGHT
-      NAME	"A light"
+      NAME	"light"
       ORIGIN	150 200 -50
-      COLOR	FFFFFF
+      COLOR	4A1CA8
 </END>
