@@ -66,10 +66,22 @@ typedef	struct		s_object
   struct s_object	*next;
 }			t_object;
 
+typedef	struct		s_light
+{
+  char			*name;
+  t_coor		pos;
+  int			color;
+  struct s_object	*next;
+}			t_light;
+
 typedef	struct		s_scene
 {
   char			*name;
-  t_object		obj;
+  t_object		*obj;
+  t_light		*light;
+  t_coor		pos;
+  int			nb_obj;
+  int			nb_light;
 }			t_scene;
 
 typedef struct		s_flags

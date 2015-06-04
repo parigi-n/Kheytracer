@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Tue Jun  2 18:44:17 2015 david sebaoun
+** Last update Thu Jun  4 13:04:40 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -41,14 +41,21 @@ static int	check_file(const char *path)
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
+  t_object	*obj;
+  t_light	*light;
   int		fd;
 
-  if ((fd = open(path, O_RDONLY)) == ERROR)
-    return (ERROR);
-  if (parser(scene, fd) == ERROR)
-    return (ERROR);
-  if (close(fd) == ERROR)
-    return (ERROR);
+  obj = NULL;
+  light = NULL;
+  scene->obj = obj;
+  scene->light = light;
+  if (((fd = open(path, O_RDONLY)) == ERROR) ||
+      (parser(scene, fd) == ERROR) ||
+      (close(fd) == ERROR))
+    {
+      all->loaded = ERROR;
+      return (ERROR);
+    }
   all->loaded = SUCCESS;
   my_putstr("\033[1;32mFile Successfully loaded\033[0m\n");
   return (SUCCESS);

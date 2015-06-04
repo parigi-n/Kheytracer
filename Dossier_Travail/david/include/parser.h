@@ -22,9 +22,6 @@ int	parser_origin(char **tab, t_object *parsing);
 int	parser_rotation(char **tab, t_object *parsing);
 int	parser_radius(char **tab, t_object *parsing);
 int	parser_color(char **tab, t_object *parsing);
-char	*begin_parsing_check(char *line, int flag_begin);
-int	begin_parsing(char *line);
-int	check_element_type(t_object **obj, char *line, int fd);
 int	content_parsing(t_object **obj, int fd, int flag_stop);
 
 typedef struct	s_parser
