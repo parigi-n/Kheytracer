@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue Jun  2 12:55:18 2015 david sebaoun
+## Last update Wed Jun  3 16:30:08 2015 david sebaoun
 ##
 
 SRC		= src/executable/main.c \
@@ -17,6 +17,7 @@ SRC		= src/executable/main.c \
 		src/cmd/help.c \
 		src/cmd/my_exit.c \
 		src/cmd/show_object_info.c \
+		src/cmd/ls.c \
 		src/executable/command_line.c \
 		src/executable/gere_flag.c \
 		src/executable/gere_key_fct.c \

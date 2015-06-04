@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:39:50 2015 david sebaoun
-** Last update Tue Jun  2 15:44:20 2015 david sebaoun
+** Last update Wed Jun  3 16:38:37 2015 david sebaoun
 */
 
 #include "shared.h"
@@ -15,12 +15,12 @@ int	help(t_all *all, t_scene *scene)
 {
   (void)all;
   (void)scene;
-  my_putstr("help          show this help\nedit          start a scene editor");
-  my_putstr("\nshow          show informations about loaded objects\n        ");
-  my_putstr("      ex: show sphere1\nclear         clear the screen\nload    ");
-  my_putstr("      load a scene from a configuration file\n              ex: ");
-  my_putstr("load file.rt\nrender        render the loaded scene\ncreate_scen");
-  my_putstr("e  start a scene configuration file tool\nexit          exit the");
-  my_putstr(" program\n");
+  my_putstr("help          show this help\nls            displays a list of .k");
+  my_putstr("hey files\nedit          start a scene editor\nshow          show");
+  my_putstr(" informations about loaded objects\n              ex: show sphere");
+  my_putstr("1\nclear         clear the screen\nload          load a scene fro");
+  my_putstr("m a configuration file\n              ex: load file.rt\nrender   ");
+  my_putstr("     render the loaded scene\ncreate_scene  start a scene configu");
+  my_putstr("ration file tool\nexit          exit the program\n");
   return (SUCCESS);
 }

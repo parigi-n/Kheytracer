@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Mon Jun  1 17:08:28 2015 david sebaoun
-** Last update Wed Jun  3 11:53:22 2015 david sebaoun
+** Last update Wed Jun  3 16:01:13 2015 david sebaoun
 */
 
 #include <unistd.h>
@@ -24,56 +24,6 @@
 void	win_show(WINDOW *win, char *label, int label_color);
 void	init_wins(WINDOW **wins);
 void	print_in_middle(WINDOW *win, int starty, int startx, int width, char *string, chtype color);
-
-/* static void	finish(int sig) */
-/* { */
-/*   (void)sig; */
-/*   endwin(); */
-/*   /\* do your non-curses wrapup here *\/ */
-/*   exit(0); */
-/* } */
-
-/* int	main(int argc, char **argv) */
-/* { */
-/*   int	c; */
-/*   int	num; */
-
-/*   num = 0; */
-/*   /\* initialize your non-curses data structures here *\/ */
-/*   signal(SIGINT, finish); */
-/*   initscr();      /\* initialize the curses library *\/ */
-/*   keypad(stdscr, TRUE);  /\* enable keyboard mapping *\/ */
-/*   nonl();         /\* tell curses not to do NL->CR/NL on output *\/ */
-/*   cbreak();       /\* take input chars one at a time, no wait for \n *\/ */
-/*   echo();         /\* echo input - in color *\/ */
-/*   if (has_colors()) */
-/*     { */
-/*       start_color(); */
-/*       /\* */
-/*        * Simple color assignment, often all we need.  Color pair 0 cannot */
-/*        * be redefined.  This example uses the same value for the color */
-/*        * pair as for the foreground color, though of course that is not */
-/*        * necessary: */
-/*        *\/ */
-/*       init_pair(1, COLOR_RED,     COLOR_BLACK); */
-/*       init_pair(2, COLOR_GREEN,   COLOR_BLACK); */
-/*       init_pair(3, COLOR_YELLOW,  COLOR_BLACK); */
-/*       init_pair(4, COLOR_BLUE,    COLOR_BLACK); */
-/*       init_pair(5, COLOR_CYAN,    COLOR_BLACK); */
-/*       init_pair(6, COLOR_MAGENTA, COLOR_BLACK); */
-/*       init_pair(7, COLOR_WHITE,   COLOR_BLACK); */
-/*     } */
-/*   while (42) */
-/*     { */
-/*       c = getch();     /\* refresh, accept single keystroke of input *\/ */
-/*       attrset(COLOR_PAIR(num % 8)); */
-/*       num++; */
-/*       write(1, &c, 1);      /\* process the command keystroke *\/ */
-/*     } */
-/*   finish(0);               /\* we're done *\/ */
-/*   (void)argc; */
-/*   (void)argv; */
-/* } */
 
 int		main()
 {
@@ -104,7 +54,7 @@ int		main()
   update_panels();
   /* Show it on the screen */
   attron(COLOR_PAIR(4));
-  mvprintw(LINES - 2, 0, "Use tab to browse through the windows (F1 to Exit)");
+  mvprintw(LINES - 2, 0, "Use tab to browse through the windows (ESC to Exit)");
   attroff(COLOR_PAIR(4));
   doupdate();
   top = my_panels[1];
@@ -153,9 +103,9 @@ void	win_show(WINDOW *win, char *label, int label_color)
   getbegyx(win, starty, startx);
   getmaxyx(win, height, width);
   box(win, 0, 0);
-  mvwaddch(win, 2, 0, ACS_LTEE); 
-  mvwhline(win, 2, 1, ACS_HLINE, width - 2); 
-  mvwaddch(win, 2, width - 1, ACS_RTEE); 
+  mvwaddch(win, 2, 0, ACS_LTEE);
+  mvwhline(win, 2, 1, ACS_HLINE, width - 2);
+  mvwaddch(win, 2, width - 1, ACS_RTEE);
   print_in_middle(win, 1, 0, width, label, COLOR_PAIR(label_color));
 }
 

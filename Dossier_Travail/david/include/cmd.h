@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 15:17:04 2015 david sebaoun
-** Last update Tue Jun  2 15:43:52 2015 david sebaoun
+** Last update Wed Jun  3 16:31:28 2015 david sebaoun
 */
 
 #ifndef CMD_H_
@@ -30,5 +30,6 @@ int	create(t_all *all, t_scene *scene);
 int	render(t_all *all, t_scene *scene);
 int	my_exit(t_all *all, t_scene *scene);
 int	load(t_all *all, t_scene *scene);
+int	ls(t_all *all, t_scene *scene);
 
 #endif /* !CMD_H_ */
