@@ -21,10 +21,10 @@ static const	t_parser g_parser[] =
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_obj(t_object **obj, t_object *parsing)
+static int	my_put_in_list_light(t_light **light, t_light *parsing)
 {
-  parsing->next = *obj;
-  *obj = parsing;
+  parsing->next = *light;
+  *light = parsing;
 }
 
 static int	parsing_launcher(t_object *parsing, char *line, int order)
@@ -41,7 +41,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   return (0);
 }
 
-int		content_parsing_light(t_light **obj, int fd, int flag_stop)
+int		content_parsing_light(t_light **light, int fd, int flag_stop)
 {
   t_light	*parsing;
   char		*line;
@@ -66,6 +66,6 @@ int		content_parsing_light(t_light **obj, int fd, int flag_stop)
       free(line);
     }
   if (order == 6)
-    my_put_in_list_obj(obj, parsing);
+    my_put_in_list_obj(light, parsing);
   return (flag_stop);
 }
