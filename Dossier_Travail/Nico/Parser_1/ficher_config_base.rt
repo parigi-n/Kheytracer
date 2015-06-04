@@ -50,4 +50,5 @@ Exemple de fichier :
       ELEMENT	LIGHT
       NAME	"Jour ! Nuit !"
       ORIGIN	150 200 -50
+      COLOR	4A1CA8
 </END>

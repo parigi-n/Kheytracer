@@ -23,4 +23,8 @@
       ROTATION  10 50 -80
       RADIUS	200
       COLOR	4A1CA8
+
+      ELEMENT	LIGHT
+      NAME	"Jour ! Nuit !"
+      ORIGIN	150 200 -50
 </END>

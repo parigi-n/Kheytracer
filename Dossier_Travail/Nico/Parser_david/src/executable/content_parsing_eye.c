@@ -44,7 +44,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   return (0);
 }
 
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
+int		content_parsing(t_object **obj, int fd, int flag_stop)
 {
   t_object	*parsing;
   char		*line;

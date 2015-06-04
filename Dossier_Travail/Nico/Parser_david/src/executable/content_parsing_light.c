@@ -15,12 +15,9 @@
 
 static const	t_parser g_parser[] =
   {
-    {&parser_obj_name, 0},
-    {&parser_type, 1},
-    {&parser_origin, 2},
-    {&parser_rotation, 3},
-    {&parser_radius, 4},
-    {&parser_color, 5},
+    {&parser_light_name, 0},
+    {&parser_light_origin, 1},
+    {&parser_light_color, 2},
     {NULL, '\0'}
   };
 
@@ -44,16 +41,16 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   return (0);
 }
 
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
+int		content_parsing_light(t_light **obj, int fd, int flag_stop)
 {
-  t_object	*parsing;
+  t_light	*parsing;
   char		*line;
   int		order;
 
   if ((parsing = malloc(sizeof(*parsing))) == NULL)
     return (ERROR);
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
+  while ((line = get_next_line(fd)) != NULL && order < 3 && flag_stop == 0)
     {
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));

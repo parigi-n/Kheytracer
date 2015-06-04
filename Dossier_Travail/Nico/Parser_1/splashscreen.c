@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Dec 28 17:13:35 2014 Nicolas PARIGI
-** Last update Tue Jun  2 11:35:25 2015 Nicolas PARIGI
+** Last update Thu Jun  4 16:05:47 2015 Nicolas PARIGI
 */
 
 #include "/usr/include/mlx.h"
@@ -14,13 +14,13 @@
 #include "../include/struct.h"
 
 # define MLX_KEY_ESC            65307
-# define SPLASHSCREEN_X 1280
-# define SPLASHSCREEN_Y 720
+# define SPLASHSCREEN_X 1920
+# define SPLASHSCREEN_Y 1080
 
 int		gere_key(int keycode, t_img *var)
 {
   (void)keycode;
-  mlx_destroy_window(var->mlx_ptr, var->win_ptr);
+  exit(0);
   return (0);
 }
 
@@ -29,13 +29,13 @@ int             gere_mouse(int button, int x, int y, t_img *var)
   (void)x;
   (void)y;
   (void)button;
-  mlx_destroy_window(var->mlx_ptr, var->win_ptr);
+  exit(0);
   return (0);
 }
 
 int		gere_expose(t_img *var)
 {
-  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, (SPLASHSCREEN_X - var->x_xpm) / 2, (SPLASHSCREEN_Y - var->y_xpm) / 2);
+  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, 0, 0);
   return (0);
 }
 
@@ -46,23 +46,14 @@ int		init_wolf3d(t_img *var)
   i = 0;
   if ((var->mlx_ptr = mlx_init()) == 0)
     return (puterr("mlx_init error"));
-  if ((var->win_ptr = mlx_new_window
-       (var->mlx_ptr, SPLASHSCREEN_X, SPLASHSCREEN_Y, "Welcome to Kheytracer")) == 0)
-    return (-1);
-  if ((var->img_ptr = mlx_new_image
-       (var->mlx_ptr, SPLASHSCREEN_X, SPLASHSCREEN_Y)) == 0)
-    return (-1);
-  if ((var->data = mlx_get_data_addr
-       (var->img_ptr, &var->bpp, &var->sizeline, &var->endian)) == NULL)
-    return (-1);
-  while (i < (SPLASHSCREEN_X * SPLASHSCREEN_Y * 4))
-    var->data[i++] = 255;
-  mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img_ptr, 0, 0);
   if ((var->img_ptr = mlx_xpm_file_to_image
        (var->mlx_ptr, "raytracer.xpm", &var->x_xpm, &var->y_xpm)) == 0)
     return (puterr("mlx xpm loading fail"));
   if (var->x_xpm > SPLASHSCREEN_X || var->y_xpm > SPLASHSCREEN_Y)
     return (puterr("mlx_new_window error"));
+  if ((var->win_ptr = mlx_new_window
+       (var->mlx_ptr, var->x_xpm, var->y_xpm, "Welcome to Kheytracer")) == 0)
+    return (-1);
   var->data = mlx_get_data_addr
     (var->img_ptr, &var->bpp, &var->sizeline, &var->endian);
   return (0);
