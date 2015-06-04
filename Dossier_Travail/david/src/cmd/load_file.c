@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Thu Jun  4 13:04:40 2015 david sebaoun
+** Last update Thu Jun  4 19:11:58 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -39,6 +39,13 @@ static int	check_file(const char *path)
   return (SUCCESS);
 }
 
+static void	init_coord(t_coor *coord)
+{
+  coord->x = 0;
+  coord->y = 0;
+  coord->z = 0;
+}
+
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
   t_object	*obj;
@@ -49,6 +56,10 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
   light = NULL;
   scene->obj = obj;
   scene->light = light;
+  scene->nb_obj = 0;
+  scene->nb_light = 0;
+  init_coord(&scene->pos);
+  init_coord(&scene->a);
   if (((fd = open(path, O_RDONLY)) == ERROR) ||
       (parser(scene, fd) == ERROR) ||
       (close(fd) == ERROR))

@@ -13,24 +13,21 @@
 #include "string.h"
 #include "parser.h"
 
-static const	t_parser_obj g_parser_obj[] =
+static const	t_parser_light g_parser_light[] =
   {
-    {&parser_obj_name, 0},
-    {&parser_type, 1},
-    {&parser_origin, 2},
-    {&parser_rotation, 3},
-    {&parser_radius, 4},
-    {&parser_color, 5},
+    {&parser_light_name, 0},
+    {&parser_light_origin, 1},
+    {&parser_light_color, 2},
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_obj(t_object **obj, t_object *parsing)
+static int	my_put_in_list_light(t_light **light, t_light *parsing)
 {
-  parsing->next = *obj;
-  *obj = parsing;
+  parsing->next = *light;
+  *light = parsing;
 }
 
-static int	parsing_launcher(t_object *parsing, char *line, int order)
+static int	parsing_launcher(t_light *parsing, char *line, int order)
 {
   char		**tab;
 
@@ -38,22 +35,22 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) < 2 || my_tablen(tab) > 4)
     return (puterr(ERROR_NBR_ARG));
-  if (g_parser_obj[order++].fct(tab, parsing) == ERROR)
+  if (g_parser_light[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
   return (0);
 }
 
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
+int		content_parsing_light(t_light **light, int fd, int flag_stop)
 {
-  t_object	*parsing;
+  t_light	*parsing;
   char		*line;
   int		order;
 
   if ((parsing = malloc(sizeof(*parsing))) == NULL)
     return (ERROR);
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
+  while ((line = get_next_line(fd)) != NULL && order < 3 && flag_stop == 0)
     {
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
@@ -68,7 +65,7 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
 	flag_stop = 1;
       free(line);
     }
-  if (order == 6)
-    my_put_in_list_obj(obj, parsing);
+  if (order == 3)
+    my_put_in_list_light(light, parsing);
   return (flag_stop);
 }

@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Thu Jun  4 17:05:58 2015 david sebaoun
+## Last update Thu Jun  4 18:16:02 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -14,11 +14,15 @@ SRC		= src/core/main.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
                 src/core/tmp_load.c \
-                src/core/init_vec_rotate.c \
 		src/core/parser.c \
+		src/core/content_parsing.c \
+		src/core/content_parsing_light.c \
+		src/core/content_parsing_eye.c \
 		src/core/parser_fct.c \
 		src/core/parser_fct2.c \
-		src/core/content_parsing.c \
+		src/core/parser_fct_light.c \
+		src/core/parser_fct_eye.c \
+                src/core/init_vec_rotate.c \
 		src/core/splashscreen.c \
 		src/cmd/load_file.c \
 		src/cmd/scene_creator.c \

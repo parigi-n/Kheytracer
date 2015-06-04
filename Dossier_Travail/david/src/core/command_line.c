@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Wed Jun  3 16:31:07 2015 david sebaoun
+** Last update Thu Jun  4 18:35:30 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -29,6 +29,7 @@ static const t_cmd	g_cmd[] =
 static void	cmd_start(t_all *all, t_scene *scene)
 {
   clear(all, scene);
+  all->loaded = -1;
   my_putstr("Hello and welcome in kheytracer.\n");
   my_putstr("Type help to get infos about available actions.\n");
   my_putstr("kheytracer$> ");

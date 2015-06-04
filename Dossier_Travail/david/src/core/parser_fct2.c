@@ -10,17 +10,18 @@
 
 #include "shared.h"
 #include "struct.h"
+#include "string.h"
 #include "parser.h"
 #include "wordtab.h"
 
 int	parser_radius(char **tab, t_object *parsing)
 {
   if (my_tablen(tab) != 2)
-    return (puterr("Error : Wrong argument number on RADIUS.\n"));
+    return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "RADIUS") != 0)
-    return (puterr("Fail strcmp\n"));
+    return (puterr(ERROR_BAD_ORDER));
   if (my_strlen(tab[1]) <= 0)
-    return (puterr("Fail strcmp\n"));
+    return (puterr(ERROR_BAD_ARG_LENGHT));
   parsing->r = atof(tab[1]);
   return (0);
 }
@@ -28,11 +29,11 @@ int	parser_radius(char **tab, t_object *parsing)
 int	parser_color(char **tab, t_object *parsing)
 {
   if (my_tablen(tab) != 2)
-    return (puterr("Error : Wrong argument number on COLOR.\n"));
+    return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "COLOR") != 0)
-    return (puterr("Fail strcmp\n"));
+    return (puterr(ERROR_BAD_ORDER));
   if (my_strlen(tab[1]) != 6)
-    return (puterr("Error : Hexadecimal int of COLOR must be 6 char long.\n"));
+    return (puterr(ERROR_BAD_COLOR_LENGHT));
   parsing->color = strtol(tab[1], NULL, 16);
   return (0);
 }

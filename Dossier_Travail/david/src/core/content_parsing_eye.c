@@ -13,24 +13,14 @@
 #include "string.h"
 #include "parser.h"
 
-static const	t_parser_obj g_parser_obj[] =
+static const	t_parser_eye g_parser_eye[] =
   {
-    {&parser_obj_name, 0},
-    {&parser_type, 1},
-    {&parser_origin, 2},
-    {&parser_rotation, 3},
-    {&parser_radius, 4},
-    {&parser_color, 5},
+    {&parser_eye_origin, 0},
+    {&parser_eye_rotation, 1},
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_obj(t_object **obj, t_object *parsing)
-{
-  parsing->next = *obj;
-  *obj = parsing;
-}
-
-static int	parsing_launcher(t_object *parsing, char *line, int order)
+static int	parsing_launcher(t_scene *data, char *line, int order)
 {
   char		**tab;
 
@@ -38,28 +28,25 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) < 2 || my_tablen(tab) > 4)
     return (puterr(ERROR_NBR_ARG));
-  if (g_parser_obj[order++].fct(tab, parsing) == ERROR)
+  if (g_parser_eye[order++].fct(tab, data) == ERROR)
     return (ERROR);
   freetab(tab);
   return (0);
 }
 
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
+int		content_parsing_eye(t_scene *data, int fd, int flag_stop)
 {
-  t_object	*parsing;
   char		*line;
   int		order;
 
-  if ((parsing = malloc(sizeof(*parsing))) == NULL)
-    return (ERROR);
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
+  while ((line = get_next_line(fd)) != NULL && order < 2 && flag_stop == 0)
     {
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
       if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)
 	{
-	  if (parsing_launcher(parsing, line, order++) == ERROR)
+	  if (parsing_launcher(data, line, order++) == ERROR)
 	    return (ERROR);
 	}
       else if (my_strcmp(line, "</END>") == 0)
@@ -68,7 +55,7 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop)
 	flag_stop = 1;
       free(line);
     }
-  if (order == 6)
-    my_put_in_list_obj(obj, parsing);
+  if (order != 2)
+    return (puterr(ERROR_BAD_ORDER));
   return (flag_stop);
 }

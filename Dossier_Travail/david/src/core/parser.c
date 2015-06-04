@@ -22,19 +22,28 @@ static int	check_element_type(t_scene *data, char *line, int fd)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   if (my_strcmp(tab[1], "OBJECT") == 0)
     {
-      if ((flag_stop = content_parsing(&data->obj, fd, flag_stop)) == ERROR)
+      if ((flag_stop = content_parsing_obj(&data->obj, fd, flag_stop)) == ERROR)
+	return (ERROR);
+    }
+  else if (my_strcmp(tab[1], "LIGHT") == 0)
+    {
+      if ((flag_stop = content_parsing_light(&data->light, fd, flag_stop)) == ERROR)
+	return (ERROR);
+    }
+  else if (my_strcmp(tab[1], "EYE") == 0)
+    {
+      if ((flag_stop = content_parsing_eye(data, fd, flag_stop)) == ERROR)
 	return (ERROR);
     }
   else
-    flag_stop = flag_stop;
+    return (puterr("Error : Unknown ELEMENT type found.\n"));
   return (flag_stop);
 }
 
-static int	end_parsing(int flag_begin)
+static int	element_launcher(t_scene *data, char *line, int fd)
 {
-  if (flag_begin != 1)
-    return (puterr(ERROR_NO_BEGIN));
-  return (0);
+
+
 }
 
 static int	begin_parsing(char *line, t_scene *data)
@@ -76,16 +85,10 @@ static char	*begin_parsing_check(char *line, int flag_begin)
 
 int		parser(t_scene *data, int fd)
 {
-  t_object	*obj;
-  t_light	*light;
   char		*line;
   int		flag_begin;
   int		flag_stop;
 
-  obj = NULL;
-  light = NULL;
-  data->obj = obj;
-  data->light = light;
   flag_begin = 0;
   flag_stop = 0;
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
@@ -103,5 +106,7 @@ int		parser(t_scene *data, int fd)
 	  if ((flag_stop = check_element_type(data, line, fd)) == ERROR)
 	    return (ERROR);
     }
-  return (end_parsing(flag_begin));
+  if (flag_begin != 1)
+    return (puterr(ERROR_NO_BEGIN));
+  return (0);
 }

@@ -22,8 +22,8 @@ typedef struct		s_img
   int			sizeline;
   int			endian;
   int			lenght;
-  int		       	x_xpm;
-  int			y_xpm;		
+  int			x_xpm;
+  int			y_xpm;
 }			t_img;
 
 typedef struct		s_coor
@@ -80,6 +80,7 @@ typedef	struct		s_scene
   t_object		*obj;
   t_light		*light;
   t_coor		pos;
+  t_coor		a;
   int			nb_obj;
   int			nb_light;
 }			t_scene;
