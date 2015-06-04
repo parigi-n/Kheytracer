@@ -25,6 +25,7 @@
       COLOR	4A1CA8
 
       ELEMENT	LIGHT
-      NAME	"Jour ! Nuit !"
+      NAME	"A light"
       ORIGIN	150 200 -50
+      COLOR	FFFFFF
 </END>

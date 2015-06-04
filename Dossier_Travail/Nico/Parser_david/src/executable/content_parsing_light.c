@@ -13,7 +13,7 @@
 #include "string.h"
 #include "parser.h"
 
-static const	t_parser g_parser[] =
+static const	t_parser_light g_parser_light[] =
   {
     {&parser_light_name, 0},
     {&parser_light_origin, 1},
@@ -27,7 +27,7 @@ static int	my_put_in_list_light(t_light **light, t_light *parsing)
   *light = parsing;
 }
 
-static int	parsing_launcher(t_object *parsing, char *line, int order)
+static int	parsing_launcher(t_light *parsing, char *line, int order)
 {
   char		**tab;
 
@@ -35,7 +35,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) < 2 || my_tablen(tab) > 4)
     return (puterr(ERROR_NBR_ARG));
-  if (g_parser[order++].fct(tab, parsing) == ERROR)
+  if (g_parser_light[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
   return (0);
@@ -65,7 +65,7 @@ int		content_parsing_light(t_light **light, int fd, int flag_stop)
 	flag_stop = 1;
       free(line);
     }
-  if (order == 6)
-    my_put_in_list_obj(light, parsing);
+  if (order == 3)
+    my_put_in_list_light(light, parsing);
   return (flag_stop);
 }

@@ -13,7 +13,7 @@
 #include "string.h"
 #include "parser.h"
 
-static const	t_parser g_parser[] =
+static const	t_parser_obj g_parser_obj[] =
   {
     {&parser_obj_name, 0},
     {&parser_type, 1},
@@ -38,7 +38,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) < 2 || my_tablen(tab) > 4)
     return (puterr(ERROR_NBR_ARG));
-  if (g_parser[order++].fct(tab, parsing) == ERROR)
+  if (g_parser_obj[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
   return (0);

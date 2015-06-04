@@ -25,8 +25,12 @@ SRC		= src/executable/main.c \
                 src/executable/init_vec_rotate.c \
 		src/executable/parser.c \
 		src/executable/content_parsing.c \
+		src/executable/content_parsing_light.c \
+		src/executable/content_parsing_eye.c \
 		src/executable/parser_fct.c \
 		src/executable/parser_fct2.c \
+		src/executable/parser_fct_light.c \
+		src/executable/parser_fct_eye.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \

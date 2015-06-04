@@ -13,7 +13,7 @@
 #include "string.h"
 #include "parser.h"
 
-int	parser_light_name(char **tab, t_object *parsing)
+int	parser_light_name(char **tab, t_light *parsing)
 {
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
@@ -25,7 +25,7 @@ int	parser_light_name(char **tab, t_object *parsing)
   return (0);
 }
 
-int	parser_light_origin(char **tab, t_object *parsing)
+int	parser_light_origin(char **tab, t_light *parsing)
 {
   if (my_strcmp(tab[0], "ORIGIN") != 0)
     return (puterr(ERROR_BAD_ORDER));
@@ -39,7 +39,7 @@ int	parser_light_origin(char **tab, t_object *parsing)
   return (0);
 }
 
-int	parser_light_color(char **tab, t_object *parsing)
+int	parser_light_color(char **tab, t_light *parsing)
 {
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
