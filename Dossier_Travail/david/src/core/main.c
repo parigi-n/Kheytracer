@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Tue Jun  2 15:34:58 2015 david sebaoun
+** Last update Thu Jun  4 16:51:10 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -57,6 +57,8 @@ int		main(int argc, char **argv)
 {
   t_all		all;
 
+  if (splash_screen() == ERROR)
+    return (ERROR);
   if (command_line(&all) == ERROR)
     return (ERROR);
   /* if (gere_flag(&all.flag, argc, argv) == -1) */

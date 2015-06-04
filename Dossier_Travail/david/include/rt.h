@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri May 29 10:39:26 2015 Jules Vautier
+** Last update Thu Jun  4 16:49:36 2015 david sebaoun
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -22,8 +22,10 @@
 # include <X11/X.h>
 # include <stdlib.h>
 # include <math.h>
-#include "struct.h"
+# include "struct.h"
 
+# define SPLASHSCREEN_X	1920
+# define SPLASHSCREEN_Y	1080
 # define NB_OBJ		5
 # define SIZE_LARG	640
 # define SIZE_LONG	480

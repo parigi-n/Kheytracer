@@ -5,10 +5,21 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Wed Jun  3 16:30:08 2015 david sebaoun
+## Last update Thu Jun  4 17:05:58 2015 david sebaoun
 ##
 
-SRC		= src/executable/main.c \
+SRC		= src/core/main.c \
+		src/core/command_line.c \
+		src/core/gere_flag.c \
+		src/core/gere_key_fct.c \
+		src/core/check.c \
+                src/core/tmp_load.c \
+                src/core/init_vec_rotate.c \
+		src/core/parser.c \
+		src/core/parser_fct.c \
+		src/core/parser_fct2.c \
+		src/core/content_parsing.c \
+		src/core/splashscreen.c \
 		src/cmd/load_file.c \
 		src/cmd/scene_creator.c \
 		src/cmd/clear.c \
@@ -18,15 +29,6 @@ SRC		= src/executable/main.c \
 		src/cmd/my_exit.c \
 		src/cmd/show_object_info.c \
 		src/cmd/ls.c \
-		src/executable/command_line.c \
-		src/executable/gere_flag.c \
-		src/executable/gere_key_fct.c \
-		src/executable/check.c \
-                src/executable/tmp_load.c \
-                src/executable/init_vec_rotate.c \
-		src/executable/parser.c \
-		src/executable/parser_fct.c \
-		src/executable/parser_fct2.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \
@@ -55,6 +57,7 @@ SRC		= src/executable/main.c \
                 src/lib/wordtab/tabcpy.c \
                 src/lib/wordtab/freetab.c \
                 src/lib/shared/fct_char.c \
+                src/lib/shared/strlcpy_mlx_substitute.c \
                 src/lib/shared/get_next_line.c \
                 src/lib/shared/puterr.c \
                 src/lib/shared/my_putchar.c \

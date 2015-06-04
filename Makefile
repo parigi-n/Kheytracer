@@ -5,20 +5,20 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Tue Jun  2 16:32:50 2015 david sebaoun
+## Last update Thu Jun  4 13:10:18 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
-		src/cmd/load_file.c \
-		src/cmd/scene_creator.c \
-		src/cmd/clear.c \
-		src/cmd/render.c \
 		src/core/command_line.c \
 		src/core/gere_flag.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
                 src/core/tmp_load.c \
                 src/core/init_vec_rotate.c \
+		src/cmd/load_file.c \
+		src/cmd/scene_creator.c \
+		src/cmd/clear.c \
+		src/cmd/render.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \

@@ -20,7 +20,7 @@
 # define ERROR_PATH	"Can't find the path.\n"
 # define ERROR_HOME	"Can't find the home.\n"
 # define ERROR_OPEN	"Error Open.\n"
-# define ERROR_MALLOC	"Error Malloc.\n"
+# define ERROR_MALLOC	"Error : Malloc failed.\n"
 # define ERROR_INIT	"Error in init function.\n"
 # define ERROR_SIGNAL	"Error Signal.\n"
 # define ERROR_DUP	"Error withe dup2.\n"
@@ -30,15 +30,17 @@
 # define ERROR_FORK	"Error with fork.\n"
 # define ERROR_KILL	"Error with kill.\n"
 
-/* .tcshrc */
+/* Parser */
 
-# define ERROR_NO_RC	"No .tcshrc found in HOME folder or 42sh folder.\n"
-
-/* CD */
-
-# define ERROR_NOPWD	"Error : Can't get previous working directory.\n"
-# define ERROR_NOOLDPWD	"Error : Can't set previous working directory.\n"
-# define ERROR_NONEWPWD	"Error : Can't set actual working directory (Pwd).\n"
-# define ERROR_CD	"Error : Undefined error in CD.\n"
+# define ERROR_NBR_ARG		"Error : Wrong argument number in one of the element.\n"
+# define ERROR_TWICE_BEGIN	"Error : BEGIN is defined twice in the file.\n"
+# define ERROR_NO_BEGIN		"Error : No <BEGIN> variable found.\n"
+# define ERROR_BAD_NAME_VAR	"Error : No !NAME variable defined after <BEGIN>, or variable is badly defined.\n"
+# define ERROR_BAD_NAME_LENGHT	"Error : !NAME content is NULL or is larger than MAX_SCENE_NAME.\n"
+# define ERROR_BAD_ONAME_LENGHT	"Error : NAME element string argument is NULL or larger than MAX_OBJ_NAME.\n"
+# define ERROR_BAD_ARG_LENGHT	"Error : An element argument is NULL or shorted/larger than excepted.\n"
+# define ERROR_BAD_ORDER	"Error : Excepted an another element in the parsed line. Please check order and syntax of your file.\n"
+# define ERROR_UNKNOWN_OBJ_TYPE	"Error : Object type doesn't exist.\n"
+# define ERROR_BAD_COLOR_LENGHT	"Error : Hexadecimal int of COLOR must be 6 char long.\n"
 
 #endif /* !STRING_H_ */
