@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Sun May 24 17:42:53 2015 Nicolas PARIGI
+** Last update Thu Jun  4 17:05:24 2015 david sebaoun
 */
 
 #ifndef SHARED_H_
@@ -19,26 +19,27 @@
 # define QUOTE	39
 # define DQUOTE	34
 
-int		my_putnbr(int nb);
-int		my_putstr(const char *str);
-int		puterr(const char *str);
-int		my_putchar(const char c);
-int		my_strlen(const char *str);
-int		char_cmp_str(char c, char *str);
-int		my_strcmp(const char *str, const char *new);
-int		my_strlcmp(const char *str, const char *new, int nb);
-int		my_strcmp_op(const char *str, const char *new, int deb);
-int		my_strncmp(const char *str, const char *new, const int nb);
-char		*get_next_line(int fd);
-char		*my_strcpy(char *str);
-char		*my_strncpy(char *str, int i);
-char		*my_strlcpy(char *str, int i);
-char		*my_strcpy_inter(char *str, int deb, int end);
-char		*my_strcat(char *str, char *way);
-char		*my_strcat_separ(char *str1, char *str2, const char separator);
-char		*add_char(char *str, int i, char c);
-char		*decal(char *str, int i);
-int		my_getnbr(const char *str);
+int		my_putnbr(int);
+int		my_putstr(const char *);
+int		puterr(const char *);
+int		my_putchar(const char);
+int		my_strlen(const char *);
+int		char_cmp_str(char, char *);
+int		my_strcmp(const char *, const char *);
+int		my_strlcmp(const char *, const char *, int);
+int		my_strcmp_op(const char *, const char *, int);
+int		my_strncmp(const char *, const char *, const int);
+char		*get_next_line(int);
+char		*my_strcpy(char *);
+char		*my_strncpy(char *, int);
+char		*my_strlcpy(char *, int);
+char		*my_strcpy_inter(char *, int, int);
+char		*my_strcat(char *, char *);
+char		*my_strcat_separ(char *, char *, const char);
+char		*add_char(char *, int, char);
+char		*decal(char *, int);
+int		my_getnbr(const char *);
 char		*decaln(char *, int, int);
+char		*strlcpy(char *, const char *, unsigned int);
 
 #endif /* !SHARED_H_ */

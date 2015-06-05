@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Wed May 27 16:49:18 2015 david sebaoun
+** Last update Thu Jun  4 18:35:30 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -22,57 +22,34 @@ static const t_cmd	g_cmd[] =
     {&my_exit, "exit"},
     {&render, "render"},
     {&load, "load"},
+    {&ls, "ls"},
     {&create, "create_scene"}
   };
 
-int	help(t_all *all)
+static void	cmd_start(t_all *all, t_scene *scene)
 {
-  (void)all;
-  my_putstr("help          show this help\nedit          start a scene editor");
-  my_putstr("\nshow          show informations about loaded objects\n        ");
-  my_putstr("      ex: show sphere1\nclear         clear the screen\nload    ");
-  my_putstr("      load a scene from a configuration file\n              ex: ");
-  my_putstr("load file.rt\nrender        render the loaded scene\ncreate_scen");
-  my_putstr("e  start a scene configuration file tool\nexit          exit the");
-  my_putstr(" program\n");
-  return (SUCCESS);
+  clear(all, scene);
+  all->loaded = -1;
+  my_putstr("Hello and welcome in kheytracer.\n");
+  my_putstr("Type help to get infos about available actions.\n");
+  my_putstr("kheytracer$> ");
 }
 
-int	edit(t_all *all)
+int		command_line(t_all *all)
 {
-  (void)all;
-  my_putstr("edit\n");
-  return (SUCCESS);
-}
-
-int	show(t_all *all)
-{
-  (void)all;
-  my_putstr("show\n");
-  return (SUCCESS);
-}
-
-int	my_exit(t_all *all)
-{
-  /*my_freetab(tab);*/
-  (void)all;
-  return (EXIT);
-}
-
-int	command_line(t_all *all)
-{
-  int	i;
+  t_scene	scene;
+  int		i;
   
-  write(1, "kheytracer$> ", 13);
+  cmd_start(all, &scene);
   while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
     {
       if (all->tab[0] != NULL)
 	{
 	  i = -1;
-	  while (++i < 8)
+	  while (++i < 9)
 	    {
 	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == 0)
-		if (g_cmd[i].function(all) == EXIT)
+		if (g_cmd[i].function(all, &scene) == EXIT)
 		  return (SUCCESS);
 	    }
 	}

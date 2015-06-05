@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Oct 27 16:55:39 2014 jules vautier
-** Last update Thu May 28 16:15:15 2015 Jules Vautier
+** Last update Sat May 23 11:19:42 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -49,9 +49,9 @@ static int	quote(char *new, char *str,
   return (SUCCESS);
 }
 
-char		*epur_str(char *str, int check)
+char	*epur_str(char *str, int check)
 {
-  char		*new;
+  char	*new;
   int		i;
   int		n;
 
@@ -70,6 +70,6 @@ char		*epur_str(char *str, int check)
     }
   new[n] = '\0';
   if (check == 1)
-    free(str);
+    free (str);
   return (new);
 }

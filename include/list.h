@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:38:14 2015 Jules Vautier
-** Last update Thu May 28 08:01:43 2015 Jules Vautier
+** Last update Mon Jun  1 17:09:31 2015 david sebaoun
 */
 
 #ifndef LIST_H_

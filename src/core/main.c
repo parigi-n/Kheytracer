@@ -1,13 +1,14 @@
 /*
-** main.c for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
+** main.c for  in /home/sebaou_d/rendu/MUL_2014_rtracer/Dossier_Travail/david
 ** 
 ** Made by david sebaoun
 ** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Thu May 28 18:11:41 2015 david sebaoun
-** Last update Thu May 28 18:14:25 2015 david sebaoun
+** Started on  Thu May 28 18:11:18 2015 david sebaoun
+** Last update Thu Jun  4 16:51:10 2015 david sebaoun
 */
 
+#include <signal.h>
 #include "shared.h"
 #include "keyboard.h"
 #include "rt.h"
@@ -26,12 +27,14 @@ int		gere_key(int keycode, void *param)
   all = (t_all*)param;
   if (keycode == ESC)
     exit(0);
-  if (gere_key_lum(keycode, all) == 0)
-    if (gere_key_sphe(keycode, all) == 0)
-      if (gere_key_plan(keycode, all) == 0)
-	gere_key_eye(keycode, all);
-  raytrace(all);
-  gere_expose(all);
+  else if (gere_key_lum(keycode, all) == 0)
+    {
+      if (gere_key_sphe(keycode, all) == 0)
+	if (gere_key_plan(keycode, all) == 0)
+	  gere_key_eye(keycode, all);
+      raytrace(all);
+      gere_expose(all);
+    }
   return (0);
 }
 
@@ -54,19 +57,21 @@ int		main(int argc, char **argv)
 {
   t_all		all;
 
-  /*if (command_line(&all) == ERROR)
-    return (ERROR);*/
-  if (gere_flag(&all.flag, argc, argv) == -1)
-    return (0);
-  if (check_error(&all.var) == -1)
-    {
-      puterr("fail in check_error\n");
-      return (-1);
-    }
-  init_calc(&all);
-  raytrace(&all);
-  mlx_expose_hook(all.var.win_ptr, gere_expose, &all);
-  mlx_hook(all.var.win_ptr, KeyPress, KeyRelease, &gere_key, &all);
-  mlx_loop(all.var.mlx_ptr);
+  if (splash_screen() == ERROR)
+    return (ERROR);
+  if (command_line(&all) == ERROR)
+    return (ERROR);
+  /* if (gere_flag(&all.flag, argc, argv) == -1) */
+  /*   return (0); */
+  /* if (check_error(&all.var) == -1) */
+  /*   { */
+  /*     puterr("fail in check_error\n"); */
+  /*     return (-1); */
+  /*   } */
+  /* init_calc(&all); */
+  /* raytrace(&all); */
+  /* mlx_expose_hook(all.var.win_ptr, gere_expose, &all); */
+  /* mlx_hook(all.var.win_ptr, KeyPress, KeyRelease, &gere_key, &all); */
+  /* mlx_loop(all.var.mlx_ptr); */
   return (0);
 }

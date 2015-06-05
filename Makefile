@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Thu Jun  4 13:10:18 2015 david sebaoun
+## Last update Thu Jun  4 18:16:02 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -14,11 +14,25 @@ SRC		= src/core/main.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
                 src/core/tmp_load.c \
+		src/core/parser.c \
+		src/core/content_parsing.c \
+		src/core/content_parsing_light.c \
+		src/core/content_parsing_eye.c \
+		src/core/parser_fct.c \
+		src/core/parser_fct2.c \
+		src/core/parser_fct_light.c \
+		src/core/parser_fct_eye.c \
                 src/core/init_vec_rotate.c \
+		src/core/splashscreen.c \
 		src/cmd/load_file.c \
 		src/cmd/scene_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
+		src/cmd/scene_editor.c \
+		src/cmd/help.c \
+		src/cmd/my_exit.c \
+		src/cmd/show_object_info.c \
+		src/cmd/ls.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
 		src/raytracer/calc.c \
@@ -47,6 +61,7 @@ SRC		= src/core/main.c \
                 src/lib/wordtab/tabcpy.c \
                 src/lib/wordtab/freetab.c \
                 src/lib/shared/fct_char.c \
+                src/lib/shared/strlcpy_mlx_substitute.c \
                 src/lib/shared/get_next_line.c \
                 src/lib/shared/puterr.c \
                 src/lib/shared/my_putchar.c \

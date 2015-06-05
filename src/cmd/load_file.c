@@ -5,13 +5,14 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Wed May 27 16:57:50 2015 david sebaoun
+** Last update Thu Jun  4 19:11:58 2015 david sebaoun
 */
 
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "rt.h"
 #include "cmd.h"
+#include "parser.h"
 
 static int	check_file(const char *path)
 {
@@ -19,41 +20,72 @@ static int	check_file(const char *path)
 
   if (path == NULL)
     return (ERROR);
-  if ((path[my_strlen(path) - 1] != 't' ||
-       path[my_strlen(path) - 2] != 'r' ||
-       path[my_strlen(path) - 3] != '.') ||
+  if (my_strlen(path) < 6 || 
+      (path[my_strlen(path) - 1] != 'y' ||
+       path[my_strlen(path) - 2] != 'e' ||
+       path[my_strlen(path) - 3] != 'h' ||
+       path[my_strlen(path) - 4] != 'k' ||
+       path[my_strlen(path) - 5] != '.') ||
       (fd = open(path, O_RDONLY)) == ERROR)
     {
-      my_putstr("Error: File does not exist or is not compatible\n");
+      puterr("Error: File does not exist or is not compatible\n");
       return (ERROR);
     }
   if (close(fd) == ERROR)
     {
-      my_putstr("Error: Something unexpected happened\n");
+      puterr("Error: Something unexpected happened\n");
       return (EXIT);
     }
   return (SUCCESS);
 }
 
-static int	load_file(t_all *all)
+static void	init_coord(t_coor *coord)
 {
-  (void)all;
+  coord->x = 0;
+  coord->y = 0;
+  coord->z = 0;
+}
+
+static int	load_file(char *path, t_scene *scene, t_all *all)
+{
+  t_object	*obj;
+  t_light	*light;
+  int		fd;
+
+  obj = NULL;
+  light = NULL;
+  scene->obj = obj;
+  scene->light = light;
+  scene->nb_obj = 0;
+  scene->nb_light = 0;
+  init_coord(&scene->pos);
+  init_coord(&scene->a);
+  if (((fd = open(path, O_RDONLY)) == ERROR) ||
+      (parser(scene, fd) == ERROR) ||
+      (close(fd) == ERROR))
+    {
+      all->loaded = ERROR;
+      return (ERROR);
+    }
+  all->loaded = SUCCESS;
+  my_putstr("\033[1;32mFile Successfully loaded\033[0m\n");
   return (SUCCESS);
 }
 
-int	load(t_all *all)
+int	load(t_all *all, t_scene *scene)
 {
   int	loadable;
 
   loadable = ERROR;
   if (all->tab[1] == NULL)
     {
-      my_putstr("Usage: load file.rt\n");
+      my_putstr("Usage: load file.khey\n");
       return (SUCCESS);
     }
   if ((loadable = check_file(all->tab[1])) == EXIT)
     return (EXIT);
   if (loadable == SUCCESS)
-    load_file(all);
+    if (load_file(all->tab[1], scene, all) == ERROR)
+      return (puterr("Error: The file could not be loaded\n"));
   return (SUCCESS);
 }

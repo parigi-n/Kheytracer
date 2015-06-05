@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue Jun  2 15:31:45 2015 david sebaoun
+** Last update Tue Jun  2 16:59:22 2015 Nicolas PARIGI
 */
 
 #ifndef STRUCT_H_
@@ -22,6 +22,8 @@ typedef struct		s_img
   int			sizeline;
   int			endian;
   int			lenght;
+  int			x_xpm;
+  int			y_xpm;
 }			t_img;
 
 typedef struct		s_coor
@@ -58,11 +60,30 @@ typedef	struct		s_object
   int			type;
   t_coor		a;
   t_coor		pos;
-  double		r;
+  int			r;
   double		lim;
   int			color;
   struct s_object	*next;
 }			t_object;
+
+typedef	struct		s_light
+{
+  char			*name;
+  t_coor		pos;
+  int			color;
+  struct s_object	*next;
+}			t_light;
+
+typedef	struct		s_scene
+{
+  char			*name;
+  t_object		*obj;
+  t_light		*light;
+  t_coor		pos;
+  t_coor		a;
+  int			nb_obj;
+  int			nb_light;
+}			t_scene;
 
 typedef struct		s_flags
 {
@@ -73,7 +94,7 @@ typedef struct		s_flags
 
 typedef struct		s_all
 {
-  int			kill;
+  int			loaded;
   char			**tab;
   t_object		*object;
   t_vec			*lum;
@@ -88,7 +109,7 @@ typedef struct		s_all
 
 typedef struct		s_fonct
 {
-  double		(*ptr)(t_all *all, t_vec *vec, t_object *coor);
+  int			(*ptr)(t_all *all, t_vec *vec, t_object *coor);
   int			type;
 }			t_fonct;
 
