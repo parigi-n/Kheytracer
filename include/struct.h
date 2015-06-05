@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Tue Jun  2 16:59:22 2015 Nicolas PARIGI
+** Last update Fri Jun  5 17:25:00 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -39,6 +39,7 @@ typedef struct		s_calcul
   t_coor		pos;
   double		k;
   double		tmpk;
+  t_object		*save;
   double		prea;
 }			t_calcul;
 
@@ -79,6 +80,7 @@ typedef	struct		s_scene
   char			*name;
   t_object		*obj;
   t_light		*light;
+  t_light		eye;
   t_coor		pos;
   t_coor		a;
   int			nb_obj;

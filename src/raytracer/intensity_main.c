@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu Jun  4 19:55:57 2015 Jules Vautier
+** Last update Fri Jun  5 17:21:39 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -41,18 +41,18 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
 }
 
 int		prepare_intensity(t_all *all, t_vec *lum,
-				  t_object *obj, double k)
+				  t_object *obj, t_scene *scene)
 {
   int		intensity;
 
-  calc_point_eye(&all->eye, all->pixel_nb);
-  calc_vec(&all->eye, obj);
-  if (all->flag.rotate == 1)
+  calc_point_eye(&scene->eye, all->pixel_nb);
+  calc_vec(&scene->eye, obj);
+  /*if (all->flag.rotate == 1)
     {
       rotate(&all->eye, obj, -1);
       rotate(&all->eye, &all->eye, 1);
-    }
-  calc_point_lum(&all->eye, lum, obj, k);
+    }*/
+  calc_point_lum(&scene->eye, lum, obj, all->calc.tmpk);
   intensity = g_fonct[obj->type].ptr(all, lum, obj);
   return (intensity);
 }

@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Wed Jun  3 16:51:31 2015 david sebaoun
+** Last update Fri Jun  5 16:45:38 2015 Jules Vautier
 */
 
 #include <dirent.h>
@@ -17,7 +17,7 @@ int		ls(t_all *all, t_scene *scene)
 {
   DIR		*fd;
   struct dirent	*entry;
-  
+
   if (all->tab[1] != NULL)
     {
       if ((fd = opendir(all->tab[1])) == NULL)

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri Jun  5 08:46:33 2015 Jules Vautier
+** Last update Fri Jun  5 16:57:55 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -34,11 +34,11 @@ static int	raycast(t_all *all, t_object **list)
   while (tmp != NULL)
     {
       calc_vec(&all->eye, tmp);
-      if (all->flag.rotate == 1)
+      /*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, tmp, 1);
-	}
+	  }*/
       k = g_fonct[tmp->type].ptr(all, &all->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
 	{
@@ -50,15 +50,15 @@ static int	raycast(t_all *all, t_object **list)
   return (0);
 }
 
-int		raytrace(t_all *all)
+int		raytrace(t_all *all, t_scene *scene)
 {
   all->pixel_nb = 0;
-  init_rotate(all);
+  init_rotate(all, scene);
   while (all->pixel_nb < SIZE_IMG)
     {
-      calc_point_eye(&all->eye, all->pixel_nb);
-      raycast(all, &all->object);
-      creat_pixel(all);
+      calc_point_eye(&scene->eye, all->pixel_nb);
+      raycast(all, &scene->object);
+      creat_pixel(all, scene);
       all->pixel_nb = all->pixel_nb + 4;
     }
   gere_expose(all);

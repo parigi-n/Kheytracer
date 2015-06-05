@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Mon Jun  1 11:36:37 2015 Jules Vautier
+** Last update Fri Jun  5 17:16:48 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -40,7 +40,8 @@ static void	my_pixel_put(int nbr, char *img,
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
-static int	find_color(t_all *all, t_vec **list, t_object *save)
+static int	find_color(t_all *all, t_vec **list,
+			   t_object *save, t_scene *scene)
 {
   t_vec		*lum;
   int		ret;
@@ -67,22 +68,22 @@ static int	find_color(t_all *all, t_vec **list, t_object *save)
   return (ret);
 }
 
-int		creat_pixel(t_all *all)
+int		creat_pixel(t_all *all, t_scene *scene)
 {
   int		intensity;
-  t_object	*save;
 
   intensity = 1000;
-  save = all->obj;
-  find_point(&all->eye, &all->point, all->calc.k);
+  all->calc.tmpk = all->calc.k;
+  all->calc->save = all->obj;
+  find_point(&scene->eye, &all->point, all->calc.k);
   if (save == NULL)
     {
       my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
       return (0);
     }
-  intensity = find_color(all, &all->lum, save);
+  intensity = find_color(all, &scene->lum, scene);
   if (save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
-	       save->color, intensity);
+		 all->calc->save->color, intensity);
   return (0);
 }
