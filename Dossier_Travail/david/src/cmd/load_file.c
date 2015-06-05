@@ -5,36 +5,26 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Fri Jun  5 18:39:48 2015 david sebaoun
+** Last update Fri Jun  5 18:57:49 2015 david sebaoun
 */
 
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include "rt.h"
 #include "cmd.h"
 #include "parser.h"
 
 static int	check_file(const char *path)
 {
-  int		fd;
-
   if (path == NULL)
     return (ERROR);
-  if (my_strlen(path) < 6 || 
-      (path[my_strlen(path) - 1] != 'y' ||
-       path[my_strlen(path) - 2] != 'e' ||
-       path[my_strlen(path) - 3] != 'h' ||
-       path[my_strlen(path) - 4] != 'k' ||
-       path[my_strlen(path) - 5] != '.') ||
-      (fd = open(path, O_RDONLY)) == ERROR)
+  if (my_strlen(path) < 6 ||
+      (my_strlcmp(path, ".khey", 5) == ERROR) ||
+      (access(path, R_OK)))
     {
       puterr("Error: File does not exist or is not compatible\n");
       return (ERROR);
-    }
-  if (close(fd) == ERROR)
-    {
-      puterr("Error: Something unexpected happened\n");
-      return (EXIT);
     }
   return (SUCCESS);
 }
@@ -48,15 +38,12 @@ static void	init_coord(t_coor *coord)
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
-  /* t_object	*obj; */
-  /* t_light	*light; */
   int		fd;
 
-  /* obj = NULL; */
-  /* light = NULL; */
   scene->name = NULL;
   scene->obj = NULL;
   scene->light = NULL;
+  scene->last_line = 0;
   scene->nb_obj = 0;
   scene->nb_light = 0;
   init_coord(&scene->pos);
@@ -66,6 +53,7 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
       (close(fd) == ERROR))
     {
       all->loaded = ERROR;
+      my_putnbr(scene->last_line);
       return (ERROR);
     }
   all->loaded = SUCCESS;
