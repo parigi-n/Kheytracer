@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Mon Jun  1 10:25:07 2015 Jules Vautier
+** Last update Thu Jun  4 19:56:20 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -28,16 +28,16 @@ static int	do_shadow(t_all *all, t_object **list,
   double	tmpk;
 
   obj = *list;
-  all->calc.k = 9999999.0;
+  all->calc.k = 99999.0;
   all->obj = NULL;
   while (obj != NULL)
     {
       calc_point_lum(&all->eye, lum, obj, k);
-      /*if (all->flag.rotate == 1)
+      if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, obj, 1);
-	  }*/
+	}
       tmpk = g_fonct[obj->type].ptr(all, lum, obj);
       if (tmpk > 0.000001 && tmpk < all->calc.k)
 	{
@@ -60,8 +60,15 @@ int		shadow(t_all *all, double k,
   if (all->obj == NULL)
     return (1);
   if (my_strcmp(save->name, all->obj->name) == 0)
-    return (1);
-  /*if (my_strcmp(save->name, "plan") != 0)
-    printf("%s %s\n", save->name, all->obj->name);*/
+    {
+      return (1);
+    }
+  /*printf("%s %s ", save->name, all->obj->name);
+    printf("%f\n", all->calc.k);*/
+  /*if (my_strcmp(save->name, "cyl1") == 0)
+    {
+      printf("%s %s ", save->name, all->obj->name);
+      printf("%f\n", all->calc.k);
+      }*/
   return (0);
 }

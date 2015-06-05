@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Mon Jun  1 09:57:05 2015 Jules Vautier
+** Last update Mon Jun  1 11:36:37 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -55,6 +55,8 @@ static int	find_color(t_all *all, t_vec **list, t_object *save)
     {
       if (all->flag.intensity == 1)
 	inten = prepare_intensity(all, lum, save, k);
+      else
+	inten = 1000;
       if (all->flag.shadow == 1)
 	inten = inten * shadow(all, k, lum, save);
       if (inten < 0)

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Fri May 29 11:21:30 2015 Jules Vautier
+** Last update Thu Jun  4 19:46:37 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -30,8 +30,13 @@ static double	end_calc(t_object *obj, t_coor *point,
   double	k;
 
   k = ((-point->y - sqrt(delta)) / (2 * point->x));
-  if (k * vec->v.z + vec->pos.z > 0.0 &&
-      k * vec->v.z + vec->pos.z < obj->lim)
+  if (obj->lim > 0.0)
+    {
+      if (k * vec->v.z + vec->pos.z > 0.0 &&
+	  k * vec->v.z + vec->pos.z < obj->lim)
+	return (k);
+    }
+  else
     return (k);
   return (0.0);
 }

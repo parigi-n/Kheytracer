@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri May 29 11:25:01 2015 Jules Vautier
+** Last update Thu Jun  4 19:55:37 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -34,11 +34,11 @@ static int	raycast(t_all *all, t_object **list)
   while (tmp != NULL)
     {
       calc_vec(&all->eye, tmp);
-      /*if (all->flag.rotate == 1)
+      if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, tmp, 1);
-	}*/
+	}
       k = g_fonct[tmp->type].ptr(all, &all->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
 	{
