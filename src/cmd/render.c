@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Thu Jun  4 17:01:01 2015 david sebaoun
+** Last update Fri Jun  5 18:17:19 2015 Jules Vautier
 */
 
 #include <sys/types.h>
@@ -31,10 +31,8 @@ int	render(t_all *all, t_scene *scene)
 	  exit(ERROR);
 	}
       init_calc(all);
-      if (raytrace(all) == 1)
-	return (SUCCESS);
-      /* if (raytrace(all, scene) == 1) */
-      /* 	return (SUCCESS); */
+      if (raytrace(all, scene) == 1)
+       	return (SUCCESS);
       mlx_expose_hook(all->var.win_ptr, gere_expose, all);
       mlx_hook(all->var.win_ptr, KeyPress, KeyRelease, &gere_key, all);
       mlx_loop(all->var.mlx_ptr);

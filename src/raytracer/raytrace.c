@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri Jun  5 17:56:32 2015 Jules Vautier
+** Last update Fri Jun  5 18:38:02 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -23,7 +23,7 @@ static const	t_fonct g_fonct[] =
     {NULL, -1}
   };
 
-static int	raycast(t_all *all, t_object **list)
+static int	raycast(t_all *all, t_object **list, t_scene *scene)
 {
   t_object	*tmp;
   double	k;
@@ -33,13 +33,13 @@ static int	raycast(t_all *all, t_object **list)
   all->obj = NULL;
   while (tmp != NULL)
     {
-      calc_vec(&all->eye, tmp);
+      calc_vec(&scene->eye, tmp);
       /*if (all->flag.rotate == 1)
 	{
 	  rotate(&all->eye, &all->object[NB_OBJ], 1);
 	  rotate(&all->eye, tmp, 1);
 	  }*/
-      k = g_fonct[tmp->type].ptr(all, &all->eye, tmp);
+      k = g_fonct[tmp->type].ptr(all, &scene->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
@@ -57,7 +57,7 @@ int		raytrace(t_all *all, t_scene *scene)
   while (all->pixel_nb < SIZE_IMG)
     {
       calc_point_eye(&scene->eye, all->pixel_nb);
-      raycast(all, &scene->obj);
+      raycast(all, &scene->obj, scene);
       creat_pixel(all, scene);
       all->pixel_nb = all->pixel_nb + 4;
     }
