@@ -15,7 +15,7 @@
 #include "struct.h"
 #include "rt.h"
 
-static int	do_calc(t_vec *vec, t_coor *coor)
+static int	do_calc(t_light *vec, t_coor *coor)
 {
   coor->x = (vec->v.x * vec->v.x) + (vec->v.y * vec->v.y)
     - (vec->v.z * vec->v.z);
@@ -29,7 +29,7 @@ static int	do_calc(t_vec *vec, t_coor *coor)
 }
 
 static double	end_calc(t_object *obj, t_coor *coor,
-			 double delta, t_vec *vec)
+			 double delta, t_light *vec)
 {
   double	limite;
   double	k;
@@ -41,7 +41,7 @@ static double	end_calc(t_object *obj, t_coor *coor,
   return (k);
 }
 
-double		inter_cone(t_all *all, t_vec *vec,
+double		inter_cone(t_all *all, t_light *vec,
 			   t_object *obj)
 {
   t_coor	coor;

@@ -22,7 +22,7 @@ static const	t_fonct g_fonct[] =
   };
 
 static int	do_shadow(t_all *all, t_object **list,
-			  t_vec *lum)
+			  t_light *lum)
 {
   t_object	*obj;
   double	tmpk;
@@ -49,7 +49,7 @@ static int	do_shadow(t_all *all, t_object **list,
  return (0);
 }
 
-int		shadow(t_all *all, t_vec *lum, t_scene *scene)
+int		shadow(t_all *all, t_light *lum, t_scene *scene)
 {
   t_coor	point_lum;
   t_coor	point_eye;

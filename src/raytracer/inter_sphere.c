@@ -16,7 +16,7 @@
 #include "rt.h"
 #include <stdio.h>
 
-static int	do_calc(t_vec *vec, t_coor *coor, t_object *object)
+static int	do_calc(t_light *vec, t_coor *coor, t_object *object)
 {
   coor->x = (vec->v.x * vec->v.x)
     + (vec->v.y * vec->v.y)
@@ -31,7 +31,7 @@ static int	do_calc(t_vec *vec, t_coor *coor, t_object *object)
   return (0);
 }
 
-double		inter_sphere(t_all *all, t_vec *vec,
+double		inter_sphere(t_all *all, t_light *vec,
 			     t_object *object)
 {
   t_coor	coor;

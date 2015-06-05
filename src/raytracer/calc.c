@@ -15,7 +15,7 @@
 #include "struct.h"
 #include "rt.h"
 
-int		calc_point_eye(t_vec *eye, int i)
+int		calc_point_eye(t_light *eye, int i)
 {
   i = i / 4;
   eye->new.x = 1000.0;
@@ -24,7 +24,7 @@ int		calc_point_eye(t_vec *eye, int i)
   return (0);
 }
 
-int		calc_point_lum(t_vec *eye, t_vec *vec,
+int		calc_point_lum(t_light *eye, t_light *vec,
 			       t_object *obj, double k)
 {
   t_coor	point;
@@ -39,7 +39,7 @@ int		calc_point_lum(t_vec *eye, t_vec *vec,
   return (0);
 }
 
-int		calc_vec(t_vec *vec, t_object *obj)
+int		calc_vec(t_light *vec, t_object *obj)
 {
   vec->tmp.x = vec->pos.x - obj->pos.x;
   vec->tmp.y = vec->pos.y - obj->pos.y;
@@ -52,7 +52,7 @@ int		calc_vec(t_vec *vec, t_object *obj)
   return (0);
 }
 
-int		find_point(t_vec *vec, t_coor *coor, double k)
+int		find_point(t_light *vec, t_coor *coor, double k)
 {
   coor->x = k * vec->v.x + vec->pos.x;
   coor->y = k * vec->v.y + vec->pos.y;

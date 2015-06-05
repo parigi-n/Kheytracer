@@ -22,7 +22,7 @@ static const	t_fonct g_fonct[] =
     {NULL, -1}
   };
 
-double		do_inten(t_vec *vec1, t_vec *vec2)
+double		do_inten(t_light *vec1, t_light *vec2)
 {
   double	inten;
   double	norm;
@@ -40,7 +40,7 @@ double		do_inten(t_vec *vec1, t_vec *vec2)
   return (inten);
 }
 
-int		prepare_intensity(t_all *all, t_vec *lum,
+int		prepare_intensity(t_all *all, t_light *lum,
 				  t_object *obj, t_scene *scene)
 {
   int		intensity;

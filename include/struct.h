@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri Jun  5 17:25:00 2015 Jules Vautier
+** Last update Fri Jun  5 17:41:23 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -33,28 +33,6 @@ typedef struct		s_coor
   double		z;
 }			t_coor;
 
-typedef struct		s_calcul
-{
-  t_coor		tmp;
-  t_coor		pos;
-  double		k;
-  double		tmpk;
-  t_object		*save;
-  double		prea;
-}			t_calcul;
-
-typedef struct		s_vec
-{
-  char			*name;
-  t_coor		pos;
-  t_coor		v;
-  t_coor		a;
-  t_coor		tmp;
-  t_coor		new;
-  int			color;
-  struct s_vec		*next;
-}			t_vec;
-
 typedef	struct		s_object
 {
   char			*name;
@@ -67,13 +45,27 @@ typedef	struct		s_object
   struct s_object	*next;
 }			t_object;
 
-typedef	struct		s_light
+typedef struct		s_light
 {
   char			*name;
   t_coor		pos;
+  t_coor		v;
+  t_coor		a;
+  t_coor		tmp;
+  t_coor		new;
   int			color;
-  struct s_object	*next;
+  struct s_light		*next;
 }			t_light;
+
+typedef struct		s_calcul
+{
+  t_coor		tmp;
+  t_coor		pos;
+  double		k;
+  double		tmpk;
+  t_object		*save;
+  double		prea;
+}			t_calcul;
 
 typedef	struct		s_scene
 {
@@ -99,10 +91,10 @@ typedef struct		s_all
   int			loaded;
   char			**tab;
   t_object		*object;
-  t_vec			*lum;
+  t_light		*lum;
   t_coor		point;
   t_object		*obj;
-  t_vec			eye;
+  t_light		eye;
   t_img			var;
   t_calcul		calc;
   int			pixel_nb;
@@ -111,7 +103,7 @@ typedef struct		s_all
 
 typedef struct		s_fonct
 {
-  int			(*ptr)(t_all *all, t_vec *vec, t_object *coor);
+  int			(*ptr)(t_all *all, t_light *vec, t_object *coor);
   int			type;
 }			t_fonct;
 

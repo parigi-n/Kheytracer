@@ -16,9 +16,9 @@ void		free_list(t_object **list);
 int		erase_list_object(t_object **list, char *str);
 int		listlen(t_object **list);
 int		my_put_in_list_object(t_object **, char *);
-int		my_put_in_list_vec(t_vec **, char *);
+int		my_put_in_list_light(t_light **, char *);
 void		my_show_list(t_object *);
 t_object	*my_getlist_obj(t_object **, char *);
-t_vec		*my_getlist_vec(t_vec **, char *);
+t_light		*my_getlist_light(t_light **, char *);
 
 #endif /* !LIST_H_ */

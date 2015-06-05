@@ -11,7 +11,7 @@
 #include "struct.h"
 #include "rt.h"
 
-static int	do_calc(t_vec *vec, t_coor *point,
+static int	do_calc(t_light *vec, t_coor *point,
 			t_object *obj)
 {
   point->x = (vec->v.x * vec->v.x)
@@ -25,7 +25,7 @@ static int	do_calc(t_vec *vec, t_coor *point,
 }
 
 static double	end_calc(t_object *obj, t_coor *point,
-			 double delta, t_vec *vec)
+			 double delta, t_light *vec)
 {
   double	k;
 
@@ -42,7 +42,7 @@ static double	end_calc(t_object *obj, t_coor *point,
 }
 
 double		inter_cylinder(t_all *all,
-			       t_vec *vec, t_object *obj)
+			       t_light *vec, t_object *obj)
 {
   t_coor	point;
   double	delta;

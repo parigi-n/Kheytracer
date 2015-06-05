@@ -11,7 +11,7 @@
 #include "struct.h"
 #include "rt.h"
 
-int		rotate_x(t_vec *vec, double a)
+int		rotate_x(t_light *vec, double a)
 {
   t_coor	tmp;
 
@@ -24,7 +24,7 @@ int		rotate_x(t_vec *vec, double a)
   return (0);
 }
 
-int		rotate_y(t_vec *vec, double a)
+int		rotate_y(t_light *vec, double a)
 {
   t_coor	tmp;
 
@@ -37,7 +37,7 @@ int		rotate_y(t_vec *vec, double a)
   return (0);
 }
 
-int		rotate_z(t_vec *vec, double a)
+int		rotate_z(t_light *vec, double a)
 {
   t_coor	tmp;
 
@@ -50,7 +50,7 @@ int		rotate_z(t_vec *vec, double a)
   return (0);
 }
 
-int		rotate(t_vec *vec, t_object *pos, int i)
+int		rotate(t_light *vec, t_object *pos, int i)
 {
   if (pos->a.x > 0.0)
     rotate_x(vec, pos->a.x * i);

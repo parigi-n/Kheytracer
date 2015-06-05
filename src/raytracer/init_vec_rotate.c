@@ -1,5 +1,5 @@
 /*
-** init_vec.c for init_vec in /home/vautie_a/rendu/MUL_2014_rtv1/rtv1_src
+** init_light.c for init_light in /home/vautie_a/rendu/MUL_2014_rtv1/rtv1_src
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>

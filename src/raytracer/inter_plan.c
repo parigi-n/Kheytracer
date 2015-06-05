@@ -11,7 +11,7 @@
 #include "struct.h"
 #include "rt.h"
 
-double		inter_plan(t_all *all, t_vec *vec, t_object *obj)
+double		inter_plan(t_all *all, t_light *vec, t_object *obj)
 {
   double	limite;
   double	k;

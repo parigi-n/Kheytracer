@@ -12,12 +12,12 @@
 #include <stdio.h>
 #include "rt.h"
 
-int		intensity_plan(t_all *all, t_vec *vec, t_object *obj)
+int		intensity_plan(t_all *all, t_light *vec, t_object *obj)
 {
   double	tmp;
   int		inte;
-  t_vec		vec2;
-  t_vec		vec1;
+  t_light		vec2;
+  t_light		vec1;
   t_coor	point;
 
   vec1.v.x = 0.0;
@@ -35,11 +35,11 @@ int		intensity_plan(t_all *all, t_vec *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
+int		intensity_sphere(t_all *all, t_light *vec, t_object *obj)
 {
   int		inte;
-  t_vec		vec1;
-  t_vec		vec2;
+  t_light		vec1;
+  t_light		vec2;
   t_coor	point;
 
   find_point(&all->eye, &point, all->calc.k);
@@ -55,11 +55,11 @@ int		intensity_sphere(t_all *all, t_vec *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
+int		intensity_cone(t_all *all, t_light *vec, t_object *obj)
 {
   int		inte;
-  t_vec		vec2;
-  t_vec		vec1;
+  t_light		vec2;
+  t_light		vec1;
   t_coor	point;
 
   find_point(&all->eye, &point, all->calc.k);
@@ -77,11 +77,11 @@ int		intensity_cone(t_all *all, t_vec *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_cylinder(t_all *all, t_vec *vec, t_object *obj)
+int		intensity_cylinder(t_all *all, t_light *vec, t_object *obj)
 {
   int		inte;
-  t_vec		vec2;
-  t_vec		vec1;
+  t_light		vec2;
+  t_light		vec1;
   t_coor	point;
 
   find_point(&all->eye, &point, all->calc.k);

@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Fri Jun  5 17:08:16 2015 Jules Vautier
+## Last update Fri Jun  5 17:41:45 2015 Jules Vautier
 ##
 
 SRC		= src/core/main.c \
@@ -13,7 +13,6 @@ SRC		= src/core/main.c \
 		src/core/gere_flag.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
-                src/core/tmp_load.c \
 		src/core/parser.c \
 		src/core/content_parsing.c \
 		src/core/content_parsing_light.c \

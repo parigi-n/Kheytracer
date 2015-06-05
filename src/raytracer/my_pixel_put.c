@@ -40,10 +40,10 @@ static void	my_pixel_put(int nbr, char *img,
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
-static int	find_color(t_all *all, t_vec **list,
+static int	find_color(t_all *all, t_light **list,
 			   t_object *save, t_scene *scene)
 {
-  t_vec		*lum;
+  t_light		*lum;
   int		ret;
   int		inten;
   int		check;
