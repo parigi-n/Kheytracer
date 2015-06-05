@@ -1,0 +1,20 @@
+<BEGIN>
+!NAME "Arc-en-ciel d'objets"
+      ELEMENT	OBJECT
+      NAME	"plan"
+      TYPE	SPHERE
+      ORIGIN	0 0 0
+      ROTATION	0 0 0
+      RADIUS	50
+      COLOR	A81C97
+
+      ELEMENT	LIGHT
+      NAME	"light"
+      ORIGIN	150 200 -50
+      COLOR	4A1CA8
+
+
+      ELEMENT	EYE
+      ORIGIN	100 0 0
+      ROTATION	0 0 0
+</END>
