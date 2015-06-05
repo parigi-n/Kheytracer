@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Fri Jun  5 17:49:22 2015 Nicolas PARIGI
+** Last update Fri Jun  5 19:24:42 2015 david sebaoun
 */
 
 #ifndef STRING_H_
@@ -35,5 +35,11 @@
 # define ERROR_BAD_ORDER	"Error : Excepted an another element in the parsed line. Please check order and syntax of your file.\n"
 # define ERROR_UNKNOWN_OBJ_TYPE	"Error : Object type doesn't exist.\n"
 # define ERROR_BAD_COLOR_LENGHT	"Error : Hexadecimal int of COLOR must be 6 char long.\n"
+
+# define ERROR_LOAD		"Error: The file could not be loaded\n"
+# define ERROR_FILE		"Error: File does not exist or is not compatible\n"
+# define ERROR_LINE		"\033[1;41mError : line %d\033[0m\n"
+# define LOAD_SUCCESS		"\033[1;32mFile Successfully loaded\033[0m\n"
+# define LOAD_USAGE		"Usage: load file.khey\n"
 
 #endif /* !STRING_H_ */

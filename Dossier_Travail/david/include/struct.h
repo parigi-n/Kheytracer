@@ -77,6 +77,7 @@ typedef	struct		s_scene
   t_coor		a;
   int			nb_obj;
   int			nb_light;
+  int			last_line;
 }			t_scene;
 
 typedef struct		s_flags
