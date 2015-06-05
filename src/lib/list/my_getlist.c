@@ -26,9 +26,9 @@ t_object	*my_getlist_obj(t_object **list, char *str)
   return (NULL);
 }
 
-t_vec		*my_getlist_vec(t_vec **list, char *str)
+t_light		*my_getlist_light(t_light **list, char *str)
 {
-  t_vec		*tmp;
+  t_light		*tmp;
 
   tmp = *list;
   while (tmp != NULL)

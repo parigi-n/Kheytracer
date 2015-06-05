@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu Jun  4 16:49:36 2015 david sebaoun
+** Last update Fri Jun  5 17:57:05 2015 Jules Vautier
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -45,7 +45,7 @@
 int	command_line(t_all *);
 char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
-int	shadow(t_all *, double, t_light *, t_object *);
+int	shadow(t_all *, t_light *, t_scene *);
 int	gere_expose(t_all *all);
 int	gere_key(int, void *);
 int	check_error(t_img *var);
@@ -54,7 +54,7 @@ int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
 int	do_k(t_all *, t_object **);
-int	raytrace(t_all *);
+int	raytrace(t_all *, t_scene *);
 double	inter_sphere(t_all *, t_light *, t_object *);
 double	inter_plan(t_all *, t_light *, t_object *);
 double	inter_cone(t_all *, t_light *, t_object *);
@@ -79,8 +79,9 @@ int	gere_key_obj(int, t_all *);
 int	gere_key_plan(int, t_all *);
 int	gere_key_lum(int, t_all *);
 int	find_point(t_light *, t_coor *, double);
-int	init_rotate(t_all *);
+int	init_rotate(t_object **);
 int	rotate(t_light *, t_object *, int);
 void	my_loading(int current, int total);
+int	creat_pixel(t_all *all, t_scene *scene);
 
 #endif /* !RT_H_ */

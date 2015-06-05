@@ -28,4 +28,8 @@
       NAME	"light"
       ORIGIN	150 200 -50
       COLOR	4A1CA8
+
+      ELEMENT	EYE
+      ORIGIN	0 0 0
+      ROTATION	1 1 1
 </END>

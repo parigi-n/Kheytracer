@@ -12,10 +12,10 @@
 #include "printf.h"
 #include "shared.h"
 
-void		free_list_vec(t_vec **list)
+void		free_list_light(t_light **list)
 {
-  t_vec		*tmp;
-  t_vec		*wait;
+  t_light		*tmp;
+  t_light		*wait;
 
   tmp = *list;
   while (tmp != NULL)
@@ -27,9 +27,9 @@ void		free_list_vec(t_vec **list)
     }
 }
 
-int		my_put_in_list_vec(t_vec **list, char *name)
+int		my_put_in_list_light(t_light **list, char *name)
 {
-  t_vec		*l_a;
+  t_light		*l_a;
 
   if ((l_a = malloc(sizeof(*l_a))) == NULL)
     return (ERROR);
@@ -40,9 +40,9 @@ int		my_put_in_list_vec(t_vec **list, char *name)
   return (SUCCESS);
 }
 
-void		my_show_list_vec(t_vec *list)
+void		my_show_list_light(t_light *list)
 {
-  t_vec		*tmp;
+  t_light		*tmp;
 
   tmp = list;
   while (tmp != NULL)

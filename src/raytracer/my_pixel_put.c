@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Fri Jun  5 17:16:48 2015 Jules Vautier
+** Last update Fri Jun  5 17:54:10 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -55,11 +55,11 @@ static int	find_color(t_all *all, t_light **list,
   while (lum != NULL)
     {
       if (all->flag.intensity == 1)
-	inten = prepare_intensity(all, lum, save, k);
+	inten = prepare_intensity(all, lum, save);
       else
 	inten = 1000;
       if (all->flag.shadow == 1)
-	inten = inten * shadow(all, k, lum, save);
+	inten = inten * shadow(all, lum, scene);
       if (inten < 0)
 	inten = 0;
       ret = ret + inten;
@@ -74,16 +74,17 @@ int		creat_pixel(t_all *all, t_scene *scene)
 
   intensity = 1000;
   all->calc.tmpk = all->calc.k;
-  all->calc->save = all->obj;
+  all->calc.save = all->obj;
   find_point(&scene->eye, &all->point, all->calc.k);
-  if (save == NULL)
+  if (all->calc.save == NULL)
     {
       my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
       return (0);
     }
-  intensity = find_color(all, &scene->lum, scene);
-  if (save != NULL)
+  intensity = find_color(all, &scene->light,
+			 all->calc.save, scene);
+  if (all->calc.save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
-		 all->calc->save->color, intensity);
+		 all->calc.save->color, intensity);
   return (0);
 }

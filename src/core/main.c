@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Thu Jun  4 16:51:10 2015 david sebaoun
+** Last update Fri Jun  5 18:00:43 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -32,7 +32,7 @@ int		gere_key(int keycode, void *param)
       if (gere_key_sphe(keycode, all) == 0)
 	if (gere_key_plan(keycode, all) == 0)
 	  gere_key_eye(keycode, all);
-      raytrace(all);
+      /*raytrace(all, scene);*/
       gere_expose(all);
     }
   return (0);
@@ -48,8 +48,6 @@ int		init_calc(t_all *all)
   init_obj_deux(all);
   init_obj_trois(all);
   init_obj_quatre(all);*/
-  init_eye(all);
-  my_load(all);
   return (0);
 }
 
