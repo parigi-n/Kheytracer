@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Thu Jun  4 19:46:37 2015 Jules Vautier
+** Last update Fri Jun  5 08:44:15 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -17,10 +17,10 @@ static int	do_calc(t_vec *vec, t_coor *point,
   point->x = (vec->v.x * vec->v.x)
     + (vec->v.y * vec->v.y);
   point->y = 2 * ((vec->tmp.x * vec->v.x)
-           + (vec->tmp.y * vec->v.y));
+		  + (vec->tmp.y * vec->v.y));
   point->z = ((vec->tmp.x * vec->tmp.x)
-       + (vec->tmp.y * vec->tmp.y)
-       - obj->r * obj->r * 2);
+	      + (vec->tmp.y * vec->tmp.y)
+	      - obj->r * obj->r * 2);
   return (0);
 }
 
