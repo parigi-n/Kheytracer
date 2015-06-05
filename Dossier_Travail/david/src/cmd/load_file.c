@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Fri Jun  5 18:47:08 2015 david sebaoun
+** Last update Fri Jun  5 18:39:48 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -48,14 +48,15 @@ static void	init_coord(t_coor *coord)
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
-  t_object	*obj;
-  t_light	*light;
+  /* t_object	*obj; */
+  /* t_light	*light; */
   int		fd;
 
-  obj = NULL;
-  light = NULL;
-  scene->obj = obj;
-  scene->light = light;
+  /* obj = NULL; */
+  /* light = NULL; */
+  scene->name = NULL;
+  scene->obj = NULL;
+  scene->light = NULL;
   scene->nb_obj = 0;
   scene->nb_light = 0;
   init_coord(&scene->pos);
@@ -77,16 +78,15 @@ int	load(t_all *all, t_scene *scene)
   int	loadable;
 
   loadable = ERROR;
-  /* if (all->tab[1] == NULL) */
-  /*   { */
-  /*     my_putstr("Usage: load file.khey\n"); */
-  /*     return (SUCCESS); */
-  /*   } */
-  /* if ((loadable = check_file(all->tab[1])) == EXIT) */
-  /*   return (EXIT); */
-  loadable = SUCCESS;
+  if (all->tab[1] == NULL)
+    {
+      my_putstr("Usage: load file.khey\n");
+      return (SUCCESS);
+    }
+  if ((loadable = check_file(all->tab[1])) == EXIT)
+    return (EXIT);
   if (loadable == SUCCESS)
-    if (load_file("test.khey"/* all->tab[1] */, scene, all) == ERROR)
+    if (load_file(all->tab[1], scene, all) == ERROR)
       return (puterr("Error: The file could not be loaded\n"));
   return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Fri Jun  5 19:02:16 2015 Jules Vautier
+** Last update Fri May 29 11:28:50 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:14:49 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -44,7 +44,6 @@ double		inter_sphere(t_all *all, t_light *vec,
   if (delta > 0.0)
     {
       k = ((-coor.y - sqrt(delta)) / (2 * coor.x));
-      /*printf("a %f\n", k);*/
       return (k);
     }
   return (0.0);
