@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri Jun  5 18:38:02 2015 Jules Vautier
+** Last update Fri Jun  5 19:02:03 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -40,6 +40,7 @@ static int	raycast(t_all *all, t_object **list, t_scene *scene)
 	  rotate(&all->eye, tmp, 1);
 	  }*/
       k = g_fonct[tmp->type].ptr(all, &scene->eye, tmp);
+      /*printf("p %f\n", k);*/
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
