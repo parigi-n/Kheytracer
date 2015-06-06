@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 16:43:48 2015 Nicolas PARIGI
+** Last update Sat Jun  6 16:57:14 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -21,7 +21,7 @@ static const	t_obj_type g_obj_type[] =
     {"CONE", TYPE_CONE},
     {"CYLINDER", TYPE_CYLINDER},
     {"PLAN", TYPE_PLAN},
-    {"DISC", TYPLE_DISC},
+    {"DISC", TYPE_DISC},
     {"TRIANGLE", TYPE_TRIANGLE},
     {"HYPERB", TYPE_HYPERB},
     {NULL, -1}
@@ -42,7 +42,7 @@ int	parser_obj_name(char **tab, t_object *parsing)
 
 int	parser_type(char **tab, t_object *parsing)
 {
-  char	i;
+  int	i;
 
   i = 0;
   if (my_tablen(tab) != 2)

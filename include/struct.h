@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 16:55:20 2015 Oscar Nosworthy
+** Last update Sat Jun  6 17:02:22 2015 Oscar Nosworthy
 */
 
 #ifndef STRUCT_H_
@@ -122,5 +122,11 @@ typedef struct		s_finten
 			       t_object *, t_light);
   int			type;
 }			t_finten;
+
+typedef struct		s_obj_type
+{
+  char			*name;
+  int			type;
+}			t_obj_type;
 
 #endif /* !STRUCT_H_ */
