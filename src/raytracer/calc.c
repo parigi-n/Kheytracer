@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 18:13:35 2015 Jules Vautier
+** Last update Sat Jun  6 19:17:00 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:13:18 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -31,15 +31,12 @@ int		calc_point_lum(t_light *eye, t_light *vec,
   t_coor	point;
 
   find_point(eye, &point, k);
-  /*printf("%f\n", k);*/
   vec->tmp.x = vec->pos.x - obj->pos.x;
   vec->tmp.y = vec->pos.y - obj->pos.y;
   vec->tmp.z = vec->pos.z - obj->pos.z;
   vec->v.x = point.x - vec->pos.x;
   vec->v.y = point.y - vec->pos.y;
   vec->v.z = point.z - vec->pos.z;
-  /* printf("%f %f %f\n", point.x, point.y, point.z); */
-  /* printf("%f %f %f\n", vec->v.x, vec->v.y, vec->v.z); */
   return (0);
 }
 
@@ -61,10 +58,8 @@ int		calc_vec(t_light *vec, t_object *obj)
   vec->tmp.y = vec->pos.y - obj->pos.y;
   vec->tmp.z = vec->pos.z - obj->pos.z;
   vec->v.x = vec->new.x;
-  vec->v.y = (SIZE_LARG) / 2
-    - vec->new.y;
-  vec->v.z = (SIZE_LONG) / 2
-  - vec->new.z;
+  vec->v.y = (SIZE_LARG) / 2 - vec->new.y;
+  vec->v.z = (SIZE_LONG) / 2 - vec->new.z;
   return (0);
 }
 
