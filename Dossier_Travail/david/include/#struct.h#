@@ -36,7 +36,7 @@ typedef struct		s_coor
 typedef	struct		s_object
 {
   char			*name;
-  int			type;
+  char			type;
   t_coor		a;
   t_coor		pos;
   int			r;
@@ -54,7 +54,7 @@ typedef struct		s_light
   t_coor		tmp;
   t_coor		new;
   int			color;
-  struct s_light		*next;
+  struct s_light       	*next;
 }			t_light;
 
 typedef struct		s_calcul
