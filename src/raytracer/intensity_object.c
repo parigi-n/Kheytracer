@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
-** Last update Sat Jun  6 15:39:01 2015 Jules Vautier
+** Last update Sat Jun  6 16:18:08 2015 Jules Vautier
 */
 
 #include "rt.h"
@@ -27,7 +27,7 @@ int		intensity_plan(t_all *all, t_light *vec,
   vec2.v.y = vec->pos.y - point.y;
   vec2.v.z = vec->pos.z - point.z;
   if (all->flag.rotate == 1)
-    rotate(&vec1, obj->a, 1);
+    rotate(&vec1, obj->a, -1);
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
     return (0);

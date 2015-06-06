@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 15:57:27 2015 Jules Vautier
+** Last update Sat Jun  6 16:04:09 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -17,7 +17,7 @@ static const	t_finten g_fonct[] =
     {&intensity_sphere, TYPE_SPHERE},
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
-    /*{&intensity_plan, TYPE_PLAN},*/
+    {&intensity_plan, TYPE_PLAN},
     {&intensity_plan, TYPE_DISC},
     {NULL, -1}
   };

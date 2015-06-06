@@ -35,7 +35,7 @@
       ELEMENT	OBJECT
       NAME	  "mur"
       TYPE	  PLAN
-      ORIGIN	  -4000 0 -6300
+      ORIGIN	  0 0 -10000
       ROTATION	  0 90 0
       RADIUS	  0
       COLOR	  7700FF
@@ -44,8 +44,8 @@
       NAME	  "sol"
       TYPE	  PLAN
       ORIGIN	  100 -200 -200
-      ROTATION	  0 90 0
-      RADIUS	  4000
+      ROTATION	  0 0 0
+      RADIUS	  0
       COLOR	  C8C814
 
       ELEMENT	  LIGHT

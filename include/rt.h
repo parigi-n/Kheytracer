@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 15:56:56 2015 Jules Vautier
+** Last update Sat Jun  6 16:19:39 2015 Jules Vautier
 */
 
 
@@ -33,6 +33,8 @@
 # define TYPE_CYLINDER	2
 # define TYPE_PLAN	3
 # define TYPE_DISC	4
+# define TYPE_TRIANGLE	5
+# define TYPE_HYPERB	6
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
@@ -50,7 +52,6 @@ int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
 int	find_point(t_light *, t_coor *, double);
 int	init_rotate(t_object **);
-int	do_k(t_all *, t_object **);
 int	raytrace(t_all *, t_scene *);
 int	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);

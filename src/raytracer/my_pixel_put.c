@@ -5,11 +5,8 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-<<<<<<< HEAD
-** Last update Sat Jun  6 10:43:15 2015 Jules Vautier
-=======
+** Last update Sat Jun  6 16:14:45 2015 Jules Vautier
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
 */
 
 #include "struct.h"
@@ -30,13 +27,10 @@ static void	my_pixel_put(int nbr, char *img,
   color = (color / 256);
   blue = (color % 256);
   red = (red * intensity) / 1000;
-  red = red + 20;
   img[nbr] = MAXCOLOR(red);
   green = (green * intensity) / 1000;
-  green = green + 20;
   img[nbr + 1] = MAXCOLOR(green);
   blue = (blue * intensity) / 1000;
-  blue = blue + 20;
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
