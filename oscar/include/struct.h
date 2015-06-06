@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu May 28 08:45:48 2015 Jules Vautier
+** Last update Sat Jun  6 10:30:58 2015 Oscar Nosworthy
 */
 
 #ifndef STRUCT_H_
@@ -30,6 +30,13 @@ typedef struct		s_coor
   double		y;
   double		z;
 }			t_coor;
+
+typedef	struct		s_tricor
+{
+  t_coor	tr1;
+  t_coor	tr2;
+  t_coor	tr3;
+}			t_tricor;
 
 typedef struct		s_calcul
 {

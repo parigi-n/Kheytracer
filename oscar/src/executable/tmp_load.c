@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue May 26 09:49:11 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu May 28 08:22:35 2015 Jules Vautier
+** Last update Sat Jun  6 11:23:12 2015 Oscar Nosworthy
 */
 
 #include "struct.h"
@@ -49,15 +49,43 @@ int		my_load(t_all *var)
   tmp->a.z = 0.0;
 
   /* 3 */
-  my_put_in_list_object(&var->object, "plan");
-  tmp = my_getlist_obj(&var->object, "plan");
+  /* my_put_in_list_object(&var->object, "carre"); */
+  /* tmp = my_getlist_obj(&var->object, "carre"); */
+  /* my_printf("%s ok\n", tmp->name); */
+  /* tmp->type = TYPE_PLAN; */
+  /* tmp->color = 0xC8C814; */
+  /* tmp->pos.x = 0.0; */
+  /* tmp->pos.y = 0.0; */
+  /* tmp->pos.z = -200.0; */
+  /* tmp->r = 1000; */
+  /* tmp->a.x = 0.0; */
+  /* tmp->a.y = 0.0; */
+  /* tmp->a.z = 0.0; */
+
+  /* 4 */
+  my_put_in_list_object(&var->object, "hyper");
+  tmp = my_getlist_obj(&var->object, "hyper");
   my_printf("%s ok\n", tmp->name);
-  tmp->type = TYPE_PLAN;
-  tmp->color = 0xC8C814;
-  tmp->pos.x = 100.0;
-  tmp->pos.y = -200.0;
+  tmp->type = TYPE_HYPER;
+  tmp->color = 0xFF00FF;
+  tmp->pos.x = 0.0;
+  tmp->pos.y = 600.0;
   tmp->pos.z = -200.0;
-  tmp->r = 1000;
+  tmp->r = 500;
+  tmp->a.x = 0.0;
+  tmp->a.y = 0.0;
+  tmp->a.z = 0.0;
+
+  /* 4 */
+  my_put_in_list_object(&var->object, "triangle");
+  tmp = my_getlist_obj(&var->object, "triangle");
+  my_printf("%s ok\n", tmp->name);
+  tmp->type = TYPE_TRIANGLE;
+  tmp->color = 0xFFFFFF;
+  tmp->pos.x = 0.0;
+  tmp->pos.y = 0.0;
+  tmp->pos.z = 0.0;
+  tmp->r = 500;
   tmp->a.x = 0.0;
   tmp->a.y = 0.0;
   tmp->a.z = 0.0;

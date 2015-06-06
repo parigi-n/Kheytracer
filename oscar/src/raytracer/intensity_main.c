@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Thu May 28 08:18:50 2015 Jules Vautier
+** Last update Tue Jun  2 11:24:14 2015 Oscar Nosworthy
 */
 
 #include <stdio.h>
@@ -18,7 +18,7 @@ static const	t_fonct g_fonct[] =
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
     {&intensity_plan, TYPE_PLAN},
-    {&intensity_plan, TYPE_DISQUE},
+    {&intensity_plan, TYPE_DISC},
     {NULL, -1}
   };
 

@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Thu May 28 08:49:14 2015 Jules Vautier
+** Last update Sat Jun  6 11:29:37 2015 Oscar Nosworthy
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -35,7 +35,9 @@
 # define TYPE_CONE	1
 # define TYPE_CYLINDER	2
 # define TYPE_PLAN	3
-# define TYPE_DISQUE	4
+# define TYPE_DISC	4
+# define TYPE_HYPER	5
+# define TYPE_TRIANGLE	6
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
@@ -53,6 +55,12 @@ int	calc_point_eye(t_vec *, int);
 int	calc_point_lum(t_vec *, t_vec *, t_object *, double);
 int	do_k(t_all *, t_object **);
 int	raytrace(t_all *);
+t_coor  crossProduct(t_coor point1, t_coor point2);
+double  dotProduct(t_coor point1, t_coor point2);
+t_coor	minus(t_coor point1, t_coor point2);
+int	inter_triangle(t_all *all, t_vec *vec, t_object *obj);
+int	inter_hyper(t_all *all, t_vec *vec, t_object *obj);
+int     inter_disc(t_all *all, t_vec *vec, t_object *obj);
 int	inter_sphere(t_all *, t_vec *, t_object *);
 int	inter_plan(t_all *, t_vec *, t_object *);
 int	inter_cone(t_all *, t_vec *, t_object *);
