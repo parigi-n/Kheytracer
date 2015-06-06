@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 11:43:22 2015 Jules Vautier
+** Last update Sat Jun  6 15:30:14 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -37,8 +37,8 @@ static int	raycast(t_all *all, t_object **list,
       calc_vec(&scene->eye, tmp);
       if (all->flag.rotate == 1)
 	{
-	  rotate(&all->eye, scene->eye.a, 1);
-	  rotate(&all->eye, tmp->a, 1);
+	  rotate(&scene->eye, scene->eye.a, 1);
+	  rotate(&scene->eye, tmp->a, 1);
 	}
       k = g_fonct[tmp->type].ptr(all, &scene->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
@@ -53,7 +53,7 @@ static int	raycast(t_all *all, t_object **list,
 
 int		raytrace(t_all *all, t_scene *scene)
 {
-  all->flag.rotate = 0;
+  all->flag.rotate = 1;
   all->flag.shadow = 0;
   all->flag.intensity = 1;
   all->pixel_nb = 0;

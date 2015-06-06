@@ -5,14 +5,15 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Dec 28 17:13:58 2014 Nicolas PARIGI
-** Last update Thu Jun  4 17:10:59 2015 david sebaoun
+** Last update Sat Jun  6 12:30:12 2015 david sebaoun
 */
 
 #include <stddef.h>
+#include <limits.h>
 
-char	*strlcpy(char *dst, const char *src, unsigned int size)
+char		*strlcpy(char *dst, const char *src, unsigned int size)
 {
-  int	length;
+  unsigned int	length;
 
   length = 0;
   while (src[length] != '\0')
@@ -24,7 +25,7 @@ char	*strlcpy(char *dst, const char *src, unsigned int size)
       size = length;
       dst[size] = '\0';
     }
-  while (size >= 0)
+  while (size != UINT_MAX)
     {
       size = size - 1;
       dst[size] = src[size];

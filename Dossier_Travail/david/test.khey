@@ -1,19 +1,64 @@
 <BEGIN>
-!NAME "Arc-en-ciel d'objets"
+!NAME "scene 5"
       ELEMENT	OBJECT
-      NAME	"sphere"
-      TYPE	SPHERE
-      ORIGIN	0 0 0
-      ROTATION	0 0 0
-      RADIUS	5
-      COLOR	A81C97
+      NAME	 "cyl1"
+      TYPE	CYLINDER
+      ORIGIN	  -2000 -700 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  FF0000
 
-      ELEMENT	LIGHT
-      NAME	"light"
-      ORIGIN	150 200 -50
-      COLOR	4A1CA8
+      ELEMENT	OBJECT
+      NAME	 "cyl2"
+      TYPE    CYLINDER
+      ORIGIN	  -3000 700 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  FF0000
 
-      ELEMENT	EYE
-      ORIGIN	-100 0 0
-      ROTATION	0 0 0
+      ELEMENT	OBJECT
+      NAME	 "cyl3"
+      TYPE    CYLINDER
+      ORIGIN	  200 -350 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  FF0000
+
+      ELEMENT	OBJECT
+      NAME	 "cyl4"
+      TYPE    CYLINDER
+      ORIGIN	  200 350 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  FF0000
+
+      ELEMENT	OBJECT
+      NAME	  "sol"
+      TYPE	  PLAN
+      ORIGIN	  100 -200 -200
+      ROTATION	  0 0 0
+      RADIUS	  0
+      COLOR	  C8C814
+
+      ELEMENT	OBJECT
+      NAME	  "mur"
+      TYPE	  PLAN
+      ORIGIN	  -4000 0 -6300
+      ROTATION	  0 0 90
+      RADIUS	  0
+      COLOR	  7700FF
+
+      ELEMENT	  LIGHT
+      NAME	  "lum1"
+      ORIGIN	  2000 1000 100
+      COLOR	000000
+
+      ELEMENT	  LIGHT
+      NAME	  "lum2"
+      ORIGIN	  -3000 -1000 600
+      COLOR	000000
+
+      ELEMENT	  EYE
+      ORIGIN	  -6000 0 0
+      ROTATION	  0 0 0
 </END>

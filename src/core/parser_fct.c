@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 11:26:11 2015 Jules Vautier
+** Last update Sat Jun  6 12:13:02 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 int	parser_obj_name(char **tab, t_object *parsing)
 {
@@ -22,7 +23,7 @@ int	parser_obj_name(char **tab, t_object *parsing)
   if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
     return (puterr(ERROR_BAD_ONAME_LENGHT));
   parsing->name = my_strcpy(tab[1]);
-  return (0);
+  return (SUCCESS);
 }
 
 int	parser_type(char **tab, t_object *parsing)
@@ -43,7 +44,7 @@ int	parser_type(char **tab, t_object *parsing)
     parsing->type = 3;
   else
     return (puterr(ERROR_UNKNOWN_OBJ_TYPE));
-  return (0);
+  return (SUCCESS);
 }
 
 int	parser_origin(char **tab, t_object *parsing)
@@ -58,7 +59,7 @@ int	parser_origin(char **tab, t_object *parsing)
   parsing->pos.x = atof(tab[1]);
   parsing->pos.y = atof(tab[2]);
   parsing->pos.z = atof(tab[3]);
-  return (0);
+  return (SUCCESS);
 }
 
 int	parser_rotation(char **tab, t_object *parsing)
@@ -77,4 +78,5 @@ int	parser_rotation(char **tab, t_object *parsing)
       parsing->a.y > 360 || parsing->a.y < -360 ||
       parsing->a.z > 360 || parsing->a.z < -360)
     return (puterr(ERROR_BAD_ARG_LENGHT));
+  return (SUCCESS);
 }

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Fri Jun  5 18:30:46 2015 Jules Vautier
+** Last update Sat Jun  6 15:35:56 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -13,7 +13,7 @@
 
 double		inter_plan(t_all *all, t_light *vec, t_object *obj)
 {
-  double	limite;
+  /* double	limite; */
   double	k;
 
   (void)all;

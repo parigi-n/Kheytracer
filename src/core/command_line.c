@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sat Jun  6 11:31:41 2015 david sebaoun
+** Last update Sat Jun  6 12:07:36 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -38,7 +38,7 @@ static void	cmd_start(t_all *all, t_scene *scene)
 int		command_line(t_all *all)
 {
   t_scene	scene;
-  int		i;
+  /* int		i; */
   
   cmd_start(all, &scene);
   load(all, &scene);
@@ -57,5 +57,5 @@ int		command_line(t_all *all)
   /* 	} */
   /*     write(1, "kheytracer$> ", 13); */
   /*   } */
-  /* return (ERROR); */
+  return (ERROR);
 }
