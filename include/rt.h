@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 15:34:27 2015 david sebaoun
+** Last update Sat Jun  6 15:56:56 2015 Jules Vautier
 */
 
 
@@ -32,7 +32,7 @@
 # define TYPE_CONE	1
 # define TYPE_CYLINDER	2
 # define TYPE_PLAN	3
-# define TYPE_DISQUE	4
+# define TYPE_DISC	4
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
@@ -60,7 +60,7 @@ double	inter_sphere(t_all *, t_light *, t_object *);
 double	inter_plan(t_all *, t_light *, t_object *);
 double	inter_cone(t_all *, t_light *, t_object *);
 double	inter_cylinder(t_all *, t_light *, t_object *);
-double	inter_disque(t_all *, t_light *, t_object *);
+double	inter_disc(t_all *, t_light *, t_object *);
 int	intensity_main(t_all *, t_light **, t_object *, int);
 int	intensity_plan(t_all *, t_light *, t_object *, t_light);
 int	intensity_sphere(t_all *, t_light *, t_object *, t_light);
