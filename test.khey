@@ -10,7 +10,7 @@
 
       ELEMENT	LIGHT
       NAME	"light"
-      ORIGIN	150 200 -50
+      ORIGIN	-100 10 0
       COLOR	4A1CA8
 
       ELEMENT	EYE

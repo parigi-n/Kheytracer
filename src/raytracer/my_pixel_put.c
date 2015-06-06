@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Fri Jun  5 19:02:52 2015 Jules Vautier
+** Last update Sat Jun  6 10:43:15 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -43,19 +43,16 @@ static void	my_pixel_put(int nbr, char *img,
 static int	find_color(t_all *all, t_light **list,
 			   t_object *save, t_scene *scene)
 {
-  t_light		*lum;
+  t_light	*lum;
   int		ret;
   int		inten;
-  int		check;
-  double	k;
 
-  k = all->calc.k;
   lum = *list;
   ret = 0;
   while (lum != NULL)
     {
       if (all->flag.intensity == 1)
-	inten = prepare_intensity(all, lum, save);
+	inten = prepare_intensity(all, lum, save, scene);
       else
 	inten = 1000;
       if (all->flag.shadow == 1)
@@ -83,7 +80,6 @@ int		creat_pixel(t_all *all, t_scene *scene)
     }
   intensity = find_color(all, &scene->light,
 			 all->calc.save, scene);
-  intensity = 1000;
   if (all->calc.save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 		 all->calc.save->color, intensity);

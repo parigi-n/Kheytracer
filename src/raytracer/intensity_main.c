@@ -6,13 +6,13 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Fri Jun  5 17:21:39 2015 Jules Vautier
+** Last update Sat Jun  6 10:41:05 2015 Jules Vautier
 */
 
 #include <stdio.h>
 #include "rt.h"
 
-static const	t_fonct g_fonct[] =
+static const	t_finten g_fonct[] =
   {
     {&intensity_sphere, TYPE_SPHERE},
     {&intensity_cone, TYPE_CONE},
@@ -45,14 +45,15 @@ int		prepare_intensity(t_all *all, t_light *lum,
 {
   int		intensity;
 
+
   calc_point_eye(&scene->eye, all->pixel_nb);
   calc_vec(&scene->eye, obj);
-  /*if (all->flag.rotate == 1)
+  if (all->flag.rotate == 1)
     {
-      rotate(&all->eye, obj, -1);
-      rotate(&all->eye, &all->eye, 1);
-    }*/
+      rotate(&all->eye, obj->a, -1);
+      rotate(&all->eye, scene->eye.a, 1);
+    }
   calc_point_lum(&scene->eye, lum, obj, all->calc.tmpk);
-  intensity = g_fonct[obj->type].ptr(all, lum, obj);
+  intensity = g_fonct[obj->type].ptr(all, lum, obj, scene->eye);
   return (intensity);
 }

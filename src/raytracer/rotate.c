@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb 11 16:09:14 2015 Jules Vautier
-** Last update Tue May 26 19:12:54 2015 david sebaoun
+** Last update Sat Jun  6 10:03:13 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -50,13 +50,13 @@ int		rotate_z(t_light *vec, double a)
   return (0);
 }
 
-int		rotate(t_light *vec, t_object *pos, int i)
+int		rotate(t_light *vec, t_coor a, int i)
 {
-  if (pos->a.x > 0.0)
-    rotate_x(vec, pos->a.x * i);
-  if (pos->a.y > 0.0)
-    rotate_y(vec, pos->a.y * i);
-  if (pos->a.z > 0.0)
-    rotate_z(vec, pos->a.z * i);
+  if (a.x > 0.0)
+    rotate_x(vec, a.x * i);
+  if (a.y > 0.0)
+    rotate_y(vec, a.y * i);
+  if (a.z > 0.0)
+    rotate_z(vec, a.z * i);
   return (0);
 }

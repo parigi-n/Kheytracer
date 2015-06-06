@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri Jun  5 17:57:05 2015 Jules Vautier
+** Last update Sat Jun  6 10:42:48 2015 Jules Vautier
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -53,19 +53,25 @@ int	init_calc(t_all *all);
 int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
+int	find_point(t_light *, t_coor *, double);
+int	init_rotate(t_object **);
 int	do_k(t_all *, t_object **);
 int	raytrace(t_all *, t_scene *);
+int	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
+int	rotate(t_light *, t_coor , int);
+void	my_loading(int current, int total);
+int	creat_pixel(t_all *all, t_scene *scene);
 double	inter_sphere(t_all *, t_light *, t_object *);
 double	inter_plan(t_all *, t_light *, t_object *);
 double	inter_cone(t_all *, t_light *, t_object *);
 double	inter_cylinder(t_all *, t_light *, t_object *);
 double	inter_disque(t_all *, t_light *, t_object *);
 int	intensity_main(t_all *, t_light **, t_object *, int);
-int	intensity_plan(t_all *, t_light *, t_object *);
-int	intensity_sphere(t_all *, t_light *, t_object *);
-int	intensity_cone(t_all *, t_light *, t_object *);
-int	intensity_cylinder(t_all *, t_light *, t_object *);
-int	intensity_disque(t_all *, t_light *, t_object *);
+int	intensity_plan(t_all *, t_light *, t_object *, t_light);
+int	intensity_sphere(t_all *, t_light *, t_object *, t_light);
+int	intensity_cone(t_all *, t_light *, t_object *, t_light);
+int	intensity_cylinder(t_all *, t_light *, t_object *, t_light);
+int	intensity_disque(t_all *, t_light *, t_object *, t_light);
 double	do_inten(t_light *, t_light *);
 int	init_obj_un(t_all *all);
 int	init_obj_deux(t_all *all);
@@ -78,10 +84,5 @@ int	gere_key_eye(int, t_all *);
 int	gere_key_obj(int, t_all *);
 int	gere_key_plan(int, t_all *);
 int	gere_key_lum(int, t_all *);
-int	find_point(t_light *, t_coor *, double);
-int	init_rotate(t_object **);
-int	rotate(t_light *, t_object *, int);
-void	my_loading(int current, int total);
-int	creat_pixel(t_all *all, t_scene *scene);
 
 #endif /* !RT_H_ */
