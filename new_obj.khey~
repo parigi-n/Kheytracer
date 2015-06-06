@@ -26,7 +26,7 @@
 
       ELEMENT	OBJECT
       NAME	 "cyl4"
-      TYPE	 CYLINDER
+      TYPE    CYLINDER
       ORIGIN	  200 350 20
       ROTATION	  0 0 0
       RADIUS	  100

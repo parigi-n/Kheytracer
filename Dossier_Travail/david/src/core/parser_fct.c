@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 12:13:02 2015 david sebaoun
+** Last update Sat Jun  6 16:57:14 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -13,6 +13,20 @@
 #include "string.h"
 #include "parser.h"
 #include "wordtab.h"
+#include "rt.h"
+
+static const	t_obj_type g_obj_type[] =
+  {
+    {"SPHERE", TYPE_SPHERE},
+    {"CONE", TYPE_CONE},
+    {"CYLINDER", TYPE_CYLINDER},
+    {"PLAN", TYPE_PLAN},
+    {"DISC", TYPE_DISC},
+    {"TRIANGLE", TYPE_TRIANGLE},
+    {"HYPERB", TYPE_HYPERB},
+    {NULL, -1}
+  };
+
 
 int	parser_obj_name(char **tab, t_object *parsing)
 {
@@ -28,23 +42,25 @@ int	parser_obj_name(char **tab, t_object *parsing)
 
 int	parser_type(char **tab, t_object *parsing)
 {
+  int	i;
+
+  i = 0;
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "TYPE") != 0)
     return (puterr(ERROR_BAD_ORDER));
   if (my_strlen(tab[1]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
-  if (my_strcmp(tab[1], "SPHERE") == 0)
-    parsing->type = 0;
-  else if (my_strcmp(tab[1], "CONE") == 0)
-    parsing->type = 1;
-  else if (my_strcmp(tab[1], "CYLINDER") == 0)
-    parsing->type = 2;
-  else if (my_strcmp(tab[1], "PLAN") == 0)
-    parsing->type = 3;
-  else
-    return (puterr(ERROR_UNKNOWN_OBJ_TYPE));
-  return (SUCCESS);
+  while (g_obj_type[i].type != -1)
+    {
+      if (my_strcmp(tab[1], g_obj_type[i].name) == 0)
+	{
+	  parsing->type = g_obj_type[i].type;
+	  return (SUCCESS);
+	}
+      i++;
+    }
+  return (puterr(ERROR_UNKNOWN_OBJ_TYPE));
 }
 
 int	parser_origin(char **tab, t_object *parsing)

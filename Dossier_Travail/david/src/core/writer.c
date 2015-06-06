@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sat Jun  6 16:21:04 2015 Nicolas PARIGI
+** Last update Sat Jun  6 17:43:20 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -14,6 +14,19 @@
 #include <stdio.h>
 #include "struct.h"
 #include "shared.h"
+#include "rt.h"
+
+static const	t_obj_type g_obj_type[] =
+  {
+    {"SPHERE", TYPE_SPHERE},
+    {"CONE", TYPE_CONE},
+    {"CYLINDER", TYPE_CYLINDER},
+    {"PLAN", TYPE_PLAN},
+    {"DISC", TYPE_DISC},
+    {"TRIANGLE", TYPE_TRIANGLE},
+    {"HYPERB", TYPE_HYPERB},
+    {NULL, -1}
+  };
 
 static int	write_lights(t_scene *scene, int fd)
 {
@@ -41,7 +54,7 @@ static int	write_objects(t_scene *scene, int fd)
     {
       dprintf(fd, "%s", "ELEMENT OBJECT\n");
       dprintf(fd, "%s \"%s\"\n", "NAME", tmp->name);
-      dprintf(fd, "%s %s\n", "TYPE", "TMP");
+      dprintf(fd, "%s %d\n", "TYPE", g_obj_type[tmp->type]->name);
       dprintf(fd, "%s %f %f %f\n", "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
       dprintf(fd, "%s %f %f %f\n", "ROTATION", tmp->a.x, tmp->a.y, tmp->a.z);
       dprintf(fd, "%s %f\n", "RADIUS", tmp->r);
