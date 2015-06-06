@@ -22,12 +22,12 @@ static int	check_element_type(t_scene *data, char *line, int fd)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   if (my_strcmp(tab[1], "OBJECT") == 0)
     {
-      if ((flag_stop = content_parsing_obj(&data->obj, fd, flag_stop)) == ERROR)
+      if ((flag_stop = content_parsing_obj(&data->obj, fd, flag_stop, data)) == ERROR)
 	return (ERROR);
     }
   else if (my_strcmp(tab[1], "LIGHT") == 0)
     {
-      if ((flag_stop = content_parsing_light(&data->light, fd, flag_stop)) == ERROR)
+      if ((flag_stop = content_parsing_light(&data->light, fd, flag_stop, data)) == ERROR)
 	return (ERROR);
     }
   else if (my_strcmp(tab[1], "EYE") == 0)
@@ -118,6 +118,7 @@ int		parser(t_scene *data, int fd)
   flag_stop = 0;
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
+      data->last_line++;
       if ((line = begin_parsing_check(line, flag_begin)) == NULL)
 	return (ERROR);
       if (my_strcmp(line, "<BEGIN>") == 0)

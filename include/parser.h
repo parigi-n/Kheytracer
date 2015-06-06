@@ -28,8 +28,8 @@ int		parser_light_color(char **tab, t_light *parsing);
 int		parser_eye_origin(char **tab, t_scene *data);
 int		parser_eye_rotation(char **tab, t_scene *data);
 
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop);
-int		content_parsing_light(t_light **light, int fd, int flag_stop);
+int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data);
+int		content_parsing_light(t_light **light, int fd, int flag_stop, t_scene *data);
 int		content_parsing_eye(t_scene *data, int fd, int flag_stop);
 
 typedef struct	s_parser_obj
