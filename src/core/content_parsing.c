@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Wed Jun  3 18:59:45 2015 Nicolas PARIGI
+** Last update Sat Jun  6 12:06:21 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -55,7 +55,9 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
   order = 0;
   while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
     {
-      data->last_line++;
+      data->last_line = data->last_line + 1;
+      my_putnbr(data->last_line);
+      my_putstr("o\n");
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
       if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)
