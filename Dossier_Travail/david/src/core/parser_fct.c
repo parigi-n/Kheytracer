@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Tue Jun  2 16:34:10 2015 Nicolas PARIGI
+** Last update Sat Jun  6 11:26:11 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -52,7 +52,8 @@ int	parser_origin(char **tab, t_object *parsing)
     return (puterr(ERROR_BAD_ORDER));
   if (my_tablen(tab) != 4)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2])
+      <= 0 || my_strlen(tab[3]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   parsing->pos.x = atof(tab[1]);
   parsing->pos.y = atof(tab[2]);
@@ -66,13 +67,14 @@ int	parser_rotation(char **tab, t_object *parsing)
     return (puterr(ERROR_BAD_ORDER));
   if (my_tablen(tab) != 4)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2])
+      <= 0 || my_strlen(tab[3]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   parsing->a.x = atof(tab[1]);
   parsing->a.y = atof(tab[2]);
   parsing->a.z = atof(tab[3]);
-  if (parsing->pos.x > 360 || parsing->pos.x < -360 ||
-    parsing->pos.y > 360 || parsing->pos.y < -360 ||
-      parsing->pos.z > 360 || parsing->pos.z < -360)
+  if (parsing->a.x > 360 || parsing->a.x < -360 ||
+      parsing->a.y > 360 || parsing->a.y < -360 ||
+      parsing->a.z > 360 || parsing->a.z < -360)
     return (puterr(ERROR_BAD_ARG_LENGHT));
 }
