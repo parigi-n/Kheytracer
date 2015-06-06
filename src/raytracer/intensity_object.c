@@ -6,13 +6,14 @@
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Fri May 29 11:38:16 2015 Jules Vautier
+** Last update Sat Jun  6 10:43:08 2015 Jules Vautier
 */
 
-#include <stdio.h>
 #include "rt.h"
+#include <stdio.h>
 
-int		intensity_plan(t_all *all, t_light *vec, t_object *obj)
+int		intensity_plan(t_all *all, t_light *vec,
+			       t_object *obj, t_light eye)
 {
   double	tmp;
   int		inte;
@@ -23,7 +24,7 @@ int		intensity_plan(t_all *all, t_light *vec, t_object *obj)
   vec1.v.x = 0.0;
   vec1.v.y = 0.0;
   vec1.v.z = 1.0;
-  find_point(&all->eye, &point, all->calc.k);
+  find_point(&eye, &point, all->calc.k);
   vec2.v.x = vec->pos.x - point.x;
   vec2.v.y = vec->pos.y - point.y;
   vec2.v.z = vec->pos.z - point.z;
@@ -35,14 +36,15 @@ int		intensity_plan(t_all *all, t_light *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_sphere(t_all *all, t_light *vec, t_object *obj)
+int		intensity_sphere(t_all *all, t_light *vec,
+				 t_object *obj, t_light eye)
 {
   int		inte;
-  t_light		vec1;
-  t_light		vec2;
+  t_light	vec1;
+  t_light	vec2;
   t_coor	point;
 
-  find_point(&all->eye, &point, all->calc.k);
+  find_point(&eye, &point, all->calc.k);
   vec1.v.x = point.x - obj->pos.x;
   vec1.v.y = point.y - obj->pos.y;
   vec1.v.z = point.z - obj->pos.z;
@@ -55,14 +57,15 @@ int		intensity_sphere(t_all *all, t_light *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_cone(t_all *all, t_light *vec, t_object *obj)
+int		intensity_cone(t_all *all, t_light *vec,
+			       t_object *obj, t_light eye)
 {
   int		inte;
   t_light		vec2;
   t_light		vec1;
   t_coor	point;
 
-  find_point(&all->eye, &point, all->calc.k);
+  find_point(&eye, &point, all->calc.k);
   vec1.v.x = point.x - vec->pos.x;
   vec1.v.y = point.y - vec->pos.y;
   vec1.v.z = point.z - vec->pos.z;
@@ -77,14 +80,15 @@ int		intensity_cone(t_all *all, t_light *vec, t_object *obj)
   return (inte);
 }
 
-int		intensity_cylinder(t_all *all, t_light *vec, t_object *obj)
+int		intensity_cylinder(t_all *all, t_light *vec,
+				   t_object *obj, t_light eye)
 {
   int		inte;
-  t_light		vec2;
-  t_light		vec1;
+  t_light	vec2;
+  t_light	vec1;
   t_coor	point;
 
-  find_point(&all->eye, &point, all->calc.k);
+  find_point(&eye, &point, all->calc.k);
   vec1.v.x = obj->pos.x - point.x;
   vec1.v.y = obj->pos.y - point.y;
   vec1.v.z = - point.z;

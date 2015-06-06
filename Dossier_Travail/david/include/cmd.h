@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 15:17:04 2015 david sebaoun
-** Last update Wed Jun  3 16:31:28 2015 david sebaoun
+** Last update Fri Jun  5 19:02:14 2015 david sebaoun
 */
 
 #ifndef CMD_H_
@@ -18,18 +18,18 @@
 
 typedef struct  s_cmd
 {
-  int          (*function)(t_all *all, t_scene *scene);
+  int          (*function)(t_all *, t_scene *);
   char          *cmd;
 }               t_cmd;
 
-int	help(t_all *all, t_scene *scene);
-int	edit(t_all *all, t_scene *scene);
-int	show(t_all *all, t_scene *scene);
-int	clear(t_all *all, t_scene *scene);
-int	create(t_all *all, t_scene *scene);
-int	render(t_all *all, t_scene *scene);
-int	my_exit(t_all *all, t_scene *scene);
-int	load(t_all *all, t_scene *scene);
-int	ls(t_all *all, t_scene *scene);
+int	help(t_all *, t_scene *);
+int	edit(t_all *, t_scene *);
+int	show(t_all *, t_scene *);
+int	clear(t_all *, t_scene *);
+int	create(t_all *, t_scene *);
+int	render(t_all *, t_scene *);
+int	my_exit(t_all *, t_scene *);
+int	load(t_all *, t_scene *);
+int	ls(t_all *, t_scene *);
 
 #endif /* !CMD_H_ */

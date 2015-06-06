@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Fri Jun  5 16:45:38 2015 Jules Vautier
+** Last update Fri Jun  5 18:49:35 2015 david sebaoun
 */
 
 #include <dirent.h>
@@ -26,7 +26,6 @@ int		ls(t_all *all, t_scene *scene)
   else
     if ((fd = opendir(".")) == NULL)
       return (ERROR);
-  entry = readdir(fd);
   while ((entry = readdir(fd)) != NULL)
     {
       if ((*entry).d_name[0] != '.')
