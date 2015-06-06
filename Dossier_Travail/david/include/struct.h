@@ -1,11 +1,11 @@
 /*
-** igraph.h for igraph in /home/vautie_a/rendu/MUL_2014_fdf
+** struct.h for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer/Dossier_Travail/david
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by david sebaoun
+** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 16:21:57 2015 david sebaoun
+** Started on  Sat Jun  6 16:33:50 2015 david sebaoun
+** Last update Sat Jun  6 17:01:49 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
@@ -100,6 +100,20 @@ typedef struct		s_all
   t_flags		flag;
   char			*name;
 }			t_all;
+
+typedef struct		s_data
+{
+  int			my_argc;
+  char			*term_cl;
+  char			*term_cm;
+  char			*term_ve;
+  char			*term_vi;
+  int			i;
+  int			x;
+  int			y;
+  int			z;
+  int			status;
+}		t_data;
 
 typedef struct		s_fonct
 {
