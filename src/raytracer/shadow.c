@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 18:13:26 2015 Jules Vautier
+** Last update Sat Jun  6 18:34:46 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -26,7 +26,6 @@ static void	do_shadow(t_all *all, t_object **list,
 {
   t_object	*obj;
   double	k;
-  double	tmp;
 
   obj = *list;
   all->calc.k = 99999.0;
@@ -51,17 +50,10 @@ static void	do_shadow(t_all *all, t_object **list,
 
 int		shadow(t_all *all, t_light *lum, t_scene *scene)
 {
-  /*t_coor	point_lum;
-  t_coor	point_eye;*/
-
-  /*find_point(lum, &point_lum, all->calc.k);*/
   do_shadow(all, &scene->obj, lum, scene);
   if (all->obj == NULL)
     return (1);
   if (my_strcmp(all->calc.save->name, all->obj->name) == 0)
-    {
-      /*printf("%s\n", all->obj->name);*/
-      return (1);
-    }
+    return (1);
   return (0);
 }

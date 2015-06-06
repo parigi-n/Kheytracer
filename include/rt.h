@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 18:14:06 2015 david sebaoun
+** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
 */
 
 
@@ -50,9 +50,9 @@ int	init_calc(t_all *);
 int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
+int	calc_light(t_coor point, t_light *vec, t_object *obj);
 int	find_point(t_light *, t_coor *, double);
-int	init_rotate(t_object **);
-int	do_k(t_all *, t_object **);
+void	init_rotate(t_object **, t_light *);
 int	raytrace(t_all *, t_scene *);
 int	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);
