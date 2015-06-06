@@ -5,11 +5,12 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sat Jun  6 17:15:52 2015 Oscar Nosworthy
+## Last update Sat Jun  6 15:47:58 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
 		src/core/command_line.c \
+		src/core/writer.c \
 		src/core/gere_flag.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
@@ -38,10 +39,7 @@ SRC		= src/core/main.c \
 		src/raytracer/intensity_main.c \
 		src/raytracer/intensity_object.c \
 		src/raytracer/inter_cone.c \
-		src/raytracer/inter_disc.c \
-		src/raytracer/get_triangle_info.c \
-		src/raytracer/triangle_tools.c \
-		src/raytracer/inter_triangle.c \
+		src/raytracer/inter_disque.c \
 		src/raytracer/inter_cylindre.c \
 		src/raytracer/inter_sphere.c \
 		src/raytracer/inter_plan.c \

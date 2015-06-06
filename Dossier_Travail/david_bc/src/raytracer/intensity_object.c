@@ -1,11 +1,12 @@
 /*
-** intensity_object.c for raytracer in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
+** rtv1.c for rtv1.c in /home/vautie_a/rendu/MUL_2014_rtv1/TP/rtv1_src
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
-** Last update Sat Jun  6 16:18:08 2015 Jules Vautier
+** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Sat Jun  6 15:35:37 2015 david sebaoun
 */
 
 #include "rt.h"
@@ -14,11 +15,13 @@
 int		intensity_plan(t_all *all, t_light *vec,
 			       t_object *obj, t_light eye)
 {
+  /* double	tmp; */
   int		inte;
-  t_light	vec2;
-  t_light	vec1;
+  t_light		vec2;
+  t_light		vec1;
   t_coor	point;
 
+  (void)obj;
   vec1.v.x = 0.0;
   vec1.v.y = 0.0;
   vec1.v.z = 1.0;
@@ -26,8 +29,8 @@ int		intensity_plan(t_all *all, t_light *vec,
   vec2.v.x = vec->pos.x - point.x;
   vec2.v.y = vec->pos.y - point.y;
   vec2.v.z = vec->pos.z - point.z;
-  if (all->flag.rotate == 1)
-    rotate(&vec1, obj->a, -1);
+  /*if (all->flag.rotate == 1)
+    rotate(vec1, obj, 1);*/
   inte = do_inten(&vec1, &vec2) * 1000.0;
   if (inte < 0)
     return (0);

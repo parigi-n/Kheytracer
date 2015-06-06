@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 10:41:05 2015 Jules Vautier
+** Last update Sat Jun  6 16:04:09 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -18,7 +18,7 @@ static const	t_finten g_fonct[] =
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
     {&intensity_plan, TYPE_PLAN},
-    {&intensity_plan, TYPE_DISQUE},
+    {&intensity_plan, TYPE_DISC},
     {NULL, -1}
   };
 
@@ -50,8 +50,8 @@ int		prepare_intensity(t_all *all, t_light *lum,
   calc_vec(&scene->eye, obj);
   if (all->flag.rotate == 1)
     {
-      rotate(&all->eye, obj->a, -1);
-      rotate(&all->eye, scene->eye.a, 1);
+      rotate(&scene->eye, scene->eye.a, 1);
+      rotate(&scene->eye, obj->a, 1);
     }
   calc_point_lum(&scene->eye, lum, obj, all->calc.tmpk);
   intensity = g_fonct[obj->type].ptr(all, lum, obj, scene->eye);

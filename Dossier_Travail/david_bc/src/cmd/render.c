@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Sat Jun  6 18:15:02 2015 david sebaoun
+** Last update Sat Jun  6 16:27:11 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "rt.h"
 #include "cmd.h"
+#include "wordtab.h"
 
 int	render(t_all *all, t_scene *scene)
 {
@@ -21,13 +22,13 @@ int	render(t_all *all, t_scene *scene)
 
   if (all->loaded != SUCCESS)
     return (puterr("Error: No scene loaded\n"));
-  /* if (gere_flag(&all->flag, my_tablen(all->tab), all->tab) == ERROR) */
-  /*   return (SUCCESS); */
+  if (gere_flag(&all->flag, my_tablen(all->tab), all->tab) == ERROR)
+    return (SUCCESS);
   if ((pid = fork()) == ERROR)
     return (ERROR);
   if (pid == 0)
     {
-      if (check_error(all, scene) == ERROR)
+      if (check_error(all) == ERROR)
 	{
 	  puterr("Error: error while opening window\n");
 	  exit(ERROR);

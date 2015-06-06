@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:38:32 2015 david sebaoun
-** Last update Sat Jun  6 17:44:32 2015 david sebaoun
+** Last update Sat Jun  6 18:19:37 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -19,88 +19,88 @@
 # define DOWN	4348699
 # define DELETE	2117294875
 
-int			canon()
-{
-  struct termios	t;
+/* int			canon() */
+/* { */
+/*   struct termios	t; */
 
-  if ((tcgetattr(0, &t)) == ERROR)
-    return (ERROR);
-  t.c_lflag &= ~ICANON;
-  t.c_cc[VMIN] = 1;
-  t.c_cc[VTIME] = 0;
-  if ((tcsetattr(0, TCSANOW, &t)) == ERROR)
-    return (ERROR);
-  return (SUCCESS);
-}
+/*   if ((tcgetattr(0, &t)) == ERROR) */
+/*     return (ERROR); */
+/*   t.c_lflag &= ~ICANON; */
+/*   t.c_cc[VMIN] = 1; */
+/*   t.c_cc[VTIME] = 0; */
+/*   if ((tcsetattr(0, TCSANOW, &t)) == ERROR) */
+/*     return (ERROR); */
+/*   return (SUCCESS); */
+/* } */
 
-int			my_echo()
-{
-  struct termios	t;
+/* int			my_echo() */
+/* { */
+/*   struct termios	t; */
 
-  if ((tcgetattr(0, &t)) == ERROR)
-    return (ERROR);
-  t.c_lflag &= ~ECHO;
-  if ((tcsetattr(0, TCSANOW, &t)) == ERROR)
-    return (ERROR);
-  return (SUCCESS);
-}
+/*   if ((tcgetattr(0, &t)) == ERROR) */
+/*     return (ERROR); */
+/*   t.c_lflag &= ~ECHO; */
+/*   if ((tcsetattr(0, TCSANOW, &t)) == ERROR) */
+/*     return (ERROR); */
+/*   return (SUCCESS); */
+/* } */
 
-int			set(t_edit *edit)
-{
-  char			buff[100];
-  struct termios	t;
+/* int			set(t_edit *edit) */
+/* { */
+/*   char			buff[100]; */
+/*   struct termios	t; */
 
-  edit->y = 0;
-  edit->status = 1;
-  if (tgetent(buff, getenv("TERM")) != 1)
-    {
-      my_putstr("Error : scene_creator couldn't access terminal informations\n");
-      return (ERROR);
-    }
-  if ((tcgetattr(0, &t)) == ERROR)
-    return (ERROR);
-  if ((edit->term_cl = tgetstr("cl", NULL)) == NULL)
-    return (ERROR);
-  if ((edit->term_cm = tgetstr("cm", NULL)) == NULL)
-    return (ERROR);
-  if ((edit->term_vi = tgetstr("vi", NULL)) == NULL)
-    return (ERROR);
-  if ((edit->term_ve = tgetstr("ve", NULL)) == NULL)
-    return (ERROR);
-  if (my_echo() == ERROR)
-    return (ERROR);
-  if (canon() == ERROR)
-    return (ERROR);
-  return (SUCCESS);
-}
+/*   edit->y = 0; */
+/*   edit->status = 1; */
+/*   if (tgetent(buff, getenv("TERM")) != 1) */
+/*     { */
+/*       my_putstr("Error : scene_creator couldn't access terminal informations\n"); */
+/*       return (ERROR); */
+/*     } */
+/*   if ((tcgetattr(0, &t)) == ERROR) */
+/*     return (ERROR); */
+/*   if ((edit->term_cl = tgetstr("cl", NULL)) == NULL) */
+/*     return (ERROR); */
+/*   if ((edit->term_cm = tgetstr("cm", NULL)) == NULL) */
+/*     return (ERROR); */
+/*   if ((edit->term_vi = tgetstr("vi", NULL)) == NULL) */
+/*     return (ERROR); */
+/*   if ((edit->term_ve = tgetstr("ve", NULL)) == NULL) */
+/*     return (ERROR); */
+/*   if (my_echo() == ERROR) */
+/*     return (ERROR); */
+/*   if (canon() == ERROR) */
+/*     return (ERROR); */
+/*   return (SUCCESS); */
+/* } */
 
-unsigned int		get_key(t_edit *edit)
-{
-  int			n;
-  unsigned long		keycode;
+/* unsigned int		get_key(t_edit *edit) */
+/* { */
+/*   int			n; */
+/*   unsigned long		keycode; */
 
-  n = 1;
-  if (my_putstr(edit->term_vi, 2) == NULL)
-    edit->status = 0;
-  /* display(file, edit, 98); */
-  while (n != 0)
-    {
-      keycode = 0;
-      if ((n = read(0, &keycode, sizeof(keycode))) == ERROR)
-	edit->status = 0;
-      if (keycode == EXIT)
-	return (EXIT);
-      else if (keycode == UP || keycode == DOWN)
-	return (keycode);
-    }
-  return (ERROR);
-}
+/*   n = 1; */
+/*   if (my_putstr(edit->term_vi, 2) == NULL) */
+/*     edit->status = 0; */
+/*   /\* display(file, edit, 98); *\/ */
+/*   while (n != 0) */
+/*     { */
+/*       keycode = 0; */
+/*       if ((n = read(0, &keycode, sizeof(keycode))) == ERROR) */
+/* 	edit->status = 0; */
+/*       if (keycode == EXIT) */
+/* 	return (EXIT); */
+/*       else if (keycode == UP || keycode == DOWN) */
+/* 	return (keycode); */
+/*     } */
+/*   return (ERROR); */
+/* } */
 
-int	init_creator()
-{
+/* int	init_creator() */
+/* { */
 
-  return (SUCCESS);
-}
+/*   return (SUCCESS); */
+/* } */
 
 int		create(t_all *all, t_scene *scene)
 {
@@ -109,7 +109,8 @@ int		create(t_all *all, t_scene *scene)
       my_putstr("Usage: create file.khey\n");
       return (ERROR);
     }
-  if (init_creator() == ERROR)
-    return (SUCCESS);
+  (void)scene;
+  /* if (init_creator() == ERROR) */
+  /*   return (SUCCESS); */
   return (SUCCESS);
 }
