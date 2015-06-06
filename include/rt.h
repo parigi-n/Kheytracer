@@ -6,7 +6,7 @@
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
 <<<<<<< HEAD
-** Last update Sat Jun  6 18:09:58 2015 david sebaoun
+** Last update Sun Jun  7 00:43:39 2015 Oscar Nosworthy
 =======
 ** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
 >>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
@@ -39,6 +39,7 @@
 # define TYPE_DISC	4
 # define TYPE_TRIANGLE	5
 # define TYPE_HYPERB	6
+# define TYPE_HYPERB2	7
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
@@ -68,6 +69,8 @@ double	inter_cone(t_all *, t_light *, t_object *);
 double	inter_cylinder(t_all *, t_light *, t_object *);
 double	inter_disc(t_all *, t_light *, t_object *);
 
+double	inter_hyper2(t_all *all, t_light *vec, t_object *obj);
+double	inter_hyper(t_all *all, t_light *vec, t_object *obj);
 double	inter_triangle(t_all *all, t_light *vec, t_object *obj);
 t_coor	cross_product(t_coor point1, t_coor point2);
 double	dot_product(t_coor point1, t_coor point2);
