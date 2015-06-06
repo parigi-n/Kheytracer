@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 17:14:47 2015 Oscar Nosworthy
+** Last update Sat Jun  6 18:29:46 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -54,7 +54,7 @@ static int	raycast(t_all *all, t_object **list,
 
 int		raytrace(t_all *all, t_scene *scene)
 {
-  all->flag.rotate = 1;
+  all->flag.rotate = 0;
   all->flag.shadow = 0;
   all->flag.intensity = 1;
   all->pixel_nb = 0;
