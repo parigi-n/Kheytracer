@@ -50,12 +50,12 @@
 
       ELEMENT	  LIGHT
       NAME	  "lum1"
-      ORIGIN	  2000 1000 100
+      ORIGIN	  -4000 1000 100
       COLOR	000000
 
       ELEMENT	  LIGHT
       NAME	  "lum2"
-      ORIGIN	  -3000 -1000 600
+      ORIGIN	  -2000 -1000 600
       COLOR	000000
 
       ELEMENT	  EYE
