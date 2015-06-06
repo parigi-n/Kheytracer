@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sat Jun  6 17:43:20 2015 Nicolas PARIGI
+** Last update Sat Jun  6 17:55:18 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -54,7 +54,7 @@ static int	write_objects(t_scene *scene, int fd)
     {
       dprintf(fd, "%s", "ELEMENT OBJECT\n");
       dprintf(fd, "%s \"%s\"\n", "NAME", tmp->name);
-      dprintf(fd, "%s %d\n", "TYPE", g_obj_type[tmp->type]->name);
+      dprintf(fd, "%s %d\n", "TYPE", g_obj_type[tmp->type].name);
       dprintf(fd, "%s %f %f %f\n", "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
       dprintf(fd, "%s %f %f %f\n", "ROTATION", tmp->a.x, tmp->a.y, tmp->a.z);
       dprintf(fd, "%s %f\n", "RADIUS", tmp->r);
