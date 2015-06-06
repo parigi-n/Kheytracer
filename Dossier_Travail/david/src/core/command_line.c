@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sat Jun  6 16:02:47 2015 david sebaoun
+** Last update Sat Jun  6 22:49:34 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -15,20 +15,26 @@
 
 static const t_cmd	g_cmd[] =
   {
+    {&ls, "ls"},
+    {&load, "load"},
     {&help, "help"},
-    {&edit, "edit"},
     {&show, "show"},
+    {&create, "add"},
     {&clear, "clear"},
     {&my_exit, "exit"},
     {&render, "render"},
-    {&load, "load"},
-    {&ls, "ls"},
     {&my_writer, "write"},
-    {&create, "create_scene"}
+    {NULL, ""}
   };
 
 static void	cmd_start(t_all *all, t_scene *scene)
 {
+  scene->name = NULL;
+  scene->obj = NULL;
+  scene->light = NULL;
+  scene->last_line = 0;
+  scene->nb_obj = 0;
+  scene->nb_light = 0;
   clear(all, scene);
   all->loaded = -1;
   my_putstr("Hello and welcome in kheytracer.\n");
@@ -47,9 +53,9 @@ int		command_line(t_all *all)
       if (all->tab[0] != NULL)
   	{
   	  i = -1;
-  	  while (++i < 10)
+  	  while (g_cmd[++i].function != NULL)
   	    {
-  	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == 0)
+  	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == SUCCESS)
   		if (g_cmd[i].function(all, &scene) == EXIT)
   		  return (SUCCESS);
   	    }

@@ -6,7 +6,7 @@
       ORIGIN	  -2000 -700 20
       ROTATION	  0 0 0
       RADIUS	  100
-      COLOR	  FF0000
+      COLOR	  AZERTY
 
       ELEMENT	OBJECT
       NAME	 "cyl2"

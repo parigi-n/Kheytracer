@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 12:25:48 2015 Jules Vautier
+** Last update Sat Jun  6 17:14:47 2015 Oscar Nosworthy
 */
 
 #include "shared.h"
@@ -19,7 +19,8 @@ static const	t_fonct g_fonct[] =
     {&inter_cone, TYPE_CONE},
     {&inter_cylinder, TYPE_CYLINDER},
     {&inter_plan, TYPE_PLAN},
-    {&inter_disque, TYPE_DISQUE},
+    {&inter_disc, TYPE_DISC},
+    {&inter_triangle, TYPE_TRIANGLE},
     {NULL, -1}
   };
 
@@ -55,7 +56,7 @@ int		raytrace(t_all *all, t_scene *scene)
 {
   all->flag.rotate = 1;
   all->flag.shadow = 0;
-  all->flag.intensity = 0;
+  all->flag.intensity = 1;
   all->pixel_nb = 0;
   init_rotate(&scene->obj);
   while (all->pixel_nb < SIZE_IMG)

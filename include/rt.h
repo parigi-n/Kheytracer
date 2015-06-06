@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 17:52:46 2015 david sebaoun
+** Last update Sat Jun  6 18:09:58 2015 david sebaoun
 */
 
 
@@ -45,7 +45,7 @@ int	my_load(t_all *);
 int	shadow(t_all *, t_light *, t_scene *);
 int	gere_expose(t_all *);
 int	gere_key(int, void *);
-int	check_error(t_all *);
+int	check_error(t_all *, t_scene *);
 int	init_calc(t_all *);
 int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);

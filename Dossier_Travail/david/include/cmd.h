@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 15:17:04 2015 david sebaoun
-** Last update Sat Jun  6 15:47:21 2015 david sebaoun
+** Last update Sat Jun  6 21:16:59 2015 david sebaoun
 */
 
 #ifndef CMD_H_
@@ -23,7 +23,6 @@ typedef struct  s_cmd
 }               t_cmd;
 
 int	help(t_all *all, t_scene *scene);
-int	edit(t_all *all, t_scene *scene);
 int	show(t_all *all, t_scene *scene);
 int	clear(t_all *all, t_scene *scene);
 int	create(t_all *all, t_scene *scene);

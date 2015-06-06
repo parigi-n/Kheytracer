@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sat Jun  6 16:27:31 2015 david sebaoun
+** Last update Sat Jun  6 20:56:01 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -42,12 +42,6 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
 {
   int		fd;
 
-  scene->name = NULL;
-  scene->obj = NULL;
-  scene->light = NULL;
-  scene->last_line = 0;
-  scene->nb_obj = 0;
-  scene->nb_light = 0;
   if (((fd = open(path, O_RDONLY)) == ERROR) ||
       (parser(scene, fd) == ERROR) ||
       (close(fd) == ERROR))
@@ -56,7 +50,6 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
       printf_err(ERROR_LINE, scene->last_line);
       return (ERROR);
     }
-  all->name = scene->name;
   all->loaded = SUCCESS;
   my_putstr(LOAD_SUCCESS);
   return (SUCCESS);

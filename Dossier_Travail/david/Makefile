@@ -5,12 +5,12 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sat Jun  6 15:47:58 2015 david sebaoun
+## Last update Sat Jun  6 21:17:52 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
-		src/core/command_line.c \
 		src/core/writer.c \
+		src/core/command_line.c \
 		src/core/gere_flag.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
@@ -24,10 +24,9 @@ SRC		= src/core/main.c \
 		src/core/parser_fct_eye.c \
 		src/core/splashscreen.c \
 		src/cmd/load_file.c \
-		src/cmd/scene_creator.c \
+		src/cmd/object_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
-		src/cmd/scene_editor.c \
 		src/cmd/help.c \
 		src/cmd/my_exit.c \
 		src/cmd/show_object_info.c \
@@ -39,7 +38,10 @@ SRC		= src/core/main.c \
 		src/raytracer/intensity_main.c \
 		src/raytracer/intensity_object.c \
 		src/raytracer/inter_cone.c \
-		src/raytracer/inter_disque.c \
+		src/raytracer/inter_disc.c \
+		src/raytracer/get_triangle_info.c \
+		src/raytracer/triangle_tools.c \
+		src/raytracer/inter_triangle.c \
 		src/raytracer/inter_cylindre.c \
 		src/raytracer/inter_sphere.c \
 		src/raytracer/inter_plan.c \
