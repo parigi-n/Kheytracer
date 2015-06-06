@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 11:29:37 2015 Oscar Nosworthy
+** Last update Sat Jun  6 11:47:06 2015 Oscar Nosworthy
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -58,6 +58,8 @@ int	raytrace(t_all *);
 t_coor  crossProduct(t_coor point1, t_coor point2);
 double  dotProduct(t_coor point1, t_coor point2);
 t_coor	minus(t_coor point1, t_coor point2);
+t_tricor        create_triangle(t_tricor triangle);
+t_tricor	find_edges(t_tricor edges, t_tricor tri);
 int	inter_triangle(t_all *all, t_vec *vec, t_object *obj);
 int	inter_hyper(t_all *all, t_vec *vec, t_object *obj);
 int     inter_disc(t_all *all, t_vec *vec, t_object *obj);

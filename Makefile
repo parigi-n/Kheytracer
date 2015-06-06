@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Fri Jun  5 17:41:45 2015 Jules Vautier
+## Last update Sat Jun  6 15:53:29 2015 Jules Vautier
 ##
 
 SRC		= src/core/main.c \
@@ -38,7 +38,7 @@ SRC		= src/core/main.c \
 		src/raytracer/intensity_main.c \
 		src/raytracer/intensity_object.c \
 		src/raytracer/inter_cone.c \
-		src/raytracer/inter_disque.c \
+		src/raytracer/inter_disc.c \
 		src/raytracer/inter_cylindre.c \
 		src/raytracer/inter_sphere.c \
 		src/raytracer/inter_plan.c \
