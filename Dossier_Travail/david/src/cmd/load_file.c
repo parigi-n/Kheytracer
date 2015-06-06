@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sat Jun  6 11:56:39 2015 david sebaoun
+** Last update Sat Jun  6 15:58:16 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -15,6 +15,7 @@
 #include "rt.h"
 #include "cmd.h"
 #include "parser.h"
+#include "printf.h"
 
 static int	check_file(const char *path)
 {

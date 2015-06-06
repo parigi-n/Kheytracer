@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Fri Jun  5 17:47:48 2015 Nicolas PARIGI
+** Last update Sat Jun  6 12:14:15 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 int	parser_eye_origin(char **tab, t_scene *data)
 {
@@ -24,7 +25,7 @@ int	parser_eye_origin(char **tab, t_scene *data)
   data->eye.pos.x = atof(tab[1]);
   data->eye.pos.y = atof(tab[2]);
   data->eye.pos.z = atof(tab[3]);
-  return (0);
+  return (SUCCESS);
 }
 
 int	parser_eye_rotation(char **tab, t_scene *data)
@@ -42,4 +43,5 @@ int	parser_eye_rotation(char **tab, t_scene *data)
     data->eye.a.y > 360 || data->eye.a.y < -360 ||
       data->eye.a.z > 360 || data->eye.a.z < -360)
     return (puterr(ERROR_BAD_ARG_LENGHT));
+  return (SUCCESS);
 }

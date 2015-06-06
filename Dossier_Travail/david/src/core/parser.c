@@ -14,6 +14,7 @@ static int	check_element_type(t_scene *data, char *line, int fd)
 
   flag_stop = 0;
   tab = my_word_to_tab(line, " ");
+  data->last_line++;
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "ELEMENT") != 0)
@@ -38,12 +39,6 @@ static int	check_element_type(t_scene *data, char *line, int fd)
   else
     return (puterr("Error : Unknown ELEMENT type found.\n"));
   return (flag_stop);
-}
-
-static int	element_launcher(t_scene *data, char *line, int fd)
-{
-
-
 }
 
 static int	begin_parsing(char *line, t_scene *data)
@@ -118,7 +113,7 @@ int		parser(t_scene *data, int fd)
   flag_stop = 0;
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
-      data->last_line++;
+      data->last_line = data->last_line + 1;
       if ((line = begin_parsing_check(line, flag_begin)) == NULL)
 	return (ERROR);
       if (my_strcmp(line, "<BEGIN>") == 0)

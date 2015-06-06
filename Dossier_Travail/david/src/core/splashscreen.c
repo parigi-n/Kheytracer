@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Dec 28 17:13:35 2014 Nicolas PARIGI
-** Last update Thu Jun  4 17:01:05 2015 david sebaoun
+** Last update Sat Jun  6 15:34:20 2015 david sebaoun
 */
 #include <unistd.h>
 #include <sys/wait.h>
@@ -16,6 +16,7 @@
 static int	gere_key_splash(int keycode, t_img *var)
 {
   (void)keycode;
+  (void)var;
   exit(SUCCESS);
   return (SUCCESS);
 }
@@ -24,6 +25,7 @@ static int	gere_mouse_splash(int button, int x, int y, t_img *var)
 {
   (void)x;
   (void)y;
+  (void)var;
   (void)button;
   exit(SUCCESS);
 }

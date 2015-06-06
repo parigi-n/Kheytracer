@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Sat Jun  6 11:56:56 2015 david sebaoun
+** Last update Sat Jun  6 12:20:09 2015 david sebaoun
 */
 
 #include <dirent.h>
 #include <stddef.h>
 #include "shared.h"
 #include "struct.h"
+#include "printf.h"
 
 int		ls(t_all *all, t_scene *scene)
 {
@@ -26,6 +27,7 @@ int		ls(t_all *all, t_scene *scene)
   else
     if ((fd = opendir(".")) == NULL)
       return (ERROR);
+  /* entry = readdir(fd); */
   while ((entry = readdir(fd)) != NULL)
     {
       if ((*entry).d_name[0] != '.')

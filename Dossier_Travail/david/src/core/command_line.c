@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sat Jun  6 11:56:06 2015 david sebaoun
+** Last update Sat Jun  6 16:02:47 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -23,6 +23,7 @@ static const t_cmd	g_cmd[] =
     {&render, "render"},
     {&load, "load"},
     {&ls, "ls"},
+    {&my_writer, "write"},
     {&create, "create_scene"}
   };
 
@@ -46,7 +47,7 @@ int		command_line(t_all *all)
       if (all->tab[0] != NULL)
   	{
   	  i = -1;
-  	  while (++i < 9)
+  	  while (++i < 10)
   	    {
   	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == 0)
   		if (g_cmd[i].function(all, &scene) == EXIT)

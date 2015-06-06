@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:41:35 2015 david sebaoun
-** Last update Tue Jun  2 15:49:15 2015 david sebaoun
+** Last update Sat Jun  6 12:19:16 2015 david sebaoun
 */
 
 #include "cmd.h"
@@ -15,5 +15,6 @@ int	my_exit(t_all *all, t_scene *scene)
 {
   /*my_freetab(tab);*/
   (void)all;
+  (void)scene;
   return (EXIT);
 }

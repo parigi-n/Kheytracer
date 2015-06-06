@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Sat Jun  6 11:56:48 2015 david sebaoun
+** Last update Sat Jun  6 15:58:48 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "rt.h"
 #include "cmd.h"
+#include "wordtab.h"
 
 int	render(t_all *all, t_scene *scene)
 {

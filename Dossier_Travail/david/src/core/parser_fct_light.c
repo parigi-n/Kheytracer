@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Tue Jun  2 16:34:10 2015 Nicolas PARIGI
+** Last update Sat Jun  6 12:13:35 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 int	parser_light_name(char **tab, t_light *parsing)
 {

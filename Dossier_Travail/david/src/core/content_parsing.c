@@ -5,13 +5,18 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Wed Jun  3 18:59:45 2015 Nicolas PARIGI
+<<<<<<< HEAD
+** Last update Sat Jun  6 12:09:49 2015 david sebaoun
+=======
+** Last update Sat Jun  6 15:28:38 2015 Nicolas PARIGI
+>>>>>>> a99b413447c7b84daa18f21983f50d257d80b8c1
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 static const	t_parser_obj g_parser_obj[] =
   {
@@ -24,7 +29,7 @@ static const	t_parser_obj g_parser_obj[] =
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_obj(t_object **obj, t_object *parsing)
+static void	my_put_in_list_obj(t_object **obj, t_object *parsing)
 {
   parsing->next = *obj;
   *obj = parsing;
@@ -41,7 +46,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   if (g_parser_obj[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
-  return (0);
+  return (SUCCESS);
 }
 
 int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
@@ -55,7 +60,7 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
   order = 0;
   while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
     {
-      data->last_line++;
+      data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
       if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)

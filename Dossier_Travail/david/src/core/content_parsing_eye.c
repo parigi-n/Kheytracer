@@ -5,13 +5,18 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Wed Jun  3 18:59:45 2015 Nicolas PARIGI
+<<<<<<< HEAD
+** Last update Sat Jun  6 12:11:31 2015 david sebaoun
+=======
+** Last update Sat Jun  6 15:28:54 2015 Nicolas PARIGI
+>>>>>>> a99b413447c7b84daa18f21983f50d257d80b8c1
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 static const	t_parser_eye g_parser_eye[] =
   {
@@ -31,7 +36,7 @@ static int	parsing_launcher(t_scene *data, char *line, int order)
   if (g_parser_eye[order++].fct(tab, data) == ERROR)
     return (ERROR);
   freetab(tab);
-  return (0);
+  return (SUCCESS);
 }
 
 int		content_parsing_eye(t_scene *data, int fd, int flag_stop)
@@ -42,7 +47,7 @@ int		content_parsing_eye(t_scene *data, int fd, int flag_stop)
   order = 0;
   while ((line = get_next_line(fd)) != NULL && order < 2 && flag_stop == 0)
     {
-      data->last_line++;
+      data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
       if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)

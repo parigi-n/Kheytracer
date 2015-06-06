@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sat Jun  6 15:42:18 2015 david sebaoun
+** Last update Sat Jun  6 16:04:49 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include "struct.h"
+#include "shared.h"
 
 static int	write_lights(t_scene *scene, int fd)
 {
@@ -53,25 +54,29 @@ static int	write_objects(t_scene *scene, int fd)
 static int	write_eye(t_scene *scene, int fd)
 {
   dprintf(fd, "%s", "ELEMENT EYE\n");
-  dprintf(fd, "%s%f%f%f\n", "ORIGIN", eye->pos.x, eye->pos.y, eye->pos.z);
-  dprintf(fd, "%s%f%f%f\n\h", "ROTATION", eye->a.x, eye->a.y, eye->>a.z);
+  dprintf(fd, "%s%f%f%f\n", "ORIGIN", scene->eye.pos.x, scene->eye.pos.y, scene->eye.pos.z);
+  dprintf(fd, "%s%f%f%f\n\n", "ROTATION", scene->eye.a.x, scene->eye.a.y, scene->eye.a.z);
   return (SUCCESS);
 }
 
-int		scene_writer(t_scene *data, char *name)
+int		my_writer(t_all *all, t_scene *scene)
 {
   int		fd;
 
-  if ((fd = open(name, O_WRONLY | O_CREAT,
+  my_putchar('@');
+  if (all->tab[1] == NULL)
+    return (my_putstr("Usage : write file_name.khey\n"));
+  if ((fd = open(all->tab[1], O_WRONLY | O_CREAT,
 		 S_IRUSR | S_IWUSR | S_IRGRP |
 		 S_IWGRP | S_IROTH)) == ERROR)
     return (ERROR);
   dprintf(fd, "%s", "I love Greg Ballot\n\n");
-  dprintf(fd,"%s\n%s%s\n", "<BEGIN>", "NAME ", data->name);
-  write_objects(data, fd);
-  write_lights(data, fd);
-  write_eye(data, fd);
+  dprintf(fd,"%s\n%s%s\n", "<BEGIN>", "NAME ", all->tab[1]);
+  write_objects(scene, fd);
+  write_lights(scene, fd);
+  write_eye(scene, fd);
   dprintf(fd, "%s", "</END>");
   if (close(fd) == ERROR)
     return (ERROR);
+  return (SUCCESS);
 }
