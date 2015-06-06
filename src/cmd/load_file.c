@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sat Jun  6 11:33:39 2015 david sebaoun
+** Last update Sat Jun  6 12:17:06 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -15,20 +15,21 @@
 #include "rt.h"
 #include "cmd.h"
 #include "parser.h"
+#include "printf.h"
 
-static int	check_file(const char *path)
-{
-  if (path == NULL)
-    return (ERROR);
-  if (my_strlen(path) < 6 ||
-      (my_strlcmp(path, ".khey", 5) == ERROR) ||
-      (access(path, R_OK)))
-    {
-      puterr(ERROR_FILE);
-      return (ERROR);
-    }
-  return (SUCCESS);
-}
+/* static int	check_file(const char *path) */
+/* { */
+/*   if (path == NULL) */
+/*     return (ERROR); */
+/*   if (my_strlen(path) < 6 || */
+/*       (my_strlcmp(path, ".khey", 5) == ERROR) || */
+/*       (access(path, R_OK))) */
+/*     { */
+/*       puterr(ERROR_FILE); */
+/*       return (ERROR); */
+/*     } */
+/*   return (SUCCESS); */
+/* } */
 
 static void	init_coord(t_coor *coord)
 {

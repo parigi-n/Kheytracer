@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:38:32 2015 david sebaoun
-** Last update Sat Jun  6 11:22:42 2015 david sebaoun
+** Last update Sat Jun  6 12:17:36 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -47,6 +47,7 @@ int	create(t_all *all, t_scene *scene)
       my_putstr("Usage: create file.khey\n");
       return (ERROR);
     }
+  (void)scene;
   /* display(scene); */
   return (SUCCESS);
 }

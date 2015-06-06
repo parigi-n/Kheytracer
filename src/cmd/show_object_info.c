@@ -5,11 +5,13 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:40:46 2015 david sebaoun
-** Last update Thu Jun  4 19:15:01 2015 david sebaoun
+** Last update Sat Jun  6 12:19:43 2015 david sebaoun
 */
 
+#include <stdio.h>
 #include "shared.h"
 #include "struct.h"
+#include "printf.h"
 
 static int	display_objects(t_scene *scene)
 {

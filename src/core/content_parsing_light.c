@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Wed Jun  3 18:59:45 2015 Nicolas PARIGI
+** Last update Sat Jun  6 12:10:35 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 static const	t_parser_light g_parser_light[] =
   {
@@ -21,7 +22,7 @@ static const	t_parser_light g_parser_light[] =
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_light(t_light **light, t_light *parsing)
+static void	my_put_in_list_light(t_light **light, t_light *parsing)
 {
   parsing->next = *light;
   *light = parsing;
@@ -38,7 +39,7 @@ static int	parsing_launcher(t_light *parsing, char *line, int order)
   if (g_parser_light[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
-  return (0);
+  return (SUCCESS);
 }
 
 int		content_parsing_light(t_light **light, int fd, int flag_stop, t_scene *data)

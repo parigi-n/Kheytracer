@@ -6,7 +6,7 @@
 ** 
 <<<<<<< HEAD:include/rtv1.h
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 10:42:48 2015 Jules Vautier
+** Last update Sat Jun  6 12:06:14 2015 david sebaoun
 =======
 ** Started on  Tue May 26 19:10:52 2015 david sebaoun
 ** Last update Tue May 26 19:11:03 2015 david sebaoun
@@ -46,10 +46,10 @@ int	command_line(t_all *);
 char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
 int	shadow(t_all *, t_light *, t_scene *);
-int	gere_expose(t_all *all);
+int	gere_expose(t_all *);
 int	gere_key(int, void *);
-int	check_error(t_img *var);
-int	init_calc(t_all *all);
+int	check_error(t_img *);
+int	init_calc(t_all *);
 int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
@@ -59,8 +59,8 @@ int	do_k(t_all *, t_object **);
 int	raytrace(t_all *, t_scene *);
 int	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);
-void	my_loading(int current, int total);
-int	creat_pixel(t_all *all, t_scene *scene);
+void	my_loading(int, int);
+int	creat_pixel(t_all *, t_scene *);
 double	inter_sphere(t_all *, t_light *, t_object *);
 double	inter_plan(t_all *, t_light *, t_object *);
 double	inter_cone(t_all *, t_light *, t_object *);
@@ -73,14 +73,15 @@ int	intensity_cone(t_all *, t_light *, t_object *, t_light);
 int	intensity_cylinder(t_all *, t_light *, t_object *, t_light);
 int	intensity_disque(t_all *, t_light *, t_object *, t_light);
 double	do_inten(t_light *, t_light *);
-int	init_obj_un(t_all *all);
-int	init_obj_deux(t_all *all);
-int	init_obj_trois(t_all *all);
-int	init_obj_quatre(t_all *all);
-int	init_eye(t_all *all);
-int	init_lum(t_all *all);
+int	init_obj_un(t_all *);
+int	init_obj_deux(t_all *);
+int	init_obj_trois(t_all *);
+int	init_obj_quatre(t_all *);
+int	init_eye(t_all *);
+int	init_lum(t_all *);
 int	gere_flag(t_flags *, int, char **);
 int	gere_key_eye(int, t_all *);
+int	gere_key_sphe(int, t_all *);
 int	gere_key_obj(int, t_all *);
 int	gere_key_plan(int, t_all *);
 int	gere_key_lum(int, t_all *);

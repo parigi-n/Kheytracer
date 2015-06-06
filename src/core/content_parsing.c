@@ -5,13 +5,14 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Wed Jun  3 18:59:45 2015 Nicolas PARIGI
+** Last update Sat Jun  6 12:09:49 2015 david sebaoun
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
+#include "wordtab.h"
 
 static const	t_parser_obj g_parser_obj[] =
   {
@@ -24,7 +25,7 @@ static const	t_parser_obj g_parser_obj[] =
     {NULL, '\0'}
   };
 
-static int	my_put_in_list_obj(t_object **obj, t_object *parsing)
+static void	my_put_in_list_obj(t_object **obj, t_object *parsing)
 {
   parsing->next = *obj;
   *obj = parsing;
@@ -41,7 +42,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   if (g_parser_obj[order++].fct(tab, parsing) == ERROR)
     return (ERROR);
   freetab(tab);
-  return (0);
+  return (SUCCESS);
 }
 
 int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
