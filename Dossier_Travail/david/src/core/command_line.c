@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sat Jun  6 10:20:33 2015 david sebaoun
+** Last update Sat Jun  6 11:56:06 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -41,8 +41,6 @@ int		command_line(t_all *all)
   int		i;
   
   cmd_start(all, &scene);
-  /* load(all, &scene); */
-  /* render(all, &scene); */
   while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
     {
       if (all->tab[0] != NULL)

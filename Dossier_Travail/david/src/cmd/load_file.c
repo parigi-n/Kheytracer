@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sat Jun  6 11:24:10 2015 david sebaoun
+** Last update Sat Jun  6 11:56:39 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -76,6 +76,6 @@ int	load(t_all *all, t_scene *scene)
     return (EXIT);
   if (loadable == SUCCESS)
     if (load_file(all->tab[1], scene, all) == ERROR)
-      return (puterr(ERROR_LOAD));
+      return (puterr("Error: The file could not be loaded\n"));
   return (SUCCESS);
 }
