@@ -5,11 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-<<<<<<< HEAD
-** Last update Sat Jun  6 16:34:39 2015 Nicolas PARIGI
-=======
-** Last update Sat Jun  6 16:21:57 2015 david sebaoun
->>>>>>> cf9bb4506d1c9fe4d90a5b8bcce8237880b8c8a3
+** Last update Sat Jun  6 16:54:43 2015 Nicolas PARIGI
 */
 
 #ifndef STRUCT_H_
@@ -40,7 +36,7 @@ typedef struct		s_coor
 typedef	struct		s_object
 {
   char			*name;
-  int			type;
+  char			type;
   t_coor		a;
   t_coor		pos;
   int			r;
@@ -58,7 +54,7 @@ typedef struct		s_light
   t_coor		tmp;
   t_coor		new;
   int			color;
-  struct s_light		*next;
+  struct s_light       	*next;
 }			t_light;
 
 typedef struct		s_calcul
@@ -77,6 +73,8 @@ typedef	struct		s_scene
   t_object		*obj;
   t_light		*light;
   t_light		eye;
+  t_coor		pos;
+  t_coor		a;
   int			nb_obj;
   int			nb_light;
   int			last_line;
@@ -102,7 +100,6 @@ typedef struct		s_all
   t_calcul		calc;
   int			pixel_nb;
   t_flags		flag;
-  char			*name;
 }			t_all;
 
 typedef struct		s_fonct
@@ -123,6 +120,5 @@ typedef struct		s_obj_type
   char			*name;
   char			type;
 }			t_obj_type;
-
 
 #endif /* !STRUCT_H_ */
