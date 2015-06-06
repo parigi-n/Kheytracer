@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Sat Jun  6 16:14:45 2015 Jules Vautier
+** Last update Sat Jun  6 18:14:01 2015 Jules Vautier
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 */
 
@@ -15,7 +15,8 @@
 
 
 static void	my_pixel_put(int nbr, char *img,
-			     unsigned int color, int intensity)
+			     unsigned int color,
+			     int intensity)
 {
   int		red;
   int		green;
@@ -67,6 +68,7 @@ int		creat_pixel(t_all *all, t_scene *scene)
   all->calc.tmpk = all->calc.k;
   all->calc.save = all->obj;
   find_point(&scene->eye, &all->point, all->calc.k);
+  /*printf("%f %f %f\n", all->point.x, all->point.y, all->point.z);*/
   if (all->calc.save == NULL)
     {
       my_pixel_put(all->pixel_nb, all->var.data, 0, 0);

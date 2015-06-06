@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 16:04:09 2015 Jules Vautier
+** Last update Sat Jun  6 18:24:59 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -55,5 +55,6 @@ int		prepare_intensity(t_all *all, t_light *lum,
     }
   calc_point_lum(&scene->eye, lum, obj, all->calc.tmpk);
   intensity = g_fonct[obj->type].ptr(all, lum, obj, scene->eye);
+  intensity -= 100;
   return (intensity);
 }
