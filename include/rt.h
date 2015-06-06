@@ -1,16 +1,11 @@
 /*
-** rt.h for raytracer in /home/sebaou_d/MUL_2014_rtracer/include
+** rt.h for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
 ** 
 ** Made by david sebaoun
 ** Login   <sebaou_d@epitech.net>
 ** 
-<<<<<<< HEAD:include/rtv1.h
-** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 12:06:14 2015 david sebaoun
-=======
-** Started on  Tue May 26 19:10:52 2015 david sebaoun
-** Last update Tue May 26 19:11:03 2015 david sebaoun
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6:include/rt.h
+** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
+** Last update Sat Jun  6 15:34:27 2015 david sebaoun
 */
 
 
@@ -85,5 +80,6 @@ int	gere_key_sphe(int, t_all *);
 int	gere_key_obj(int, t_all *);
 int	gere_key_plan(int, t_all *);
 int	gere_key_lum(int, t_all *);
+int	splash_screen();
 
 #endif /* !RT_H_ */

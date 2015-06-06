@@ -41,12 +41,6 @@ static int	check_element_type(t_scene *data, char *line, int fd)
   return (flag_stop);
 }
 
-static int	element_launcher(t_scene *data, char *line, int fd)
-{
-
-
-}
-
 static int	begin_parsing(char *line, t_scene *data)
 {
   char		**tab;

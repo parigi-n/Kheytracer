@@ -6,7 +6,7 @@
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 10:43:08 2015 Jules Vautier
+** Last update Sat Jun  6 15:35:37 2015 david sebaoun
 */
 
 #include "rt.h"
@@ -15,12 +15,13 @@
 int		intensity_plan(t_all *all, t_light *vec,
 			       t_object *obj, t_light eye)
 {
-  double	tmp;
+  /* double	tmp; */
   int		inte;
   t_light		vec2;
   t_light		vec1;
   t_coor	point;
 
+  (void)obj;
   vec1.v.x = 0.0;
   vec1.v.y = 0.0;
   vec1.v.z = 1.0;
