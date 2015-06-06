@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sat Jun  6 15:11:43 2015 Nicolas PARIGI
+** Last update Sat Jun  6 15:36:10 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -58,11 +58,11 @@ static int	write_eye(t_scene *scene, int fd)
   return (SUCCESS);
 }
 
-int		scene_writer(t_scene *data)
+int		scene_writer(t_scene *data, char *name)
 {
   int		fd;
 
-  if ((fd = open("print_test", O_WRONLY)) == -1)
+  if ((fd = open(name, O_WRONLY)) == -1)
     return (-1);;
   dprintf(fd, "%s", "I love Greg Ballot\n\n");
   dprintf(fd,"%s\n%s%s\n", "<BEGIN>", "NAME ", data->name);
