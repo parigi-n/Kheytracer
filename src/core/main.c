@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Fri Jun  5 18:43:43 2015 david sebaoun
+** Last update Sat Jun  6 11:31:22 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -59,17 +59,5 @@ int		main(int argc, char **argv)
   /*   return (ERROR); */
   if (command_line(&all) == ERROR)
     return (ERROR);
-  /* if (gere_flag(&all.flag, argc, argv) == -1) */
-  /*   return (0); */
-  /* if (check_error(&all.var) == -1) */
-  /*   { */
-  /*     puterr("fail in check_error\n"); */
-  /*     return (-1); */
-  /*   } */
-  /* init_calc(&all); */
-  /* raytrace(&all); */
-  /* mlx_expose_hook(all.var.win_ptr, gere_expose, &all); */
-  /* mlx_hook(all.var.win_ptr, KeyPress, KeyRelease, &gere_key, &all); */
-  /* mlx_loop(all.var.mlx_ptr); */
   return (0);
 }

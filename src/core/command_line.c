@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Fri Jun  5 18:44:42 2015 david sebaoun
+** Last update Sat Jun  6 11:31:41 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -57,5 +57,5 @@ int		command_line(t_all *all)
   /* 	} */
   /*     write(1, "kheytracer$> ", 13); */
   /*   } */
-  return (ERROR);
+  /* return (ERROR); */
 }

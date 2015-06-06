@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Fri Jun  5 18:17:19 2015 Jules Vautier
+** Last update Sat Jun  6 11:35:17 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -21,6 +21,8 @@ int	render(t_all *all, t_scene *scene)
 
   if (all->loaded != SUCCESS)
     return (puterr("Error: No scene loaded\n"));
+  /* if (gere_flag(&all->flag, my_tablen(all->tab), all->tab) == ERROR) */
+  /*   return (SUCCESS); */
   if ((pid = fork()) == ERROR)
     return (ERROR);
   if (pid == 0)
@@ -32,7 +34,7 @@ int	render(t_all *all, t_scene *scene)
 	}
       init_calc(all);
       if (raytrace(all, scene) == 1)
-       	return (SUCCESS);
+      	return (SUCCESS);
       mlx_expose_hook(all->var.win_ptr, gere_expose, all);
       mlx_hook(all->var.win_ptr, KeyPress, KeyRelease, &gere_key, all);
       mlx_loop(all->var.mlx_ptr);

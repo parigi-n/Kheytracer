@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Fri Jun  5 17:41:23 2015 Jules Vautier
+** Last update Sat Jun  6 11:28:07 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
@@ -104,8 +104,15 @@ typedef struct		s_all
 
 typedef struct		s_fonct
 {
-  int			(*ptr)(t_all *all, t_light *vec, t_object *coor);
+  double		(*ptr)(t_all *, t_light *, t_object *);
   int			type;
 }			t_fonct;
+
+typedef struct		s_finten
+{
+  int			(*ptr)(t_all *, t_light *,
+			       t_object *, t_light);
+  int			type;
+}			t_finten;
 
 #endif /* !STRUCT_H_ */

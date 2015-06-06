@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Fri Jun  5 19:27:43 2015 david sebaoun
+** Last update Sat Jun  6 11:24:10 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -54,7 +54,7 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
       (close(fd) == ERROR))
     {
       all->loaded = ERROR;
-      printf_err(ERROR_LINE, scene->last_line);;
+      printf_err(ERROR_LINE, scene->last_line);
       return (ERROR);
     }
   all->loaded = SUCCESS;

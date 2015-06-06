@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 10:40:46 2015 Jules Vautier
+** Last update Sat Jun  6 11:28:07 2015 david sebaoun
 */
 
 #ifndef STRUCT_H_
@@ -77,6 +77,7 @@ typedef	struct		s_scene
   t_coor		a;
   int			nb_obj;
   int			nb_light;
+  int			last_line;
 }			t_scene;
 
 typedef struct		s_flags

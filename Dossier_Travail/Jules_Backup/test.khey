@@ -1,0 +1,64 @@
+<BEGIN>
+!NAME "scene 5"
+      ELEMENT	OBJECT
+      NAME	 "cyl1"
+      TYPE	CYLINDER
+      COLOR	  0xFF0000
+      ORIGIN	  -3000 -500 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+
+      ELEMENT	OBJECT
+      NAME	 "cyl2"
+      TYPE    CYLINDER
+      COLOR	  0xFF0000
+      ORIGIN	  3000 -500 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+
+      ELEMENT	OBJECT
+      NAME	 "cyl3"
+      TYPE    CYLINDER
+      COLOR	  0xFF0000
+      ORIGIN	  200 -800 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+
+      ELEMENT	OBJECT
+      NAME	 "cyl4"
+      TYPE    CYLINDER
+      COLOR	  0xFF0000
+      ORIGIN	  200 800 20
+      ROTATION	  0 0 0
+      RADIUS	  100
+
+      ELEMENT	OBJECT
+      NAME	  "sol"
+      TYPE	  PLAN
+      COLOR	  0xC8C814;
+      ORIGIN	  100 -200 -200
+      ROTATION	  0 0 0
+      RADIUS	  0
+
+      ELEMENT	OBJECT
+      NAME	  "mur"
+      TYPE	  PLAN
+      COLOR	  0x7700FF;
+      ORIGIN	  -4000 0 -6300
+      ROTATION	  0 0 90
+      RADIUS	  0
+
+      ELEMENT	  LIGHT
+      NAME	  "lum1"
+      ORIGIN	  2000 1000 100
+      ROTATION	  0 0 0
+
+      ELEMENT	  LIGHT
+      NAME	  "lum2"
+      ORIGIN	  1000 -1000 600
+      ROTATION	  0 0 0
+
+      ELEMENT	  EYE
+      ORIGIN	  -1000 0 0
+      ROTATION	  0 0 0
+</END>
