@@ -120,8 +120,6 @@ int		parser(t_scene *data, int fd)
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
       data->last_line = data->last_line + 1;
-      my_putnbr(data->last_line);
-      my_putstr("M\n");
       if ((line = begin_parsing_check(line, flag_begin)) == NULL)
 	return (ERROR);
       if (my_strcmp(line, "<BEGIN>") == 0)
