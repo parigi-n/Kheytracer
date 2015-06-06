@@ -5,7 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
+<<<<<<< HEAD
 ** Last update Sat Jun  6 20:56:01 2015 david sebaoun
+=======
+** Last update Sat Jun  6 18:23:08 2015 david sebaoun
+>>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
 */
 
 #include <sys/stat.h>
@@ -31,17 +35,28 @@ static int	check_file(const char *path)
   return (SUCCESS);
 }
 
-/* static void	init_coord(t_coor *coord) */
-/* { */
-/*   coord->x = 0; */
-/*   coord->y = 0; */
-/*   coord->z = 0; */
-/* } */
+static void	init_coord(t_coor *coord)
+{
+  coord->x = 0;
+  coord->y = 0;
+  coord->z = 0;
+}
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
   int		fd;
 
+<<<<<<< HEAD
+=======
+  scene->name = NULL;
+  scene->obj = NULL;
+  scene->light = NULL;
+  scene->last_line = 0;
+  scene->nb_obj = 0;
+  scene->nb_light = 0;
+  init_coord(&scene->pos);
+  init_coord(&scene->a);
+>>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
   if (((fd = open(path, O_RDONLY)) == ERROR) ||
       (parser(scene, fd) == ERROR) ||
       (close(fd) == ERROR))
@@ -67,8 +82,9 @@ int	load(t_all *all, t_scene *scene)
     }
   if ((loadable = check_file(all->tab[1])) == EXIT)
     return (EXIT);
+  /* loadable = SUCCESS; */
   if (loadable == SUCCESS)
-    if (load_file(all->tab[1], scene, all) == ERROR)
+    if (load_file(/* "test.khey" */all->tab[1], scene, all) == ERROR)
       return (puterr("Error: The file could not be loaded\n"));
   return (SUCCESS);
 }

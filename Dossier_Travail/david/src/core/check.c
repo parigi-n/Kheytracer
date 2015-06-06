@@ -6,7 +6,11 @@
 ** 
 ** Started on  Sat Dec  6 13:25:31 2014 Jules Vautier
 <<<<<<< HEAD
+<<<<<<< HEAD
 ** Last update Sat Jun  6 18:03:19 2015 david sebaoun
+=======
+** Last update Sat Jun  6 18:14:19 2015 david sebaoun
+>>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
 */
 
 #include "shared.h"

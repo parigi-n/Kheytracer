@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Sat Jun  6 11:35:17 2015 david sebaoun
+** Last update Sat Jun  6 18:15:02 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -27,7 +27,7 @@ int	render(t_all *all, t_scene *scene)
     return (ERROR);
   if (pid == 0)
     {
-      if (check_error(&all->var) == ERROR)
+      if (check_error(all, scene) == ERROR)
 	{
 	  puterr("Error: error while opening window\n");
 	  exit(ERROR);

@@ -5,7 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
+<<<<<<< HEAD
 ** Last update Sat Jun  6 18:03:00 2015 david sebaoun
+=======
+** Last update Sat Jun  6 18:23:48 2015 david sebaoun
+>>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
 */
 
 #include <sys/types.h>

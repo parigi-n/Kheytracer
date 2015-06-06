@@ -4,7 +4,7 @@
       NAME	 "cyl1"
       TYPE	CYLINDER
       ORIGIN	  -2000 -700 20
-      ROTATION	  0 0 0
+      ROTATION	  10 0 0
       RADIUS	  100
       COLOR	  FF0000
 
@@ -12,7 +12,7 @@
       NAME	 "cyl2"
       TYPE    CYLINDER
       ORIGIN	  -3000 700 20
-      ROTATION	  0 0 0
+      ROTATION	  0 20 0
       RADIUS	  100
       COLOR	  FF0000
 
@@ -20,13 +20,13 @@
       NAME	 "cyl3"
       TYPE    CYLINDER
       ORIGIN	  200 -350 20
-      ROTATION	  0 0 0
+      ROTATION	  0 30 30
       RADIUS	  100
       COLOR	  FF0000
 
       ELEMENT	OBJECT
       NAME	 "cyl4"
-      TYPE	 CYLINDER
+      TYPE    CYLINDER
       ORIGIN	  200 350 20
       ROTATION	  0 0 0
       RADIUS	  100
@@ -50,12 +50,12 @@
 
       ELEMENT	  LIGHT
       NAME	  "lum1"
-      ORIGIN	  -4000 1000 100
+      ORIGIN	  -4000 100 0
       COLOR	000000
 
       ELEMENT	  LIGHT
       NAME	  "lum2"
-      ORIGIN	  -2000 -1000 600
+      ORIGIN	  -4000 0 0
       COLOR	000000
 
       ELEMENT	  EYE
