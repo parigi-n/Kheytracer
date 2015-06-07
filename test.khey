@@ -4,56 +4,32 @@
       NAME	 "sol"
       TYPE	PLAN
       ORIGIN	  0 0 -150
+      ROTATION	  20 0 0
+      RADIUS	  10
+      COLOR	  FF00FF
+
+      ELEMENT	OBJECT
+      NAME	 "sphe"
+      TYPE	SPHERE
+      ORIGIN	  -100 -200 0
       ROTATION	  0 0 0
-      RADIUS	  0
-      COLOR	  FFFFFF
+      RADIUS	  50
+      COLOR	  0000FF
 
       ELEMENT	OBJECT
-      NAME	 "mur"
-      TYPE	PLAN
-      ORIGIN	  0 0 -150
-      ROTATION	  90 0 0
-      RADIUS	  0
-      COLOR	  999999
-
-      ELEMENT	OBJECT
-      NAME	 "cyl1"
+      NAME	 "cyl"
       TYPE	CYLINDER
-      ORIGIN	  1000 200 0
-      ROTATION	  0 0 0
-      RADIUS	  60
-      COLOR	  C8C8C8
-
-      ELEMENT	OBJECT
-      NAME	 "cyl2"
-      TYPE	CYLINDER
-      ORIGIN	  2000 100 0
-      ROTATION	  0 0 0
-      RADIUS	  60
-      COLOR	  C8C8C8
-
-      ELEMENT	OBJECT
-      NAME	 "cyl3"
-      TYPE	CYLINDER
-      ORIGIN	  3000 -400 0
-      ROTATION	  0 0 0
-      RADIUS	  60
-      COLOR	  C8C8C8
-
-      ELEMENT	OBJECT
-      NAME	 "cyl4"
-      TYPE	CYLINDER
-      ORIGIN	  4000 400 0
-      ROTATION	  0 0 0
+      ORIGIN	  0 100 0
+      ROTATION	  20 0 0
       RADIUS	  60
       COLOR	  C8C8C8
 
       ELEMENT	  LIGHT
       NAME	  "lum4"
-      ORIGIN	   200 100 400
+      ORIGIN	   -200 100 400
       COLOR	000000
 
       ELEMENT	  EYE
-      ORIGIN	  -1000 0 0
+      ORIGIN	  -1000 20 0
       ROTATION	  0 0 0
 </END>
