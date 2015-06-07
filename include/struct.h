@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sun Jun  7 18:25:35 2015 Jules Vautier
+** Last update Sun Jun  7 18:30:55 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -54,9 +54,9 @@ typedef	struct		s_object
   t_coor		a;
   t_coor		pos;
   int			r;
-  double		lim;
+  int			lim;
   double		shine;
-  int			color
+  int			color;
   t_color		color_int;
   struct s_object	*next;
 }			t_object;
