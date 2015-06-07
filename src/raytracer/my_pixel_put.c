@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 18:07:54 2015 Jules Vautier
+** Last update Sun Jun  7 18:09:45 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -77,7 +77,6 @@ int		creat_pixel(t_all *all, t_scene *scene)
     }
   intensity = find_color(all, &scene->light,
 			 all->calc.save, scene);
-  /*printf("%f\n", intensity);*/
   if (all->calc.save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 		 all->calc.save->color, intensity);

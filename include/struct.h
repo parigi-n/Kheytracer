@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sun Jun  7 17:33:48 2015 Jules Vautier
+** Last update Sun Jun  7 18:25:35 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -33,6 +33,13 @@ typedef struct		s_coor
   double		z;
 }			t_coor;
 
+typedef struct		s_color
+{
+  int			red;
+  int			green;
+  int			blue;
+}			t_color;
+
 typedef struct		s_tri
 {
   t_coor		tr1;
@@ -48,7 +55,9 @@ typedef	struct		s_object
   t_coor		pos;
   int			r;
   double		lim;
-  int			color;
+  double		shine;
+  int			color
+  t_color		color_int;
   struct s_object	*next;
 }			t_object;
 
@@ -61,6 +70,7 @@ typedef struct		s_light
   t_coor		tmp;
   t_coor		new;
   int			color;
+  t_color		color_int;
   struct s_light	*next;
 }			t_light;
 
