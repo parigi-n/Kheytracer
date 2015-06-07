@@ -1,15 +1,11 @@
 /*
-** intensity_object.c for raytracer in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
+** intensity_object.c for inten_obj in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
-<<<<<<< HEAD
-** Last update Sun Jun  7 21:31:46 2015 Jules Vautier
-=======
-** Last update Sun Jun  7 16:55:53 2015 Oscar Nosworthy
->>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
+** Started on  Sun Jun  7 23:22:27 2015 Jules Vautier
+** Last update Sun Jun  7 23:22:28 2015 Jules Vautier
 */
 
 #include "rt.h"

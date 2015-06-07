@@ -1,16 +1,11 @@
 /*
-** my_pixel_put.c for loading in /home/parigi_n/Testrendu/MUL_2014_Raytracer/rtv1_src
+** my_pixel_put.c for pixel in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
 ** 
-** Made by Nicolas PARIGI
-** Login   <parigi_n@epitech.net>
+** Made by Jules Vautier
+** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-<<<<<<< HEAD
-** Last update Sun Jun  7 22:57:10 2015 Jules Vautier
-=======
-** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
->>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
-** Last update Tue May 26 19:15:00 2015 david sebaoun
+** Started on  Sun Jun  7 23:21:41 2015 Jules Vautier
+** Last update Sun Jun  7 23:21:43 2015 Jules Vautier
 */
 
 #include "struct.h"

@@ -1,16 +1,11 @@
 /*
-** intensity_main.c for intensity_main in /home/vautie_a/rendu/MUL_2014_rtv1/rtv1_src
+** intensity_main.c for inten in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
-<<<<<<< HEAD
-<<<<<<< HEAD
-** Last update Sun Jun  7 23:20:19 2015 Jules Vautier
-=======
-** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
->>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
+** Started on  Sun Jun  7 23:21:11 2015 Jules Vautier
+** Last update Sun Jun  7 23:21:12 2015 Jules Vautier
 */
 
 #include "rt.h"
