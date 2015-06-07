@@ -7,14 +7,13 @@
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Sun Jun  7 17:55:44 2015 Jules Vautier
+** Last update Sun Jun  7 21:31:36 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 static const	t_fonct g_fonct[] =
   {
@@ -41,7 +40,6 @@ double		do_inten(t_light *vec1, t_light *vec2)
 	  + vec1->v.z * vec2->v.z);
   norm = norm + 0.000001;
   inten = (scal / norm);
-  /*printf("%f %f %f\n", norm, scal, inten);*/
   return (inten);
 }
 
@@ -50,8 +48,9 @@ double		prepare_intensity(t_all *all, t_light *lum,
 {
   double	intensity;
 
+  (void)scene;
   calc_light(all->point, lum, obj);
   intensity = g_fonct[obj->type].ptr(all, lum, obj);
-  intensity = intensity / scene->nb_light;
+  intensity = intensity;
   return (intensity);
 }
