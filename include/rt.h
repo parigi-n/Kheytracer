@@ -6,7 +6,7 @@
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
 <<<<<<< HEAD
-** Last update Sun Jun  7 16:37:23 2015 Jules Vautier
+** Last update Sun Jun  7 17:55:01 2015 Jules Vautier
 =======
 ** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
 >>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
@@ -59,7 +59,7 @@ int	calc_light(t_coor point, t_light *vec, t_object *obj);
 int	find_point(t_light *, t_coor *, double);
 void	init_rotate(t_object **, t_light *);
 int	raytrace(t_all *, t_scene *);
-int	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
+double	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);
 void	my_loading(int, int);
 int	creat_pixel(t_all *, t_scene *);
@@ -68,7 +68,6 @@ double	inter_plan(t_all *, t_light *, t_object *);
 double	inter_cone(t_all *, t_light *, t_object *);
 double	inter_cylinder(t_all *, t_light *, t_object *);
 double	inter_disc(t_all *, t_light *, t_object *);
-
 double	inter_hyper2(t_all *all, t_light *vec, t_object *obj);
 double	inter_hyper(t_all *all, t_light *vec, t_object *obj);
 double	inter_triangle(t_all *all, t_light *vec, t_object *obj);
@@ -77,13 +76,12 @@ double	dot_product(t_coor point1, t_coor point2);
 t_coor	minus(t_coor point1, t_coor point2);
 t_tri	create_triangle(t_tri triangle);
 t_tri	find_edges(t_tri edges, t_tri tri);
-
 int	intensity_main(t_all *, t_light **, t_object *, int);
-int	intensity_plan(t_all *, t_light *, t_object *, t_light);
-int	intensity_sphere(t_all *, t_light *, t_object *, t_light);
-int	intensity_cone(t_all *, t_light *, t_object *, t_light);
-int	intensity_cylinder(t_all *, t_light *, t_object *, t_light);
-int	intensity_disque(t_all *, t_light *, t_object *, t_light);
+double	intensity_plan(t_all *, t_light *, t_object *);
+double	intensity_sphere(t_all *, t_light *, t_object *);
+double	intensity_cone(t_all *, t_light *, t_object *);
+double	intensity_cylinder(t_all *, t_light *, t_object *);
+double	intensity_disque(t_all *, t_light *, t_object *);
 double	do_inten(t_light *, t_light *);
 int	init_obj_un(t_all *);
 int	init_obj_deux(t_all *);
