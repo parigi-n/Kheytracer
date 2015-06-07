@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sun Jun  7 23:19:31 2015 david sebaoun
+** Last update Sun Jun  7 23:21:11 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -44,7 +44,6 @@ static int	write_lights(t_scene *scene, int fd)
     }
   return (SUCCESS);
 }
-
 
 static int	write_objects(t_scene *scene, int fd)
 {
