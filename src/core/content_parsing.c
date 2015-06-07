@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sun Jun  7 23:12:26 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:17:13 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -82,5 +82,5 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
 	flag_stop = 1;
       free(line);
     }
-  return (parsing_end_check(obj, parsing, order, flag_stop))
+  return (parsing_end_check(obj, parsing, order, flag_stop));
 }
