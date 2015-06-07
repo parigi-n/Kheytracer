@@ -1,0 +1,27 @@
+<BEGIN>
+!NAME "scene 1"
+      ELEMENT	OBJECT
+      NAME	 "sol"
+      TYPE	PLAN
+      ORIGIN	  0 0 -60
+      ROTATION	  0 0 0
+      RADIUS	  10
+      COLOR	  FF00FF
+
+      ELEMENT	OBJECT
+      NAME	 "con"
+      TYPE	CONE
+      ORIGIN	  200 -200 0
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  0000FF
+
+      ELEMENT	  LIGHT
+      NAME	  "lum1"
+      ORIGIN	   0 0 0
+      COLOR	000000
+
+      ELEMENT	  EYE
+      ORIGIN	  -1000 0 0
+      ROTATION	  0 0 0
+</END>

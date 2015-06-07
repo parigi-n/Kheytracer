@@ -1,0 +1,27 @@
+<BEGIN>
+!NAME "scene 1"
+      ELEMENT	OBJECT
+      NAME	 "cyl"
+      TYPE	CYLINDER
+      ORIGIN	  400 200 0
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  FF00FF
+
+      ELEMENT	OBJECT
+      NAME	 "sphe"
+      TYPE	SPHERE
+      ORIGIN	  200 -200 0
+      ROTATION	  0 0 0
+      RADIUS	  100
+      COLOR	  0000FF
+
+      ELEMENT	  LIGHT
+      NAME	  "lum1"
+      ORIGIN	   0 0 0
+      COLOR	000000
+
+      ELEMENT	  EYE
+      ORIGIN	  -1000 0 0
+      ROTATION	  0 0 0
+</END>

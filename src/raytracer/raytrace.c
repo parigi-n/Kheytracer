@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 11:58:19 2015 Jules Vautier
+** Last update Sun Jun  7 13:02:06 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -40,22 +40,16 @@ static int	raycast(t_all *all, t_object **list,
       calc_vec(&scene->eye, tmp);
       if (all->flag.rotate == 1)
 	{
-	  rotate(&scene->eye, scene->eye.a, -1);
-	  rotate(&scene->eye, tmp->a, -1);
+	  rotate(&scene->eye, scene->eye.a, 1);
+	  rotate(&scene->eye, tmp->a, 1);
 	}
       k = g_fonct[tmp->type].ptr(all, &scene->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
-
-	  rotate(&scene->eye, scene->eye.a, 1);
-	  rotate(&scene->eye, tmp->a, 1);
+	  rotate(&scene->eye, scene->eye.a, -1);
+	  rotate(&scene->eye, tmp->a, -1);
 	  find_point(&scene->eye, &all->point, k);
-	  /*if (my_strcmp(tmp->name, "sphe") == 0)
-	    {
-	      find_point(&scene->eye, &all->point, k);
-	      printf("%f %f %f\n", all->point.x, all->point.y, all->point.z);
-	      }*/
 	  all->obj = tmp;
 	}
       tmp = tmp->next;
