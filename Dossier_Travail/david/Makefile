@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 19:30:53 2015 david sebaoun
+## Last update Sun Jun  7 20:30:17 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -88,7 +88,7 @@ OBJ		= $(SRC:.c=.o)
 
 NAME		= rt
 
-CFLAGS		+= -Wextra -Wall
+CFLAGS		+= -Wextra -Wall -g
 CFLAGS		+= -I./include
 
 LDFLAGS		=

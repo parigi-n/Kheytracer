@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sun Jun  7 18:40:35 2015 david sebaoun
+** Last update Sun Jun  7 20:00:40 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -73,18 +73,18 @@ int		load(t_all *all, t_scene *scene)
   int		loadable;
 
   loadable = ERROR;
-  if (all->tab[1] == NULL)
-    {
-      my_putstr(LOAD_USAGE);
-      return (SUCCESS);
-    }
+  /* if (all->tab[1] == NULL) */
+  /*   { */
+  /*     my_putstr(LOAD_USAGE); */
+  /*     return (SUCCESS); */
+  /*   } */
   if (all->loaded == SUCCESS && check_reload() == ERROR)
     return (ERROR);
-  /* free_scene(all, scene); */
-  if ((loadable = check_file(all->tab[1])) == EXIT)
+  free_scene(all, scene);
+  if ((loadable = check_file(/* all->tab[1] */"test.khey")) == EXIT)
     return (EXIT);
   if (loadable == SUCCESS)
-    if (load_file(all->tab[1], scene, all) == ERROR)
+    if (load_file(/* all->tab[1] */"test.khey", scene, all) == ERROR)
       return (puterr(ERROR_LOAD));
   return (SUCCESS);
 }

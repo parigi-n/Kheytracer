@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sun Jun  7 16:25:49 2015 david sebaoun
+** Last update Sun Jun  7 19:57:58 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -48,19 +48,22 @@ int		command_line(t_all *all)
   int		i;
   
   cmd_start(all, &scene);
-  while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
-    {
-      if (all->tab[0] != NULL)
-  	{
-  	  i = -1;
-  	  while (g_cmd[++i].function != NULL)
-  	    {
-  	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == SUCCESS)
-  		if (g_cmd[i].function(all, &scene) == EXIT)
-  		  return (SUCCESS);
-  	    }
-  	}
-      write(1, "kheytracer$> ", 13);
-    }
+  load(all, &scene);
+  all->loaded = SUCCESS;
+  render(all, &scene);
+  /* while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL) */
+  /*   { */
+  /*     if (all->tab[0] != NULL) */
+  /* 	{ */
+  /* 	  i = -1; */
+  /* 	  while (g_cmd[++i].function != NULL) */
+  /* 	    { */
+  /* 	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == SUCCESS) */
+  /* 		if (g_cmd[i].function(all, &scene) == EXIT) */
+  /* 		  return (SUCCESS); */
+  /* 	    } */
+  /* 	} */
+  /*     write(1, "kheytracer$> ", 13); */
+  /*   } */
   return (ERROR);
 }

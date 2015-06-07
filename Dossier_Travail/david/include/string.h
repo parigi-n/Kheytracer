@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Sun Jun  7 13:39:15 2015 david sebaoun
+** Last update Sun Jun  7 20:17:02 2015 david sebaoun
 */
 
 #ifndef STRING_H_
@@ -36,6 +36,7 @@
 
 /* Cmd */
 
+# define PROMPT			"kheytracer$> "
 # define NO_SCENE		"There is currently no scene in memory,"
 # define NO_SCENE2		" please choose a name for a new one\n"
 # define NO_CAMERA		"You also need a camera\n"

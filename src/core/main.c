@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 19:36:52 2015 david sebaoun
+** Last update Sun Jun  7 19:54:17 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -62,8 +62,8 @@ int		main()
 {
   t_all		all;
 
-  if (splash_screen() == ERROR)
-    return (ERROR);
+  /* if (splash_screen() == ERROR) */
+  /*   return (ERROR); */
   if (command_line(&all) == ERROR)
     return (ERROR);
   return (0);
