@@ -5,10 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sun Jun  7 19:57:58 2015 david sebaoun
+** Last update Sun Jun  7 20:04:41 2015 david sebaoun
 */
 
 #include "struct.h"
+#include "string.h"
 #include "shared.h"
 #include "wordtab.h"
 #include "cmd.h"
@@ -39,7 +40,7 @@ static void	cmd_start(t_all *all, t_scene *scene)
   all->loaded = -1;
   my_putstr("Hello and welcome in kheytracer.\n");
   my_putstr("Type help to get infos about available actions.\n");
-  my_putstr("kheytracer$> ");
+  my_putstr(PROMPT);
 }
 
 int		command_line(t_all *all)
@@ -48,22 +49,19 @@ int		command_line(t_all *all)
   int		i;
   
   cmd_start(all, &scene);
-  load(all, &scene);
-  all->loaded = SUCCESS;
-  render(all, &scene);
-  /* while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL) */
-  /*   { */
-  /*     if (all->tab[0] != NULL) */
-  /* 	{ */
-  /* 	  i = -1; */
-  /* 	  while (g_cmd[++i].function != NULL) */
-  /* 	    { */
-  /* 	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == SUCCESS) */
-  /* 		if (g_cmd[i].function(all, &scene) == EXIT) */
-  /* 		  return (SUCCESS); */
-  /* 	    } */
-  /* 	} */
-  /*     write(1, "kheytracer$> ", 13); */
-  /*   } */
+  while ((all->tab = my_word_to_tab(get_next_line(0), " "))!= NULL)
+    {
+      if (all->tab[0] != NULL)
+  	{
+  	  i = -1;
+  	  while (g_cmd[++i].function != NULL)
+  	    {
+  	      if (my_strcmp(g_cmd[i].cmd, all->tab[0]) == SUCCESS)
+  		if (g_cmd[i].function(all, &scene) == EXIT)
+  		  return (SUCCESS);
+  	    }
+  	}
+      my_putstr(PROMPT);
+    }
   return (ERROR);
 }

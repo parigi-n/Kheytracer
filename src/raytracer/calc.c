@@ -1,15 +1,11 @@
 /*
-** inter.c for inter in /home/vautie_a/rendu/MUL_2014_rtv1/TP/rtv1_src
+** calc.c for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer/Dossier_Travail/david
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by david sebaoun
+** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-<<<<<<< HEAD
-** Last update Sun Jun  7 21:30:58 2015 Jules Vautier
-=======
-** Last update Tue May 26 19:13:18 2015 david sebaoun
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
+** Started on  Sun Jun  7 21:39:43 2015 david sebaoun
+** Last update Sun Jun  7 21:39:49 2015 david sebaoun
 */
 
 #include "struct.h"

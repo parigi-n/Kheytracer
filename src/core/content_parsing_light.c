@@ -55,7 +55,7 @@ int		content_parsing_light(t_light **light, int fd, int flag_stop, t_scene *data
   if ((parsing = malloc(sizeof(*parsing))) == NULL)
     return (ERROR);
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 3 && flag_stop == 0)
+  while (order < 3 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
     {
       data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)

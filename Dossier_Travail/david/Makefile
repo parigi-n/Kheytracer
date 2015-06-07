@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 21:41:01 2015 david sebaoun
+## Last update Sun Jun  7 21:56:37 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -24,6 +24,7 @@ SRC		= src/core/main.c \
 		src/core/color.c \
 		src/core/splashscreen.c \
 		src/core/free_scene.c \
+		src/core/parser_element.c \
 		src/cmd/load_file.c \
 		src/cmd/writer.c \
 		src/cmd/object_creator.c \

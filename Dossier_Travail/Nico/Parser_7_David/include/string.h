@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Sun Jun  7 21:35:46 2015 Nicolas PARIGI
+** Last update Sun Jun  7 21:59:01 2015 david sebaoun
 */
 
 #ifndef STRING_H_

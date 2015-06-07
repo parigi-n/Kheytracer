@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 19:16:15 2015 david sebaoun
-** Last update Sun Jun  7 21:38:23 2015 david sebaoun
+** Last update Sun Jun  7 21:38:40 2015 david sebaoun
 */
 
 #ifndef RT_H_
@@ -53,7 +53,7 @@ int	init_calc(t_all *);
 int	calc_vec(t_light *, t_object *);
 int	calc_point_eye(t_light *, int);
 int	calc_point_lum(t_light *, t_light *, t_object *, double);
-int	calc_light(t_coor point, t_light *vec, t_object *obj);
+int	calc_light(t_coor, t_light *, t_object *);
 void	calc_color(t_object *, t_color , double, t_color *);
 int	find_point(t_light *, t_coor *, double);
 void	init_rotate(t_object **, t_light *);

@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 20:42:25 2015 david sebaoun
+** Last update Sun Jun  7 22:02:11 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -42,7 +42,8 @@ int		gere_key(int keycode, t_all *all)
       tmp_obj = tmp_obj->next;
       len++;
     }
-  my_printf("%s%s\n", "Selected object : ", tmp_obj->name);
+  if (keycode == MEGAUP || keycode == MEGAUP)
+    my_printf("%s%s\n", "Selected object : ", tmp_obj->name);
   if (gere_key_lum(keycode, tmp_light) == 0)
     if (gere_key_sphe(keycode, tmp_obj) == 0)
       gere_key_eye(keycode, &all->scene);

@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 16:40:49 2015 david sebaoun
-** Last update Sun Jun  7 20:22:00 2015 Jules Vautier
+** Last update Sun Jun  7 22:08:21 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -28,15 +28,15 @@ static int	init_render(t_all *all, t_scene *scene)
   return (SUCCESS);
 }
 
-int	render(t_all *all, t_scene *scene)
+int		render(t_all *all, t_scene *scene)
 {
   int		status;
   pid_t		pid;
 
   if (all->loaded != SUCCESS)
     return (puterr("Error: No scene loaded\n"));
-  /* if (gere_flag(&all->flag, my_tablen(all->tab), all->tab) == ERROR) */
-  /*   return (SUCCESS); */
+  if (gere_flag(&all->flag, my_tablen(all->tab), all->tab) == ERROR)
+    return (SUCCESS);
   if ((pid = fork()) == ERROR)
     return (ERROR);
   if (pid == 0)

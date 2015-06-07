@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:12:49 2015 david sebaoun
-** Last update Sun Jun  7 18:37:15 2015 david sebaoun
+** Last update Sun Jun  7 20:52:09 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -50,7 +50,7 @@ int		get_type()
   int		i;
 
   my_putstr("Welcome in the object creator tool.\n");
-  my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Light\n");
+  my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Disc, Light\n");
   my_putstr("Type : "); 
   while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
     {
@@ -61,7 +61,7 @@ int		get_type()
 	    return (g_obj_type[i].type);
 	  i++;
 	}
-      my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Light\n");
+      my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Disc, Light\n");
       my_putstr("Type : ");
     }
   return (ERROR);

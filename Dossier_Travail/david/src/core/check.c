@@ -5,8 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Dec  6 13:25:31 2014 Jules Vautier
-<<<<<<< HEAD
-** Last update Sat Jun  6 18:03:19 2015 david sebaoun
+** Last update Sun Jun  7 21:41:36 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
