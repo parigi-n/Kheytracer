@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:12:49 2015 david sebaoun
-** Last update Sun Jun  7 23:35:36 2015 david sebaoun
+** Last update Sun Jun  7 23:40:26 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -96,12 +96,7 @@ int		get_pos(t_coor *coord, char *str)
 	  coord->x = atof(tab[0]);
 	  coord->y = atof(tab[1]);
 	  coord->z = atof(tab[2]);
-	  if (my_strcmp(str, "Rotation") == SUCCESS && (coord->x > 360 || coord->x < -360 ||
-	      coord->y > 360 || coord->y < -360 ||
-	       coord->z > 360 || coord->z < -360))
-	    return (SUCCESS);
-	  else if (my_strcmp(str, "Rotation") != SUCCESS)
-	    return (SUCCESS);
+	  return (SUCCESS);
 	}
       my_printf("Usage: x y z\n%s : ", str);
     }
