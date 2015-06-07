@@ -5,10 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 19:36:52 2015 david sebaoun
+** Last update Sun Jun  7 20:42:25 2015 david sebaoun
 */
 
 #include <signal.h>
+#include "cmd.h"
 #include "shared.h"
 #include "keyboard.h"
 #include "rt.h"

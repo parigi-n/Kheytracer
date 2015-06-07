@@ -5,10 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 19:07:33 2015 david sebaoun
-** Last update Sun Jun  7 16:25:49 2015 david sebaoun
+** Last update Sun Jun  7 20:04:41 2015 david sebaoun
 */
 
 #include "struct.h"
+#include "string.h"
 #include "shared.h"
 #include "wordtab.h"
 #include "cmd.h"
@@ -39,7 +40,7 @@ static void	cmd_start(t_all *all, t_scene *scene)
   all->loaded = -1;
   my_putstr("Hello and welcome in kheytracer.\n");
   my_putstr("Type help to get infos about available actions.\n");
-  my_putstr("kheytracer$> ");
+  my_putstr(PROMPT);
 }
 
 int		command_line(t_all *all)
@@ -60,7 +61,7 @@ int		command_line(t_all *all)
   		  return (SUCCESS);
   	    }
   	}
-      write(1, "kheytracer$> ", 13);
+      my_putstr(PROMPT);
     }
   return (ERROR);
 }

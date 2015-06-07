@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 15:49:10 2015 david sebaoun
-** Last update Sun Jun  7 19:25:45 2015 david sebaoun
+** Last update Sun Jun  7 20:29:42 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -57,6 +57,7 @@ int		free_scene(t_all *all, t_scene *scene)
   scene->last_line = 0;
   scene->nb_obj = 0;
   scene->nb_light = 0;
+  scene->last_line = 0;
   all->loaded = ERROR;
   return (SUCCESS);
 }
