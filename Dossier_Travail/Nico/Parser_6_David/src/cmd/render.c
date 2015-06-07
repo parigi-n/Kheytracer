@@ -15,10 +15,22 @@
 #include "cmd.h"
 #include "wordtab.h"
 
+static int	init_render(t_all *all, t_scene *scene)
+{
+  all->scene = *scene;
+  all->current_obj = 0;
+  all->current_light = 0;
+  if (check_error(all, &all->scene) == ERROR)
+    {
+      puterr("Error: error while opening window\n");
+      exit(ERROR);
+    }
+}
+
 int	render(t_all *all, t_scene *scene)
 {
-  int	status;
-  pid_t	pid;
+  int		status;
+  pid_t		pid;
 
   if (all->loaded != SUCCESS)
     return (puterr("Error: No scene loaded\n"));
@@ -28,14 +40,7 @@ int	render(t_all *all, t_scene *scene)
     return (ERROR);
   if (pid == 0)
     {
-      all->scene = *scene;
-      all->current_obj = 0;
-      all->current_light = 0;
-      if (check_error(all, &all->scene) == ERROR)
-	{
-	  puterr("Error: error while opening window\n");
-	  exit(ERROR);
-	}
+      init_render(all, scene);
       init_calc(all);
       if (raytrace(all, &all->scene) == 1)
       	return (SUCCESS);
