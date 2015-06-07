@@ -28,13 +28,16 @@ int	render(t_all *all, t_scene *scene)
     return (ERROR);
   if (pid == 0)
     {
-      if (check_error(all, scene) == ERROR)
+      all->scene = *scene;
+      all->current_obj = 0;
+      all->current_light = 0;
+      if (check_error(all, &all->scene) == ERROR)
 	{
 	  puterr("Error: error while opening window\n");
 	  exit(ERROR);
 	}
       init_calc(all);
-      if (raytrace(all, scene) == 1)
+      if (raytrace(all, &all->scene) == 1)
       	return (SUCCESS);
       mlx_expose_hook(all->var.win_ptr, gere_expose, all);
       mlx_hook(all->var.win_ptr, KeyPress, KeyRelease, &gere_key, all);

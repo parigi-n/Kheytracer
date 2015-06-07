@@ -44,7 +44,7 @@ char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
 int	shadow(t_all *, t_light *, t_scene *);
 int	gere_expose(t_all *);
-int	gere_key(int, void *);
+int	gere_key(int, t_all *);
 int	check_error(t_all *, t_scene *);
 int	init_calc(t_all *);
 int	calc_vec(t_light *, t_object *);
@@ -85,11 +85,11 @@ int	init_obj_quatre(t_all *);
 int	init_eye(t_all *);
 int	init_lum(t_all *);
 int	gere_flag(t_flags *, int, char **);
-int	gere_key_eye(int, t_all *);
-int	gere_key_sphe(int, t_all *);
-int	gere_key_obj(int, t_all *);
-int	gere_key_plan(int, t_all *);
-int	gere_key_lum(int, t_all *);
+int	gere_key_eye(int, t_scene *);
+int	gere_key_sphe(int, t_object *);
+int	gere_key_obj(int, t_object *);
+int	gere_key_plan(int, t_object *);
+int	gere_key_lum(int, t_light *);
 int	splash_screen();
 
 #endif /* !RT_H_ */

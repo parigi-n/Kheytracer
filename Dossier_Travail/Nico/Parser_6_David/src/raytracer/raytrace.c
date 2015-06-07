@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 17:14:47 2015 Oscar Nosworthy
+** Last update Sun Jun  7 12:07:22 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -64,7 +64,7 @@ int		raytrace(t_all *all, t_scene *scene)
       calc_point_eye(&scene->eye, all->pixel_nb);
       raycast(all, &scene->obj, scene);
       creat_pixel(all, scene);
-      all->pixel_nb = all->pixel_nb + 4;
+      all->pixel_nb = all->pixel_nb + 12;
     }
   gere_expose(all);
   return (0);
