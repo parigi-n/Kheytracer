@@ -5,13 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 11:05:38 2015 Jules Vautier
+** Last update Sun Jun  7 16:38:53 2015 Oscar Nosworthy
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 static const	t_fonct g_fonct[] =
   {
@@ -40,22 +39,14 @@ static int	raycast(t_all *all, t_object **list,
       calc_vec(&scene->eye, tmp);
       if (all->flag.rotate == 1)
 	{
-	  rotate(&scene->eye, scene->eye.a, -1);
-	  rotate(&scene->eye, tmp->a, -1);
+	  rotate(&scene->eye, scene->eye.a, 1);
+	  rotate(&scene->eye, tmp->a, 1);
 	}
       k = g_fonct[tmp->type].ptr(all, &scene->eye, tmp);
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
-
-	  rotate(&scene->eye, scene->eye.a, 1);
-	  rotate(&scene->eye, tmp->a, 1);
 	  find_point(&scene->eye, &all->point, k);
-	  /*if (my_strcmp(tmp->name, "sphe") == 0)
-	    {
-	      find_point(&scene->eye, &all->point, k);
-	      printf("%f %f %f\n", all->point.x, all->point.y, all->point.z);
-	      }*/
 	  all->obj = tmp;
 	}
       tmp = tmp->next;
@@ -67,7 +58,7 @@ int		raytrace(t_all *all, t_scene *scene)
 {
   all->flag.rotate = 1;
   all->flag.shadow = 1;
-  all->flag.intensity = 0;
+  all->flag.intensity = 1;
   all->pixel_nb = 0;
   init_rotate(&scene->obj, &scene->eye);
   while (all->pixel_nb < SIZE_IMG)

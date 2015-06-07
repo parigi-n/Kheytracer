@@ -1,15 +1,14 @@
 /*
-** init_light.c for init_light in /home/vautie_a/rendu/MUL_2014_rtv1/rtv1_src
+** init_vec_rotate.c for init_vec in /home/noswor_o/dim/MUL_2014_rtracer
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by Oscar Nosworthy
+** Login   <noswor_o@epitech.net>
 ** 
-** Started on  Wed Mar  4 16:39:00 2015 Jules Vautier
-** Last update Sat Jun  6 19:34:16 2015 Jules Vautier
+** Started on  Sun Jun  7 16:19:45 2015 Oscar Nosworthy
+** Last update Sun Jun  7 16:21:52 2015 Oscar Nosworthy
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 static void	init_rotate_eye(t_light *eye)
 {

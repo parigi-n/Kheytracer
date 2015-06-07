@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Thu Jun  4 17:05:24 2015 david sebaoun
+** Last update Sun Jun  7 12:21:04 2015 david sebaoun
 */
 
 #ifndef SHARED_H_
@@ -19,6 +19,7 @@
 # define QUOTE	39
 # define DQUOTE	34
 
+int		is_hexa(const char *);
 int		my_putnbr(int);
 int		my_putstr(const char *);
 int		puterr(const char *);

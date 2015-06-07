@@ -6,10 +6,13 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 09:06:25 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Sun Jun  7 16:43:11 2015 Jules Vautier
+=======
+** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
+>>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 */
 
-#include <stdio.h>
 #include "rt.h"
 
 static const	t_finten g_fonct[] =
@@ -46,17 +49,9 @@ int		prepare_intensity(t_all *all, t_light *lum,
   int		intensity;
   double	tmp;
 
-  /*calc_point_eye(&scene->eye, all->pixel_nb);
-    calc_vec(&scene->eye, obj);*/
   calc_light(all->point, lum, obj);
-  /*if (all->flag.rotate == 1)
-    {
-      rotate(lum, scene->eye.a, 1);
-      rotate(lum, obj->a, 1);
-    }*/
   tmp = g_fonct[obj->type].ptr(all, lum, obj, scene->eye);
   intensity = (int)tmp;
-  /*intensity = 1000;*/
-  printf("%i\n", intensity);
+  intensity = intensity / scene->nb_light;
   return (intensity);
 }

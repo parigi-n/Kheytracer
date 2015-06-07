@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 12:13:35 2015 david sebaoun
+** Last update Sat Jun  6 19:16:45 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -46,7 +46,7 @@ int	parser_light_color(char **tab, t_light *parsing)
     return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "COLOR") != 0)
     return (puterr(ERROR_BAD_ORDER));
-  if (my_strlen(tab[1]) != 6)
+  if (my_strlen(tab[1]) > 6 || my_strlen(tab[1]) <= 0)
     return (puterr(ERROR_BAD_COLOR_LENGHT));
   parsing->color = strtol(tab[1], NULL, 16);
   return (0);
