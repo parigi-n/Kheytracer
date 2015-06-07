@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 19:16:15 2015 david sebaoun
-** Last update Sun Jun  7 22:41:00 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:19:27 2015 Jules Vautier
 */
 
 #ifndef RT_H_
@@ -31,11 +31,7 @@
 # define TYPE_CONE	1
 # define TYPE_CYLINDER	2
 # define TYPE_PLAN	3
-# define TYPE_DISC	4
-# define TYPE_TRIANGLE	5
-# define TYPE_HYPERB	6
-# define TYPE_HYPERB2	7
-# define TYPE_LIGHT	8
+# define TYPE_LIGHT	4
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)

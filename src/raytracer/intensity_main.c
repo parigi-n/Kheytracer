@@ -7,7 +7,7 @@
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Sun Jun  7 22:56:41 2015 Jules Vautier
+** Last update Sun Jun  7 23:20:19 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -21,7 +21,6 @@ static const	t_fonct g_fonct[] =
     {&intensity_cone, TYPE_CONE},
     {&intensity_cylinder, TYPE_CYLINDER},
     {&intensity_plan, TYPE_PLAN},
-    {&intensity_plan, TYPE_DISC},
     {NULL, -1}
   };
 
