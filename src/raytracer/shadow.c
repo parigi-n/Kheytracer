@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 10:58:56 2015 Jules Vautier
+** Last update Sun Jun  7 11:54:06 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -32,16 +32,9 @@ static void	do_shadow(t_all *all, t_object **list,
   all->obj = NULL;
   while (obj != NULL)
     {
-      /*calc_point_lum(&scene->eye, lum, obj, all->calc.tmpk);*/
-      if (all->flag.rotate == 1)
-	{
-	  /*rotate(&scene->eye, scene->eye.a, 1);*/
-	  /*rotate(lum, all->calc.save->a, -1);*/
-	  /*rotate(lum, obj->a, 1);*/
-	}
       calc_light(all->point, lum, obj);
-      /*rotate(lum, all->calc.save->a, -1);*/
-      rotate(lum, obj->a, -1);
+      if (all->flag.rotate == 1)
+	rotate(lum, obj->a, -1);
       k = g_fonct[obj->type].ptr(all, lum, obj);
       if (k > 0.000001 && k < all->calc.k)
 	{

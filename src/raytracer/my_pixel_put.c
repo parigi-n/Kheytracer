@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Sun Jun  7 11:08:45 2015 Jules Vautier
+** Last update Sun Jun  7 11:53:03 2015 Jules Vautier
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 */
 
@@ -43,19 +43,19 @@ static int	find_color(t_all *all, t_light **list,
   int		inten;
 
   lum = *list;
-  ret = 1000;
+  ret = 0;
   while (lum != NULL)
     {
       if (all->flag.intensity == 1)
 	inten = prepare_intensity(all, lum, save, scene);
       else
-	inten = 1000;
+	inten = 1000 / scene->nb_light;
       if (all->flag.shadow == 1 &&
 	  shadow(all, lum, scene) == 0)
-	ret = 0;
-      /*if (inten < 0)
 	inten = 0;
-	ret = ret + inten;*/
+      if (inten < 0)
+	inten = 0;
+	ret = ret + inten;
       lum = lum->next;
     }
   return (ret);
@@ -81,13 +81,11 @@ int		creat_pixel(t_all *all, t_scene *scene)
   intensity = 1000;
   all->calc.tmpk = all->calc.k;
   all->calc.save = all->obj;
-  /*printf("%f %f %f\n", all->point.x, all->point.y, all->point.z);*/
   if (all->calc.save == NULL)
     {
       my_pixel_put(all->pixel_nb, all->var.data, 0xFFFFFF, 500);
       return (0);
     }
-  /*init_coor_pixel(all, scene, all->calc.save);*/
   intensity = find_color(all, &scene->light,
 			 all->calc.save, scene);
   if (all->calc.save != NULL)
