@@ -16,6 +16,7 @@
 # define MAX_RADIUS_SIZE	(100000.000)
 
 int		parser(t_scene *data, int fd, int flag_stop);
+void		count_element(t_scene *data);
 int		check_element_type(t_scene *data, char *line, int fd);
 int		parser_obj_name(char **tab, t_object *parsing);
 int		parser_type(char **tab, t_object *parsing);

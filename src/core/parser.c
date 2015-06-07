@@ -55,31 +55,6 @@ static char	*begin_parsing_check(char *line, int flag_begin)
   return (epur_line);
 }
 
-static void	count_element(t_scene *data)
-{
-  int		nb_obj;
-  int		nb_light;
-  t_object	*tmp_obj;
-  t_light	*tmp_light;
-
-  nb_obj = 0;
-  nb_light = 0;
-  tmp_obj = data->obj;
-  tmp_light = data->light;
-  while (tmp_obj != NULL)
-    {
-      tmp_obj = tmp_obj->next;
-      nb_obj++;
-    }
-  while (tmp_light != NULL)
-    {
-      tmp_light = tmp_light->next;
-      nb_light++;
-    }
-  data->nb_obj = nb_obj;
-  data->nb_light = nb_light;
-}
-
 static int	end_check_parser(t_scene *data, int flag_begin)
 {
   if (flag_begin != 1)
