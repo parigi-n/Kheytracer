@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 12:14:15 2015 david sebaoun
+** Last update Sun Jun  7 22:47:57 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -20,7 +20,8 @@ int	parser_eye_origin(char **tab, t_scene *data)
     return (puterr(ERROR_BAD_ORDER));
   if (my_tablen(tab) != 4)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0
+      || my_strlen(tab[3]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   data->eye.pos.x = atof(tab[1]);
   data->eye.pos.y = atof(tab[2]);
@@ -34,7 +35,8 @@ int	parser_eye_rotation(char **tab, t_scene *data)
     return (puterr(ERROR_BAD_ORDER));
   if (my_tablen(tab) != 4)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0
+      || my_strlen(tab[3]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   data->eye.a.x = atof(tab[1]);
   data->eye.a.y = atof(tab[2]);

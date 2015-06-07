@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sun Jun  7 21:28:16 2015 david sebaoun
+** Last update Sun Jun  7 22:49:39 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -37,9 +37,12 @@ static int	write_lights(t_scene *scene, int fd)
   while (tmp != NULL)
     {
       dprintf(fd, "      %s", "ELEMENT  LIGHT\n");
-      dprintf(fd, "      %s     \"%s\"\n", "NAME", tmp->name);
-      dprintf(fd, "      %s   %f %f %f\n", "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
-      dprintf(fd, "      %s    %X\n\n", "COLOR", tmp->color);
+      dprintf(fd, "      %s     \"%s\"\n",
+	      "NAME", tmp->name);
+      dprintf(fd, "      %s   %f %f %f\n",
+	      "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
+      dprintf(fd, "      %s    %X\n\n",
+	      "COLOR", tmp->color);
       tmp = tmp->next;
     }
   return (SUCCESS);
@@ -53,11 +56,16 @@ static int	write_objects(t_scene *scene, int fd)
   tmp = scene->obj;
   while (tmp != NULL)
     {
-      dprintf(fd, "      %s", "ELEMENT  OBJECT\n");
-      dprintf(fd, "      %s     \"%s\"\n", "NAME", tmp->name);
-      dprintf(fd, "      %s     %s\n", "TYPE", g_obj_type[tmp->type].name);
-      dprintf(fd, "      %s   %f %f %f\n", "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
-      dprintf(fd, "      %s %f %f %f\n", "ROTATION", tmp->a.x, tmp->a.y, tmp->a.z);
+      dprintf(fd, "      %s",
+	      "ELEMENT  OBJECT\n");
+      dprintf(fd, "      %s     \"%s\"\n",
+	      "NAME", tmp->name);
+      dprintf(fd, "      %s     %s\n",
+	      "TYPE", g_obj_type[tmp->type].name);
+      dprintf(fd, "      %s   %f %f %f\n",
+	      "ORIGIN", tmp->pos.x, tmp->pos.y, tmp->pos.z);
+      dprintf(fd, "      %s %f %f %f\n",
+	      "ROTATION", tmp->a.x, tmp->a.y, tmp->a.z);
       dprintf(fd, "      %s   %d\n", "RADIUS", tmp->r);
       dprintf(fd, "      %s    %X\n", "COLOR", tmp->color);
       dprintf(fd, "      %s    %f\n", "SHINE", tmp->shine);
@@ -70,8 +78,10 @@ static int	write_objects(t_scene *scene, int fd)
 static int	write_eye(t_scene *scene, int fd)
 {
   dprintf(fd, "      %s", "ELEMENT  EYE\n");
-  dprintf(fd, "      %s   %f %f %f\n", "ORIGIN", scene->eye.pos.x, scene->eye.pos.y, scene->eye.pos.z);
-  dprintf(fd, "      %s %f %f %f\n", "ROTATION", scene->eye.a.x, scene->eye.a.y, scene->eye.a.z);
+  dprintf(fd, "      %s   %f %f %f\n", "ORIGIN",
+	  scene->eye.pos.x, scene->eye.pos.y, scene->eye.pos.z);
+  dprintf(fd, "      %s %f %f %f\n", "ROTATION",
+	  scene->eye.a.x, scene->eye.a.y, scene->eye.a.z);
   return (SUCCESS);
 }
 

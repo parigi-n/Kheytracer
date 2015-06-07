@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sun Jun  7 22:35:58 2015 Nicolas PARIGI
+** Last update Sun Jun  7 22:52:19 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -42,7 +42,8 @@ static int	parsing_launcher(t_light *parsing, char *line, int order)
   return (SUCCESS);
 }
 
-int		content_parsing_light(t_light **light, int fd, int flag_stop, t_scene *data)
+int		content_parsing_light(t_light **light, int fd,
+				      int flag_stop, t_scene *data)
 {
   t_light	*parsing;
   char		*line;

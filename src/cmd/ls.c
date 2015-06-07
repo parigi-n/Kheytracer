@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Sun Jun  7 19:26:20 2015 david sebaoun
+** Last update Sun Jun  7 22:59:41 2015 Nicolas PARIGI
 */
 
 #include <stddef.h>
@@ -14,6 +14,17 @@
 #include "string.h"
 #include "struct.h"
 #include "printf.h"
+
+static void	check_file_type(char *file_name, int d_type)
+{
+  if (file_name[0] != '.')
+    {
+      if (my_strlcmp(file_name, ".khey", 5) == SUCCESS)
+	my_printf("%s\n", file_name);
+      else if (d_type == DT_DIR)
+	my_printf("\033[0;36m%s\n\033[0m", file_name);
+    }
+}
 
 int		ls(t_all *all, t_scene *scene)
 {
@@ -29,15 +40,7 @@ int		ls(t_all *all, t_scene *scene)
     if ((fd = opendir(".")) == NULL)
       return (ERROR);
   while ((entry = readdir(fd)) != NULL)
-    {
-      if ((*entry).d_name[0] != '.')
-        {
-	  if (my_strlcmp((*entry).d_name, ".khey", 5) == SUCCESS)
-	    my_printf("%s\n", (*entry).d_name);
-	  else if ((*entry).d_type == DT_DIR)
-	    my_printf("\033[0;36m%s\n\033[0m", (*entry).d_name);
-        }
-    }
+    check_file_type((*entry).d_name, (*entry).d_type);
   if (closedir(fd) == ERROR)
     return (ERROR);
   return (SUCCESS);

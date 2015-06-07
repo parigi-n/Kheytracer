@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sat Jun  6 16:57:14 2015 Nicolas PARIGI
+** Last update Sun Jun  7 22:51:47 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -25,7 +25,6 @@ static const	t_obj_type g_obj_type[] =
     {"TRIANGLE", TYPE_TRIANGLE},
     {NULL, -1}
   };
-
 
 int	parser_obj_name(char **tab, t_object *parsing)
 {
