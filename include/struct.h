@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
-** Last update Sat Jun  6 17:50:27 2015 david sebaoun
+** Last update Sun Jun  7 17:33:48 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -107,6 +107,9 @@ typedef struct		s_all
   t_calcul		calc;
   int			pixel_nb;
   t_flags		flag;
+  t_scene		scene;
+  int			current_obj;
+  int			current_light;
 }			t_all;
 
 typedef struct		s_fonct
@@ -114,13 +117,6 @@ typedef struct		s_fonct
   double		(*ptr)(t_all *, t_light *, t_object *);
   int			type;
 }			t_fonct;
-
-typedef struct		s_finten
-{
-  int			(*ptr)(t_all *, t_light *,
-			       t_object *, t_light);
-  int			type;
-}			t_finten;
 
 typedef struct		s_obj_type
 {

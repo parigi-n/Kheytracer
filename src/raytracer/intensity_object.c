@@ -6,18 +6,19 @@
 ** 
 ** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 16:50:15 2015 Jules Vautier
+** Last update Sun Jun  7 17:53:35 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:55:53 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 */
 
 #include "rt.h"
+#include <stdio.h>
 
-int		intensity_plan(t_all *all, t_light *vec,
-			       t_object *obj, t_light eye)
+double		intensity_plan(t_all *all, t_light *vec,
+			       t_object *obj)
 {
-  int		inte;
+  double	inte;
   t_light	vec2;
   t_light	vec1;
   t_coor	point;
@@ -31,16 +32,16 @@ int		intensity_plan(t_all *all, t_light *vec,
   vec2.v.z = vec->pos.z - point.z;
   if (all->flag.rotate == 1)
     rotate(&vec1, obj->a, -1);
-  inte = do_inten(&vec1, &vec2) * 1000.0;
-  if (inte < 0)
-    return (0);
+  inte = do_inten(&vec1, &vec2);
+  if (inte < 0.0)
+    return (0.0);
   return (inte);
 }
 
-int		intensity_sphere(t_all *all, t_light *vec,
-				 t_object *obj, t_light eye)
+double		intensity_sphere(t_all *all, t_light *vec,
+				 t_object *obj)
 {
-  int		inte;
+  double	inte;
   t_light	vec1;
   t_light	vec2;
   t_coor	point;
@@ -54,16 +55,16 @@ int		intensity_sphere(t_all *all, t_light *vec,
   vec2.v.z = vec->pos.z - obj->pos.z;
   if (all->flag.rotate == 1)
     rotate(&vec1, obj->a, -1);
-  inte = do_inten(&vec1, &vec2) * 1000.0;
-  if (inte < 0)
-    inte = 0;
+  inte = do_inten(&vec1, &vec2);
+  if (inte < 0.0)
+    inte = 0.0;
   return (inte);
 }
 
-int		intensity_cone(t_all *all, t_light *vec,
-			       t_object *obj, t_light eye)
+double		intensity_cone(t_all *all, t_light *vec,
+			       t_object *obj)
 {
-  int		inte;
+  double	inte;
   t_light	vec2;
   t_light	vec1;
   t_coor	point;
@@ -77,18 +78,18 @@ int		intensity_cone(t_all *all, t_light *vec,
   vec2.v.z = point.z - obj->pos.z * 2.0;
   if (all->flag.rotate == 1)
     rotate(&vec1, obj->a, -1);
-  inte = do_inten(&vec1, &vec2) * 1000.0;
-  if (inte < 0)
+  inte = do_inten(&vec1, &vec2);
+  if (inte < 0.0)
     inte = - inte;
-  if (inte < 0)
-    return (0);
+  if (inte < 0.0)
+    return (0.0);
   return (inte);
 }
 
-int		intensity_cylinder(t_all *all, t_light *vec,
-				   t_object *obj, t_light eye)
+double		intensity_cylinder(t_all *all, t_light *vec,
+				   t_object *obj)
 {
-  int		inte;
+  double	inte;
   t_light	vec2;
   t_light	vec1;
   t_coor	point;
@@ -102,8 +103,8 @@ int		intensity_cylinder(t_all *all, t_light *vec,
   vec2.v.z = obj->pos.z - vec->pos.z;
   if (all->flag.rotate == 1)
     rotate(&vec1, obj->a, -1);
-  inte = do_inten(&vec1, &vec2) * 1000.0;
-  if (inte < 0)
-    return (0);
+  inte = do_inten(&vec1, &vec2);
+  if (inte < 0.0)
+    return (0.0);
   return (inte);
 }
