@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 19:16:15 2015 david sebaoun
-** Last update Sun Jun  7 21:38:40 2015 david sebaoun
+** Last update Sun Jun  7 22:41:00 2015 Nicolas PARIGI
 */
 
 #ifndef RT_H_

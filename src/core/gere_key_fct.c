@@ -5,8 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
-<<<<<<< HEAD
-** Last update Sun Jun  7 12:18:28 2015 Nicolas PARIGI
+** Last update Sun Jun  7 22:36:44 2015 Nicolas PARIGI
 */
 
 #include "rt.h"

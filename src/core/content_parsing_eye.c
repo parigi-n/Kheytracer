@@ -5,11 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-<<<<<<< HEAD
-** Last update Sat Jun  6 12:11:31 2015 david sebaoun
-=======
-** Last update Sat Jun  6 15:28:54 2015 Nicolas PARIGI
->>>>>>> a99b413447c7b84daa18f21983f50d257d80b8c1
+** Last update Sun Jun  7 22:35:48 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
