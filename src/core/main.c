@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 18:19:31 2015 Jules Vautier
+** Last update Sun Jun  7 18:35:03 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -41,11 +41,10 @@ int		gere_key(int keycode, t_all *all)
       tmp_obj = tmp_obj->next;
       len++;
     }
-  my_printf("%s%s\n", "Selected object : ", tmp_obj->name);
-  gere_key_lum(keycode, tmp_light);
-  gere_key_sphe(keycode, tmp_obj);
-  gere_key_plan(keycode, tmp_obj);
-  gere_key_eye(keycode, &all->scene);
+  /*my_printf("%s%s\n", "Selected object : ", tmp_obj->name);*/
+  if (gere_key_lum(keycode, tmp_light) == 0)
+    if (gere_key_sphe(keycode, tmp_obj) == 0)
+      gere_key_eye(keycode, &all->scene);
   raytrace(all, &all->scene);
   return (0);
 }

@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 18:09:45 2015 Jules Vautier
+** Last update Sun Jun  7 18:42:26 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -38,27 +38,32 @@ static void	my_pixel_put(int nbr, char *img,
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
-static double	find_color(t_all *all, t_light **list,
-			   t_object *save, t_scene *scene)
+static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
+{
+  double	inten;
+
+  if (all->flag.intensity == 1)
+    inten = prepare_intensity(all, lum, all->calc.save, scene);
+  else
+    inten = 1.0 / scene->nb_light;
+  if (all->flag.shadow == 1 &&
+      shadow(all, lum, scene) == 0)
+    inten = inten / (scene->nb_light + 1);
+  if (inten < 0)
+    inten = 0;
+  return (inten);
+}
+
+static double	find_color(t_all *all, t_light **list, t_scene *scene)
 {
   t_light	*lum;
   double	ret;
-  double	inten;
 
   lum = *list;
   ret = 0.0;
   while (lum != NULL)
     {
-      if (all->flag.intensity == 1)
-	inten = prepare_intensity(all, lum, save, scene);
-      else
-	inten = 1.0 / scene->nb_light;
-      if (all->flag.shadow == 1 &&
-	  shadow(all, lum, scene) == 0)
-	inten = inten / (scene->nb_light + 1);
-      if (inten < 0)
-	inten = 0;
-	ret = ret + inten;
+      ret = ret + find_intensity(all, lum, scene);
       lum = lum->next;
     }
   return (ret);
@@ -75,8 +80,7 @@ int		creat_pixel(t_all *all, t_scene *scene)
       my_pixel_put(all->pixel_nb, all->var.data, 0xFFFFFF, 0.0);
       return (0);
     }
-  intensity = find_color(all, &scene->light,
-			 all->calc.save, scene);
+  intensity = find_color(all, &scene->light, scene);
   if (all->calc.save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 		 all->calc.save->color, intensity);
