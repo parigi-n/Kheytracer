@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Jun  7 21:52:21 2015 Nicolas PARIGI
-** Last update Sun Jun  7 21:59:50 2015 david sebaoun
+** Last update Sun Jun  7 23:05:14 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -25,7 +25,8 @@ static int	begin_parsing(char *line, t_scene *data)
     return (puterr(ERROR_MALLOC));
   if (my_tablen(tab) == 2 && my_strcmp(tab[0], "!NAME") == 0)
     {
-      if (tab[1] == NULL || my_strlen(tab[1]) < 1 || my_strlen(tab[1]) > MAX_OBJ_NAME)
+      if (tab[1] == NULL || my_strlen(tab[1]) < 1 ||
+	  my_strlen(tab[1]) > MAX_OBJ_NAME)
 	return (puterr(ERROR_BAD_NAME_LENGHT));
       data->name = my_strcpy(tab[1]);
     }

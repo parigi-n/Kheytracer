@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sun Jun  7 22:49:39 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:14:08 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -24,8 +24,6 @@ static const	t_obj_type g_obj_type[] =
     {"CONE", TYPE_CONE},
     {"CYLINDER", TYPE_CYLINDER},
     {"PLAN", TYPE_PLAN},
-    {"DISC", TYPE_DISC},
-    {"TRIANGLE", TYPE_TRIANGLE},
     {NULL, -1}
   };
 

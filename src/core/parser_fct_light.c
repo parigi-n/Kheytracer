@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:04 2015 Nicolas PARIGI
-** Last update Sun Jun  7 20:41:16 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:15:54 2015 Nicolas PARIGI
 */
 
 #include "rt.h"
@@ -33,7 +33,8 @@ int	parser_light_origin(char **tab, t_light *parsing)
     return (puterr(ERROR_BAD_ORDER));
   if (my_tablen(tab) != 4)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 || my_strlen(tab[3]) <= 0)
+  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[2]) <= 0 ||
+      my_strlen(tab[3]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
   parsing->pos.x = atof(tab[1]);
   parsing->pos.y = atof(tab[2]);

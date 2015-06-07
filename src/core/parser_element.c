@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Jun  7 21:08:21 2015 Nicolas PARIGI
-** Last update Sun Jun  7 21:37:24 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:11:23 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -48,7 +48,6 @@ int		check_element_type(t_scene *data, char *line, int fd)
   flag_stop = 0;
   if ((tab = my_word_to_tab(line, " ")) == NULL)
     return (-1);
-  data->last_line++;
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "ELEMENT") != 0)

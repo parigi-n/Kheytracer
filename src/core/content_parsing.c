@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sat Jun  6 22:11:28 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:12:26 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -47,13 +47,14 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   return (SUCCESS);
 }
 
-static int	parsing_end_check(t_object **obj, t_object *parsing, int order)
+static int	parsing_end_check(t_object **obj, t_object *parsing,
+				  int order, int flag_stop)
 {
   if (order == 8)
     my_put_in_list_obj(obj, parsing);
   else
     return (puterr(ERROR_BAD_ORDER2));
-  return (SUCCESS);
+  return (flag_stop);
 }
 
 int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
@@ -81,7 +82,5 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
 	flag_stop = 1;
       free(line);
     }
-  if (parsing_end_check(obj, parsing, order) != SUCCESS)
-    return (ERROR);
-  return (flag_stop);
+  return (parsing_end_check(obj, parsing, order, flag_stop))
 }
