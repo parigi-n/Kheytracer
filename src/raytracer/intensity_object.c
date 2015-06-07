@@ -6,14 +6,13 @@
 ** 
 ** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 17:53:35 2015 Jules Vautier
+** Last update Sun Jun  7 21:31:46 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:55:53 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 double		intensity_plan(t_all *all, t_light *vec,
 			       t_object *obj)
