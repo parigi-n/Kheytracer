@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 00:44:18 2015 Oscar Nosworthy
+## Last update Sun Jun  7 18:45:32 2015 Jules Vautier
 ##
 
 SRC		= src/core/main.c \
@@ -21,6 +21,7 @@ SRC		= src/core/main.c \
 		src/core/parser_fct2.c \
 		src/core/parser_fct_light.c \
 		src/core/parser_fct_eye.c \
+		src/core/color.c \
 		src/core/splashscreen.c \
 		src/cmd/load_file.c \
 		src/cmd/scene_creator.c \

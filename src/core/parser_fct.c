@@ -23,7 +23,6 @@ static const	t_obj_type g_obj_type[] =
     {"PLAN", TYPE_PLAN},
     {"DISC", TYPE_DISC},
     {"TRIANGLE", TYPE_TRIANGLE},
-    {"HYPERB", TYPE_HYPERB},
     {NULL, -1}
   };
 

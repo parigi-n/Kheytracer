@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sat Jun  6 17:12:31 2015 Nicolas PARIGI
+** Last update Sat Jun  6 22:11:28 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -22,7 +22,9 @@ static const	t_parser_obj g_parser_obj[] =
     {&parser_rotation, 3},
     {&parser_radius, 4},
     {&parser_color, 5},
-    {NULL, '\0'}
+    {&parser_shine, 6},
+    {&parser_limit, 7},
+    {NULL, -1}
   };
 
 static void	my_put_in_list_obj(t_object **obj, t_object *parsing)
@@ -45,6 +47,15 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
   return (SUCCESS);
 }
 
+static int	parsing_end_check(t_object **obj, t_object *parsing, int order)
+{
+  if (order == 8)
+    my_put_in_list_obj(obj, parsing);
+  else
+    return (puterr(ERROR_BAD_ORDER2));
+  return (SUCCESS);
+}
+
 int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
 {
   t_object	*parsing;
@@ -54,12 +65,12 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
   if ((parsing = malloc(sizeof(*parsing))) == NULL)
     return (ERROR);
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 6 && flag_stop == 0)
+  while (order < 8 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
     {
       data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
-      if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)
+      if (flag_stop == 0 && line[0] != '\0' && my_strcmp(line, "</END>") != 0)
 	{
 	  if (parsing_launcher(parsing, line, order++) == ERROR)
 	    return (ERROR);
@@ -70,7 +81,7 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
 	flag_stop = 1;
       free(line);
     }
-  if (order == 6)
-    my_put_in_list_obj(obj, parsing);
+  if (parsing_end_check(obj, parsing, order) != SUCCESS)
+    return (ERROR);
   return (flag_stop);
 }
