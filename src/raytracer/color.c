@@ -5,11 +5,10 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sun Jun  7 20:08:01 2015 Jules Vautier
-** Last update Sun Jun  7 21:25:55 2015 Jules Vautier
+** Last update Sun Jun  7 21:31:11 2015 Jules Vautier
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 void		calc_color(t_object *obj, t_color lum,
 			   double intensity, t_color *res)

@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 21:15:47 2015 Jules Vautier
+** Last update Sun Jun  7 21:31:28 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -15,7 +15,6 @@
 
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 static void	my_pixel_put(int nbr, char *img, t_color color)
 {

@@ -7,14 +7,13 @@
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Sun Jun  7 21:30:35 2015 Jules Vautier
+** Last update Sun Jun  7 21:31:36 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 static const	t_fonct g_fonct[] =
   {
