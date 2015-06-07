@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue May 26 15:17:04 2015 david sebaoun
-** Last update Sat Jun  6 21:16:59 2015 david sebaoun
+** Last update Sun Jun  7 12:31:01 2015 david sebaoun
 */
 
 #ifndef CMD_H_
@@ -31,5 +31,11 @@ int	my_exit(t_all *all, t_scene *scene);
 int	load(t_all *all, t_scene *scene);
 int	ls(t_all *all, t_scene *scene);
 int	my_writer(t_all *all, t_scene *scene);
+int	get_pos(t_coor *, char *);
+int	get_type();
+int	get_radius();
+int	add_light(t_scene *, char *);
+int	add_object(t_scene *, char *, const int);
+long	get_color();
 
 #endif /* !CMD_H_ */
