@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Oct 28 19:11:11 2014 jules vautier
-** Last update Sun May 24 18:06:55 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:24:07 2015 david sebaoun
 */
 
 #ifndef WORDTAB_H_
@@ -16,7 +16,6 @@ int		my_count_nbr(char *dest);
 int		my_wordlen(char *, int );
 int		my_wordlen(char *dest, int i);
 char		**my_word_to_tab(char *str, char *separ);
-char		**my_word_to_tab_custom(char *, char);
 void		freetab(char **);
 void		my_show_tab(char **);
 int		my_tablen(char **);

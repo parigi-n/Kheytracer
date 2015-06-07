@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 23:17:17 2015 Jules Vautier
+## Last update Sun Jun  7 23:23:44 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -61,8 +61,7 @@ SRC		= src/core/main.c \
                 src/lib/wordtab/my_show_tab.c \
                 src/lib/wordtab/fct_tab.c \
                 src/lib/wordtab/my_word_to_tab.c \
-                src/lib/wordtab/my_word_to_tab_custom.c \
-                src/lib/wordtab/epur_str.c \
+		src/lib/wordtab/epur_str.c \
                 src/lib/wordtab/tabcpy.c \
                 src/lib/wordtab/freetab.c \
 		src/lib/shared/is_hexa.c \
