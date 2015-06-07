@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:28:32 2015 david sebaoun
-** Last update Sun Jun  7 13:22:39 2015 david sebaoun
+** Last update Sun Jun  7 23:02:28 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -25,7 +25,7 @@ int		add_light(t_scene *scene, char *name)
   if (get_pos(&tmp_light->pos, "Position") == ERROR)
     return (ERROR);
   tmp_light->next = scene->light;
-  scene->light = tmp_light; 
+  scene->light = tmp_light;
   my_putstr(ADD_SUCCESS);
   return (SUCCESS);
 }

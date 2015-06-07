@@ -5,10 +5,9 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sun Jun  7 23:14:08 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:19:31 2015 david sebaoun
 */
 
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>

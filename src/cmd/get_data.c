@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:12:49 2015 david sebaoun
-** Last update Sun Jun  7 22:54:20 2015 david sebaoun
+** Last update Sun Jun  7 23:15:02 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -20,9 +20,6 @@ static const	t_obj_type g_obj_type[] =
     {"CONE", TYPE_CONE},
     {"CYLINDER", TYPE_CYLINDER},
     {"PLAN", TYPE_PLAN},
-    {"DISC", TYPE_DISC},
-    {"TRIANGLE", TYPE_TRIANGLE},
-    {"HYPERB", TYPE_HYPERB},
     {"LIGHT", TYPE_LIGHT},
     {NULL, -1}
   };
@@ -50,8 +47,9 @@ int		get_type()
   int		i;
 
   my_putstr("Welcome in the object creator tool.\n");
-  my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Disc, Light\n");
-  my_putstr("Type : "); 
+  my_putstr("Available types are : Sphere, \
+Cylinder, Plan, Cone, Light\n");
+  my_putstr("Type : ");
   while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
     {
       i = 0;
@@ -61,7 +59,8 @@ int		get_type()
 	    return (g_obj_type[i].type);
 	  i++;
 	}
-      my_putstr("Available types are : Sphere, Cylinder, Plan, Cone, Disc, Light\n");
+      my_putstr("Available types are : Sphere, \
+Cylinder, Plan, Cone, Light\n");
       my_putstr("Type : ");
     }
   return (ERROR);
@@ -107,7 +106,7 @@ int		get_pos(t_coor *coord, char *str)
 double		get_double(char *str)
 {
   char		**tab;
-  
+
   my_printf("%s : ", str);
   while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
     {
