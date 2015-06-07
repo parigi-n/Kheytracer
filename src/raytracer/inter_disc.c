@@ -5,12 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Sat Jun  6 15:58:40 2015 Jules Vautier
+** Last update Sun Jun  7 16:54:51 2015 Oscar Nosworthy
 */
 
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 double		inter_disc(t_all *all, t_light *vec, t_object *obj)
 {

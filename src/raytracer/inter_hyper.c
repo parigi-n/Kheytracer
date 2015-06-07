@@ -5,9 +5,8 @@
 ** Login   <noswor_o@epitech.net>
 ** 
 ** Started on  Sun Jun  7 16:06:38 2015 Oscar Nosworthy
-** Last update Sun Jun  7 16:14:31 2015 Oscar Nosworthy
+** Last update Sun Jun  7 16:54:16 2015 Oscar Nosworthy
 */
-
 
 #include "rt.h"
 #include "struct.h"
@@ -43,8 +42,10 @@ double		inter_hyper(t_all *all, t_light *vec, t_object *object)
   (void)all;
   (void)object;
   c = pow(vec->tmp.z, 2) + (8000) - pow(vec->tmp.x, 2) - pow(vec->tmp.y, 2);
-  b = 2.0*(vec->tmp.z * vec->v.z - vec->tmp.x * vec->v.x - vec->tmp.y * vec->v.y);
-  a = pow(vec->v.z, 2)-pow(vec->v.x, 2) - pow(vec->v.y, 2);
+  b = 2.0*(vec->tmp.z * vec->v.z - vec->tmp.x * vec->v.x
+	   - vec->tmp.y * vec->v.y);
+  a = pow(vec->v.z, 2) - pow(vec->v.x, 2)
+    - pow(vec->v.y, 2);
   delta = (b * b) - (4 * (a * c));
   if ((k = delta_hyper(a, b, delta, k)) == 0.0)
     return (0.0);
@@ -66,7 +67,8 @@ double		inter_hyper2(t_all *all, t_light *vec, t_object *object)
   (void)all;
   (void)object;
   c = pow(vec->tmp.z, 2) + (-8000) - pow(vec->tmp.x, 2) - pow(vec->tmp.y, 2);
-  b = 2.0*(vec->tmp.z * vec->v.z - vec->tmp.x * vec->v.x - vec->tmp.y * vec->v.y);
+  b = 2.0*(vec->tmp.z * vec->v.z - vec->tmp.x * vec->v.x
+	   - vec->tmp.y * vec->v.y);
   a = pow(vec->v.z, 2)-pow(vec->v.x, 2) - pow(vec->v.y, 2);
   delta = (b * b) - (4 * (a * c));
   if ((k = delta_hyper(a, b, delta, k)) == 0.0)

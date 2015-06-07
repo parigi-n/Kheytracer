@@ -5,11 +5,10 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
-** Last update Sun Jun  7 09:05:32 2015 Jules Vautier
+** Last update Sun Jun  7 16:55:53 2015 Oscar Nosworthy
 */
 
 #include "rt.h"
-#include <stdio.h>
 
 int		intensity_plan(t_all *all, t_light *vec,
 			       t_object *obj, t_light eye)
