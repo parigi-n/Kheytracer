@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sun Jun  7 22:52:19 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:48:51 2015 Nicolas PARIGI
 */
 
 #include "shared.h"
@@ -42,6 +42,16 @@ static int	parsing_launcher(t_light *parsing, char *line, int order)
   return (SUCCESS);
 }
 
+static int	end_content(t_light **light, t_light *parsing,
+			    int order, int flag_stop)
+{
+  if (order == 3)
+    my_put_in_list_light(light, parsing);
+  else
+    return (ERROR);
+  return (flag_stop);
+}
+
 int		content_parsing_light(t_light **light, int fd,
 				      int flag_stop, t_scene *data)
 {
@@ -68,7 +78,5 @@ int		content_parsing_light(t_light **light, int fd,
 	flag_stop = 1;
       free(line);
     }
-  if (order == 3)
-    my_put_in_list_light(light, parsing);
-  return (flag_stop);
+  return (end_content(light, parsing, order, flag_stop));
 }

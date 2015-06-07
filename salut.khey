@@ -1,0 +1,43 @@
+I love Greg Ballot
+
+<BEGIN>
+!NAME  "salut"
+      ELEMENT  OBJECT
+      NAME     "sol"
+      TYPE     SPHERE
+      ORIGIN   0.000000 0.000000 200.000000
+      ROTATION 0.000000 0.000000 0.000000
+      RADIUS   50
+      COLOR    0
+      SHINE    1.000000
+      LIMIT    0
+
+      ELEMENT  OBJECT
+      NAME     "sol"
+      TYPE     PLAN
+      ORIGIN   0.000000 0.000000 -20.000000
+      ROTATION 0.000000 0.000000 0.000000
+      RADIUS   10
+      COLOR    0
+      SHINE    1.000000
+      LIMIT    0
+
+      ELEMENT  LIGHT
+      NAME     "lum1"
+      ORIGIN   -200.000000 0.000000 0.000000
+      COLOR    FF00
+
+      ELEMENT  LIGHT
+      NAME     "lum1"
+      ORIGIN   100.000000 -300.000000 0.000000
+      COLOR    FF
+
+      ELEMENT  LIGHT
+      NAME     "lum1"
+      ORIGIN   100.000000 300.000000 0.000000
+      COLOR    FF0000
+
+      ELEMENT  EYE
+      ORIGIN   -1000.000000 0.000000 500.000000
+      ROTATION 0.000000 20.000000 0.000000
+</END>
