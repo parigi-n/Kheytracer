@@ -1,15 +1,11 @@
 /*
-** inter.c for inter in /home/vautie_a/rendu/MUL_2014_rtv1/TP/rtv1_src
+** inter_sphere.c for sphere in /home/vautie_a/rendu/MUL_2014_rtracer/src/raytracer
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-<<<<<<< HEAD
-** Last update Sun Jun  7 16:31:40 2015 Oscar Nosworthy
-=======
-** Last update Tue May 26 19:14:49 2015 david sebaoun
->>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
+** Started on  Sun Jun  7 23:21:56 2015 Jules Vautier
+** Last update Sun Jun  7 23:21:57 2015 Jules Vautier
 */
 
 #include "struct.h"
