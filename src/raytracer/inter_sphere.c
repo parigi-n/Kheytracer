@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Fri Jun  5 19:02:16 2015 Jules Vautier
+** Last update Sun Jun  7 16:31:40 2015 Oscar Nosworthy
 =======
 ** Last update Tue May 26 19:14:49 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -14,7 +14,6 @@
 
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 static int	do_calc(t_light *vec, t_coor *coor, t_object *object)
 {
@@ -44,7 +43,6 @@ double		inter_sphere(t_all *all, t_light *vec,
   if (delta > 0.0)
     {
       k = ((-coor.y - sqrt(delta)) / (2 * coor.x));
-      /*printf("a %f\n", k);*/
       return (k);
     }
   return (0.0);

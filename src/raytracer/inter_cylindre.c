@@ -1,11 +1,11 @@
 /*
-** inter.c for inter in /home/vautie_a/rendu/MUL_2014_rtv1/TP/rtv1_src
+** inter_cylindre.c for ray in /home/noswor_o/dim/MUL_2014_rtracer
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by Oscar Nosworthy
+** Login   <noswor_o@epitech.net>
 ** 
-** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
-** Last update Fri Jun  5 08:44:15 2015 Jules Vautier
+** Started on  Sun Jun  7 16:16:22 2015 Oscar Nosworthy
+** Last update Sun Jun  7 16:16:28 2015 Oscar Nosworthy
 */
 
 #include "struct.h"
