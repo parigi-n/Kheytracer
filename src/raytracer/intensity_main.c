@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 13:08:26 2015 Jules Vautier
+** Last update Sun Jun  7 16:43:11 2015 Jules Vautier
 */
 
 #include <stdio.h>
@@ -47,8 +47,6 @@ int		prepare_intensity(t_all *all, t_light *lum,
   double	tmp;
 
   calc_light(all->point, lum, obj);
-  if (all->flag.rotate == 1)
-    rotate(lum, obj->a, -1);
   tmp = g_fonct[obj->type].ptr(all, lum, obj, scene->eye);
   intensity = (int)tmp;
   intensity = intensity / scene->nb_light;

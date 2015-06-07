@@ -6,7 +6,7 @@
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
 <<<<<<< HEAD
-** Last update Sun Jun  7 16:20:44 2015 Jules Vautier
+** Last update Sun Jun  7 16:37:23 2015 Jules Vautier
 =======
 ** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
 >>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
@@ -26,8 +26,8 @@
 # define SPLASHSCREEN_X	1920
 # define SPLASHSCREEN_Y	1080
 # define NB_OBJ		5
-# define SIZE_LARG	1500
-# define SIZE_LONG	1000
+# define SIZE_LARG	800
+# define SIZE_LONG	800
 # define SIZE_IMG       SIZE_LONG * SIZE_LARG * 4
 # define D		100
 # define PI		3.14
