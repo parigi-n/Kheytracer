@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 18:42:26 2015 Jules Vautier
+** Last update Sun Jun  7 20:46:06 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -17,25 +17,12 @@
 #include "rt.h"
 #include <stdio.h>
 
-static void	my_pixel_put(int nbr, char *img,
-			     unsigned int color,
-			     double intensity)
+static void	my_pixel_put(int nbr, char *img, t_color color)
 {
-  int		red;
-  int		green;
-  int		blue;
-
-  red = (color % 256);
-  color = (color / 256);
-  green = (color % 256);
-  color = (color / 256);
-  blue = (color % 256);
-  red = (red * intensity);
-  img[nbr] = MAXCOLOR(red);
-  green = (green * intensity);
-  img[nbr + 1] = MAXCOLOR(green);
-  blue = (blue * intensity);
-  img[nbr + 2] = MAXCOLOR(blue);
+  /*printf("%i %i %i\n", color.red, color.green, color.blue);*/
+  img[nbr] = MAXCOLOR(color.red);
+  img[nbr + 1] = MAXCOLOR(color.green);
+  img[nbr + 2] = MAXCOLOR(color.blue);
 }
 
 static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
@@ -54,35 +41,40 @@ static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
   return (inten);
 }
 
-static double	find_color(t_all *all, t_light **list, t_scene *scene)
+static void	find_color(t_all *all, t_light **list, t_scene *scene)
 {
   t_light	*lum;
-  double	ret;
+  double	intensity;
+  t_color	res;
 
+  res.red = 0;
+  res.green = 0;
+  res.blue = 0;
   lum = *list;
-  ret = 0.0;
+  intensity = 0.0;
   while (lum != NULL)
     {
-      ret = ret + find_intensity(all, lum, scene);
+      intensity = intensity + find_intensity(all, lum, scene);
+      calc_color(all->calc.save, lum->color_int, intensity, &res);
       lum = lum->next;
     }
-  return (ret);
+  my_pixel_put(all->pixel_nb, all->var.data, res);
 }
 
 int		creat_pixel(t_all *all, t_scene *scene)
 {
-  double	intensity;
+  t_color	noir;
 
+  noir.red = 0;
+  noir.green = 0;
+  noir.blue = 0;
   all->calc.tmpk = all->calc.k;
   all->calc.save = all->obj;
   if (all->calc.save == NULL)
     {
-      my_pixel_put(all->pixel_nb, all->var.data, 0xFFFFFF, 0.0);
+      my_pixel_put(all->pixel_nb, all->var.data, noir);
       return (0);
     }
-  intensity = find_color(all, &scene->light, scene);
-  if (all->calc.save != NULL)
-    my_pixel_put(all->pixel_nb, all->var.data,
-		 all->calc.save->color, intensity);
+  find_color(all, &scene->light, scene);
   return (0);
 }
