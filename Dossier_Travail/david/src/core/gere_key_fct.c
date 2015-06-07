@@ -6,37 +6,34 @@
 ** 
 ** Started on  Tue Nov 18 14:37:14 2014 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat Jun  6 12:05:11 2015 david sebaoun
+** Last update Sun Jun  7 12:18:28 2015 Nicolas PARIGI
 */
 
 #include "rt.h"
 #include "list.h"
 #include "keyboard.h"
 
-int	gere_key_eye(int keycode, t_all *all)
+int	gere_key_eye(int keycode, t_scene *scene)
 {
   if (keycode == CTRL)
-    all->eye.pos.x = all->eye.pos.x + 20.0;
+    scene->eye.pos.x = scene->eye.pos.x + 20.0;
   else if (keycode == SHIFT)
-    all->eye.pos.x = all->eye.pos.x - 20.0;
+    scene->eye.pos.x = scene->eye.pos.x - 20.0;
   else if (keycode == RIGHT)
-    all->eye.a.z = all->eye.a.z + 0.02;
+    scene->eye.a.z = scene->eye.a.z + 0.02;
   else if (keycode == LEFT)
-    all->eye.a.z = all->eye.a.z - 0.02;
+    scene->eye.a.z = scene->eye.a.z - 0.02;
   else if (keycode == UP)
-    all->eye.a.y = all->eye.a.y + 0.02;
+    scene->eye.a.y = scene->eye.a.y + 0.02;
   else if (keycode == DOWN)
-    all->eye.a.y = all->eye.a.y - 0.02;
+    scene->eye.a.y = scene->eye.a.y - 0.02;
   else
     return (0);
   return (1);
 }
 
-int	gere_key_plan(int keycode, t_all *all)
+int	gere_key_plan(int keycode, t_object *tmp)
 {
-  t_object	*tmp;
-
-  tmp = my_getlist_obj(&all->object, "plan");
   if (keycode == T)
     tmp->pos.z = tmp->pos.z + 10.0;
   else if (keycode == G)
@@ -46,11 +43,8 @@ int	gere_key_plan(int keycode, t_all *all)
   return (1);
 }
 
-int	gere_key_sphe(int keycode, t_all *all)
+int	gere_key_sphe(int keycode, t_object *tmp)
 {
-  t_object	*tmp;
-
-  tmp = my_getlist_obj(&all->object, "cyl1");
   if (keycode == O)
     tmp->pos.x = tmp->pos.x + 10.0;
   else if (keycode == L)
@@ -72,20 +66,20 @@ int	gere_key_sphe(int keycode, t_all *all)
   return (1);
 }
 
-int	gere_key_lum(int keycode, t_all *all)
+int	gere_key_lum(int keycode, t_light *light)
 {
   if (keycode == Z)
-    all->lum->pos.x = all->lum->pos.x + 160.0;
+    light->pos.x = light->pos.x + 160.0;
   else if (keycode == S)
-    all->lum->pos.x = all->lum->pos.x - 160.0;
+    light->pos.x = light->pos.x - 160.0;
   else if (keycode == Q)
-    all->lum->pos.y = all->lum->pos.y + 160.0;
+    light->pos.y = light->pos.y + 160.0;
   else if (keycode == D)
-    all->lum->pos.y = all->lum->pos.y - 160.0;
+    light->pos.y = light->pos.y - 160.0;
   else if (keycode == A)
-    all->lum->pos.z = all->lum->pos.z + 160.0;
+    light->pos.z = light->pos.z + 160.0;
   else if (keycode == E)
-    all->lum->pos.z = all->lum->pos.z - 160.0;
+    light->pos.z = light->pos.z - 160.0;
   else
     return (0);
   return (1);

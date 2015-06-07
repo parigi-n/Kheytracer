@@ -5,12 +5,13 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:40:46 2015 david sebaoun
-** Last update Sat Jun  6 12:19:43 2015 david sebaoun
+** Last update Sun Jun  7 19:51:57 2015 david sebaoun
 */
 
 #include <stdio.h>
 #include "shared.h"
 #include "struct.h"
+#include "string.h"
 #include "printf.h"
 
 static int	display_objects(t_scene *scene)
@@ -21,8 +22,7 @@ static int	display_objects(t_scene *scene)
   while (tmp != NULL)
     {
       my_putstr("\033[1m----------------------------------\033[0m\n");
-      printf("name: %s\ntype: %d\nax: %f\nay: %f\naz: %f\nposx: %f\nposy: \
-%f\nposz: %f\nr: %d\nlim: %f\ncolor: %d\n",
+      printf("name: %s\ntype: %d\nax: %f\nay: %f\naz: %f\nposx: %f\nposy: %f\nposz: %f\nr: %d\nlim: %d\ncolor: %d\n",
 	     tmp->name, tmp->type, tmp->a.x, tmp->a.y, tmp->a.z, tmp->pos.x,
 	     tmp->pos.y, tmp->pos.z, tmp->r, tmp->lim, tmp->color);
       tmp = tmp->next;
@@ -48,8 +48,8 @@ static int	display_lights(t_scene *scene)
 int		show(t_all *all, t_scene *scene)
 {
   if (all->loaded == ERROR)
-    return (puterr("Error: No scene loaded\n"));
-  my_printf("\033[1;47m                                  \033[0m\n%s\n\033[1;47m\
+    return (puterr(ERROR_NO_SCENE));
+  my_printf("\033[0;47m                                  \033[0m\n%s\n\033[0;47m\
                                   \033[0m\n", scene->name);
   display_objects(scene);
   display_lights(scene);

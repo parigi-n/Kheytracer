@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 16:36:32 2015 david sebaoun
+## Last update Sun Jun  7 19:30:53 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -21,10 +21,11 @@ SRC		= src/core/main.c \
 		src/core/parser_fct2.c \
 		src/core/parser_fct_light.c \
 		src/core/parser_fct_eye.c \
+		src/core/color.c \
 		src/core/splashscreen.c \
 		src/core/free_scene.c \
-		src/cmd/writer.c \
 		src/cmd/load_file.c \
+		src/cmd/writer.c \
 		src/cmd/object_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
@@ -46,6 +47,7 @@ SRC		= src/core/main.c \
 		src/raytracer/get_triangle_info.c \
 		src/raytracer/triangle_tools.c \
 		src/raytracer/inter_triangle.c \
+		src/raytracer/inter_hyper.c \
 		src/raytracer/inter_cylindre.c \
 		src/raytracer/inter_sphere.c \
 		src/raytracer/inter_plan.c \
@@ -86,7 +88,7 @@ OBJ		= $(SRC:.c=.o)
 
 NAME		= rt
 
-CFLAGS		+= -Wextra -Wall -g
+CFLAGS		+= -Wextra -Wall
 CFLAGS		+= -I./include
 
 LDFLAGS		=

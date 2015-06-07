@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:40:46 2015 david sebaoun
-** Last update Sun Jun  7 13:42:09 2015 david sebaoun
+** Last update Sun Jun  7 19:51:57 2015 david sebaoun
 */
 
 #include <stdio.h>
@@ -22,8 +22,7 @@ static int	display_objects(t_scene *scene)
   while (tmp != NULL)
     {
       my_putstr("\033[1m----------------------------------\033[0m\n");
-      printf("name: %s\ntype: %d\nax: %f\nay: %f\naz: %f\nposx: %f\nposy: \
-%f\nposz: %f\nr: %d\nlim: %f\ncolor: %d\n",
+      printf("name: %s\ntype: %d\nax: %f\nay: %f\naz: %f\nposx: %f\nposy: %f\nposz: %f\nr: %d\nlim: %d\ncolor: %d\n",
 	     tmp->name, tmp->type, tmp->a.x, tmp->a.y, tmp->a.z, tmp->pos.x,
 	     tmp->pos.y, tmp->pos.z, tmp->r, tmp->lim, tmp->color);
       tmp = tmp->next;

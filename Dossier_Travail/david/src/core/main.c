@@ -5,13 +5,14 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 18:39:15 2015 david sebaoun
+** Last update Sun Jun  7 19:36:52 2015 david sebaoun
 */
 
 #include <signal.h>
 #include "shared.h"
 #include "keyboard.h"
 #include "rt.h"
+#include "printf.h"
 
 int		gere_expose(t_all *all)
 {
@@ -20,21 +21,31 @@ int		gere_expose(t_all *all)
   return (0);
 }
 
-int		gere_key(int keycode, void *param)
+int		gere_key(int keycode, t_all *all)
 {
-  t_all		*all;
+  t_object	*tmp_obj;
+  t_light	*tmp_light;
+  int		len;
 
-  all = (t_all*)param;
   if (keycode == ESC)
     exit(0);
-  else if (gere_key_lum(keycode, all) == 0)
+  tmp_obj = all->scene.obj;
+  tmp_light = all->scene.light;
+  len = 0;
+  if (keycode == MEGAUP && all->current_obj + 1 < all->scene.nb_obj)
+    all->current_obj = all->current_obj + 1;
+  if (keycode == MEGADOWN && all->current_obj > 0)
+    all->current_obj = all->current_obj - 1;
+  while (tmp_obj != NULL && len < all->current_obj && tmp_obj->next != NULL)
     {
-      if (gere_key_sphe(keycode, all) == 0)
-	if (gere_key_plan(keycode, all) == 0)
-	  gere_key_eye(keycode, all);
-      /*raytrace(all, scene);*/
-      gere_expose(all);
+      tmp_obj = tmp_obj->next;
+      len++;
     }
+  my_printf("%s%s\n", "Selected object : ", tmp_obj->name);
+  if (gere_key_lum(keycode, tmp_light) == 0)
+    if (gere_key_sphe(keycode, tmp_obj) == 0)
+      gere_key_eye(keycode, &all->scene);
+  raytrace(all, &all->scene);
   return (0);
 }
 
@@ -44,10 +55,6 @@ int		init_calc(t_all *all)
   all->object = NULL;
   all->obj = NULL;
   all->lum = NULL;
-  /*init_obj_un(all);
-  init_obj_deux(all);
-  init_obj_trois(all);
-  init_obj_quatre(all);*/
   return (0);
 }
 

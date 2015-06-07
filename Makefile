@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 18:45:32 2015 Jules Vautier
+## Last update Sun Jun  7 19:30:53 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -23,15 +23,19 @@ SRC		= src/core/main.c \
 		src/core/parser_fct_eye.c \
 		src/core/color.c \
 		src/core/splashscreen.c \
+		src/core/free_scene.c \
 		src/cmd/load_file.c \
-		src/cmd/scene_creator.c \
+		src/cmd/writer.c \
+		src/cmd/object_creator.c \
 		src/cmd/clear.c \
 		src/cmd/render.c \
-		src/cmd/scene_editor.c \
 		src/cmd/help.c \
 		src/cmd/my_exit.c \
 		src/cmd/show_object_info.c \
 		src/cmd/ls.c \
+		src/cmd/get_data.c \
+		src/cmd/add_light.c \
+		src/cmd/add_object.c \
 		src/raytracer/shadow.c \
 		src/raytracer/rotate.c \
                 src/raytracer/init_vec_rotate.c \
@@ -64,6 +68,7 @@ SRC		= src/core/main.c \
                 src/lib/wordtab/epur_str.c \
                 src/lib/wordtab/tabcpy.c \
                 src/lib/wordtab/freetab.c \
+		src/lib/shared/is_hexa.c \
                 src/lib/shared/fct_char.c \
                 src/lib/shared/strlcpy_mlx_substitute.c \
                 src/lib/shared/get_next_line.c \
@@ -84,7 +89,6 @@ OBJ		= $(SRC:.c=.o)
 NAME		= rt
 
 CFLAGS		+= -Wextra -Wall
-CFLAGS		+= -ansi -pedantic -g
 CFLAGS		+= -I./include
 
 LDFLAGS		=

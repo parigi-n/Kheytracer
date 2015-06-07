@@ -5,7 +5,11 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 18:59:43 2015 Nicolas PARIGI
-** Last update Sat Jun  6 21:56:47 2015 Nicolas PARIGI
+<<<<<<< HEAD
+** Last update Sat Jun  6 12:11:31 2015 david sebaoun
+=======
+** Last update Sat Jun  6 15:28:54 2015 Nicolas PARIGI
+>>>>>>> a99b413447c7b84daa18f21983f50d257d80b8c1
 */
 
 #include "shared.h"
@@ -41,26 +45,23 @@ int		content_parsing_eye(t_scene *data, int fd, int flag_stop)
   int		order;
 
   order = 0;
-  while (order < 2 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
+  while ((line = get_next_line(fd)) != NULL && order < 2 && flag_stop == 0)
     {
       data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)
 	return (puterr(ERROR_MALLOC));
-      if (flag_stop == 0 && line[0] != '\0' && my_strcmp(line, "</END>") != 0)
+      if (flag_stop == 0 || line[0] != '\0' || my_strcmp(line, "</END>") != 0)
 	{
 	  if (parsing_launcher(data, line, order++) == ERROR)
 	    return (ERROR);
 	}
       else if (my_strcmp(line, "</END>") == 0)
-	{
-	  my_putchar('A');
-	  flag_stop = 2;
-	}
+	flag_stop = 2;
       else if (line[0] == '\0')
 	flag_stop = 1;
       free(line);
     }
   if (order != 2)
-    return (puterr(ERROR_BAD_ORDER2));
+    return (puterr(ERROR_BAD_ORDER));
   return (flag_stop);
 }

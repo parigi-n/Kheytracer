@@ -1,64 +1,31 @@
 <BEGIN>
-!NAME "scene 5"
+!NAME "scene 1"
       ELEMENT	OBJECT
-      NAME	 "cyl1"
-      TYPE	CYLINDER
-      ORIGIN	  -2000 -700 20
+      NAME	 "sol"
+      TYPE	PLAN
+      ORIGIN	  0 0 -150
       ROTATION	  0 0 0
-      RADIUS	  100
-      COLOR	  FF0000
+      RADIUS	  10
+      COLOR	  FF00FF
+      SHINE	  0
+      LIMIT	  0
 
       ELEMENT	OBJECT
-      NAME	 "cyl2"
-      TYPE    CYLINDER
-      ORIGIN	  -3000 700 20
+      NAME	 "sphe"
+      TYPE	SPHERE
+      ORIGIN	  0 0 0
       ROTATION	  0 0 0
-      RADIUS	  100
-      COLOR	  FF0000
-
-      ELEMENT	OBJECT
-      NAME	 "cyl3"
-      TYPE    CYLINDER
-      ORIGIN	  200 -350 20
-      ROTATION	  0 0 0
-      RADIUS	  100
-      COLOR	  FF0000
-
-      ELEMENT	OBJECT
-      NAME	 "cyl4"
-      TYPE    CYLINDER
-      ORIGIN	  200 350 20
-      ROTATION	  0 0 0
-      RADIUS	  100
-      COLOR	  FF0000
-
-      ELEMENT	OBJECT
-      NAME	  "mur"
-      TYPE	  PLAN
-      ORIGIN	  -4000 0 -6300
-      ROTATION	  0 90 0
-      RADIUS	  0
-      COLOR	  7700FF
-
-      ELEMENT	OBJECT
-      NAME	  "sol"
-      TYPE	  PLAN
-      ORIGIN	  100 -200 -200
-      ROTATION	  0 0 0
-      RADIUS	  0
-      COLOR	  C8C814
+      RADIUS	  80
+      COLOR	  0000FF
+      SHINE	  0
+      LIMIT	  0
 
       ELEMENT	  LIGHT
       NAME	  "lum1"
-      ORIGIN	  2000 1000 100
-      COLOR	000000
-
-      ELEMENT	  LIGHT
-      NAME	  "lum2"
-      ORIGIN	  -3000 -1000 600
+      ORIGIN	   0 -600 2000
       COLOR	000000
 
       ELEMENT	  EYE
-      ORIGIN	  -6000 0 0
+      ORIGIN	  -1000 0 0
       ROTATION	  0 0 0
 </END>

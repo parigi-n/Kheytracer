@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Sun Jun  7 12:34:49 2015 david sebaoun
+** Last update Sun Jun  7 13:39:15 2015 david sebaoun
 */
 
 #ifndef STRING_H_
@@ -36,12 +36,20 @@
 
 /* Cmd */
 
+# define NO_SCENE		"There is currently no scene in memory,"
+# define NO_SCENE2		" please choose a name for a new one\n"
+# define NO_CAMERA		"You also need a camera\n"
+# define ERROR_ACCESS		"Error: Unable to access directory\n"
+# define ERROR_NO_SCENE		"Error: No scene loaded\n"
+# define ERROR_OPEN_WINDOW	"Error: Error while opening window\n"
 # define ERROR_LOAD		"Error: The file could not be loaded\n"
 # define ERROR_FILE		"Error: File does not exist or is not compatible\n"
 # define ERROR_LINE		"\033[1;41mError : line %d\033[0m\n"
 # define LOAD_SUCCESS		"\033[1;32mFile Successfully loaded\033[0m\n"
+# define ADD_SUCCESS		"\033[1;32mObject successfuly added\033[0m\n"
 # define WRITE_SUCCESS		"\033[1;32mFile Successfully writed\033[0m\n"
 # define LOAD_USAGE		"Usage: load file.khey\n"
+# define ADD_USAGE		"Usage: add new_object_name\n"
 
 /* Help */
 

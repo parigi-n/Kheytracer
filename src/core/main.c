@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 28 18:11:18 2015 david sebaoun
-** Last update Sun Jun  7 18:35:03 2015 Jules Vautier
+** Last update Sun Jun  7 19:36:52 2015 david sebaoun
 */
 
 #include <signal.h>
@@ -41,7 +41,7 @@ int		gere_key(int keycode, t_all *all)
       tmp_obj = tmp_obj->next;
       len++;
     }
-  /*my_printf("%s%s\n", "Selected object : ", tmp_obj->name);*/
+  my_printf("%s%s\n", "Selected object : ", tmp_obj->name);
   if (gere_key_lum(keycode, tmp_light) == 0)
     if (gere_key_sphe(keycode, tmp_obj) == 0)
       gere_key_eye(keycode, &all->scene);
@@ -55,10 +55,6 @@ int		init_calc(t_all *all)
   all->object = NULL;
   all->obj = NULL;
   all->lum = NULL;
-  /*init_obj_un(all);
-  init_obj_deux(all);
-  init_obj_trois(all);
-  init_obj_quatre(all);*/
   return (0);
 }
 
@@ -66,8 +62,8 @@ int		main()
 {
   t_all		all;
 
-  /*if (splash_screen() == ERROR)
-    return (ERROR);*/
+  if (splash_screen() == ERROR)
+    return (ERROR);
   if (command_line(&all) == ERROR)
     return (ERROR);
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sat Jun  6 12:17:06 2015 david sebaoun
+** Last update Sun Jun  7 18:40:35 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -16,40 +16,26 @@
 #include "cmd.h"
 #include "parser.h"
 #include "printf.h"
+#include "wordtab.h"
 
-/* static int	check_file(const char *path) */
-/* { */
-/*   if (path == NULL) */
-/*     return (ERROR); */
-/*   if (my_strlen(path) < 6 || */
-/*       (my_strlcmp(path, ".khey", 5) == ERROR) || */
-/*       (access(path, R_OK))) */
-/*     { */
-/*       puterr(ERROR_FILE); */
-/*       return (ERROR); */
-/*     } */
-/*   return (SUCCESS); */
-/* } */
-
-static void	init_coord(t_coor *coord)
+static int	check_file(const char *path)
 {
-  coord->x = 0;
-  coord->y = 0;
-  coord->z = 0;
+  if (path == NULL)
+    return (ERROR);
+  if (my_strlen(path) < 6 ||
+      (my_strlcmp(path, ".khey", 5) == ERROR) ||
+      (access(path, R_OK)))
+    {
+      puterr(ERROR_FILE);
+      return (ERROR);
+    }
+  return (SUCCESS);
 }
 
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
   int		fd;
 
-  scene->name = NULL;
-  scene->obj = NULL;
-  scene->light = NULL;
-  scene->last_line = 0;
-  scene->nb_obj = 0;
-  scene->nb_light = 0;
-  init_coord(&scene->pos);
-  init_coord(&scene->a);
   if (((fd = open(path, O_RDONLY)) == ERROR) ||
       (parser(scene, fd) == ERROR) ||
       (close(fd) == ERROR))
@@ -63,21 +49,42 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
   return (SUCCESS);
 }
 
-int	load(t_all *all, t_scene *scene)
+int	check_reload()
 {
-  int	loadable;
+  char		**tab;
+
+  puterr("A scene is already loaded\n");
+  my_putstr("Do you want to overwrite it [y/n] : ");
+  while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
+    {
+      if (my_strlen(tab[0]) == 1 &&
+	  (tab[0][0] == 'y' || tab[0][0] == 'Y'))
+	return (SUCCESS);
+      if (my_strlen(tab[0]) == 1 &&
+	  (tab[0][0] == 'n' || tab[0][0] == 'N'))
+	return (ERROR);
+      my_putstr("Do you want to overwrite it [y/n] : ");
+    }
+  return (ERROR);
+}
+
+int		load(t_all *all, t_scene *scene)
+{
+  int		loadable;
 
   loadable = ERROR;
-  /* if (all->tab[1] == NULL) */
-  /*   { */
-  /*     my_putstr(LOAD_USAGE); */
-  /*     return (SUCCESS); */
-  /*   } */
-  /* if ((loadable = check_file(all->tab[1])) == EXIT) */
-  /*   return (EXIT); */
-  loadable = SUCCESS;
+  if (all->tab[1] == NULL)
+    {
+      my_putstr(LOAD_USAGE);
+      return (SUCCESS);
+    }
+  if (all->loaded == SUCCESS && check_reload() == ERROR)
+    return (ERROR);
+  /* free_scene(all, scene); */
+  if ((loadable = check_file(all->tab[1])) == EXIT)
+    return (EXIT);
   if (loadable == SUCCESS)
-    if (load_file("test.khey"/* all->tab[1] */, scene, all) == ERROR)
-      return (puterr("Error: The file could not be loaded\n"));
+    if (load_file(all->tab[1], scene, all) == ERROR)
+      return (puterr(ERROR_LOAD));
   return (SUCCESS);
 }

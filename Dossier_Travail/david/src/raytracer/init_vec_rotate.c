@@ -1,20 +1,33 @@
 /*
-** init_light.c for init_light in /home/vautie_a/rendu/MUL_2014_rtv1/rtv1_src
+** init_vec_rotate.c for init_vec in /home/noswor_o/dim/MUL_2014_rtracer
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by Oscar Nosworthy
+** Login   <noswor_o@epitech.net>
 ** 
-** Started on  Wed Mar  4 16:39:00 2015 Jules Vautier
-** Last update Sat Jun  6 12:22:38 2015 Jules Vautier
+** Started on  Sun Jun  7 16:19:45 2015 Oscar Nosworthy
+** Last update Sun Jun  7 16:21:52 2015 Oscar Nosworthy
 */
 
 #include "rt.h"
-#include <stdio.h>
 
-int		init_rotate(t_object **list)
+static void	init_rotate_eye(t_light *eye)
+{
+  if (eye->a.x < 0.0)
+    eye->a.x = -eye->a.x;
+  if (eye->a.y < 0.0)
+    eye->a.y = -eye->a.y;
+  if (eye->a.z < 0.0)
+    eye->a.z = -eye->a.z;
+  eye->a.x = TORADIAN(eye->a.x);
+  eye->a.y = TORADIAN(eye->a.y);
+  eye->a.z = TORADIAN(eye->a.z);
+}
+
+void		init_rotate(t_object **list, t_light *eye)
 {
   t_object	*obj;
 
+  init_rotate_eye(eye);
   obj = *list;
   while (obj != NULL)
     {
@@ -29,5 +42,4 @@ int		init_rotate(t_object **list)
       obj->a.z = TORADIAN(obj->a.z);
       obj = obj->next;
     }
-  return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <noswor_o@epitech.net>
 ** 
 ** Started on  Thu Jun  4 17:46:34 2015 Oscar Nosworthy
-** Last update Sun Jun  7 16:26:26 2015 Oscar Nosworthy
+** Last update Sun Jun  7 19:37:56 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -37,6 +37,7 @@ double		inter_triangle(t_all *all, t_light *vec, t_object *obj)
   t_coor	coor;
   double	k;
 
+  (void)all;
   triangle = create_triangle(triangle);
   edges = find_edges(edges, triangle);
   normal = cross_product(edges.tr1, edges.tr2);

@@ -5,11 +5,11 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Sun Jun  7 18:59:14 2015 david sebaoun
+** Last update Sun Jun  7 19:26:20 2015 david sebaoun
 */
 
-#include <dirent.h>
 #include <stddef.h>
+#include <dirent.h>
 #include "shared.h"
 #include "string.h"
 #include "struct.h"

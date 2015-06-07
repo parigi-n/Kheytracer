@@ -5,17 +5,21 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Sat Jun  6 16:14:45 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Sun Jun  7 18:42:26 2015 Jules Vautier
+=======
+** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
+>>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 */
 
 #include "struct.h"
 #include "rt.h"
-#include "printf.h"
-
+#include <stdio.h>
 
 static void	my_pixel_put(int nbr, char *img,
-			     unsigned int color, int intensity)
+			     unsigned int color,
+			     double intensity)
 {
   int		red;
   int		green;
@@ -26,34 +30,40 @@ static void	my_pixel_put(int nbr, char *img,
   green = (color % 256);
   color = (color / 256);
   blue = (color % 256);
-  red = (red * intensity) / 1000;
+  red = (red * intensity);
   img[nbr] = MAXCOLOR(red);
-  green = (green * intensity) / 1000;
+  green = (green * intensity);
   img[nbr + 1] = MAXCOLOR(green);
-  blue = (blue * intensity) / 1000;
+  blue = (blue * intensity);
   img[nbr + 2] = MAXCOLOR(blue);
 }
 
-static int	find_color(t_all *all, t_light **list,
-			   t_object *save, t_scene *scene)
+static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
+{
+  double	inten;
+
+  if (all->flag.intensity == 1)
+    inten = prepare_intensity(all, lum, all->calc.save, scene);
+  else
+    inten = 1.0 / scene->nb_light;
+  if (all->flag.shadow == 1 &&
+      shadow(all, lum, scene) == 0)
+    inten = inten / (scene->nb_light + 1);
+  if (inten < 0)
+    inten = 0;
+  return (inten);
+}
+
+static double	find_color(t_all *all, t_light **list, t_scene *scene)
 {
   t_light	*lum;
-  int		ret;
-  int		inten;
+  double	ret;
 
   lum = *list;
-  ret = 0;
+  ret = 0.0;
   while (lum != NULL)
     {
-      if (all->flag.intensity == 1)
-	inten = prepare_intensity(all, lum, save, scene);
-      else
-	inten = 1000;
-      if (all->flag.shadow == 1)
-	inten = inten * shadow(all, lum, scene);
-      if (inten < 0)
-	inten = 0;
-      ret = ret + inten;
+      ret = ret + find_intensity(all, lum, scene);
       lum = lum->next;
     }
   return (ret);
@@ -61,19 +71,16 @@ static int	find_color(t_all *all, t_light **list,
 
 int		creat_pixel(t_all *all, t_scene *scene)
 {
-  int		intensity;
+  double	intensity;
 
-  intensity = 1000;
   all->calc.tmpk = all->calc.k;
   all->calc.save = all->obj;
-  find_point(&scene->eye, &all->point, all->calc.k);
   if (all->calc.save == NULL)
     {
-      my_pixel_put(all->pixel_nb, all->var.data, 0, 0);
+      my_pixel_put(all->pixel_nb, all->var.data, 0xFFFFFF, 0.0);
       return (0);
     }
-  intensity = find_color(all, &scene->light,
-			 all->calc.save, scene);
+  intensity = find_color(all, &scene->light, scene);
   if (all->calc.save != NULL)
     my_pixel_put(all->pixel_nb, all->var.data,
 		 all->calc.save->color, intensity);

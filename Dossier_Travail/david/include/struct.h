@@ -1,11 +1,11 @@
 /*
-** struct.h for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
+** igraph.h for igraph in /home/vautie_a/rendu/MUL_2014_fdf
 ** 
-** Made by david sebaoun
-** Login   <sebaou_d@epitech.net>
+** Made by Jules Vautier
+** Login   <vautie_a@epitech.net>
 ** 
-** Started on  Sat Jun  6 17:46:45 2015 david sebaoun
-** Last update Sat Jun  6 22:52:34 2015 david sebaoun
+** Started on  Mon Dec  1 15:28:21 2014 Jules Vautier
+** Last update Sun Jun  7 18:30:55 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -33,6 +33,13 @@ typedef struct		s_coor
   double		z;
 }			t_coor;
 
+typedef struct		s_color
+{
+  int			red;
+  int			green;
+  int			blue;
+}			t_color;
+
 typedef struct		s_tri
 {
   t_coor		tr1;
@@ -47,8 +54,10 @@ typedef	struct		s_object
   t_coor		a;
   t_coor		pos;
   int			r;
-  double		lim;
+  int			lim;
+  double		shine;
   int			color;
+  t_color		color_int;
   struct s_object	*next;
 }			t_object;
 
@@ -61,6 +70,7 @@ typedef struct		s_light
   t_coor		tmp;
   t_coor		new;
   int			color;
+  t_color		color_int;
   struct s_light	*next;
 }			t_light;
 
@@ -107,33 +117,16 @@ typedef struct		s_all
   t_calcul		calc;
   int			pixel_nb;
   t_flags		flag;
+  t_scene		scene;
+  int			current_obj;
+  int			current_light;
 }			t_all;
-
-typedef struct		s_edit
-{
-  char			*term_cl;
-  char			*term_cm;
-  char			*term_ve;
-  char			*term_vi;
-  int			i;
-  int			x;
-  int			y;
-  int			z;
-  int			status;
-}			t_edit;
 
 typedef struct		s_fonct
 {
   double		(*ptr)(t_all *, t_light *, t_object *);
   int			type;
 }			t_fonct;
-
-typedef struct		s_finten
-{
-  int			(*ptr)(t_all *, t_light *,
-			       t_object *, t_light);
-  int			type;
-}			t_finten;
 
 typedef struct		s_obj_type
 {

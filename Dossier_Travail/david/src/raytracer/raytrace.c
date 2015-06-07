@@ -5,13 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sat Jun  6 17:14:47 2015 Oscar Nosworthy
+** Last update Sun Jun  7 18:38:16 2015 Jules Vautier
 */
 
 #include "shared.h"
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 static const	t_fonct g_fonct[] =
   {
@@ -21,6 +20,8 @@ static const	t_fonct g_fonct[] =
     {&inter_plan, TYPE_PLAN},
     {&inter_disc, TYPE_DISC},
     {&inter_triangle, TYPE_TRIANGLE},
+    {&inter_hyper, TYPE_HYPERB},
+    {&inter_hyper2, TYPE_HYPERB2},
     {NULL, -1}
   };
 
@@ -45,6 +46,7 @@ static int	raycast(t_all *all, t_object **list,
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
+	  find_point(&scene->eye, &all->point, k);
 	  all->obj = tmp;
 	}
       tmp = tmp->next;
@@ -54,11 +56,11 @@ static int	raycast(t_all *all, t_object **list,
 
 int		raytrace(t_all *all, t_scene *scene)
 {
-  all->flag.rotate = 1;
+  all->flag.rotate = 0;
   all->flag.shadow = 0;
   all->flag.intensity = 1;
   all->pixel_nb = 0;
-  init_rotate(&scene->obj);
+  init_rotate(&scene->obj, &scene->eye);
   while (all->pixel_nb < SIZE_IMG)
     {
       calc_point_eye(&scene->eye, all->pixel_nb);

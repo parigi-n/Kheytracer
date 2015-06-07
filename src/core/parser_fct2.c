@@ -5,9 +5,10 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:43 2015 Nicolas PARIGI
-** Last update Sun Jun  7 19:00:53 2015 Jules Vautier
+** Last update Sun Jun  7 19:40:21 2015 david sebaoun
 */
 
+#include "rt.h"
 #include "shared.h"
 #include "struct.h"
 #include "string.h"

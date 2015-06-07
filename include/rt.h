@@ -1,17 +1,12 @@
 /*
-** rt.h for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer
+** rt.h for raytracer in /home/sebaou_d/rendu/MUL_2014_rtracer/Dossier_Travail/david
 ** 
 ** Made by david sebaoun
 ** Login   <sebaou_d@epitech.net>
 ** 
-** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-<<<<<<< HEAD
-** Last update Sun Jun  7 19:01:57 2015 Jules Vautier
-=======
-** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
->>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
+** Started on  Sun Jun  7 19:16:15 2015 david sebaoun
+** Last update Sun Jun  7 19:41:02 2015 david sebaoun
 */
-
 
 #ifndef RT_H_
 # define RT_H_
@@ -40,10 +35,14 @@
 # define TYPE_TRIANGLE	5
 # define TYPE_HYPERB	6
 # define TYPE_HYPERB2	7
+# define TYPE_LIGHT	8
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
 
+int	free_scene(t_all *, t_scene *);
+void	free_object(t_object *);
+void	free_light(t_light *);
 int	command_line(t_all *);
 char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
@@ -58,7 +57,7 @@ int	calc_light(t_coor point, t_light *vec, t_object *obj);
 int	find_point(t_light *, t_coor *, double);
 void	init_rotate(t_object **, t_light *);
 int	raytrace(t_all *, t_scene *);
-void            hex_to_color(int color, t_color *res);
+void	hex_to_color(int color, t_color *res);
 double	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);
 void	my_loading(int, int);
@@ -97,5 +96,6 @@ int	gere_key_obj(int, t_object *);
 int	gere_key_plan(int, t_object *);
 int	gere_key_lum(int, t_light *);
 int	splash_screen();
+void	hex_to_color(int, t_color *);
 
 #endif /* !RT_H_ */

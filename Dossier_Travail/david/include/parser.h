@@ -22,6 +22,8 @@ int		parser_origin(char **tab, t_object *parsing);
 int		parser_rotation(char **tab, t_object *parsing);
 int		parser_radius(char **tab, t_object *parsing);
 int		parser_color(char **tab, t_object *parsing);
+int		parser_shine(char **tab, t_object *parsing);
+int		parser_limit(char **tab, t_object *parsing);
 int		parser_light_name(char **tab, t_light *parsing);
 int		parser_light_origin(char **tab, t_light *parsing);
 int		parser_light_color(char **tab, t_light *parsing);

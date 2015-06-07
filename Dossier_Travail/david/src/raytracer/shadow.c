@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Fri Jun  5 17:43:26 2015 Jules Vautier
+** Last update Sun Jun  7 16:33:10 2015 Jules Vautier
 */
 
 #include "struct.h"
@@ -21,44 +21,45 @@ static const	t_fonct g_fonct[] =
     {NULL, -1}
   };
 
-static int	do_shadow(t_all *all, t_object **list,
-			  t_light *lum)
+static void	do_shadow(t_all *all, t_object **list,
+			  t_light *lum, t_scene *scene)
 {
   t_object	*obj;
-  double	tmpk;
+  double	k;
 
   obj = *list;
   all->calc.k = 99999.0;
   all->obj = NULL;
   while (obj != NULL)
     {
-      calc_point_lum(&all->eye, lum, obj, all->calc.tmpk);
-      /*if (all->flag.rotate == 1)
+      calc_vec(&scene->eye, obj);
+      if (all->flag.rotate == 1)
+        {
+          rotate(&scene->eye, scene->eye.a, 1);
+          rotate(&scene->eye, obj->a, 1);
+        }
+      find_point(&scene->eye, &all->point, all->calc.tmpk);
+      calc_light(all->point, lum, obj);
+      k = g_fonct[obj->type].ptr(all, lum, obj);
+      if (k > 0.000001 && k < all->calc.k)
 	{
-	  rotate(&all->eye, &all->object[NB_OBJ], 1);
-	  rotate(&all->eye, obj, 1);
-	  }*/
-      tmpk = g_fonct[obj->type].ptr(all, lum, obj);
-      if (tmpk > 0.000001 && tmpk < all->calc.k)
-	{
-	  all->calc.k = tmpk;
+	  all->calc.k = k;
 	  all->obj = obj;
 	}
       obj = obj->next;
     }
- return (0);
 }
 
 int		shadow(t_all *all, t_light *lum, t_scene *scene)
 {
-  /*t_coor	point_lum;
-  t_coor	point_eye;*/
-
-  /*find_point(lum, &point_lum, all->calc.k);*/
-  do_shadow(all, &scene->obj, lum);
+  do_shadow(all, &scene->obj, lum, scene);
   if (all->obj == NULL)
     return (1);
-  if (my_strcmp(all->calc.save->name, all->obj->name) == 0)
-    return (1);
-  return (0);
+  if (all->calc.k < 0.999999)
+    {
+      if (my_strcmp(all->calc.save->name, all->obj->name) == 0)
+	return (1);
+      return (0);
+    }
+  return (1);
 }
