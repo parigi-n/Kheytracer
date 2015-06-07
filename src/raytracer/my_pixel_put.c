@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 20:46:06 2015 Jules Vautier
+** Last update Sun Jun  7 21:15:47 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -19,10 +19,9 @@
 
 static void	my_pixel_put(int nbr, char *img, t_color color)
 {
-  /*printf("%i %i %i\n", color.red, color.green, color.blue);*/
-  img[nbr] = MAXCOLOR(color.red);
+  img[nbr] = MAXCOLOR(color.blue);
   img[nbr + 1] = MAXCOLOR(color.green);
-  img[nbr + 2] = MAXCOLOR(color.blue);
+  img[nbr + 2] = MAXCOLOR(color.red);
 }
 
 static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
@@ -35,7 +34,7 @@ static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
     inten = 1.0 / scene->nb_light;
   if (all->flag.shadow == 1 &&
       shadow(all, lum, scene) == 0)
-    inten = inten / (scene->nb_light + 1);
+    inten = inten / (scene->nb_light);
   if (inten < 0)
     inten = 0;
   return (inten);
@@ -54,7 +53,7 @@ static void	find_color(t_all *all, t_light **list, t_scene *scene)
   intensity = 0.0;
   while (lum != NULL)
     {
-      intensity = intensity + find_intensity(all, lum, scene);
+      intensity = find_intensity(all, lum, scene);
       calc_color(all->calc.save, lum->color_int, intensity, &res);
       lum = lum->next;
     }
