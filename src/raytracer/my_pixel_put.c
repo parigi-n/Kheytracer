@@ -5,14 +5,13 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Sun Jun  7 13:18:47 2015 Jules Vautier
+** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 */
 
 #include "struct.h"
 #include "rt.h"
 #include "printf.h"
-
 
 static void	my_pixel_put(int nbr, char *img,
 			     unsigned int color,

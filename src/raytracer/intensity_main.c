@@ -6,10 +6,9 @@
 ** 
 ** Started on  Thu Mar  5 09:35:28 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 13:08:26 2015 Jules Vautier
+** Last update Sun Jun  7 16:27:09 2015 Oscar Nosworthy
 */
 
-#include <stdio.h>
 #include "rt.h"
 
 static const	t_finten g_fonct[] =

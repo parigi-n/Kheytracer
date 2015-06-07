@@ -1,17 +1,18 @@
 /*
-** inter_hyper.c for hyper in /home/noswor_o/MUL_2014_rtracer/oscar/src/raytracer/MUL_2014_rtracer
+** inter_hyper.c for ray in /home/noswor_o/dim/MUL_2014_rtracer
 ** 
 ** Made by Oscar Nosworthy
 ** Login   <noswor_o@epitech.net>
 ** 
-** Started on  Sun Jun  7 00:32:46 2015 Oscar Nosworthy
-** Last update Sun Jun  7 00:50:54 2015 Oscar Nosworthy
+** Started on  Sun Jun  7 16:06:38 2015 Oscar Nosworthy
+** Last update Sun Jun  7 16:14:31 2015 Oscar Nosworthy
 */
+
 
 #include "rt.h"
 #include "struct.h"
 
-int	delta_hyper(double a, double b, double d, double k)
+int		delta_hyper(double a, double b, double d, double k)
 {
   double	r1;
   double	r2;
