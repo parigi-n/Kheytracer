@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 10:30:48 2015 Jules Vautier
+** Last update Sun Jun  7 11:05:38 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -47,6 +47,9 @@ static int	raycast(t_all *all, t_object **list,
       if (k > 0.000001 && k < all->calc.k)
 	{
 	  all->calc.k = k;
+
+	  rotate(&scene->eye, scene->eye.a, 1);
+	  rotate(&scene->eye, tmp->a, 1);
 	  find_point(&scene->eye, &all->point, k);
 	  /*if (my_strcmp(tmp->name, "sphe") == 0)
 	    {

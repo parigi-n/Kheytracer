@@ -4,7 +4,7 @@
       NAME	 "plan"
       TYPE	PLAN
       ORIGIN	  0 100 -100
-      ROTATION	  0 0 0
+      ROTATION	  10 0 0
       RADIUS	  0
       COLOR	  FF0000
 
