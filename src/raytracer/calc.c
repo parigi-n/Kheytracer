@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun Jun  7 10:12:35 2015 Jules Vautier
+** Last update Sun Jun  7 21:28:33 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:13:18 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -14,13 +14,14 @@
 
 #include "struct.h"
 #include "rt.h"
-#include <stdio.h>
 
 int		calc_point_lum(t_light *eye, t_light *vec,
 			       t_object *obj, double k)
 {
   t_coor	point;
 
+  (void)obj;
+  (void)eye;
   vec->v.x = point.x - vec->pos.x;
   vec->v.y = point.y - vec->pos.y;
   vec->v.z = point.z - vec->pos.z;

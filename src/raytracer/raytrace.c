@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 21:24:56 2015 Jules Vautier
+** Last update Sun Jun  7 21:29:23 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -19,9 +19,6 @@ static const	t_fonct g_fonct[] =
     {&inter_cylinder, TYPE_CYLINDER},
     {&inter_plan, TYPE_PLAN},
     {&inter_disc, TYPE_DISC},
-    {&inter_triangle, TYPE_TRIANGLE},
-    {&inter_hyper, TYPE_HYPERB},
-    {&inter_hyper2, TYPE_HYPERB2},
     {NULL, -1}
   };
 
