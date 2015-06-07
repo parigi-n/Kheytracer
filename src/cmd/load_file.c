@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sun Jun  7 20:48:32 2015 david sebaoun
+** Last update Sun Jun  7 22:15:59 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -49,7 +49,7 @@ static int	load_file(char *path, t_scene *scene, t_all *all)
   return (SUCCESS);
 }
 
-int	check_reload()
+int		check_reload()
 {
   char		**tab;
 

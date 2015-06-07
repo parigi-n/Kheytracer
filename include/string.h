@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Sun Jun  7 21:59:12 2015 david sebaoun
+** Last update Sun Jun  7 22:16:56 2015 david sebaoun
 */
 
 #ifndef STRING_H_
@@ -47,7 +47,7 @@
 # define ERROR_OPEN_WINDOW	"Error: Error while opening window\n"
 # define ERROR_LOAD		"Error: The file could not be loaded\n"
 # define ERROR_FILE		"Error: File does not exist or is not compatible\n"
-# define ERROR_LINE		"\033[1;41mError : line %d\033[0m\n"
+# define ERROR_LINE		"\n\033[1;41mError : line %d\033[0m\n"
 # define LOAD_SUCCESS		"\033[1;32mFile Successfully loaded\033[0m\n"
 # define ADD_SUCCESS		"\033[1;32mObject successfuly added\033[0m\n"
 # define WRITE_SUCCESS		"\033[1;32mFile Successfully writed\033[0m\n"
