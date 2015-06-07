@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:37:59 2015 Jules Vautier
-** Last update Sat Jun  6 16:18:08 2015 Jules Vautier
+** Last update Sun Jun  7 09:05:32 2015 Jules Vautier
 */
 
 #include "rt.h"
@@ -23,6 +23,7 @@ int		intensity_plan(t_all *all, t_light *vec,
   vec1.v.y = 0.0;
   vec1.v.z = 1.0;
   find_point(&eye, &point, all->calc.k);
+  point = all->point;
   vec2.v.x = vec->pos.x - point.x;
   vec2.v.y = vec->pos.y - point.y;
   vec2.v.z = vec->pos.z - point.z;

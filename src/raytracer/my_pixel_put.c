@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
-** Last update Sat Jun  6 19:17:25 2015 Jules Vautier
+** Last update Sun Jun  7 10:46:32 2015 Jules Vautier
 ** Last update Tue May 26 19:15:00 2015 david sebaoun
 */
 
@@ -43,7 +43,7 @@ static int	find_color(t_all *all, t_light **list,
   int		inten;
 
   lum = *list;
-  ret = 0;
+  ret = 1000;
   while (lum != NULL)
     {
       if (all->flag.intensity == 1)
@@ -52,10 +52,10 @@ static int	find_color(t_all *all, t_light **list,
 	inten = 1000;
       if (all->flag.shadow == 1 &&
 	  shadow(all, lum, scene) == 0)
-	inten = inten / 6;
-      if (inten < 0)
+	ret = 0;
+      /*if (inten < 0)
 	inten = 0;
-      ret = ret + inten;
+	ret = ret + inten;*/
       lum = lum->next;
     }
   return (ret);
@@ -71,7 +71,7 @@ static void	init_coor_pixel(t_all *all,
       rotate(&scene->eye, scene->eye.a, 1);
       rotate(&scene->eye, save->a, 1);
     }
-  find_point(&scene->eye, &all->point, all->calc.tmpk);
+  /*find_point(&scene->eye, &all->point, all->calc.tmpk);*/
 }
 
 int		creat_pixel(t_all *all, t_scene *scene)
