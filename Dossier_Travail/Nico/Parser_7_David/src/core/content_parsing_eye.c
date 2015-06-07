@@ -45,7 +45,7 @@ int		content_parsing_eye(t_scene *data, int fd, int flag_stop)
   int		order;
 
   order = 0;
-  while ((line = get_next_line(fd)) != NULL && order < 2 && flag_stop == 0)
+  while (order < 2 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
     {
       data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)

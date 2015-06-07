@@ -1,3 +1,13 @@
+/*
+** parser.c for parser in /home/parigi_n/Testrendu/MUL_2014_rtracer/Dossier_Travail/Nico/Parser_7_David
+** 
+** Made by Nicolas PARIGI
+** Login   <parigi_n@epitech.net>
+** 
+** Started on  Sun Jun  7 21:52:21 2015 Nicolas PARIGI
+** Last update Sun Jun  7 21:52:22 2015 Nicolas PARIGI
+*/
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -6,42 +16,6 @@
 #include "struct.h"
 #include "string.h"
 #include "parser.h"
-
-static int	check_element_type(t_scene *data, char *line, int fd)
-{
-  char		**tab;
-  int		flag_stop;
-
-  flag_stop = 0;
-  if ((tab = my_word_to_tab(line, " ")) == NULL)
-    return (-1);;
-  data->last_line++;
-  if (my_tablen(tab) != 2)
-    return (puterr(ERROR_NBR_ARG));
-  if (my_strcmp(tab[0], "ELEMENT") != 0)
-    return (puterr(ERROR_BAD_ORDER));
-  if (my_strlen(tab[1]) <= 0 || my_strlen(tab[1]) > MAX_OBJ_NAME)
-    return (puterr(ERROR_BAD_ARG_LENGHT));
-  if (my_strcmp(tab[1], "OBJECT") == 0)
-    {
-      if ((flag_stop = content_parsing_obj(&data->obj, fd, flag_stop, data)) == ERROR)
-	return (ERROR);
-    }
-  else if (my_strcmp(tab[1], "LIGHT") == 0)
-    {
-      if ((flag_stop = content_parsing_light(&data->light, fd, flag_stop, data)) == ERROR)
-	return (ERROR);
-    }
-  else if (my_strcmp(tab[1], "EYE") == 0)
-    {
-      if ((flag_stop = content_parsing_eye(data, fd, flag_stop)) == ERROR)
-	return (ERROR);
-    }
-  else
-    return (puterr("Error : Unknown ELEMENT type found.\n"));
-  freetab(tab);
-  return (flag_stop);
-}
 
 static int	begin_parsing(char *line, t_scene *data)
 {
@@ -105,6 +79,14 @@ static void	count_element(t_scene *data)
   data->nb_light = nb_light;
 }
 
+static int	end_check_parser(t_scene *data, int flag_begin, int flag_stop)
+{
+  if (flag_begin != 1)
+    return (puterr(ERROR_NO_BEGIN));
+  count_element(data);
+  return (0);
+}
+
 int		parser(t_scene *data, int fd)
 {
   char		*line;
@@ -132,8 +114,5 @@ int		parser(t_scene *data, int fd)
 	    return (ERROR);
       free(line);
     }
-  if (flag_begin != 1)
-    return (puterr(ERROR_NO_BEGIN));
-  count_element(data);
-  return (0);
+  return (end_check_parser(data, flag_begin, flag_stop));
 }

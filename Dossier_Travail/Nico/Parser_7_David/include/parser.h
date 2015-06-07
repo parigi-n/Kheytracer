@@ -16,6 +16,7 @@
 # define MAX_RADIUS_SIZE	(100000.000)
 
 int		parser(t_scene *data, int fd);
+int		check_element_type(t_scene *data, char *line, int fd);
 int		parser_obj_name(char **tab, t_object *parsing);
 int		parser_type(char **tab, t_object *parsing);
 int		parser_origin(char **tab, t_object *parsing);
@@ -29,10 +30,9 @@ int		parser_light_origin(char **tab, t_light *parsing);
 int		parser_light_color(char **tab, t_light *parsing);
 int		parser_eye_origin(char **tab, t_scene *data);
 int		parser_eye_rotation(char **tab, t_scene *data);
-
-int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data);
-int		content_parsing_light(t_light **light, int fd, int flag_stop, t_scene *data);
-int		content_parsing_eye(t_scene *data, int fd, int flag_stop);
+int		content_parsing_obj(t_object **, int, int, t_scene *);
+int		content_parsing_light(t_light **, int, int, t_scene *);
+int		content_parsing_eye(t_scene *, int, int);
 
 typedef struct	s_parser_obj
 {

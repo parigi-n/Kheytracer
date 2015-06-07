@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 19:30:53 2015 david sebaoun
+## Last update Sun Jun  7 21:12:57 2015 Nicolas PARIGI
 ##
 
 SRC		= src/core/main.c \
@@ -14,6 +14,7 @@ SRC		= src/core/main.c \
 		src/core/gere_key_fct.c \
 		src/core/check.c \
 		src/core/parser.c \
+		src/core/parser_element.c \
 		src/core/content_parsing.c \
 		src/core/content_parsing_light.c \
 		src/core/content_parsing_eye.c \
