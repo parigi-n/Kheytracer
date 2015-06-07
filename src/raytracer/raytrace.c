@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 11:05:38 2015 Jules Vautier
+** Last update Sun Jun  7 11:58:19 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -67,7 +67,7 @@ int		raytrace(t_all *all, t_scene *scene)
 {
   all->flag.rotate = 1;
   all->flag.shadow = 1;
-  all->flag.intensity = 0;
+  all->flag.intensity = 1;
   all->pixel_nb = 0;
   init_rotate(&scene->obj, &scene->eye);
   while (all->pixel_nb < SIZE_IMG)
