@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Feb  5 08:38:05 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Fri May 29 11:21:00 2015 Jules Vautier
+** Last update Sun Jun  7 22:32:23 2015 Jules Vautier
 =======
 ** Last update Tue May 26 19:14:20 2015 david sebaoun
 >>>>>>> 7b4f8b46492ef0dc1a0dac4d9277e1b011142ae6
@@ -35,8 +35,10 @@ static double	end_calc(t_object *obj, t_coor *coor,
   double	k;
 
   k = ((-coor->y + sqrt(delta)) / (2 * coor->x));
+  if (obj->lim == 0.0)
+    return (k);
   limite =  (vec->v.z * k + vec->pos.z);
-  if (limite > obj->pos.z || limite < obj->pos.z - obj->r)
+  if (limite > obj->pos.z || limite < obj->pos.z - obj->lim)
     return (0.0);
   return (k);
 }

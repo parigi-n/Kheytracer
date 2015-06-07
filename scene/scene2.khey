@@ -1,12 +1,14 @@
 <BEGIN>
-!NAME "scene 1"
+!NAME "scene 2"
       ELEMENT	OBJECT
       NAME	 "plan"
       TYPE	PLAN
       ORIGIN	  0 0 -60
-      ROTATION	  0 0 0
+      ROTATION	  358 0 0
       RADIUS	  100
-      COLOR	  0000FF
+      COLOR	  00FF00
+      SHINE       0
+      LIMIT       0
 
       ELEMENT	  LIGHT
       NAME	  "lum1"

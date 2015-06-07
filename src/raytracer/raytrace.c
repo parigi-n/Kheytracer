@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Feb  4 08:58:47 2015 Jules Vautier
-** Last update Sun Jun  7 21:29:23 2015 Jules Vautier
+** Last update Sun Jun  7 22:43:46 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -54,6 +54,7 @@ static int	raycast(t_all *all, t_object **list,
 int		raytrace(t_all *all, t_scene *scene)
 {
   all->pixel_nb = 0;
+  printf("%i\n", all->flag.shadow);
   init_rotate(&scene->obj, &scene->eye);
   while (all->pixel_nb < SIZE_IMG)
     {

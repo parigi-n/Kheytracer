@@ -10,9 +10,19 @@
       SHINE	  1.0
       LIMIT	  0
 
+      ELEMENT	OBJECT
+      NAME	 "sol"
+      TYPE	SPHERE
+      ORIGIN	  0 0 200
+      ROTATION	  0 0 0
+      RADIUS	  50
+      COLOR	  000000
+      SHINE	  1.0
+      LIMIT	  0
+
       ELEMENT	  LIGHT
       NAME	  "lum1"
-      ORIGIN	   100 300 0
+      ORIGIN	   100 300 1000
       COLOR	FF0000
 
       ELEMENT	  LIGHT
