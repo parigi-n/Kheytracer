@@ -107,6 +107,9 @@ typedef struct		s_all
   t_calcul		calc;
   int			pixel_nb;
   t_flags		flag;
+  t_scene		scene;
+  int			current_obj;
+  int			current_light;
 }			t_all;
 
 typedef struct		s_fonct

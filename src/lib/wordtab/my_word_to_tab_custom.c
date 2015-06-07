@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Oct 29 13:53:54 2014 jules vautier
-** Last update Sun May 17 14:54:43 2015 Jules Vautier
+** Last update Sun Jun  7 16:45:52 2015 Oscar Nosworthy
 */
 
 #include <unistd.h>
@@ -90,8 +90,7 @@ static char	*remp_tab(char *str, char *src,
   return (str);
 }
 
-char		**my_word_to_tab_custom(char *str,
-						char separ)
+char		**my_word_to_tab_custom(char *str, char separ)
 {
   char		**tab;
   int			len;

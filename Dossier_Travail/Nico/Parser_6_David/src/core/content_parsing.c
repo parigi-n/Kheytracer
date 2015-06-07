@@ -22,7 +22,9 @@ static const	t_parser_obj g_parser_obj[] =
     {&parser_rotation, 3},
     {&parser_radius, 4},
     {&parser_color, 5},
-    {NULL, '\0'}
+    {&parser_shine, 6},
+    {&parser_limit, 7},
+    {NULL, -1}
   };
 
 static void	my_put_in_list_obj(t_object **obj, t_object *parsing)
@@ -47,7 +49,7 @@ static int	parsing_launcher(t_object *parsing, char *line, int order)
 
 static int	parsing_end_check(t_object **obj, t_object *parsing, int order)
 {
-  if (order == 6)
+  if (order == 8)
     my_put_in_list_obj(obj, parsing);
   else
     return (puterr(ERROR_BAD_ORDER2));
@@ -63,7 +65,7 @@ int		content_parsing_obj(t_object **obj, int fd, int flag_stop, t_scene *data)
   if ((parsing = malloc(sizeof(*parsing))) == NULL)
     return (ERROR);
   order = 0;
-  while (order < 6 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
+  while (order < 8 && flag_stop == 0 && (line = get_next_line(fd)) != NULL)
     {
       data->last_line = data->last_line + 1;
       if ((line = epur_str(line, 1)) == NULL)

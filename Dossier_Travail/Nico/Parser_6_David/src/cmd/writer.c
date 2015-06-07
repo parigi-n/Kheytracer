@@ -60,6 +60,8 @@ static int	write_objects(t_scene *scene, int fd)
       dprintf(fd, "      %s %f %f %f\n", "ROTATION", tmp->a.x, tmp->a.y, tmp->a.z);
       dprintf(fd, "      %s   %d\n", "RADIUS", tmp->r);
       dprintf(fd, "      %s    %X\n\n", "COLOR", tmp->color);
+      dprintf(fd, "      %s    %f\n\n", "SHINE", tmp->shine);
+      dprintf(fd, "      %s    %D\n\n", "COLOR", tmp->limit);
       tmp = tmp->next;
     }
   return (SUCCESS);

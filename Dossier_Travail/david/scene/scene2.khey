@@ -1,24 +1,21 @@
 <BEGIN>
 !NAME "scene 1"
       ELEMENT	OBJECT
-      NAME	 "sol"
+      NAME	 "plan"
       TYPE	PLAN
-      ORIGIN	  0 0 -150
+      ORIGIN	  0 0 -60
       ROTATION	  0 0 0
-      RADIUS	  10
-      COLOR	  FF00FF
-
-      ELEMENT	OBJECT
-      NAME	 "sphe"
-      TYPE	SPHERE
-      ORIGIN	  0 0 0
-      ROTATION	  0 0 0
-      RADIUS	  80
+      RADIUS	  100
       COLOR	  0000FF
 
       ELEMENT	  LIGHT
       NAME	  "lum1"
-      ORIGIN	   0 -600 2000
+      ORIGIN	   0 -200 0
+      COLOR	000000
+
+      ELEMENT	  LIGHT
+      NAME	  "lum2"
+      ORIGIN	   -600 200 0
       COLOR	000000
 
       ELEMENT	  EYE

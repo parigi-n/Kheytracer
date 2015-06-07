@@ -5,41 +5,57 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Fri Jun  5 19:24:42 2015 david sebaoun
+** Last update Sun Jun  7 12:34:49 2015 david sebaoun
 */
 
 #ifndef STRING_H_
 # define STRING_H_
 
-# define INVALID_READ	"Invalid read.\n"
-# define INVALID_CMD	"Invalid command.\n"
-# define INVALID_SYNTAX	"Invalid syntax in cmd %s\n"
-# define ERROR_PATH	"Can't find the path.\n"
-# define ERROR_HOME	"Can't find the home.\n"
-# define ERROR_OPEN	"Error Open.\n"
-# define ERROR_MALLOC	"Error : Malloc failed.\n"
-# define ERROR_INIT	"Error in init function.\n"
-# define ERROR_SIGNAL	"Error Signal.\n"
-# define ERROR_CLOSE	"Error with Close.\n"
-# define ERROR_FORK	"Error with fork.\n"
+# define INVALID_READ		"Invalid read.\n"
+# define INVALID_CMD		"Invalid command.\n"
+# define INVALID_SYNTAX		"Invalid syntax in cmd %s\n"
+# define ERROR_OPEN		"Error Open.\n"
+# define ERROR_MALLOC		"Error : Malloc failed.\n"
+# define ERROR_INIT		"Error in init function.\n"
+# define ERROR_CLOSE		"Error with Close.\n"
+# define ERROR_FORK		"Error with fork.\n"
 
 /* Parser */
 
-# define ERROR_NBR_ARG		"Error : Wrong argument number in one of the element.\n"
-# define ERROR_TWICE_BEGIN	"Error : BEGIN is defined twice in the file.\n"
-# define ERROR_NO_BEGIN		"Error : No <BEGIN> variable found.\n"
-# define ERROR_BAD_NAME_VAR	"Error : No !NAME variable defined after <BEGIN>, or variable is badly defined.\n"
-# define ERROR_BAD_NAME_LENGHT	"Error : !NAME content is NULL or is larger than MAX_SCENE_NAME.\n"
-# define ERROR_BAD_ONAME_LENGHT	"Error : NAME element string argument is NULL or larger than MAX_OBJ_NAME.\n"
-# define ERROR_BAD_ARG_LENGHT	"Error : An element argument is NULL or shorted/larger than excepted.\n"
-# define ERROR_BAD_ORDER	"Error : Excepted an another element in the parsed line. Please check order and syntax of your file.\n"
-# define ERROR_UNKNOWN_OBJ_TYPE	"Error : Object type doesn't exist.\n"
-# define ERROR_BAD_COLOR_LENGHT	"Error : Hexadecimal int of COLOR must be 6 char long.\n"
+# define ERROR_NBR_ARG		"Error: Wrong argument number"
+# define ERROR_TWICE_BEGIN	"Error: BEGIN is defined twice in the file"
+# define ERROR_NO_BEGIN		"Error: No <BEGIN> variable found"
+# define ERROR_BAD_NAME_VAR	"Error: No !NAME after <BEGIN>, or badly defined"
+# define ERROR_BAD_NAME_LENGHT	"Error: !NAME is NULL or larger than expected"
+# define ERROR_BAD_ONAME_LENGHT "Error: NAME is NULL or larger than MAX_OBJ_NAME"
+# define ERROR_BAD_ARG_LENGHT	"Error: Argument is NULL, or have a wrong size"
+# define ERROR_BAD_ORDER	"Error: Excepted a different element (bad order)"
+# define ERROR_BAD_ORDER2	"Error: Excepted an another element (incomplete)"
+# define ERROR_UNKNOWN_OBJ_TYPE	"Error: Object type doesn't exist"
+# define ERROR_BAD_COLOR_LENGHT	"Error: COLOR can't be more than 6 char long"
+
+/* Cmd */
 
 # define ERROR_LOAD		"Error: The file could not be loaded\n"
 # define ERROR_FILE		"Error: File does not exist or is not compatible\n"
 # define ERROR_LINE		"\033[1;41mError : line %d\033[0m\n"
 # define LOAD_SUCCESS		"\033[1;32mFile Successfully loaded\033[0m\n"
+# define WRITE_SUCCESS		"\033[1;32mFile Successfully writed\033[0m\n"
 # define LOAD_USAGE		"Usage: load file.khey\n"
+
+/* Help */
+
+# define HELP_HELP	"help      shows this help\n"
+# define HELP_LS	"ls        displays a list of .khey files\n"
+# define HELP_ADD	"add       start an object creator tool\n"
+# define HELP_SHOW	"show      show informations about loaded objects\n"
+# define HELP_LOAD	"load      load a scene from a file\n"
+# define HELP_LOAD_EX	"          ex: load file.khey\n"
+# define HELP_REND	"render    render the loaded scene\n"
+# define HELP_REND_USE	"          [-all]remove all, [-o]shadow, "
+# define HELP_REND_USEN	"[-r]rotation, [-i]intensity\n"
+# define HELP_WRITE	"write     write the current scene in a file\n"
+# define HELP_CLEAR	"clear     clear the screen\n"
+# define HELP_EXIT	"exit      exit the program\n"
 
 #endif /* !STRING_H_ */

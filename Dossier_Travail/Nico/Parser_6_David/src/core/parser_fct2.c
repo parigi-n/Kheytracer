@@ -37,3 +37,28 @@ int	parser_color(char **tab, t_object *parsing)
   parsing->color = strtol(tab[1], NULL, 16);
   return (0);
 }
+
+int	parser_shine(char **tab, t_object *parsing)
+{
+  if (my_tablen(tab) != 2)
+    return (puterr(ERROR_NBR_ARG));
+  if (my_strcmp(tab[0], "SHINE") != 0)
+    return (puterr(ERROR_BAD_ORDER));
+  if (my_strlen(tab[1]) <= 0)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  parsing->shine = atof(tab[1]);
+  if (parsing->shine < 0.000000 || parsing->shine > 1.000000)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  return (0);
+}
+int	parser_limit(char **tab, t_object *parsing)
+{
+  if (my_tablen(tab) != 2)
+    return (puterr(ERROR_NBR_ARG));
+  if (my_strcmp(tab[0], "RADIUS") != 0)
+    return (puterr(ERROR_BAD_ORDER));
+  if (my_strlen(tab[1]) <= 0)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  parsing->limit = atoi(tab[1]);
+  return (0);
+}

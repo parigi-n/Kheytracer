@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Sun Jun  7 13:42:31 2015 david sebaoun
+** Last update Sun Jun  7 18:59:14 2015 david sebaoun
 */
 
 #include <dirent.h>
@@ -34,6 +34,8 @@ int		ls(t_all *all, t_scene *scene)
         {
 	  if (my_strlcmp((*entry).d_name, ".khey", 5) == SUCCESS)
 	    my_printf("%s\n", (*entry).d_name);
+	  else if ((*entry).d_type == DT_DIR)
+	    my_printf("\033[0;36m%s\n\033[0m", (*entry).d_name);
         }
     }
   if (closedir(fd) == ERROR)
