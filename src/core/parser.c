@@ -13,7 +13,8 @@ static int	check_element_type(t_scene *data, char *line, int fd)
   int		flag_stop;
 
   flag_stop = 0;
-  tab = my_word_to_tab(line, " ");
+  if ((tab = my_word_to_tab(line, " ")) == NULL)
+    return (-1);;
   data->last_line++;
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
@@ -38,6 +39,7 @@ static int	check_element_type(t_scene *data, char *line, int fd)
     }
   else
     return (puterr("Error : Unknown ELEMENT type found.\n"));
+  freetab(tab);
   return (flag_stop);
 }
 
@@ -116,16 +118,19 @@ int		parser(t_scene *data, int fd)
       data->last_line = data->last_line + 1;
       if ((line = begin_parsing_check(line, flag_begin)) == NULL)
 	return (ERROR);
-      if (my_strcmp(line, "<BEGIN>") == 0)
+      if (my_strcmp(line, "</END>") == 0)
+	flag_stop = 2;
+      else if (my_strcmp(line, "<BEGIN>") == 0)
 	flag_begin = 2;
       else if (flag_begin == 2)
 	{
 	  if ((flag_begin = begin_parsing(line, data)) == ERROR)
 	    return (ERROR);
 	}
-      else if (flag_begin == 1)
+      else if (line[0] != '\0' && flag_begin == 1)
 	  if ((flag_stop = check_element_type(data, line, fd)) == ERROR)
 	    return (ERROR);
+      free(line);
     }
   if (flag_begin != 1)
     return (puterr(ERROR_NO_BEGIN));

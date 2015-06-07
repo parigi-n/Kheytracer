@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:43 2015 Nicolas PARIGI
-** Last update Tue Jun  2 15:28:51 2015 david sebaoun
+** Last update Sun Jun  7 19:00:53 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -22,7 +22,7 @@ int	parser_radius(char **tab, t_object *parsing)
     return (puterr(ERROR_BAD_ORDER));
   if (my_strlen(tab[1]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
-  parsing->r = atof(tab[1]);
+  parsing->r = atoi(tab[1]);
   return (0);
 }
 
@@ -32,8 +32,35 @@ int	parser_color(char **tab, t_object *parsing)
     return (puterr(ERROR_NBR_ARG));
   if (my_strcmp(tab[0], "COLOR") != 0)
     return (puterr(ERROR_BAD_ORDER));
-  if (my_strlen(tab[1]) != 6)
+  if (my_strlen(tab[1]) > 6 || my_strlen(tab[1]) <= 0)
     return (puterr(ERROR_BAD_COLOR_LENGHT));
   parsing->color = strtol(tab[1], NULL, 16);
+  hex_to_color(strtol(tab[1], NULL, 16), &parsing->color_int);
+  return (0);
+}
+
+int	parser_shine(char **tab, t_object *parsing)
+{
+  if (my_tablen(tab) != 2)
+    return (puterr(ERROR_NBR_ARG));
+  if (my_strcmp(tab[0], "SHINE") != 0)
+    return (puterr(ERROR_BAD_ORDER));
+  if (my_strlen(tab[1]) <= 0)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  parsing->shine = atof(tab[1]);
+  if (parsing->shine < 0.000000 || parsing->shine > 1.000000)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  return (0);
+}
+
+int	parser_limit(char **tab, t_object *parsing)
+{
+  if (my_tablen(tab) != 2)
+    return (puterr(ERROR_NBR_ARG));
+  if (my_strcmp(tab[0], "LIMIT") != 0)
+    return (puterr(ERROR_BAD_ORDER));
+  if (my_strlen(tab[1]) <= 0)
+    return (puterr(ERROR_BAD_ARG_LENGHT));
+  parsing->lim = atoi(tab[1]);
   return (0);
 }

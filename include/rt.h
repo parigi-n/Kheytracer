@@ -6,7 +6,7 @@
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
 <<<<<<< HEAD
-** Last update Sun Jun  7 18:18:18 2015 Jules Vautier
+** Last update Sun Jun  7 19:01:57 2015 Jules Vautier
 =======
 ** Last update Sat Jun  6 19:34:35 2015 Jules Vautier
 >>>>>>> e5a6ebb60ce6c3221d57cc3bc3a076e5c1035c88
@@ -58,6 +58,7 @@ int	calc_light(t_coor point, t_light *vec, t_object *obj);
 int	find_point(t_light *, t_coor *, double);
 void	init_rotate(t_object **, t_light *);
 int	raytrace(t_all *, t_scene *);
+void            hex_to_color(int color, t_color *res);
 double	prepare_intensity(t_all *, t_light *, t_object *, t_scene *);
 int	rotate(t_light *, t_coor , int);
 void	my_loading(int, int);

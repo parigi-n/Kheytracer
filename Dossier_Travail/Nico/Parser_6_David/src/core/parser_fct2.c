@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:45:43 2015 Nicolas PARIGI
-** Last update Sat Jun  6 19:23:39 2015 Nicolas PARIGI
+** Last update Sun Jun  7 18:55:50 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -55,7 +55,7 @@ int	parser_limit(char **tab, t_object *parsing)
 {
   if (my_tablen(tab) != 2)
     return (puterr(ERROR_NBR_ARG));
-  if (my_strcmp(tab[0], "RADIUS") != 0)
+  if (my_strcmp(tab[0], "LIMIT") != 0)
     return (puterr(ERROR_BAD_ORDER));
   if (my_strlen(tab[1]) <= 0)
     return (puterr(ERROR_BAD_ARG_LENGHT));
