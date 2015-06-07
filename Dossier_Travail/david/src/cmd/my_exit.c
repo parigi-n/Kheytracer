@@ -5,16 +5,17 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:41:35 2015 david sebaoun
-** Last update Sat Jun  6 12:19:16 2015 david sebaoun
+** Last update Sun Jun  7 16:26:59 2015 david sebaoun
 */
 
+#include "rt.h"
 #include "cmd.h"
 #include "struct.h"
 
 int	my_exit(t_all *all, t_scene *scene)
 {
-  /*my_freetab(tab);*/
   (void)all;
   (void)scene;
+  free_scene(all, scene);
   return (EXIT);
 }

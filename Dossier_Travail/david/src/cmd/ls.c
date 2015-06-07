@@ -5,12 +5,13 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Wed Jun  3 16:29:16 2015 Nicolas PARIGI
-** Last update Sat Jun  6 12:20:09 2015 david sebaoun
+** Last update Sun Jun  7 13:42:31 2015 david sebaoun
 */
 
 #include <dirent.h>
 #include <stddef.h>
 #include "shared.h"
+#include "string.h"
 #include "struct.h"
 #include "printf.h"
 
@@ -22,12 +23,11 @@ int		ls(t_all *all, t_scene *scene)
   if (all->tab[1] != NULL)
     {
       if ((fd = opendir(all->tab[1])) == NULL)
-	return (puterr("Error: Unable to access directory\n"));
+	return (puterr(ERROR_ACCESS));
     }
   else
     if ((fd = opendir(".")) == NULL)
       return (ERROR);
-  /* entry = readdir(fd); */
   while ((entry = readdir(fd)) != NULL)
     {
       if ((*entry).d_name[0] != '.')

@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat Jun  6 14:53:46 2015 Nicolas PARIGI
-** Last update Sun Jun  7 12:02:49 2015 david sebaoun
+** Last update Sun Jun  7 13:40:32 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -80,7 +80,7 @@ int		my_writer(t_all *all, t_scene *scene)
   char		*path;
   
   if (all->loaded != SUCCESS)
-    return (puterr("Error : No Scene loaded.\n"));
+    return (puterr(ERROR_NO_SCENE));
   if (all->tab == NULL || all->tab[1] == NULL || my_strlen(all->tab[1]) <= 0)
     return (my_putstr("Usage : write file_name\n"));
   if ((path = my_strcat_separ(all->tab[1], "khey", '.')) == NULL)

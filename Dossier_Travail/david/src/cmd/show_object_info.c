@@ -5,12 +5,13 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Fri May 29 10:40:46 2015 david sebaoun
-** Last update Sun Jun  7 11:06:33 2015 david sebaoun
+** Last update Sun Jun  7 13:42:09 2015 david sebaoun
 */
 
 #include <stdio.h>
 #include "shared.h"
 #include "struct.h"
+#include "string.h"
 #include "printf.h"
 
 static int	display_objects(t_scene *scene)
@@ -48,7 +49,7 @@ static int	display_lights(t_scene *scene)
 int		show(t_all *all, t_scene *scene)
 {
   if (all->loaded == ERROR)
-    return (puterr("Error: No scene loaded\n"));
+    return (puterr(ERROR_NO_SCENE));
   my_printf("\033[0;47m                                  \033[0m\n%s\n\033[0;47m\
                                   \033[0m\n", scene->name);
   display_objects(scene);

@@ -5,10 +5,11 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:38:32 2015 david sebaoun
-** Last update Sun Jun  7 12:29:48 2015 david sebaoun
+** Last update Sun Jun  7 15:49:37 2015 david sebaoun
 */
 
 #include "struct.h"
+#include "string.h"
 #include "shared.h"
 #include "wordtab.h"
 #include "printf.h"
@@ -20,15 +21,15 @@ static int	new_scene(t_scene *scene)
 {
   char		**tab;
 
-  puterr("There is currently no scene in memory\
-, please choose a name for a new one\n"); 
+  puterr(NO_SCENE);
+  puterr(NO_SCENE2);
   my_putstr("Scene Name : "); 
   while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
     {
       if ((my_tablen(tab) == 1) && (my_strlen(tab[0]) > 0))
 	{
 	  scene->name = my_strcpy(tab[0]);
-	  puterr("You also need a camera\n");
+	  puterr(NO_CAMERA);
 	  if (get_pos(&scene->eye.pos, "Position") == ERROR)
 	    return (ERROR);
 	  if (get_pos(&scene->eye.a, "Rotation") == ERROR)
@@ -40,19 +41,13 @@ static int	new_scene(t_scene *scene)
   return (ERROR);
 }
 
-int		free_scene(t_all *all, t_scene *scene)
-{
-  all->loaded = ERROR;
-  return (SUCCESS);
-}
-
 int		create(t_all *all, t_scene *scene)
 {
   int		type;
 
   if (all->tab[1] == NULL)
     {
-      my_putstr("Usage: add new_object_name\n");
+      my_putstr(ADD_USAGE);
       return (ERROR);
     }
   if ((all->loaded == ERROR) && (new_scene(scene) == ERROR))

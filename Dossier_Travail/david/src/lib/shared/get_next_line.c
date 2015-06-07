@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue Apr 21 11:24:20 2015 david sebaoun
-** Last update Thu Jun  4 17:50:17 2015 david sebaoun
+** Last update Sun Jun  7 18:45:08 2015 david sebaoun
 */
 
 #include <unistd.h>
@@ -35,25 +35,28 @@ char	*re_alloc(char *str, char c)
   return (NULL);
 }
 
-static int	check_char(const char c)
+static int	check_char(const char c, char *str)
 {
-  if (c >= 0  && c < 7)
+  if ((c >= 0 && c < 9) || (c > 10 && c < 32))
+    return (ERROR);
+  if (my_strlen(str) > GNL_STR_LIMIT)
     return (ERROR);
   return (SUCCESS);
 }
 
 char	*get_next_line(int fd)
 {
-  char	buff[2];
+  char	buff[4];
   char	*str;
   int	len;
 
-  if ((str = malloc(1)) == NULL)
+  if ((str = malloc(sizeof(char))) == NULL)
     return (NULL);
   str[0] = '\0';
   while ((len = read(fd, buff, 1)) > 0)
     {
-      if (check_char(buff[0]) == ERROR)
+      buff[1] = '\0';
+      if (check_char(buff[0], str) == ERROR)
       	return (NULL);
       if (buff[0] == '\n')
         return (str);

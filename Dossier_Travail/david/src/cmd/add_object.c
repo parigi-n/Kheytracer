@@ -5,11 +5,12 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:29:25 2015 david sebaoun
-** Last update Sun Jun  7 12:33:14 2015 david sebaoun
+** Last update Sun Jun  7 13:22:48 2015 david sebaoun
 */
 
 #include "struct.h"
 #include "shared.h"
+#include "string.h"
 #include "cmd.h"
 
 int		add_object(t_scene *scene, char *name, const int type)
@@ -30,5 +31,6 @@ int		add_object(t_scene *scene, char *name, const int type)
     return (ERROR);
   tmp_obj->next = scene->obj;
   scene->obj = tmp_obj;
+  my_putstr(ADD_SUCCESS);
   return (SUCCESS);
 }

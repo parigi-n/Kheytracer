@@ -5,11 +5,12 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:28:32 2015 david sebaoun
-** Last update Sun Jun  7 12:33:19 2015 david sebaoun
+** Last update Sun Jun  7 13:22:39 2015 david sebaoun
 */
 
 #include "struct.h"
 #include "shared.h"
+#include "string.h"
 #include "cmd.h"
 
 int		add_light(t_scene *scene, char *name)
@@ -25,5 +26,6 @@ int		add_light(t_scene *scene, char *name)
     return (ERROR);
   tmp_light->next = scene->light;
   scene->light = tmp_light; 
+  my_putstr(ADD_SUCCESS);
   return (SUCCESS);
 }

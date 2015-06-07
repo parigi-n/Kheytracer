@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Sun Jun  7 12:21:04 2015 david sebaoun
+** Last update Sun Jun  7 18:27:40 2015 david sebaoun
 */
 
 #ifndef SHARED_H_
@@ -14,10 +14,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define SUCCESS (0)
-# define ERROR	-1
-# define QUOTE	39
-# define DQUOTE	34
+# define SUCCESS	0
+# define ERROR		-1
+# define QUOTE		39
+# define DQUOTE		34
+# define GNL_STR_LIMIT	256
 
 int		is_hexa(const char *);
 int		my_putnbr(int);

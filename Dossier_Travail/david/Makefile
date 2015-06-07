@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Nov 17 15:13:58 3014 jules vautier
-## Last update Sun Jun  7 12:31:52 2015 david sebaoun
+## Last update Sun Jun  7 16:36:32 2015 david sebaoun
 ##
 
 SRC		= src/core/main.c \
@@ -22,6 +22,7 @@ SRC		= src/core/main.c \
 		src/core/parser_fct_light.c \
 		src/core/parser_fct_eye.c \
 		src/core/splashscreen.c \
+		src/core/free_scene.c \
 		src/cmd/writer.c \
 		src/cmd/load_file.c \
 		src/cmd/object_creator.c \
@@ -85,8 +86,7 @@ OBJ		= $(SRC:.c=.o)
 
 NAME		= rt
 
-CFLAGS		+= -Wextra -Wall
-CFLAGS		+= -ansi -pedantic -g
+CFLAGS		+= -Wextra -Wall -g
 CFLAGS		+= -I./include
 
 LDFLAGS		=

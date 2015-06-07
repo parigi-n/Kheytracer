@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 20:13:52 2015 david sebaoun
+** Last update Sun Jun  7 15:52:57 2015 david sebaoun
 */
 
 
@@ -40,6 +40,7 @@
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
 
+int	free_scene(t_all *, t_scene *);
 int	command_line(t_all *);
 char	*mlx_get_data_addr(void *, int *, int *, int *);
 int	my_load(t_all *);
