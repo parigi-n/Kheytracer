@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sat Jun  6 15:33:47 2015 david sebaoun
-** Last update Sat Jun  6 18:14:06 2015 david sebaoun
+** Last update Sat Jun  6 20:13:52 2015 david sebaoun
 */
 
 
@@ -35,6 +35,7 @@
 # define TYPE_DISC	4
 # define TYPE_TRIANGLE	5
 # define TYPE_HYPERB	6
+# define TYPE_LIGHT	7
 # define MAXCOLOR(c)	(((c) >= 255) ? (254) : (c))
 # define TODEGREE(a)	((180) * (a) / (PI))
 # define TORADIAN(a)	((a) * (PI) / 180.0)
