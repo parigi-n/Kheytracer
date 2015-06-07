@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Wed May 27 11:33:12 2015 david sebaoun
-** Last update Sun Jun  7 22:15:59 2015 david sebaoun
+** Last update Sun Jun  7 23:25:04 2015 Nicolas PARIGI
 */
 
 #include <sys/stat.h>
@@ -35,9 +35,11 @@ static int	check_file(const char *path)
 static int	load_file(char *path, t_scene *scene, t_all *all)
 {
   int		fd;
+  int		flag_stop;
 
+  flag_stop = 0;
   if (((fd = open(path, O_RDONLY)) == ERROR) ||
-      (parser(scene, fd) == ERROR) ||
+      (parser(scene, fd, flag_stop) == ERROR) ||
       (close(fd) == ERROR))
     {
       all->loaded = ERROR;

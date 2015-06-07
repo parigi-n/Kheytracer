@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Tue Jun  2 12:49:13 2015 Nicolas PARIGI
-** Last update Tue Jun  2 12:49:17 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:25:34 2015 Nicolas PARIGI
 */
 
 #ifndef PARSER_H_
@@ -15,7 +15,7 @@
 # define MAX_SCENE_NAME		(32)
 # define MAX_RADIUS_SIZE	(100000.000)
 
-int		parser(t_scene *data, int fd);
+int		parser(t_scene *data, int fd, int flag_stop);
 int		check_element_type(t_scene *data, char *line, int fd);
 int		parser_obj_name(char **tab, t_object *parsing);
 int		parser_type(char **tab, t_object *parsing);

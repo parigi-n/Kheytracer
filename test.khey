@@ -13,8 +13,8 @@
       ELEMENT	OBJECT
       NAME	 "sphe"
       TYPE	SPHERE
-      ORIGIN	  0 0 10000000000000000000000
-      ROTATION	  0 -2333330 0
+      ORIGIN	  0 0 1000
+      ROTATION	  0 230 0
       RADIUS	  80
       COLOR	  0000FF
       SHINE	  0

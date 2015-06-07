@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun Jun  7 21:52:21 2015 Nicolas PARIGI
-** Last update Sun Jun  7 23:05:14 2015 Nicolas PARIGI
+** Last update Sun Jun  7 23:25:21 2015 Nicolas PARIGI
 */
 
 #include <sys/types.h>
@@ -88,14 +88,12 @@ static int	end_check_parser(t_scene *data, int flag_begin)
   return (0);
 }
 
-int		parser(t_scene *data, int fd)
+int		parser(t_scene *data, int fd, int flag_stop)
 {
   char		*line;
   int		flag_begin;
-  int		flag_stop;
 
   flag_begin = 0;
-  flag_stop = 0;
   while ((line = get_next_line(fd)) != NULL && flag_stop != 2)
     {
       data->last_line = data->last_line + 1;
