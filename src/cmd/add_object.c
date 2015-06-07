@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:29:25 2015 david sebaoun
-** Last update Sun Jun  7 13:22:48 2015 david sebaoun
+** Last update Sun Jun  7 22:53:10 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -25,9 +25,13 @@ int		add_object(t_scene *scene, char *name, const int type)
     return (ERROR);
   if (get_pos(&tmp_obj->a, "Rotation") == ERROR)
     return (ERROR);
-  if ((tmp_obj->r = get_radius()) == ERROR)
+  if ((tmp_obj->r = get_double("Radius")) == ERROR)
     return (ERROR);
   if ((tmp_obj->color = get_color()) == ERROR)
+    return (ERROR);
+  if ((tmp_obj->lim = get_double("Limitation")) == ERROR)
+    return (ERROR);
+  if ((tmp_obj->shine = get_double("Shine")) == ERROR)
     return (ERROR);
   tmp_obj->next = scene->obj;
   scene->obj = tmp_obj;

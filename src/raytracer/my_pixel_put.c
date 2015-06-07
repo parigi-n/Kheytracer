@@ -6,7 +6,7 @@
 ** 
 ** Started on  Tue Apr 14 16:57:05 2015 Nicolas PARIGI
 <<<<<<< HEAD
-** Last update Sun Jun  7 21:31:28 2015 Jules Vautier
+** Last update Sun Jun  7 22:57:10 2015 Jules Vautier
 =======
 ** Last update Sun Jun  7 16:31:46 2015 Oscar Nosworthy
 >>>>>>> 5da8d75c10bc34ba9e58f99d732e5a3075bb1bc4
@@ -33,7 +33,7 @@ static double	find_intensity(t_all *all, t_light *lum, t_scene *scene)
     inten = 1.0 / scene->nb_light;
   if (all->flag.shadow == 1 &&
       shadow(all, lum, scene) == 0)
-    inten = inten / (scene->nb_light);
+    inten = 0.0;
   if (inten < 0)
     inten = 0;
   return (inten);

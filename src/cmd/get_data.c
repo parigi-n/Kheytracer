@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun Jun  7 12:12:49 2015 david sebaoun
-** Last update Sun Jun  7 20:52:09 2015 david sebaoun
+** Last update Sun Jun  7 22:54:20 2015 david sebaoun
 */
 
 #include "struct.h"
@@ -104,16 +104,16 @@ int		get_pos(t_coor *coord, char *str)
   return (ERROR);
 }
 
-int		get_radius()
+double		get_double(char *str)
 {
   char		**tab;
   
-  my_putstr("Radius : ");
+  my_printf("%s : ", str);
   while ((tab = (my_word_to_tab(get_next_line(0), " \t"))) != NULL)
     {
       if (my_tablen(tab) == 1 && my_strlen(tab[0]) > 0)
-	return (my_getnbr(tab[0]));
-      my_putstr("Radius : ");
+	return (atof(tab[0]));
+      my_printf("%s : ", str);
     }
   return (ERROR);
 }
