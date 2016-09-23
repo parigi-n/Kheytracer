@@ -9,8 +9,8 @@ It have a little bash-like interface with a parser/writer to find scenes, load t
 Authors :
 
 - Jules VAUTIER for the raytracer engine
-- Nicolas PARIGI https://github.com/parigi-n for the bash-like interface
 - David SEBAOUN https://github.com/david-sebaoun the parser/writer and syntax of ".khey" files
+- Nicolas PARIGI https://github.com/parigi-n for the bash-like interface
 - Oscar, for ... well i don't know
 
 # Screenshots :
